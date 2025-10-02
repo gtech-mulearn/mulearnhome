@@ -37,22 +37,22 @@ export const navItems = [
     submenu: null,
   },
   {
-    label: "Mentorship",
-    href: "/dashboard/search?activetab=mentors",
-    submenu: null,
-  },
-  {
     label: "Be A Part of Us",
     submenu: {
       "Join Us": [
-        { label: "Company", href:"/be-a-part/company"},
-        { label: "Campus", href:"/be-a-part/campus"},
+        { label: "Company", href: "/be-a-part/company" },
+        { label: "Campus", href: "/be-a-part/campus" },
         {
           label: "Campus Logo Generator",
           href: "/campus-logo-generator",
         },
       ],
     },
+  },
+  {
+    label: "Mentorship",
+    href: "/dashboard/search?activetab=mentors",
+    submenu: null,
   },
   {
     label: "Learning",
