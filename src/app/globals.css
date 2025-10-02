@@ -29,3 +29,23 @@
   --dimBlue: #dee6ff;
   --danger: #ff7676;
 }
+
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  /* color: #404D61; */
+  outline: none;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  /* icon highlighting fix */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
