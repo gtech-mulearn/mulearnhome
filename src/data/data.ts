@@ -1,5 +1,3 @@
-import { interestGroups } from "./interestGroups";
-
 export const navItems = [
   {
     label: "About",
