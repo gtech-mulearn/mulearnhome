@@ -16,7 +16,7 @@ export default function NotFoundPage() {
                     <div className="relative top-1 rotate-[7deg] animate-oh">Oh!</div>
                     <span className="flex flex-row relative top-1 -rotate-[12deg] animate-span">
                         <div>you</div>
-                        <div className="rotate-[12deg]">'ve</div>
+                        <div className="rotate-[12deg]">&apos;ve</div>
                     </span>
                 </div>
                 <div className="flex flex-row items-center gap-1 font-bold text-[#a1a1a1] -mt-4 text-5xl sm:text-6xl md:text-8xl">
