@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Navbar from '@components/HomeNav';
+import Navbar from '@components/Navbar';
 
 const Page = () => {
   return (
