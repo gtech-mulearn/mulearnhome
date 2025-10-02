@@ -133,7 +133,7 @@ const Navbar = () => {
                                 {category}
                               </h4>
                               <ul className="list-none m-0 p-0 flex flex-col gap-1">
-                                {items.map((subItem: any, subIndex: any) => (
+                                {items.map((subItem: any, subIndex: string) => (
                                   <li
                                     key={subIndex}
                                     className="text-gray-600 text-[0.7rem] font-medium cursor-pointer rounded-lg transition-all duration-200 hover:bg-blue-50 hover:text-blue-600 lg:text-[0.8rem] lg:py-2.5 lg:px-3"
