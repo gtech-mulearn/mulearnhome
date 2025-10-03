@@ -1,13 +1,13 @@
 import Image from "next/image"
 import Link from "next/link"
-import { cdnUrl } from "src/services/cdn"
+import { cdnUrl } from "@/services/cdn"
 
 export default function NotFoundPage() {
-    const stone = cdnUrl("/assets/Stone.webp")
-    const ufo = cdnUrl("/assets/UFO.webp")
-    const fourNotFour = cdnUrl("/assets/FourNotFour.webp")
-    const smallRocks = cdnUrl("/assets/SmallRocks.webp")
-    const marsSurface = cdnUrl("/assets/NoBgFourNotFour.webp")
+    const stone = cdnUrl("src/components/assests/NotFound/Stone.webp")
+    const ufo = cdnUrl("src/components/assests/NotFound/UFO.webp")
+    const fourNotFour = cdnUrl("src/components/assests/NotFound/FourNotFour.webp")
+    const smallRocks = cdnUrl("src/components/assests/NotFound/SmallRocks.webp")
+    const marsSurface = cdnUrl("src/components/assests/NotFound/NoBgFourNotFour.webp")
     return (
         <div className="relative w-full h-screen overflow-hidden bg-white">
             <div className="absolute flex flex-col items-center left-6 top-12 sm:left-10 sm:top-16 md:left-20 md:top-20">
