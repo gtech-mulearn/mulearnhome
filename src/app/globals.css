@@ -8,7 +8,16 @@
   --color-text-normal: #1A1A1A;
 
   /* Font family variables */
-  --font-plus-jakarta: 'Plus Jakarta Text', sans-serif;
+  --font-plus-jakarta: 'Plus Jakarta Sans ', sans-serif;
+  --font-plus-jakarta-heavy: 'Plus Jakarta Sans', sans-serif;
+
+
+  /* Font weight variables */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 800;
 
   /* Font size variables */
   --font-size-h1: 80px;

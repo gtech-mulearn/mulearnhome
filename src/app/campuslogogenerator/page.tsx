@@ -4,7 +4,6 @@ import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import * as htmlToImage from 'html-to-image';
 
-// Stripes Background Component - remains static, no color changes
 const StripesBackground = ({ className = "" }: { className?: string }) => (
   <Image
     src="/logo-template/stripes.svg"
