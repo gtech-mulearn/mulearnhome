@@ -5,3 +5,8 @@
   --foreground: #171717;
 }
 
+@font-face {
+  font-family: "Retro Team";
+  src: url("/fonts/Retro_Team.otf") format("opentype");
+}
+
