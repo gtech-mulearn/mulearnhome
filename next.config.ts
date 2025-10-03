@@ -5,12 +5,12 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cdn.example.com', // replace with your CDN host
-        pathname: '/**',             // allow all paths
+        hostname: 'i.ibb.co',        // allow UFO image host
+        pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'i.ibb.co',        // allow UFO image host
+        hostname: 's3.ap-south-1.amazonaws.com',        // allow UFO image host
         pathname: '/**',
       },
     ],
