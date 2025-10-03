@@ -2,6 +2,25 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+
+  /* Color variables */
+  --color-highlight: #2E85FE;
+  --color-text-normal: #1A1A1A;
+
+  /* Font family variables */
+  --font-plus-jakarta: 'Plus Jakarta Text', sans-serif;
+
+  /* Font size variables */
+  --font-size-h1: 80px;
+  --font-size-h2: 60px;
+  --font-size-h3: 45px;
+  --font-size-h4: 30px;
+  --font-size-body: 18px;
+
+  /* Font usage for highlights */
+  --font-highlight: var(--font-plus-jakarta);
+  --font-highlight-weight: var(--font-weight-heavy);
+  --font-body: var(--font-plus-jakarta);
+  --font-body-weight: var(--font-weight-medium);
 }
 
