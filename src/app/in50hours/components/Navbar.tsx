@@ -33,9 +33,6 @@ const Navbar = () => {
               height={50}
               className="h-10 w-auto"
             />
-            <div className="text-xs text-gray-600">
-              a GTech Initiative
-            </div>
           </Link>
 
           {/* Navigation Links */}
