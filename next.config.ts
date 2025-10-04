@@ -4,14 +4,14 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'i.ibb.co',        // allow UFO image host
-        pathname: '/**',
+        protocol: "https",
+        hostname: "i.ibb.co",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 's3.ap-south-1.amazonaws.com',        // allow UFO image host
-        pathname: '/**',
+        protocol: "https",
+        hostname: process.env.CDN_HOSTNAME!,
+        pathname: process.env.CDN_PATH!,
       },
     ],
   },
