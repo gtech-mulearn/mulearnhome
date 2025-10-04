@@ -309,9 +309,9 @@ export default function CampusLogoGenerator() {
                   </div>
                 </div>
 
-                {/* YIP Circular Logo - Responsive */}
+                {/* YIP Circular Logo - Hidden on mobile */}
                 <div 
-                  className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full flex items-center justify-center text-white relative overflow-hidden shadow-2xl"
+                  className="hidden lg:block w-64 h-64 rounded-full flex items-center justify-center text-white relative overflow-hidden shadow-2xl"
                   style={{ 
                     backgroundColor: yipVariants.find(v => v.value === formData.yipVariant)?.bgColor || '#FFFFFF'
                   }}
@@ -326,7 +326,7 @@ export default function CampusLogoGenerator() {
                         />
                         <div className="text-center">
                           <div 
-                            className="text-sm md:text-base lg:text-xl opacity-90" 
+                            className="text-lg opacity-90" 
                             style={{ 
                               color: formData.yipVariant === 'dark' ? '#FFFFFF' : '#000000',
                               fontFamily: 'var(--font-plus-jakarta)',
@@ -382,10 +382,10 @@ export default function CampusLogoGenerator() {
                   </div>
                 </div>
 
-                {/* Circular Logo - Responsive */}
+                {/* Circular Logo - Hidden on mobile */}
                 {formData.logoVariant !== 'Transparent Bg' && (
                   <div 
-                    className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full flex items-center justify-center text-white relative overflow-hidden shadow-2xl"
+                    className="hidden lg:block w-64 h-64 rounded-full flex items-center justify-center text-white relative overflow-hidden shadow-2xl"
                     style={{ backgroundColor: formData.backgroundColor }}
                   >
                     {/* Stripes Background */}
@@ -400,7 +400,7 @@ export default function CampusLogoGenerator() {
                           />
                           <div className="relative w-full">
                             <div 
-                              className="text-sm md:text-base lg:text-lg mt-2 opacity-90 absolute right-0" 
+                              className="text-base mt-2 opacity-90 absolute right-0" 
                               style={{ 
                                 color: '#FFFFFF',
                                 fontFamily: 'var(--font-plus-jakarta)',
