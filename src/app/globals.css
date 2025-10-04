@@ -31,3 +31,15 @@ a {
 a:hover {
   color: var(--duke-purple);
 }
+
+p {
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+strong {
+  font-weight: 600;
+}
+em {
+  font-style: italic;
+}
+

@@ -8,33 +8,40 @@ export const metadata: Metadata = {
 }
 
 export default function PrivacyPolicyPage() {
+  const formatText = (text: string) =>
+    text
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") 
+      .replace(/\*(.*?)\*/g, "<em>$1</em>")
+      .replace(
+      /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g,
+      '<a href="mailto:$1" class="font-medium text-blue-600 underline underline-offset-4 hover:text-purple-700">$1</a>'
+    )
   return (
-    <main className="min-h-screen bg-brandWhite">
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-        <header className="mb-10 border-b border-brandGray pb-6">
-          <h1 className="mb-3 text-4xl font-extrabold tracking-tight text-trustyBlue sm:text-5xl">
+    <main className="min-h-screen bg-white">
+      <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10 xl:px-12">
+        <header className="mb-10 text-center">
+          <h1 className="mb-3 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight uppercase">
             {privacyPolicy.title}
           </h1>
-          <p className="text-sm font-medium text-brandGray">
+          <p className="text-sm text-gray-500">
             Last Updated: {privacyPolicy.lastUpdated}
           </p>
         </header>
 
-        <div className="mb-12 space-y-5">
+        <div className="mb-12 space-y-6">
           {privacyPolicy.introduction.split("\n\n").map((paragraph, index) => (
             <p
               key={index}
-              className="text-base sm:text-lg leading-relaxed text-brandBlack"
-            >
-              {paragraph}
-            </p>
+              className="text-[15px] sm:text-base leading-7 text-gray-800"
+              dangerouslySetInnerHTML={{ __html: formatText(paragraph) }}
+            />
           ))}
         </div>
 
         <div className="space-y-12">
           {privacyPolicy.sections.map((section, index) => (
             <section key={index} className="scroll-mt-20">
-              <h2 className="mb-4 text-2xl sm:text-3xl font-bold text-dukePurple">
+              <h2 className="mb-3 text-lg font-semibold text-gray-900">
                 {index + 1}. {section.heading}
               </h2>
 
@@ -42,20 +49,19 @@ export default function PrivacyPolicyPage() {
                 {section.content.split("\n\n").map((paragraph, pIndex) => (
                   <p
                     key={pIndex}
-                    className="text-base sm:text-lg leading-relaxed text-brandBlack"
-                  >
-                    {paragraph}
-                  </p>
+                    className="text-[15px] sm:text-base leading-7 text-gray-800"
+                    dangerouslySetInnerHTML={{ __html: formatText(paragraph) }}
+                  />
                 ))}
               </div>
 
               {section.subsections.length > 0 && (
                 <ol
-                  className="ml-6 space-y-3 text-base text-brandBlack"
+                  className="ml-6 space-y-3 text-[15px] sm:text-base text-gray-800"
                   style={{ listStyleType: "lower-roman" }}
                 >
                   {section.subsections.map((subsection, subIndex) => (
-                    <li key={subIndex} className="pl-2 leading-relaxed">
+                    <li key={subIndex} className="pl-2 leading-relaxed" >
                       {subsection}
                     </li>
                   ))}
@@ -72,7 +78,7 @@ export default function PrivacyPolicyPage() {
               href="mailto:mulearnadmin@gtechindia.org"
               className="font-semibold text-trustyBlue underline underline-offset-4 hover:text-dukePurple"
             >
-              mulearnadmin@gtechindia.org
+              info@mulearn.org
             </a>
           </p>
         </footer>
