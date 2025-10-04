@@ -92,6 +92,36 @@ const MuLearnLogo = ({ color, width = 200, height = 50 }: { color: string, width
   );
 };
 
+// YIP Logo Component with variant selection
+const YIPLogo = ({ variant, width = 200, height = 50 }: { variant: string, width?: number, height?: number }) => {
+  const getLogoPath = () => {
+    switch (variant) {
+      case 'red': return '/logo-template/yip-logo-red.svg';
+      case 'dark': return '/logo-template/yip-logo-dark.svg';
+      case 'black': return '/logo-template/yip-logo-black.svg';
+      default: return '/logo-template/yip-logo-red.svg';
+    }
+  };
+
+  return (
+    <div 
+      className="transition-all duration-300"
+      style={{ 
+        width: width,
+        height: height 
+      }}
+    >
+      <Image
+        src={getLogoPath()}
+        alt="YIP Logo"
+        width={width}
+        height={height}
+        className="w-full h-full transition-all duration-300"
+      />
+    </div>
+  );
+};
+
 export default function CampusLogoGenerator() {
   // State for form data and download functionality
   const [formData, setFormData] = useState({
@@ -100,7 +130,8 @@ export default function CampusLogoGenerator() {
     logoVariant: 'Profile Pic',
     foregroundColor: '#2E85FE',
     backgroundColor: '#1A1A1A',
-    fileType: 'PNG'
+    fileType: 'PNG',
+    yipVariant: 'red'
   });
 
   const [isDownloading, setIsDownloading] = useState(false);
@@ -118,6 +149,13 @@ export default function CampusLogoGenerator() {
     { name: 'Dark', value: '#1A1A1A' },
     { name: 'Purple', value: '#AF2EE6' },
     { name: 'Blue', value: '#2E85FE' }
+  ];
+
+  // YIP logo variants
+  const yipVariants = [
+    { name: 'Red', value: 'red', bgColor: '#ffffff' },
+    { name: 'Dark', value: 'dark', bgColor: '#1A1A1A' },
+    { name: 'Black', value: 'black', bgColor: '#ffffff' }
   ];
 
   const handleInputChange = (field: string, value: string) => {
@@ -141,7 +179,9 @@ export default function CampusLogoGenerator() {
       console.log('Element dimensions:', rect);
       
       const config = {
-        backgroundColor: formData.logoVariant === 'Transparent Bg' ? 'transparent' : formData.backgroundColor,
+        backgroundColor: formData.logoType === 'YIP' 
+          ? (yipVariants.find(v => v.value === formData.yipVariant)?.bgColor || '#FFFFFF')
+          : (formData.logoVariant === 'Transparent Bg' ? 'transparent' : formData.backgroundColor),
         width: rect.width,
         height: rect.height,
         quality: 1.0,
@@ -193,7 +233,9 @@ export default function CampusLogoGenerator() {
       try {
         const simpleConfig = {
           quality: 1.0,
-          backgroundColor: formData.backgroundColor,
+          backgroundColor: formData.logoType === 'YIP' 
+            ? (yipVariants.find(v => v.value === formData.yipVariant)?.bgColor || '#FFFFFF')
+            : formData.backgroundColor,
         };
         
         const fallbackDataUrl = formData.fileType === 'PNG' 
@@ -231,18 +273,74 @@ export default function CampusLogoGenerator() {
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center relative z-10">
             {/* Conditional Rendering based on Logo Type */}
             {formData.logoType === 'YIP' ? (
-              // YIP Logo - Show only text, no containers
-              <div className="text-center">
+              <>
+                {/* YIP Square Logo */}
+                <div className="relative group">
+                  <div 
+                    ref={squareLogoRef}
+                    className="w-64 h-64 lg:w-72 lg:h-72 flex items-center justify-center text-white relative transform transition-all duration-300 overflow-hidden shadow-2xl"
+                    style={{ 
+                      backgroundColor: yipVariants.find(v => v.value === formData.yipVariant)?.bgColor || '#FFFFFF'
+                    }}
+                  >
+                    <div className="relative w-full h-full flex items-center justify-center z-10">
+                      <div className="transition-all duration-300">
+                        <div className="flex flex-col items-center gap-3">
+                          <YIPLogo 
+                            variant={formData.yipVariant}
+                            width={220} 
+                            height={145} 
+                          />
+                          <div className="text-center">
+                            <div 
+                              className="text-2xl lg:text-3xl opacity-90" 
+                              style={{ 
+                                color: formData.yipVariant === 'dark' ? '#FFFFFF' : '#000000',
+                                fontFamily: 'var(--font-plus-jakarta)',
+                                fontWeight: 400
+                              }}
+                            >
+                              {formData.campusCode || 'Campus'}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* YIP Circular Logo - Responsive */}
                 <div 
-                  className="text-xl lg:text-2xl font-medium"
+                  className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full flex items-center justify-center text-white relative overflow-hidden shadow-2xl"
                   style={{ 
-                    color: '#FFFFFF',
-                    fontFamily: 'var(--font-plus-jakarta)'
+                    backgroundColor: yipVariants.find(v => v.value === formData.yipVariant)?.bgColor || '#FFFFFF'
                   }}
                 >
-                  YIP Logo Not Available
+                  <div className="relative w-full h-full flex items-center justify-center z-10">
+                    <div className="transition-all duration-300">
+                      <div className="flex flex-col items-center gap-2 lg:gap-1">
+                        <YIPLogo 
+                          variant={formData.yipVariant}
+                          width={160} 
+                          height={135} 
+                        />
+                        <div className="text-center">
+                          <div 
+                            className="text-sm md:text-base lg:text-xl opacity-90" 
+                            style={{ 
+                              color: formData.yipVariant === 'dark' ? '#FFFFFF' : '#000000',
+                              fontFamily: 'var(--font-plus-jakarta)',
+                              fontWeight: 400
+                            }}
+                          >
+                            {formData.campusCode || 'Campus'}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </>
             ) : (
               <>
                 {/* Square Logo */}
@@ -284,10 +382,10 @@ export default function CampusLogoGenerator() {
                   </div>
                 </div>
 
-                {/* Circular Logo - Hidden on mobile */}
+                {/* Circular Logo - Responsive */}
                 {formData.logoVariant !== 'Transparent Bg' && (
                   <div 
-                    className="hidden lg:block w-64 h-64 rounded-full flex items-center justify-center text-white relative overflow-hidden"
+                    className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full flex items-center justify-center text-white relative overflow-hidden shadow-2xl"
                     style={{ backgroundColor: formData.backgroundColor }}
                   >
                     {/* Stripes Background */}
@@ -297,14 +395,14 @@ export default function CampusLogoGenerator() {
                         <div className="flex flex-col items-center">
                           <MuLearnLogo 
                             color={formData.foregroundColor} 
-                            width={160} 
-                            height={40} 
+                            width={140} 
+                            height={35} 
                           />
                           <div className="relative w-full">
                             <div 
-                              className="text-base mt-2 opacity-90 absolute right-0" 
+                              className="text-sm md:text-base lg:text-lg mt-2 opacity-90 absolute right-0" 
                               style={{ 
-                              
+                                color: '#FFFFFF',
                                 fontFamily: 'var(--font-plus-jakarta)',
                                 fontWeight: 400
                               }}
@@ -416,116 +514,167 @@ export default function CampusLogoGenerator() {
               </div>
             </div>
 
-            {/* Logo Variant */}
-            <div>
-              <label 
-                className="block font-medium mb-2" 
-                style={{ 
-                  fontFamily: 'var(--font-plus-jakarta)', 
-                  color: 'var(--color-text-normal)',
-                  fontSize: 'var(--font-size-body)',
-                  fontWeight: 500
-                }}
-              >
-                Logo Variant
-              </label>
-              <div className="flex gap-2">
-                <button
-                  className={`flex-1 p-3 rounded-lg font-medium transition-all ${
-                    formData.logoVariant === 'Profile Pic' 
-                      ? 'text-white' 
-                      : 'bg-gray-100 hover:bg-gray-200'
-                  }`}
+            {/* Conditional Logo Options based on Logo Type */}
+            {formData.logoType === 'YIP' ? (
+              // YIP Variant Selection
+              <div>
+                <label 
+                  className="block font-medium mb-2" 
                   style={{ 
-                    backgroundColor: formData.logoVariant === 'Profile Pic' ? 'var(--color-highlight)' : undefined,
-                    fontFamily: 'var(--font-plus-jakarta)',
-                    color: formData.logoVariant !== 'Profile Pic' ? 'var(--color-text-normal)' : undefined,
+                    fontFamily: 'var(--font-plus-jakarta)', 
+                    color: 'var(--color-text-normal)',
+                    fontSize: 'var(--font-size-body)',
                     fontWeight: 500
                   }}
-                  onClick={() => handleInputChange('logoVariant', 'Profile Pic')}
                 >
-                  Profile Pic
-                </button>
-                <button
-                  className={`flex-1 p-3 rounded-lg font-medium transition-all ${
-                    formData.logoVariant === 'Transparent Bg' 
-                      ? 'text-white' 
-                      : 'bg-gray-100 hover:bg-gray-200'
-                  }`}
+                  YIP Variant
+                </label>
+                <div className="flex gap-2">
+                  {yipVariants.map((variant) => (
+                    <button
+                      key={variant.value}
+                      className={`flex-1 p-3 rounded-lg font-medium transition-all ${
+                        formData.yipVariant === variant.value 
+                          ? 'text-white' 
+                          : 'bg-gray-100 hover:bg-gray-200'
+                      }`}
+                      style={{ 
+                        backgroundColor: formData.yipVariant === variant.value ? 'var(--color-highlight)' : undefined,
+                        fontFamily: 'var(--font-plus-jakarta)',
+                        color: formData.yipVariant !== variant.value ? 'var(--color-text-normal)' : undefined,
+                        fontWeight: 500
+                      }}
+                      onClick={() => handleInputChange('yipVariant', variant.value)}
+                    >
+                      {variant.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              // MuLearn Logo Variant Selection
+              <div>
+                <label 
+                  className="block font-medium mb-2" 
                   style={{ 
-                    backgroundColor: formData.logoVariant === 'Transparent Bg' ? 'var(--color-highlight)' : undefined,
-                    fontFamily: 'var(--font-plus-jakarta)',
-                    color: formData.logoVariant !== 'Transparent Bg' ? 'var(--color-text-normal)' : undefined,
+                    fontFamily: 'var(--font-plus-jakarta)', 
+                    color: 'var(--color-text-normal)',
+                    fontSize: 'var(--font-size-body)',
                     fontWeight: 500
                   }}
-                  onClick={() => handleInputChange('logoVariant', 'Transparent Bg')}
                 >
-                  Transparent Bg
-                </button>
-              </div>
-            </div>
-
-            {/* Foreground Color */}
-            <div>
-              <label 
-                className="block font-medium mb-3" 
-                style={{ 
-                  fontFamily: 'var(--font-plus-jakarta)', 
-                  color: 'var(--color-text-normal)',
-                  fontSize: 'var(--font-size-body)',
-                  fontWeight: 500
-                }}
-              >
-                Foreground Color
-              </label>
-              <div className="flex gap-3">
-                {foregroundColors.map((color) => (
+                  Logo Variant
+                </label>
+                <div className="flex gap-2">
                   <button
-                    key={color.value}
-                    className={`w-12 h-12 rounded border border-gray-200 transition-all ${
-                      formData.foregroundColor === color.value 
-                        ? 'scale-110 ring-2 ring-blue-500' 
-                        : 'hover:opacity-80'
+                    className={`flex-1 p-3 rounded-lg font-medium transition-all ${
+                      formData.logoVariant === 'Profile Pic' 
+                        ? 'text-white' 
+                        : 'bg-gray-100 hover:bg-gray-200'
                     }`}
                     style={{ 
-                      backgroundColor: color.value
+                      backgroundColor: formData.logoVariant === 'Profile Pic' ? 'var(--color-highlight)' : undefined,
+                      fontFamily: 'var(--font-plus-jakarta)',
+                      color: formData.logoVariant !== 'Profile Pic' ? 'var(--color-text-normal)' : undefined,
+                      fontWeight: 500
                     }}
-                    onClick={() => handleInputChange('foregroundColor', color.value)}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Background Color */}
-            <div>
-              <label 
-                className="block font-medium mb-3" 
-                style={{ 
-                  fontFamily: 'var(--font-plus-jakarta)', 
-                  color: 'var(--color-text-normal)',
-                  fontSize: 'var(--font-size-body)',
-                  fontWeight: 500
-                }}
-              >
-                Background Color
-              </label>
-              <div className="flex gap-3">
-                {backgroundColors.map((color) => (
+                    onClick={() => handleInputChange('logoVariant', 'Profile Pic')}
+                  >
+                    Profile Pic
+                  </button>
                   <button
-                    key={color.value}
-                    className={`w-12 h-12 rounded border border-gray-200 transition-all ${
-                      formData.backgroundColor === color.value 
-                        ? 'scale-110 ring-2 ring-blue-500' 
-                        : 'hover:opacity-80'
+                    className={`flex-1 p-3 rounded-lg font-medium transition-all ${
+                      formData.logoVariant === 'Transparent Bg' 
+                        ? 'text-white' 
+                        : 'bg-gray-100 hover:bg-gray-200'
                     }`}
                     style={{ 
-                      backgroundColor: color.value
+                      backgroundColor: formData.logoVariant === 'Transparent Bg' ? 'var(--color-highlight)' : undefined,
+                      fontFamily: 'var(--font-plus-jakarta)',
+                      color: formData.logoVariant !== 'Transparent Bg' ? 'var(--color-text-normal)' : undefined,
+                      fontWeight: 500
                     }}
-                    onClick={() => handleInputChange('backgroundColor', color.value)}
-                  />
-                ))}
+                    onClick={() => handleInputChange('logoVariant', 'Transparent Bg')}
+                  >
+                    Transparent Bg
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
+
+            {/* Foreground and Background Colors - Only show for MuLearn logos */}
+            {formData.logoType !== 'YIP' && (
+              <>
+                {/* Foreground Color */}
+                <div>
+                  <label 
+                    className="block font-medium mb-3" 
+                    style={{ 
+                      fontFamily: 'var(--font-plus-jakarta)', 
+                      color: 'var(--color-text-normal)',
+                      fontSize: 'var(--font-size-body)',
+                      fontWeight: 500
+                    }}
+                  >
+                    Foreground Color
+                  </label>
+                  <div className="flex gap-3">
+                    {foregroundColors.map((color) => (
+                      <button
+                        key={color.value}
+                        className={`w-12 h-12 rounded border border-gray-200 transition-all ${
+                          formData.foregroundColor === color.value 
+                            ? 'scale-110 ring-2 ring-blue-500' 
+                            : 'hover:opacity-80'
+                        }`}
+                        style={{ 
+                          background: color.value
+                        }}
+                        onClick={() => handleInputChange('foregroundColor', color.value)}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Background Color */}
+                <div>
+                  <label 
+                    className={`block font-medium mb-3 ${
+                      formData.logoVariant === 'Transparent Bg' ? 'opacity-50' : ''
+                    }`}
+                    style={{ 
+                      fontFamily: 'var(--font-plus-jakarta)', 
+                      color: 'var(--color-text-normal)',
+                      fontSize: 'var(--font-size-body)',
+                      fontWeight: 500
+                    }}
+                  >
+                    Background Color
+                  </label>
+                  <div className="flex gap-3">
+                    {backgroundColors.map((color) => (
+                      <button
+                        key={color.value}
+                        disabled={formData.logoVariant === 'Transparent Bg'}
+                        className={`w-12 h-12 rounded border border-gray-200 transition-all ${
+                          formData.backgroundColor === color.value 
+                            ? 'scale-110 ring-2 ring-blue-500' 
+                            : 'hover:opacity-80'
+                        } ${
+                          formData.logoVariant === 'Transparent Bg' 
+                            ? 'opacity-30 cursor-not-allowed' 
+                            : ''
+                        }`}
+                        style={{ 
+                          backgroundColor: color.value
+                        }}
+                        onClick={() => handleInputChange('backgroundColor', color.value)}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
 
             {/* File Type */}
             <div>
@@ -586,13 +735,15 @@ export default function CampusLogoGenerator() {
                 fontWeight: 500
               }}
               onClick={handleDownload}
-              disabled={isDownloading}
+              disabled={isDownloading || formData.campusCode.length < 3}
             >
               {isDownloading ? (
                 <div className="flex items-center justify-center gap-2">
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                   Downloading...
                 </div>
+              ) : formData.campusCode.length < 3 ? (
+                'Enter Campus Code'
               ) : (
                 'Download Logo'
               )}
