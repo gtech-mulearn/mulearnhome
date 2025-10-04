@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -45,7 +45,7 @@ const Navbar = () => {
     if (!isMobileView) setActiveSubmenu(null);
   };
 
-  const renderLink = useCallback((href?: string, label?: string) => {
+  const renderLink = (href?: string, label?: string) => {
     if (!href) return <span>{label}</span>;
     return href.startsWith("http") ? (
       <a href={href} target="_blank" rel="noopener noreferrer">
@@ -54,7 +54,7 @@ const Navbar = () => {
     ) : (
       <Link href={href}>{label}</Link>
     );
-  }, []);
+  };
 
   const getGridClass = (item: (typeof navItems)[number]) => {
     if (item.label === "Be Part of Us" || item.label === "Learning") {
