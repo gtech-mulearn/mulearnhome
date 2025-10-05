@@ -67,7 +67,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="relative z-[1000] w-full bg-white p-0">
+    <div className="relative z-[1000] w-full bg-white p-2">
       {!isMobileView && (
         <motion.div
           className="flex justify-between items-center h-20 w-full px-12 box-border xl:px-12 lg:px-8 md:px-5"
@@ -89,7 +89,7 @@ const Navbar = () => {
             {navItems.map((item, index) => (
               <motion.li
                 key={index}
-                className="relative text-gray-600 font-bold text-[0.95rem] cursor-pointer py-2 text-left transition-all duration-300 hover:text-blue-600 hover:-translate-y-px after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-500 hover:after:w-full lg:text-[0.9rem]"
+                className="relative text-gray-600 hover:text-blue-600 font-bold text-base cursor-pointer py-2 text-left transition-all duration-300  hover:-translate-y-px after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-500 hover:after:w-full "
                 onMouseEnter={() => handleMouseEnter(index, !!item.submenu)}
                 onMouseLeave={handleMouseLeave}
                 whileHover={{ scale: 1.05 }}
