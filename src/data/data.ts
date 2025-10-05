@@ -1,3 +1,7 @@
+import { cdnUrl } from "@/services/cdn";
+import { FaLinkedin, FaInstagram, FaYoutube, FaFacebook } from "react-icons/fa";
+import type { IconType } from "react-icons";
+
 export interface SubItem {
   label: string;
   href: string;
@@ -12,6 +16,44 @@ export interface NavItem {
   href?: string;
   submenu?: Submenu | null;
 }
+
+interface SpecialEvent {
+  id: number;
+  title: string;
+  description: string;
+  date?: string;
+  participants?: number;
+  recurrence?: string;
+  link: string;
+  image: string;
+  isLive: boolean;
+}
+
+export interface FooterLink {
+  title: string;
+  url: string;
+}
+
+export interface FooterSection {
+  title: string;
+  links: FooterLink[];
+}
+
+export interface SocialLink {
+  icon: IconType;
+  url: string;
+  label: string;
+}
+
+export interface ContactInfo {
+  copyright: string;
+  address: string;
+  email: string;
+  phone: string;
+  website: string;
+}
+
+
 
 export const navItems: NavItem[] = [
   {
@@ -87,3 +129,129 @@ export const navItems: NavItem[] = [
     submenu: null,
   },
 ];
+
+export const features = [
+    {
+      title: "Community",
+      description: "Join 40,000+ learners & innovators.",
+      image: cdnUrl("public/assets/landing/College Project Concept Illustration.png"),
+      bgColor: "#9bc8ff",
+    },
+    {
+      title: "Mentors",
+      description: "Learn from those ahead of you, mentor those behind you.",
+      image: cdnUrl("public/assets/landing/searching.png"),
+      bgColor: "#ffb0a1",
+    },
+    {
+      title: "Interest Groups",
+      description: "Connect with like-minded people who share your interests",
+      image: cdnUrl("public/assets/landing/Content Team Concept Illustration.png"),
+      bgColor: "#5ce5c9",
+    },
+    {
+      title: "Roadmaps",
+      description: "Structured learning paths for skill mastery.",
+      image: cdnUrl("public/assets/landing/Roadmap.png"),
+      bgColor: "#ffe399",
+    },
+    {
+      title: "Challenges",
+      description: "Engage in real-world problem-solving.",
+      image: cdnUrl("public/assets/landing/collab.png"),
+      bgColor: "#b594ff",
+    },
+    {
+      title: "Opportunities",
+      description: "Discover Gigs, Jobs, and best opportunities around you",
+      image: "https://www.propeers.in/images/cuate.svg",
+      bgColor: "#55bfe9",
+    },
+];
+  
+export const SpecialEventsList: SpecialEvent[] = [
+  {
+    id: 1,
+    title: "Top 100 Coders",
+    description:
+      "Welcome to the Top 100 Coders initiative Recognised by Kerala Govt. We're on a mission to recognize and empower the best coders in India. If you're passionate about coding and want to make a significant impact in the tech community, you're in the right place.",
+    // date: "2025-04-09",
+    // participants: 100,
+    link: "https://top100coders.com/",
+    image: cdnUrl("src/modules/Public/Home/assets/top-100.webp"),
+    isLive: true,
+  },
+  {
+    id: 2,
+    title: "Launchpad",
+    description:
+      "Launchpad Kerala 2024 is a premier job fair that brings together talented individuals and innovative companies in the technical and engineering fields.",
+    // date: "2024-06-02",
+    // participants: 200,
+    link: "https://launchpad.mulearn.org/",
+    image: cdnUrl("src/modules/Public/Home/assets/launchpad.webp"),
+    isLive: false,
+  },
+  {
+    id: 3,
+    title: "Trivial Ideas",
+    description:
+      "Have an idea that's out-of-the-box crazy? This is your chance to turn it into a real product! ",
+    recurrence: "Monthly",
+    // date: "2025-02-02",
+    // participants: 500,
+    link: "https://www.instagram.com/mulearn.official/p/C6eHEzJyMMn/",
+    image: cdnUrl("src/modules/Public/Home/assets/trivialideas.webp"),
+    isLive: false,
+  },
+];
+
+export const footerSections: FooterSection[] = [
+  {
+    title: "Quick Links",
+    links: [
+      { title: "Blog", url: "https://gtechmulearn.medium.com/" },
+      { title: "Team", url: "/team" },
+      { title: "Career Labs", url: "https://mulearn.org/careers" },
+      { title: "Interest Groups", url: "/dashboard/interestgroups" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { title: "Terms and Conditions", url: "/termsandconditions" },
+      { title: "Privacy Policy", url: "/privacypolicy" },
+    ],
+  },
+];
+
+export const socialLinks: SocialLink[] = [
+  {
+    icon: FaLinkedin,
+    url: "http://www.linkedin.com/company/gtechmulearn/",
+    label: "LinkedIn",
+  },
+  {
+    icon: FaInstagram,
+    url: "https://www.instagram.com/mulearn.official/",
+    label: "Instagram",
+  },
+  {
+    icon: FaYoutube,
+    url: "https://www.youtube.com/c/mulearn",
+    label: "YouTube",
+  },
+  {
+    icon: FaFacebook,
+    url: "http://www.facebook.com/gtechmulearn",
+    label: "Facebook",
+  },
+];
+
+export const contactInfo: ContactInfo = {
+  copyright: "μLearn Foundation | Copyright © 2025 All rights reserved.",
+  address: "Technopark Phase 1, Thiruvananthapuram, Kerala - 695581",
+  email: "info@mulearn.org",
+  phone: "+91 89436 47000",
+  website: "www.mulearn.org",
+};
