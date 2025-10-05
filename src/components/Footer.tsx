@@ -1,8 +1,10 @@
 "use client";
-import { motion } from "framer-motion";
-import { footerSections, socialLinks, contactInfo } from "@/data/data";
 
-const Footer = () => {
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { footer, socials, contactInfo } from "@/data/data";
+
+export default function Footer() {
   return (
     <motion.footer
       className="bg-[var(--mulearn-whitish)] text-[var(--mulearn-blackish)] px-5 py-10 mt-20 border-t border-border text-center"
@@ -19,18 +21,18 @@ const Footer = () => {
       viewport={{ once: true }}
     >
       <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5 max-w-[1200px] mx-auto justify-items-center">
-        {footerSections.map((section) => (
+        {footer.map((section) => (
           <div key={section.title}>
             <h3 className="text-base mb-2.5 font-semibold">{section.title}</h3>
             <ul className="list-none p-0">
               {section.links.map((link) => (
                 <li key={link.title} className="mb-2">
-                  <a
+                  <Link
                     href={link.url}
                     className="text-[var(--mulearn-blackish)] no-underline transition-colors duration-300 hover:text-[var(--mulearn-trusty-blue)]"
                   >
                     {link.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -40,17 +42,17 @@ const Footer = () => {
         <div>
           <h3 className="text-base mb-2.5 font-semibold">Follow Us</h3>
           <div className="flex flex-row items-center justify-center gap-2.5 mt-2">
-            {socialLinks.map((social) => {
+            {socials.map((social) => {
               const Icon = social.icon;
               return (
-                <a
+                <Link
                   key={social.label}
                   href={social.url}
                   aria-label={social.label}
                   className="text-2xl text-[var(--mulearn-blackish)] transition-colors duration-300 hover:text-[var(--mulearn-trusty-blue)] max-[480px]:text-xl"
                 >
                   <Icon />
-                </a>
+                </Link>
               );
             })}
           </div>
@@ -63,30 +65,28 @@ const Footer = () => {
         </div>
         <div className="my-2">{contactInfo.address}</div>
         <div className="max-[480px]:text-sm">
-          <a
+          <Link
             href={`mailto:${contactInfo.email}`}
             className="text-[#1976d2] no-underline"
           >
             {contactInfo.email}
-          </a>
+          </Link>
           {" | "}
-          <a
+          <Link
             href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
             className="text-[#1976d2] no-underline"
           >
             {contactInfo.phone}
-          </a>
+          </Link>
           {" | "}
-          <a
+          <Link
             href={`https://${contactInfo.website}`}
             className="text-[#1976d2] no-underline"
           >
             {contactInfo.website}
-          </a>
+          </Link>
         </div>
       </div>
     </motion.footer>
   );
 };
-
-export default Footer;

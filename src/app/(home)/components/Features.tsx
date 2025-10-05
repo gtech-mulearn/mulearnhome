@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import { features } from "@/data/data";
 
@@ -22,7 +22,7 @@ export default function Features() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const fadeInUp = {
+  const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: (custom: number) => ({
       opacity: 1,

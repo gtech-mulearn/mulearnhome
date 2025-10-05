@@ -1,61 +1,12 @@
 import { cdnUrl } from "@/services/cdn";
 import { FaLinkedin, FaInstagram, FaYoutube, FaFacebook } from "react-icons/fa";
-import type { IconType } from "react-icons";
 
 export interface SubItem {
   label: string;
   href: string;
 }
 
-export interface Submenu {
-  [category: string]: SubItem[];
-}
-
-export interface NavItem {
-  label: string;
-  href?: string;
-  submenu?: Submenu | null;
-}
-
-interface SpecialEvent {
-  id: number;
-  title: string;
-  description: string;
-  date?: string;
-  participants?: number;
-  recurrence?: string;
-  link: string;
-  image: string;
-  isLive: boolean;
-}
-
-export interface FooterLink {
-  title: string;
-  url: string;
-}
-
-export interface FooterSection {
-  title: string;
-  links: FooterLink[];
-}
-
-export interface SocialLink {
-  icon: IconType;
-  url: string;
-  label: string;
-}
-
-export interface ContactInfo {
-  copyright: string;
-  address: string;
-  email: string;
-  phone: string;
-  website: string;
-}
-
-
-
-export const navItems: NavItem[] = [
+export const navItems = [
   {
     label: "About",
     submenu: {
@@ -169,7 +120,7 @@ export const features = [
     },
 ];
   
-export const SpecialEventsList: SpecialEvent[] = [
+export const specialevents = [
   {
     id: 1,
     title: "Top 100 Coders",
@@ -206,7 +157,36 @@ export const SpecialEventsList: SpecialEvent[] = [
   },
 ];
 
-export const footerSections: FooterSection[] = [
+export const comparisons = [
+  {
+    problem: "Fragmented Resources",
+    solution: "Structured Roadmaps",
+    highlight: "Roadmaps",
+  },
+  {
+    problem: "Lack Of Right Advice",
+    solution: "Mentorship from industry veterans",
+    highlight: "Mentorship",
+  },
+  {
+    problem: "Lack of Access to Opportunities",
+    solution: "Opportunities from the best in every industry",
+    highlight: "Opportunities",
+  },
+  {
+    problem: "Limited Exposure",
+    solution: "Exposure to global leaders and thinkers",
+    highlight: "Exposure",
+  },
+  {
+    problem: "Lack of motivation to learn",
+    solution: "Gamified platform working based on Karma points",
+    highlight: "Gamified",
+  },
+];
+
+
+export const footer = [
   {
     title: "Quick Links",
     links: [
@@ -225,7 +205,7 @@ export const footerSections: FooterSection[] = [
   },
 ];
 
-export const socialLinks: SocialLink[] = [
+export const socials = [
   {
     icon: FaLinkedin,
     url: "http://www.linkedin.com/company/gtechmulearn/",
@@ -248,7 +228,7 @@ export const socialLinks: SocialLink[] = [
   },
 ];
 
-export const contactInfo: ContactInfo = {
+export const contactInfo = {
   copyright: "μLearn Foundation | Copyright © 2025 All rights reserved.",
   address: "Technopark Phase 1, Thiruvananthapuram, Kerala - 695581",
   email: "info@mulearn.org",

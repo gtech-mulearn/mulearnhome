@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navItems, type SubItem } from "@data/data";
 
-const Navbar = () => {
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
@@ -67,7 +67,7 @@ const Navbar = () => {
   };
 
   return (
-  <div className="relative z-[1000] w-full bg-[var(--mulearn-whitish)] p-2">
+    <div className="relative z-[1000] w-full bg-[var(--mulearn-whitish)] p-2">
       {!isMobileView && (
         <motion.div
           className="flex justify-between items-center h-20 w-full px-12 box-border xl:px-12 lg:px-8 md:px-5"
@@ -149,7 +149,7 @@ const Navbar = () => {
           </motion.button>
         </motion.div>
       )}
-      
+
       {isMobileView && (
         <>
           <div className="flex justify-between items-center p-4 relative z-[1000] font-sans">
@@ -273,5 +273,3 @@ const Navbar = () => {
     </div>
   );
 };
-
-export default Navbar;

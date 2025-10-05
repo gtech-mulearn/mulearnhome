@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants, easeOut } from "framer-motion";
 import { cdnUrl } from "@services/cdn";
 import Image from "next/image";
 
@@ -9,12 +9,12 @@ interface HeroProps {
   redirect: (path: string) => void;
 }
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
 };
 
-const textVariant = {
+const textVariant: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: (custom: number) => ({
     opacity: 1,
