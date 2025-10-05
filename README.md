@@ -104,7 +104,9 @@ const logoUrl = getCdnUrl("images/logo.png");
 
 ## 🤝 Contribution Guidelines
 
-See [CONTRIBUTION.md](CONTRIBUTION.md) for details.
+**Important:** All pull requests should be made to the `dev` branch, not `main`.
+
+See [CONTRIBUTION.md](CONTRIBUTION.md) for detailed contribution guidelines.
 
 ---
 
