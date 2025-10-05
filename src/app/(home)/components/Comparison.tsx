@@ -7,6 +7,7 @@ const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
 };
+
 export default function Comparison() {
   return (
     <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full">

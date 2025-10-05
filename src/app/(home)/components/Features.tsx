@@ -8,16 +8,12 @@ import { features } from "@/data/data";
 export default function Features() {
   const [expandedIndex, setExpandedIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined" ? window.innerWidth < 1320 : false
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1200
   );
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1320);
-      if (window.innerWidth < 1320) setIsHovering(false);
-    };
-
+    const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -31,13 +27,26 @@ export default function Features() {
     }),
   };
 
+  const isMobile = windowWidth < 768;
+  const isTablet = windowWidth >= 768 && windowWidth < 1024;
+
   const totalCards = features.length;
   const baseWidth = `${100 / totalCards}%`;
   const expandedWidth = `calc(${baseWidth} + 200px)`;
-  const shrunkWidth = `calc(${baseWidth} - (100px / ${totalCards - 1}))`;
+  const shrunkWidth = `calc(${baseWidth} - (200px / ${totalCards - 1}))`;
 
   const isCardActive = (index: number) =>
-    isMobile ? false : isHovering ? expandedIndex === index : index === 0;
+    windowWidth >= 1024
+      ? isHovering
+        ? expandedIndex === index
+        : index === 0
+      : false;
+
+  const getCardWidth = () => {
+    if (isMobile) return "100%";
+    if (isTablet) return "calc(50% - 10px)";
+    return undefined; // desktop width handled inline
+  };
 
   return (
     <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full text-center flex flex-col items-center justify-center gap-4">
@@ -55,7 +64,9 @@ export default function Features() {
       </h6>
 
       <motion.div
-        className="flex w-full mt-12 overflow-hidden relative flex-wrap lg:flex-nowrap justify-center"
+        className={`featuresGrid flex w-full mt-12 overflow-hidden relative justify-center ${
+          isMobile || isTablet ? "flex-wrap gap-4" : "flex-nowrap"
+        }`}
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
@@ -68,23 +79,26 @@ export default function Features() {
             variants={fadeInUp}
             custom={i}
             onHoverStart={() => {
-              setExpandedIndex(i);
-              setIsHovering(true);
+              if (!isMobile && !isTablet) {
+                setExpandedIndex(i);
+                setIsHovering(true);
+              }
             }}
-            className={`flex flex-col items-center justify-between p-8 overflow-hidden h-[280px] border border-gray-200 transition-all duration-300 ${
+            className={`featureCard flex flex-col items-center justify-between p-6 overflow-hidden h-[280px] border border-gray-200 transition-all duration-300 ${
               i === 0
                 ? "rounded-l-xl"
                 : i === totalCards - 1
                 ? "rounded-r-xl"
-                : ""
+                : "rounded-none"
             }`}
             style={{
               backgroundColor: isCardActive(i) ? feature.bgColor : "white",
-              width: isMobile
-                ? "calc(33% - 30px)"
-                : isCardActive(i)
-                ? expandedWidth
-                : shrunkWidth,
+              width:
+                isMobile || isTablet
+                  ? getCardWidth()
+                  : isCardActive(i)
+                  ? expandedWidth
+                  : shrunkWidth,
               transition: "all 0.3s ease",
             }}
           >

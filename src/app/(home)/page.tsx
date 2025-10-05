@@ -9,6 +9,7 @@ import Story from "@/app/(home)/components/Story";
 import Newsletter from "@/app/(home)/components/Newsletter";
 import Footer from "@/components/Footer";
 import Comparison from "@/app/(home)/components/Comparison";
+import Impact from "@/app/(home)/components/Stats";
 
 const Page = () => {
   const router = useRouter();
@@ -24,6 +25,7 @@ const Page = () => {
       <Features />
       <Story />
       <Comparison />
+      <Impact />
       <Newsletter />
       <Footer />
     </div>
