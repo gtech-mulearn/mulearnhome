@@ -7,7 +7,7 @@ Please follow these guidelines to keep the project organized and maintainable.
 
 ## 🛠️ How to Contribute
 
-1. **Fork the repository** and create your branch from `dev`.
+1. **Fork the repository** and create your branch from `main`.
 
 2. **Clone the repository:**
    ```bash
@@ -38,8 +38,6 @@ Please follow these guidelines to keep the project organized and maintainable.
    ```
 
 6. **Submit a pull request** with a clear description of your changes.
-   - **Important:** Submit all pull requests to the `dev` branch, not `main`.
-   - The `main` branch is protected and only accepts merges from `dev`.
 
 ---
 
