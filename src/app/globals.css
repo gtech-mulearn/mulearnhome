@@ -2,6 +2,14 @@
 @import "tailwindcss";
 
 :root {
+  /* MuLearn Brand Colors */
+  --mulearn-trusty: linear-gradient(135deg, #2E85FE 0%, #AF2EE6 100%);
+  --mulearn-trusty-blue: #2E85FE;
+  --mulearn-duke-purple: #AF2EE6;
+  --mulearn-greyish: #c4c4c4;
+  --mulearn-blackish: #1a1a1a;
+  --mulearn-whitish: #fefefe;
+  --mulearn-gray-600: #666771;
   --background: #ffffff;
   --foreground: #171717;
   --Primary: #456ff6;
