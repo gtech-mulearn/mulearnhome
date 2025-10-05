@@ -1,7 +1,119 @@
 @import "tailwindcss";
 
 :root {
+  /* MuLearn Brand Colors */
+  --mulearn-trusty: linear-gradient(135deg, #2E85FE 0%, #AF2EE6 100%);
+  --mulearn-trusty-blue: #2E85FE;
+  --mulearn-duke-purple: #AF2EE6;
+  --mulearn-greyish: #c4c4c4;
+  --mulearn-blackish: #1a1a1a;
+  --mulearn-whitish: #fefefe;
+  --mulearn-gray-600: #666771;
   --background: #ffffff;
   --foreground: #171717;
+  --Primary: #456ff6;
+  --PrimaryDark: #3e63db;
+  --PrimaryLight: #6084fb;
+  --Secondary: #9719cd;
+  --SecondaryGrey: #404040;
+  --DarkGreyHeading: #404d61;
+  --Dark: #1a1a1a;
+  --Light: #f5f7f9;
+  --White: #ffffff;
+  --Black: #1d1d1d;
+  --Blue800: #00204c;
+  --InputDefaultBackground: rgba(184, 196, 234, 0.29);
+  --Error: red;
+  --btn-secondary-bg: #9fb5ef;
+  --black: #293338;
+  --green: #6ae586;
+  --blue: #456ff6;
+  --grey: #7e7e7e;
+  --tableRowColor: #f6f7fe;
+  --boxShadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.1);
+  --borderRadius: 10px;
+  --dimText: #666771;
+  --lightGray: #9297aa;
+  --dimBlue: #dee6ff;
+  --danger: #ff7676;
 }
 
+
+
+@layer utilities {
+  @keyframes floatY {
+
+    0%,
+    100% {
+      transform: translateY(0%);
+    }
+
+    50% {
+      transform: translateY(5%);
+    }
+  }
+
+  @keyframes rocks {
+
+    0%,
+    100% {
+      transform: translateY(0%);
+    }
+
+    50% {
+      transform: translateY(-1.5%);
+    }
+  }
+
+  @keyframes ufoFloat {
+
+    0%,
+    100% {
+      transform: translateY(0%);
+    }
+
+    50% {
+      transform: translateY(-10%);
+    }
+  }
+
+  .animate-rocks {
+    animation: rocks 10s ease-in-out infinite;
+  }
+
+  .animate-ufo-float {
+    animation: ufoFloat 10s ease-in-out infinite;
+  }
+
+  .animate-uh {
+    animation: floatY 2s ease-in-out infinite;
+  }
+
+  .animate-oh {
+    animation: floatY 2s ease-in-out 1s infinite;
+  }
+
+  .animate-in {
+    animation: floatY 2s ease-in-out infinite;
+  }
+
+  .animate-space {
+    animation: floatY 2s ease-in-out 0.2s infinite;
+  }
+
+  .animate-l {
+    animation: floatY 2s ease-in-out infinite;
+  }
+
+  .animate-o {
+    animation: floatY 2s ease-in-out 1s infinite;
+  }
+
+  .animate-s {
+    animation: floatY 2s ease-in-out 0.7s infinite;
+  }
+
+  .animate-t {
+    animation: floatY 2.5s ease-in-out 1.6s infinite;
+  }
+}
