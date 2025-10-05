@@ -34,7 +34,7 @@ export default function Features() {
   const totalCards = features.length;
   const baseWidth = `${100 / totalCards}%`;
   const expandedWidth = `calc(${baseWidth} + 200px)`;
-  const shrunkWidth = `calc(${baseWidth} - (200px / ${totalCards - 1}))`;
+  const shrunkWidth = `calc(${baseWidth} - (100px / ${totalCards - 1}))`;
 
   const isCardActive = (index: number) =>
     isMobile ? false : isHovering ? expandedIndex === index : index === 0;
@@ -100,7 +100,7 @@ export default function Features() {
               <p
                 className="transition-all duration-300 text-[var(--mulearn-gray-600)]"
                 style={{
-                  fontSize: isCardActive(i) ? "1rem" : "0.85rem",
+                  fontSize: isCardActive(i) ? "1rem" : "0.83rem",
                 }}
               >
                 {feature.description}
