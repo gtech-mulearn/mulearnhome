@@ -48,17 +48,20 @@ mulearnhome/
 ## 🏁 Getting Started
 
 1. **Clone the repository:**
+
    ```bash
    git clone <repository-url>
    cd mulearnhome
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Run the development server:**
+
    ```bash
    npm run dev
    ```
@@ -89,6 +92,7 @@ mulearnhome/
 - Use it to fetch or construct URLs for images, files, or other static resources.
 
 **Example usage:**
+
 ```ts
 import { getCdnUrl } from "@/services/cdn";
 const logoUrl = getCdnUrl("images/logo.png");
@@ -101,7 +105,9 @@ const logoUrl = getCdnUrl("images/logo.png");
 All UI in this project uses the MuLearn brand color palette and font system:
 
 ### Colors
+
 Defined as CSS variables in `src/app/globals.css`:
+
 - `--mulearn-trusty`: linear-gradient(135deg, #2E85FE 0%, #AF2EE6 100%)
 - `--mulearn-trusty-blue`: #2E85FE
 - `--mulearn-duke-purple`: #AF2EE6
@@ -110,25 +116,31 @@ Defined as CSS variables in `src/app/globals.css`:
 - `--mulearn-whitish`: #fefefe
 
 ### Extended Colors
+
 Defined as CSS variables in `src/app/globals.css`:
+
 - `--mulearn-gray-600`: #666771 (used for navigation and muted text)
 
 **Note:**
+
 - Do not use hardcoded color values (e.g., #2E85FE, #AF2EE6, #666771) in components. Always use the root CSS variables for colors.
 
 ### Fonts
+
 - **Plus Jakarta Sans** (`font-sans`): Body and UI text
 - **Circe Rounded** (`font-display`): Headings and display text
 
 ### Components
+
 - All UI components use [shadcn/ui](https://ui.shadcn.com/) with custom MuLearn variants
 - See `src/components/ui/mulearn-shadcn-doc.md` for usage and extension guidelines
 
 ### Usage Example
+
 ```tsx
 <Button variant="mulearn">MuLearn Gradient Button</Button>
-<Card className="bg-mulearn-trusty text-white">...</Card>
-<h1 className="font-display text-mulearn-trusty">Gradient Heading</h1>
+<Card className="bg-[var(--mulearn-trusty)] text-[var(--mulearn-whitish)">...</Card>
+<h1 className="font-display text-[var(--mulearn-trusty)]">Gradient Heading</h1>
 ```
 
 ---

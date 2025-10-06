@@ -16,12 +16,14 @@ All components use the following CSS variables (defined in `globals.css`):
 ```
 
 ## Fonts
+
 - **Plus Jakarta Sans**: Used for all body and UI text (`font-sans`)
 - **Circe Rounded**: Used for headings and display text (`font-display`)
 
 ## Component Usage
 
 ### Button
+
 ```tsx
 <Button variant="mulearn">MuLearn Gradient Button</Button>
 <Button variant="mulearn-outline">Outline Button</Button>
@@ -30,20 +32,24 @@ All components use the following CSS variables (defined in `globals.css`):
 ```
 
 ### Card
+
 ```tsx
-<Card className="bg-mulearn-trusty text-white">...</Card>
+<Card className="bg-[var(--mulearn-trusty)] text-[var(--mulearn-whitish)]">...</Card>
 ```
 
 ### Input
+
 ```tsx
-<Input className="border-mulearn-trusty" />
+<Input className="border-[var(--mulearn-trusty)]" />
 ```
 
 ## How to Add New Components
+
 - Use only the defined color variables and gradients.
 - Use only `font-sans` or `font-display` for font-family.
 - Document new variants in this file.
 
 ## Contribution Guidelines
+
 - See `CONTRIBUTION.md` for details on adding new MuLearn-branded components.
 - All new UI must use the MuLearn color and font system.
