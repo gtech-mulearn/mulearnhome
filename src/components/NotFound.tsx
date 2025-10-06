@@ -54,7 +54,7 @@ export default function NotFoundPage() {
         />
         <Link
           href="/"
-          className="mt-6 px-6 py-3 bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] font-semibold rounded-2xl shadow-lg hover:bg-[#8a8a8a] transition-all duration-300"
+          className="mt-6 px-6 py-3 bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] font-semibold rounded-2xl shadow-lg hover:bg-[var(--mulearn-duke-purple)] transition-all duration-300"
         >
           Back to Home
         </Link>
