@@ -1,9 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FEFEFE;   
+  --foreground: #1A1A1A;   
+
+  --trusty-blue: #2E85FE;
+  --duke-purple: #AF2EE6;
+  --brand-gray: #C4C4C4;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--trusty-blue);
+  transition: color 0.2s ease-in-out;
+}
+a:hover {
+  color: var(--duke-purple);
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+strong {
+  font-weight: 600;
+}
+em {
+  font-style: italic;
 }
 
 * {
