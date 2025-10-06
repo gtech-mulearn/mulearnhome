@@ -41,7 +41,7 @@ Please follow these guidelines to keep the project organized and maintainable.
    npm run dev
    ```
 
-6. **Submit a pull request** into the dev branch with a clear description of your changes.
+6. **Submit a pull request** into the **main** branch with a clear description of your changes.
 
 ---
 
