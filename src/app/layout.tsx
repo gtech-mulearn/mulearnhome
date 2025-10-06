@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import React, { Suspense } from "react";
+import Head from "next/head";
 import MuLoader from "@components/Loader";
 import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "Mulearn",
+  title: "µlearn",
   description: "Break the echo chamber",
 };
 
@@ -16,10 +17,46 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head>
+        <meta charSet="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <meta name="theme-color" content="#000000" />
+        <meta
+          name="description"
+          content="µLearn is a synergic philosophy of education, with a culture of mutual learning through micro groups of peers. µLearn is here to assist you in breaking through the echo chambers and free you from the shackles that have you grounded."
+        />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="pragma" content="no-cache" />
+
+        <meta property="og:title" content="µLearn" data-react-helmet="true" />
+        <meta property="og:site_name" content="µLearn" />
+        <meta
+          property="og:url"
+          content="https://app.mulearn.org/"
+        />
+        <meta
+          property="og:description"
+          content="µLearn is a synergic philosophy of education, with a culture of mutual learning through micro groups of peers. µLearn is here to assist you in breaking through the echo chambers and free you from the shackles that have you grounded."
+        />
+        <meta
+          property="og:image"
+          content="/assets/µLearn.png"
+        />
+        <meta name="author" content="µLearn" />
+        <meta property="og:image:width" content="610" />
+        <meta property="og:image:height" content="514" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:type" content="website" />
+
+        <title>µLearn</title>
+      </Head>
       <body>
-        <Suspense fallback={<MuLoader />}>
-          {children}
-        </Suspense>
+        <Suspense fallback={<MuLoader />}>{children}</Suspense>
       </body>
     </html>
   );

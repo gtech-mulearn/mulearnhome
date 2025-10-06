@@ -1,14 +1,8 @@
 "use client";
 
-import {
-  motion,
-  Variants,
-  easeOut,
-  useMotionValue,
-  useTransform,
-  animate,
-} from "framer-motion";
+import { motion, Variants, easeOut } from "framer-motion";
 import { useEffect, useState } from "react";
+import CountUp from "react-countup";
 
 interface OrgTypeCount {
   org_type: string;
@@ -150,26 +144,15 @@ function StatCard({
   label: string;
   isString?: boolean;
 }) {
-  const motionValue = useMotionValue(0);
-  const rounded = useTransform(motionValue, (latest) =>
-    Math.floor(latest).toLocaleString()
-  );
-
-  useEffect(() => {
-    if (!isString && typeof value === "number") {
-      const controls = animate(motionValue, value, {
-        duration: 2,
-        ease: "easeOut",
-      });
-      return controls.stop;
-    }
-  }, [value, isString, motionValue]);
-
   return (
     <div className="flex flex-col justify-center items-center p-4">
-      <motion.p className="font-semibold text-[var(--mulearn-trusty-blue)] text-2xl sm:text-3xl lg:text-[2.5rem]">
-        {isString ? value : rounded}
-      </motion.p>
+      <p className="font-semibold text-[var(--mulearn-trusty-blue)] text-2xl sm:text-3xl lg:text-[2.5rem]">
+        {isString ? (
+          value
+        ) : (
+          <CountUp end={value as number} duration={5} separator="," />
+        )}
+      </p>
       <p className="text-sm sm:text-base font-medium mt-1 text-[var(--mulearn-blackish)]">
         {label}
       </p>

@@ -8,9 +8,11 @@ import Features from "@/app/(home)/components/Features";
 import Story from "@/app/(home)/components/Story";
 import Comparison from "@/app/(home)/components/Comparison";
 import Stats from "@/app/(home)/components/Stats";
+import Community from "./components/Community";
 import Newsletter from "@/app/(home)/components/Newsletter";
 import Footer from "@/components/Footer";
-const Page = () => {
+
+const Home = () => {
   const router = useRouter();
 
   const handleRedirect = (path: string) => {
@@ -25,10 +27,11 @@ const Page = () => {
       <Story />
       <Comparison />
       <Stats />
+      <Community />
       <Newsletter />
       <Footer />
     </div>
   );
 };
 
-export default Page;
+export default Home;
