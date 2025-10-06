@@ -57,10 +57,31 @@ Please follow these guidelines to keep the project organized and maintainable.
 
 ---
 
-## 🎨 Brand Guide
+## 🎨 MuLearn UI Branding Rules
 
-- Please refer to the [MuLearn Brand Guide](https://mulearn.org/r/brandguide) for colors, logos, and branding assets.
-- Ensure all UI and assets follow the official brand guidelines.
+All UI components and pages must use the MuLearn color and font system:
+
+- **Colors:**
+  - Use only the root CSS variables defined in `src/app/globals.css`:
+    - `--mulearn-trusty` (gradient)
+    - `--mulearn-trusty-blue`
+    - `--mulearn-duke-purple`
+    - `--mulearn-greyish`
+    - `--mulearn-blackish`
+    - `--mulearn-whitish`
+    - `--mulearn-gray-600` (for navigation and muted text)
+  - Do not use hardcoded color values (e.g., #2E85FE, #AF2EE6, #666771) in components. Always use the root CSS variables for colors.
+- **Fonts:**
+  - Only use `Plus Jakarta Sans` (`font-sans`) and `Circe Rounded` (`font-display`)
+  - No other font families are allowed
+- **Components:**
+  - Use shadcn/ui for all new UI components
+  - Add MuLearn variants for buttons, cards, inputs, etc. using the color system
+  - Document new variants in `src/components/ui/mulearn-shadcn-doc.md`
+
+## 📝 Documentation
+- All new components and variants must be documented in `mulearn-shadcn-doc.md`
+- Update `README.md` with any major UI or branding changes
 
 ---
 
