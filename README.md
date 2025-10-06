@@ -135,9 +135,7 @@ Defined as CSS variables in `src/app/globals.css`:
 
 ## 🤝 Contribution Guidelines
 
-**Important:** All pull requests should be made to the `dev` branch, not `main`.
-
-See [CONTRIBUTION.md](CONTRIBUTION.md) for detailed contribution guidelines.
+See [CONTRIBUTION.md](CONTRIBUTION.md) for details.
 
 ---
 
