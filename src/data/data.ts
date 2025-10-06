@@ -68,9 +68,18 @@ export const navItems = [
     href: "/dashboard/learningcircle",
     submenu: {
       Explore: [
-        { label: "Interest Groups", href: "/dashboard/interestgroups" },
-        { label: "Learning Circle", href: "/dashboard/learningcircle" },
-        { label: "Learning Paths", href: "/dashboard/mujourney" },
+        {
+          label: "Interest Groups",
+          href: "https://app.mulearn.org/dashboard/interestgroups",
+        },
+        {
+          label: "Learning Circle",
+          href: "https://app.mulearn.org/dashboard/learningcircle",
+        },
+        {
+          label: "Learning Paths",
+          href: "https://app.mulearn.org/dashboard/mujourney",
+        },
       ],
     },
   },
@@ -193,7 +202,10 @@ export const footer = [
       { title: "Blog", url: "https://gtechmulearn.medium.com/" },
       { title: "Team", url: "/team" },
       { title: "Career Labs", url: "https://mulearn.org/careers" },
-      { title: "Interest Groups", url: "/dashboard/interestgroups" },
+      {
+        title: "Interest Groups",
+        url: "https://app.mulearn.org/dashboard/interestgroups",
+      },
     ],
   },
   {

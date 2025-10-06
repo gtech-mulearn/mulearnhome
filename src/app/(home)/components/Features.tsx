@@ -8,15 +8,16 @@ import { features } from "@/data/data";
 export default function Features() {
   const [expandedIndex, setExpandedIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1200
-  );
+  const [windowWidth, setWindowWidth] = useState<number>(0);
 
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const updateWidth = () => setWindowWidth(window.innerWidth);
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
   }, []);
+
+  if (windowWidth === 0) return null;
 
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -28,7 +29,7 @@ export default function Features() {
   };
 
   const isMobile = windowWidth < 768;
-  const isTablet = windowWidth >= 768 && windowWidth < 1024;
+  const isTablet = windowWidth > 768 && windowWidth < 1024;
 
   const totalCards = features.length;
   const baseWidth = `${100 / totalCards}%`;
@@ -36,7 +37,7 @@ export default function Features() {
   const shrunkWidth = `calc(${baseWidth} - (200px / ${totalCards - 1}))`;
 
   const isCardActive = (index: number) =>
-    windowWidth >= 1024
+    !isMobile && !isTablet
       ? isHovering
         ? expandedIndex === index
         : index === 0
@@ -44,28 +45,26 @@ export default function Features() {
 
   const getCardWidth = () => {
     if (isMobile) return "100%";
-    if (isTablet) return "calc(50% - 10px)";
-    return undefined; // desktop width handled inline
+    if (isTablet) return "calc(50% - 12px)";
+    return undefined;
   };
 
   return (
-    <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full text-center flex flex-col items-center justify-center gap-4">
-      <div className="pt-12">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl text-left max-w-[35rem] font-extrabold leading-normal">
+    <div className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 w-full text-center flex flex-col items-center justify-center gap-4">
+      <div className="pt-10 sm:pt-12">
+        <h1 className="text-2xl sm:text-3xl lg:text-5xl text-left max-w-[35rem] font-extrabold leading-snug">
           What <span className="text-[var(--mulearn-trusty-blue)]">µLearn</span>{" "}
           offers
         </h1>
       </div>
-
-      <h6 className="font-normal max-w-[800px] text-center text-lg sm:text-xl text-[var(--mulearn-gray-600)]">
+      <h6 className="font-normal max-w-[800px] text-center text-base sm:text-lg md:text-xl text-[var(--mulearn-gray-600)] px-2">
         µLearn offers a wide range of features and opportunities that help you
         learn, grow, and upskill yourself in a fun and engaging way. Here are
         some of the key features that µLearn offers.
       </h6>
-
       <motion.div
-        className={`featuresGrid flex w-full mt-12 overflow-hidden relative justify-center ${
-          isMobile || isTablet ? "flex-wrap gap-4" : "flex-nowrap"
+        className={`featuresGrid flex w-full mt-10 overflow-hidden relative justify-center ${
+          isMobile || isTablet ? "flex-wrap gap-5" : "flex-nowrap"
         }`}
         variants={fadeInUp}
         initial="hidden"
@@ -84,11 +83,11 @@ export default function Features() {
                 setIsHovering(true);
               }
             }}
-            className={`featureCard flex flex-col items-center justify-between p-6 overflow-hidden h-[280px] border border-gray-200 transition-all duration-300 ${
+            className={`featureCard flex flex-col items-center justify-between p-5 sm:p-6 overflow-hidden border border-gray-200 transition-all duration-300 ${
               i === 0
-                ? "rounded-l-xl"
+                ? "rounded-t-xl sm:rounded-l-xl sm:rounded-tr-none"
                 : i === totalCards - 1
-                ? "rounded-r-xl"
+                ? "rounded-b-xl sm:rounded-r-xl sm:rounded-bl-none"
                 : "rounded-none"
             }`}
             style={{
@@ -99,30 +98,38 @@ export default function Features() {
                   : isCardActive(i)
                   ? expandedWidth
                   : shrunkWidth,
+              height: isMobile ? "auto" : "300px",
               transition: "all 0.3s ease",
             }}
           >
-            <div className="flex flex-col items-center text-center mb-4 transition-transform duration-300">
+            <div className="flex flex-col items-center text-center mb-4 transition-transform duration-300 px-2">
               <h3
-                className="font-semibold mb-2 transition-all duration-300"
+                className="font-semibold mb-1 sm:mb-2 transition-all duration-300"
                 style={{
-                  fontSize: isCardActive(i) ? "1.5rem" : "1.2rem",
+                  fontSize: isCardActive(i)
+                    ? "1.4rem"
+                    : isMobile
+                    ? "1rem"
+                    : "1.1rem",
                 }}
               >
                 {feature.title}
               </h3>
               <p
-                className="transition-all duration-300 text-[var(--mulearn-gray-600)]"
+                className="transition-all duration-300 text-[var(--mulearn-gray-600)] leading-snug"
                 style={{
-                  fontSize: isCardActive(i) ? "1rem" : "0.83rem",
+                  fontSize: isCardActive(i)
+                    ? "1rem"
+                    : isMobile
+                    ? "0.9rem"
+                    : "0.85rem",
                 }}
               >
                 {feature.description}
               </p>
             </div>
-
             <div
-              className="relative transition-transform duration-300"
+              className="relative transition-transform duration-300 mb-2 sm:mb-0"
               style={{
                 transform: isCardActive(i) ? "scale(1.1)" : "scale(1)",
               }}
@@ -132,18 +139,18 @@ export default function Features() {
                 alt={feature.title}
                 width={
                   feature.title === "Community"
-                    ? 140
-                    : feature.title === "Mentors"
-                    ? 120
-                    : feature.title === "Interest Groups"
-                    ? 90
-                    : feature.title === "Roadmaps"
                     ? 110
+                    : feature.title === "Mentors"
+                    ? 100
+                    : feature.title === "Interest Groups"
+                    ? 80
+                    : feature.title === "Roadmaps"
+                    ? 90
                     : feature.title === "Challenges"
-                    ? 130
+                    ? 100
                     : 90
                 }
-                height={140}
+                height={120}
                 className="object-contain"
                 priority
               />

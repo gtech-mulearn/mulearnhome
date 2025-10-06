@@ -44,7 +44,7 @@ export default function Hero({ refreshToken, redirect }: HeroProps) {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text--[var(--mulearn-blackish)] leading-snug sm:leading-tight lg:leading-tight mb-4 sm:mb-6 max-w-3xl sm:max-w-4xl"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[var(--mulearn-blackish)] leading-snug sm:leading-tight lg:leading-tight mb-4 sm:mb-6 max-w-3xl sm:max-w-4xl"
           >
             Your Ultimate Gateway
             <br />
