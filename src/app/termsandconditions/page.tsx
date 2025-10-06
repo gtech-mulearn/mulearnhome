@@ -7,7 +7,7 @@ export default async function TermsAndConditions() {
   return (
     <>
       <Navbar />
-      <div className="mx-auto max-w-5xl lg:max-w-6xl px-4 sm:px-6 lg:px-8 py-16 text-gray-700 text-base lg:text-lg leading-relaxed">
+      <div className="mx-auto max-w-5xl lg:max-w-6xl px-4 sm:px-6 lg:px-8 py-16 text-[var(--mulearn-blackish)] text-base lg:text-lg leading-relaxed">
         <h2 className="text-3xl lg:text-4xl font-bold mb-10 text-center text-[var(--mulearn-blackish)]">
           TERMS OF SERVICES
         </h2>
@@ -567,16 +567,16 @@ export default async function TermsAndConditions() {
                 free to reach out to mulearnadmin@gtechindia.org.
                 <br />
                 <br />
-                All use of our Website(s), or our Services is subject to
-                these Terms. We recommend that you review our Terms of Use
-                regularly, in order to review any changes we might make from
-                time to time. Any changes to this Agreement will be posted on
-                the Website and will become effective and be binding on you
-                immediately upon posting in our Website. µLearn may also change
-                the terms by notifying you by any other reasonable form of
-                notification, effective immediately upon notice being provided.
-                Your continued use of the µLearn platform constitutes your
-                acceptance of those changes.
+                All use of our Website(s), or our Services is subject to these
+                Terms. We recommend that you review our Terms of Use regularly,
+                in order to review any changes we might make from time to time.
+                Any changes to this Agreement will be posted on the Website and
+                will become effective and be binding on you immediately upon
+                posting in our Website. µLearn may also change the terms by
+                notifying you by any other reasonable form of notification,
+                effective immediately upon notice being provided. Your continued
+                use of the µLearn platform constitutes your acceptance of those
+                changes.
               </li>
             </ol>
           </li>

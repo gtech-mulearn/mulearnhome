@@ -1,8 +1,10 @@
+"use server";
+
 import { privacyPolicy } from "@/data/data";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
-export default function PrivacyPolicy() {
+export default async function PrivacyPolicy() {
   const formatText = (text: string) =>
     text
       .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
