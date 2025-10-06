@@ -75,11 +75,10 @@ export default function Manifesto() {
         </p>
       </div>
 
-      <div className="bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] flex flex-col justify-center items-center h-fit gap-4 md:gap-8 mt-8 mb-[1.2rem] mx-0 sm:mt-20 sm:mb-24 text-center pt-[0.8rem] px-[0.2rem] pb-4 sm:py-[1.2rem] sm:px-[0.5rem] md:p-4 rounded-b-2xl rounded-none">
+      <div className="bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] flex flex-col justify-center items-center gap-4 md:gap-8 mt-8 mb-[1.2rem] mx-0 sm:mt-20 sm:mb-24 text-center py-6 px-4 rounded-b-2xl">
         <motion.h2
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
           className="text-[1rem] sm:text-[2rem] w-full"
         >
@@ -89,11 +88,12 @@ export default function Manifesto() {
         </motion.h2>
 
         <a href="https://app.mulearn.org" target="_blank" rel="noreferrer">
-          <button className="bg-[var(--mulearn-whitish)] text-[var(--mulearn-trusty-blue)] py-[5px] px-[0.8rem] sm:px-8 sm:py-3 font-semibold text-[0.95rem] sm:text-[1.3rem] shadow hover:bg-[var(--mulearn-duke-purple)] hover:text-[var(--mulearn-whitish)] hover:scale-105 transition-all cursor-pointer rounded-full">
+          <button className="bg-[var(--mulearn-whitish)] text-[var(--mulearn-trusty-blue)] py-2 px-6 sm:px-8 sm:py-3 font-semibold text-[0.95rem] sm:text-[1.3rem] shadow hover:bg-[var(--mulearn-duke-purple)] hover:text-[var(--mulearn-whitish)] hover:scale-105 transition-all cursor-pointer rounded-full">
             Join µLearn
           </button>
         </a>
       </div>
+    
       <Footer />
     </section>
   );

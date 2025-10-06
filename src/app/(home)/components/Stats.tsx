@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants, easeOut } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
 
 interface OrgTypeCount {
@@ -35,21 +35,29 @@ const fadeInUp: Variants = {
 
 export default function Stats() {
   const [counts, setCounts] = useState<Counts | null>(null);
+  const socketRef = useRef<WebSocket | null>(null);
 
   useEffect(() => {
-    const socket = new WebSocket(
-      "wss://mulearn.org/ws/v1/public/landing-stats/"
-    );
-
-    socket.addEventListener("message", (event) => {
-      setCounts(JSON.parse(event.data) as Counts);
-    });
-
-    socket.addEventListener("error", (event) => {
-      console.error("WebSocket error: ", event);
-    });
-
-    return () => socket.close();
+    if (!socketRef.current) {
+      const socket = new WebSocket(
+        "wss://mulearn.org/ws/v1/public/landing-stats/"
+      );
+      socketRef.current = socket;
+      const handleMessage = (event: MessageEvent) => {
+        setCounts(JSON.parse(event.data) as Counts);
+      };
+      const handleError = (event: Event) => {
+        console.error("WebSocket error: ", event);
+      };
+      socket.addEventListener("message", handleMessage);
+      socket.addEventListener("error", handleError);
+      return () => {
+        socket.removeEventListener("message", handleMessage);
+        socket.removeEventListener("error", handleError);
+        socket.close();
+        socketRef.current = null;
+      };
+    }
   }, []);
 
   if (!counts) {

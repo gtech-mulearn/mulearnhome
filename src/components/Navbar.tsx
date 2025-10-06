@@ -89,7 +89,7 @@ export default function Navbar() {
             {navItems.map((item, index) => (
               <motion.li
                 key={index}
-                className="relative text-[var(--mulearn-gray-600)] hover:text-[var(--mulearn-trusty-blue)] font-bold text-base cursor-pointer py-2 text-left transition-all duration-300 hover:-translate-y-px after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-[var(--mulearn-trusty-blue)] after:transition-all after:duration-500 hover:after:w-full font-sans"
+                className="relative text-[var(--mulearn-gray-600)] hover:text-[var(--mulearn-trusty-blue)] font-bold text-base cursor-pointer py-2 text-left transition-all duration-300 hover:-translate-y-px after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-[var(--mulearn-trusty-blue)] after:transition-all after:duration-500 hover:after:w-full"
                 onMouseEnter={() => handleMouseEnter(index, !!item.submenu)}
                 onMouseLeave={handleMouseLeave}
                 whileHover={{ scale: 1.05 }}
@@ -113,7 +113,7 @@ export default function Navbar() {
                               key={category}
                               className="submenu-section flex flex-col gap-3"
                             >
-                              <h4 className="text-xs font-bold uppercase text-[var(--mulearn-gray-600)] tracking-wider m-0 pb-2 border-b border-[var(--mulearn-greyish)] font-sans">
+                              <h4 className="text-xs font-bold uppercase text-[var(--mulearn-gray-600)] tracking-wider m-0 pb-2 border-b border-[var(--mulearn-greyish)]">
                                 {category}
                               </h4>
                               <ul className="list-none m-0 p-0 flex flex-col gap-0.5 lg:gap-0">
@@ -121,7 +121,7 @@ export default function Navbar() {
                                   (subItem: SubItem, subIndex: number) => (
                                     <li
                                       key={subIndex}
-                                      className="text-[var(--mulearn-gray-600)] text-[0.7rem] font-bold cursor-pointer rounded-lg transition-all duration-300 hover:bg-[var(--mulearn-trusty-blue)]/10 hover:text-[var(--mulearn-trusty-blue)] lg:text-[0.8rem] lg:px-2 lg:py-1 leading-snug relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-[var(--mulearn-trusty-blue)] after:transition-all after:duration-500 hover:after:w-full font-sans"
+                                      className="text-[var(--mulearn-gray-600)] text-[0.7rem] font-bold cursor-pointer rounded-lg transition-all duration-300 hover:bg-[var(--mulearn-trusty-blue)]/10 hover:text-[var(--mulearn-trusty-blue)] lg:text-[0.8rem] lg:px-2 lg:py-1 leading-snug relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-[var(--mulearn-trusty-blue)] after:transition-all after:duration-500 hover:after:w-full"
                                     >
                                       {renderLink(subItem.href, subItem.label)}
                                     </li>
@@ -140,7 +140,7 @@ export default function Navbar() {
           </ul>
 
           <motion.button
-            className="bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] border-none py-3 px-6 rounded-[50px] font-semibold text-[0.9rem] cursor-pointer shadow-[0_4px_12px_rgba(49,130,206,0.3)] hover:bg-[var(--mulearn-duke-purple)] active:bg-[var(--mulearn-trusty-blue)] lg:py-2.5 lg:px-5 lg:text-[0.85rem] font-sans"
+            className="bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] border-none py-3 px-6 rounded-[50px] font-semibold text-[0.9rem] cursor-pointer shadow-[0_4px_12px_rgba(49,130,206,0.3)] hover:bg-[var(--mulearn-duke-purple)] active:bg-[var(--mulearn-trusty-blue)] lg:py-2.5 lg:px-5 lg:text-[0.85rem]"
             onClick={handleAuthClick}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -152,7 +152,7 @@ export default function Navbar() {
 
       {isMobileView && (
         <>
-          <div className="flex justify-between items-center p-4 relative z-[1000] font-sans">
+          <div className="flex justify-between items-center p-4 relative z-[1000]">
             <Link href="/" className="flex items-center flex-shrink-0">
               <Image
                 src="/assets/logo.png"
@@ -207,7 +207,7 @@ export default function Navbar() {
                       navItems.map((item, index) => (
                         <li
                           key={index}
-                          className="mb-4 py-4 border-b border-[var(--mulearn-greyish)] text-[var(--mulearn-gray-600)] font-medium text-[1.1rem] cursor-pointer transition-all duration-300 hover:text-[var(--mulearn-trusty-blue)] hover:pl-4 hover:bg-[var(--mulearn-whitish)] hover:rounded-lg font-sans"
+                          className="mb-4 py-4 border-b border-[var(--mulearn-greyish)] text-[var(--mulearn-gray-600)] font-medium text-[1.1rem] cursor-pointer transition-all duration-300 hover:text-[var(--mulearn-trusty-blue)] hover:pl-4 hover:bg-[var(--mulearn-whitish)] hover:rounded-lg "
                           onClick={() =>
                             item.submenu
                               ? setActiveMobileSubmenu(index)
@@ -223,7 +223,7 @@ export default function Navbar() {
                     ) : (
                       <>
                         <li
-                          className="font-semibold mb-4 py-2 cursor-pointer text-[var(--mulearn-trusty-blue)] font-sans"
+                          className="font-semibold mb-4 py-2 cursor-pointer text-[var(--mulearn-trusty-blue)]"
                           onClick={() => setActiveMobileSubmenu(null)}
                         >
                           {"< Back"}
@@ -232,7 +232,7 @@ export default function Navbar() {
                           navItems[activeMobileSubmenu].submenu!
                         ).map(([category, items]) => (
                           <div key={category} className="mb-4">
-                            <div className="font-semibold text-sm my-2 text-[var(--mulearn-gray-600)] font-sans">
+                            <div className="font-semibold text-sm my-2 text-[var(--mulearn-gray-600)]">
                               {category}
                             </div>
                             <ul className="pl-4 list-none">
@@ -240,7 +240,7 @@ export default function Navbar() {
                                 (subItem: SubItem, subIndex: number) => (
                                   <li
                                     key={subIndex}
-                                    className="py-2 text-[var(--mulearn-gray-600)] cursor-pointer hover:text-[var(--mulearn-duke-purple)] hover:pl-2 font-sans"
+                                    className="py-2 text-[var(--mulearn-gray-600)] cursor-pointer hover:text-[var(--mulearn-duke-purple)] hover:pl-2"
                                     onClick={() =>
                                       window.location.assign(subItem.href!)
                                     }
@@ -257,7 +257,7 @@ export default function Navbar() {
                   </ul>
 
                   <motion.button
-                    className="w-full p-4 mb-20 bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] border-none rounded-[50px] font-semibold cursor-pointer transition-all duration-300 shadow-[0_4px_12px_rgba(49,130,206,0.3)] hover:bg-[var(--mulearn-duke-purple)] active:bg-[var(--mulearn-trusty-blue)] font-sans"
+                    className="w-full p-4 mb-20 bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] border-none rounded-[50px] font-semibold cursor-pointer transition-all duration-300 shadow-[0_4px_12px_rgba(49,130,206,0.3)] hover:bg-[var(--mulearn-duke-purple)] active:bg-[var(--mulearn-trusty-blue)]"
                     onClick={handleAuthClick}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}

@@ -43,7 +43,33 @@
   src: url("/fonts/Retro_Team.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "font-circe";
+  src: url("/fonts/CirceRounded-Bold.otf") format("opentype");
+  font-display: swap;
+}
 
+h1,
+h2,
+h3,
+h4,
+h5{
+  font-family: "font-circe", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
 
 @layer utilities {
   @keyframes floatY {
