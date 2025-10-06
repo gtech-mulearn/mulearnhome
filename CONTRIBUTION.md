@@ -10,15 +10,18 @@ Please follow these guidelines to keep the project organized and maintainable.
 1. **Fork the repository** and create your branch from `main`.
 
 2. **Clone the repository:**
+
    ```bash
    git clone <repository-url>
    cd mulearnhome
    ```
 
 3. **Install dependencies** if you haven't already:
+
    ```bash
    npm install
    ```
+
 4. **Make your changes** in the appropriate folder:
    - **Pages/Routes:**  
      Add a new folder under `src/app` and a `page.tsx` file for each new route.
@@ -33,11 +36,12 @@ Please follow these guidelines to keep the project organized and maintainable.
      Use Tailwind CSS in your components or add global styles in `src/app/globals.css`.
 
 5. **Test your changes** locally:
+
    ```bash
    npm run dev
    ```
 
-6. **Submit a pull request** with a clear description of your changes.
+6. **Submit a pull request** into the dev branch with a clear description of your changes.
 
 ---
 
@@ -80,6 +84,7 @@ All UI components and pages must use the MuLearn color and font system:
   - Document new variants in `src/components/ui/mulearn-shadcn-doc.md`
 
 ## 📝 Documentation
+
 - All new components and variants must be documented in `mulearn-shadcn-doc.md`
 - Update `README.md` with any major UI or branding changes
 
