@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants, easeOut } from "framer-motion";
-import SpecialEventCard from "./EventCard";
+import SpecialEventCard from "@/app/(home)/components/SpecialEventCard";
 import { specialevents } from "@/data/data";
 
 const fadeInUp: Variants = {

@@ -47,7 +47,7 @@ export default function Navbar() {
 
   const renderLink = (href?: string, label?: string) => {
     if (!href) return <span>{label}</span>;
-    return href.startsWith("http") ? (
+    return href.startsWith("https") ? (
       <Link href={href} target="_blank" rel="noopener noreferrer">
         {label}
       </Link>

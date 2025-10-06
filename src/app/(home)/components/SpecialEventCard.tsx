@@ -37,6 +37,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
           width={400}
           height={180}
           className="object-cover w-full h-full"
+          loading="lazy"
         />
         <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-0 transition-transform duration-300 ease-in-out">
           <button

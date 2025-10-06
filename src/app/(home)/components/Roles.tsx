@@ -68,7 +68,7 @@ export default function Roles() {
               width={300}
               height={200}
               className="w-full min-h-[220px] mb-2.5 object-cover"
-              priority
+              loading="lazy"
             />
             <h6 className="text-[1.1rem] font-bold text-[var(--mulearn-blackish)] m-0 mb-2">
               {item.name}

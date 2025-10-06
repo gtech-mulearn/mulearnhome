@@ -60,7 +60,7 @@ export default function Community() {
             height={640}
             width={640}
             className="h-[40rem] w-auto max-w-full object-contain"
-            priority
+            loading="lazy"
           />
         </motion.div>
       </motion.section>

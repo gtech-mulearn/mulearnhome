@@ -49,6 +49,7 @@ export default function Story() {
               title="YouTube video on Mulearn"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               className="w-full h-full border-none"
+              loading="lazy"
             />
           </motion.div>
         </div>
