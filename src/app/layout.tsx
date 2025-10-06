@@ -38,13 +38,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={plusJakarta.variable}>
-      <head>
-        <meta charSet="UTF-8" />
-        <title>µLearn</title>
-      </head>
-      <body className="font-sans antialiased">
-        <Suspense fallback={<MuLoader />}>{children}</Suspense>
+    <html lang="en" suppressHydrationWarning> {/* suppress hydration warning */}
+      <body>
+        {children}
       </body>
     </html>
   );
