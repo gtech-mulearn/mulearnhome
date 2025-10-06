@@ -13,6 +13,7 @@ import Stats from "@/app/(home)/components/Stats";
 import Community from "./components/Community";
 import Newsletter from "@/app/(home)/components/Newsletter";
 import Footer from "@/components/Footer";
+import SpecialEvents from "./components/Events";
 
 const Home = () => {
   const router = useRouter();
@@ -27,6 +28,7 @@ const Home = () => {
       <Hero redirect={handleRedirect} />
       <Features />
       <Story />
+      <SpecialEvents />
       <Comparison />
       <Opportunities />
       <Roles />
