@@ -44,7 +44,7 @@
 }
 
 @font-face {
-  font-family: "font-circe";
+  font-family: "font-display";
   src: url("/fonts/CirceRounded-Bold.otf") format("opentype");
   font-display: swap;
 }
@@ -54,7 +54,7 @@ h2,
 h3,
 h4,
 h5{
-  font-family: "font-circe", sans-serif;
+  font-family: "font-display", sans-serif;
 }
 
 * {
