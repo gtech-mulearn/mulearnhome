@@ -177,7 +177,7 @@ export default function Navbar() {
             {isMenuOpen && (
               <>
                 <motion.div
-                  className="fixed inset-0 bg-black/50 z-[1001]"
+                  className="fixed inset-0 bg-[var(--mulearn-blackish)]/50 z-[1001]"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}

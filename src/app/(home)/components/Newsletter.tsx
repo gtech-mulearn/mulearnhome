@@ -12,7 +12,7 @@ export default function Newsletter() {
     <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full">
       <motion.section
         id="newsletter"
-        className="bg-[#f7f7f7] rounded-2xl py-8 my-8 mx-auto max-w-[1000px] shadow-[0_2px_16px_0_rgba(0,0,0,0.02)] flex flex-col items-center gap-4"
+        className="bg-[var(--mulearn-greyish)]/20 rounded-2xl py-8 my-8 mx-auto max-w-[1000px] shadow-[0_2px_16px_0_rgba(0,0,0,0.02)] flex flex-col items-center gap-4"
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"

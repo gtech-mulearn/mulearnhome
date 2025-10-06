@@ -7,6 +7,8 @@ import Hero from "@/app/(home)/components/Hero";
 import Features from "@/app/(home)/components/Features";
 import Story from "@/app/(home)/components/Story";
 import Comparison from "@/app/(home)/components/Comparison";
+import Opportunities from "@/app/(home)/components/Opportunities";
+import Roles from "@/app/(home)/components/Roles";
 import Stats from "@/app/(home)/components/Stats";
 import Community from "./components/Community";
 import Newsletter from "@/app/(home)/components/Newsletter";
@@ -26,6 +28,8 @@ const Home = () => {
       <Features />
       <Story />
       <Comparison />
+      <Opportunities />
+      <Roles />
       <Stats />
       <Community />
       <Newsletter />
