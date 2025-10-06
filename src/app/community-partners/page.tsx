@@ -5,6 +5,7 @@ import CommunityCard from "./CommunityCard/CommunityCard";
 import { cdnUrl } from "@services/cdn";
 import Image from "next/image";
 import { motion } from "motion/react"
+import HomeNav from "@components/navbar";
 
 type Partner = {
   name: string;
@@ -16,25 +17,26 @@ type Partner = {
 const page = () => {
   return (
     <>
+      {/* <HomeNav /> */}
       <div className="flex flex-col items-center justify-center md:ml-3 md:mr-3 xl:ml-0 xl:mr-0 lg:ml-0 lg:mr-0 ">
         <div className="flex flex-col md:flex-row  items-center justify-around w-full " >
           <motion.div
 
-            initial={{ opacity: 0,}}
+            initial={{ opacity: 0, }}
 
             animate={{ opacity: 1, }}
 
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
 
             viewport={{ once: true, amount: 0.5 }}
- className="text-center md:text-left md:w-1/3 mx-4 md:mx-0">
+            className="text-center md:text-left md:w-1/3 mx-4 md:mx-0">
             <p className="font-sans text-5xl font-semibold text-[#303030] md:text-7xl inline-block xl:inline-block lg:inline-block md:hidden md:w-[50%]  md:leading-tight">
-              <span className="font-semibold text-[#5570f1]">µLearn Community</span> Partners
+              <span className="font-semibold" style={{ color: 'var(--trusty-blue)' }}>µLearn Community</span> Partners
             </p>
             <p className="font-sans text-5xl font-semibold text-[#303030] md:text-7xl hidden md:inline-block xl:hidden lg:hidden md:leading-tight">
-              <span className="font-semibold text-[#5570f1]">µLearn Comm<br></br>unity</span> Partner<br></br>s
+              <span className="font-semibold" style={{ color: 'var(--trusty-blue)' }}>µLearn Comm<br></br>unity</span> Partner<br></br>s
             </p>
-            <p className="mt-6 md:mt-8 text-lg md:text-2xl w-full font-[Poppins]  md:mx-0">
+            <p className="mt-6 md:mt-8 text-lg md:text-2xl w-full md:mx-0">
               When a group of like-minded people come together interesting
               things take place. What if multiple Communities join their hands
               together for a common aim things get much more interesting!
@@ -53,13 +55,13 @@ const page = () => {
           </div>
         </div>
 
-        <div className="bg-white max-w-7xl xl:w-7xl sm:mt-[6rem] md:mt-[8rem] lg:mt-[8rem] xl:mt-[8rem]" style={{ paddingBottom: "5rem" }}>
+        <div className="max-w-7xl xl:w-7xl sm:mt-[6rem] md:mt-[8rem] lg:mt-[8rem] xl:mt-[8rem]" style={{ paddingBottom: "5rem", backgroundColor: 'var(--background)' }}>
           <div className="lg:w-2/3 flex flex-col text-center md:text-left mx-4 md:mx-0 
               pt-20 lg:pt-32 lg:pl-16" >
             <p className="text-3xl md:text-5xl lg:ml-10 xl:ml-0  font-semibold font-sans">
-              <span className="text-[#5570f1]">Community</span> Partners
+              <span style={{ color: 'var(--trusty-blue)' }}>Community</span> Partners
             </p>
-            <p className="mt-6 md:mt-8 lg:ml-10 xl:ml-0 text-lg md:text-2xl md:mx-0 font-[Poppins] xl:w-[44rem]" style={{marginTop:'0px'}}>
+            <p className="mt-6 md:mt-8 lg:ml-10 xl:ml-0 text-lg md:text-2xl md:mx-0 xl:w-[44rem]" style={{ marginTop: '0px' }}>
               µLearn has partnered with multiple communities to provide the
               peers the best resources and events to learn and up-skill
               themselves.
