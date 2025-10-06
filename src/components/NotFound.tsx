@@ -9,7 +9,7 @@ export default function NotFoundPage() {
   const smallRocks = cdnUrl("src/components/assests/NotFound/SmallRocks.webp");
   const marsSurface = cdnUrl("src/components/assests/NotFound/NoBgFourNotFour.webp");
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-white">
+    <div className="relative w-full h-screen overflow-hidden bg-[var(--mulearn-whitish)]">
       <div className="absolute flex flex-col items-center left-6 top-12 sm:left-10 sm:top-16 md:left-20 md:top-20">
         <div className="flex flex-row items-center gap-1 text-lg font-medium text-[#a1a1a1] sm:text-2xl md:text-4xl">
           <div className="rotate-[6deg] animate-uh">uh,</div>
@@ -54,7 +54,7 @@ export default function NotFoundPage() {
         />
         <Link
           href="/"
-          className="mt-6 px-6 py-3 bg-[#a1a1a1] text-white font-semibold rounded-2xl shadow-lg hover:bg-[#8a8a8a] transition-all duration-300"
+          className="mt-6 px-6 py-3 bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] font-semibold rounded-2xl shadow-lg hover:bg-[#8a8a8a] transition-all duration-300"
         >
           Back to Home
         </Link>
