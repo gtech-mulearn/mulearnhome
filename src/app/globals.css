@@ -38,6 +38,11 @@
   --danger: #ff7676;
 }
 
+@font-face {
+  font-family: "Retro Team";
+  src: url("/fonts/Retro_Team.otf") format("opentype");
+}
+
 
 
 @layer utilities {
