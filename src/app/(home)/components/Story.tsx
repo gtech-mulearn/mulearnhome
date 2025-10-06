@@ -19,7 +19,7 @@ export default function Story() {
       >
         <div>
           <motion.div variants={fadeInUp}>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl text-left max-w-[35rem] font-extrabold leading-normal">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl text-center max-w-[35rem] font-extrabold leading-normal">
               Understand μLearn with a{" "}
               <span className="text-[var(--mulearn-trusty-blue)]">Story</span>
             </h1>

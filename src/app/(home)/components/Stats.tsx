@@ -82,7 +82,7 @@ export default function Stats() {
           variants={fadeInUp}
         >
           <div className="flex-1">
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] text-left font-extrabold leading-normal min-w-0 sm:min-w-[400px]">
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] text-center font-extrabold leading-normal min-w-0 sm:min-w-[400px]">
               The Impact of{" "}
               <span className="text-[var(--mulearn-trusty-blue)]">μLearn</span>
             </h1>
