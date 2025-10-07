@@ -7,18 +7,21 @@ Please follow these guidelines to keep the project organized and maintainable.
 
 ## 🛠️ How to Contribute
 
-1. **Fork the repository** and create your branch from `dev`.
+1. **Fork the repository** and create your branch from `main`.
 
 2. **Clone the repository:**
+
    ```bash
    git clone <repository-url>
    cd mulearnhome
    ```
 
 3. **Install dependencies** if you haven't already:
+
    ```bash
    npm install
    ```
+
 4. **Make your changes** in the appropriate folder:
    - **Pages/Routes:**  
      Add a new folder under `src/app` and a `page.tsx` file for each new route.
@@ -33,13 +36,12 @@ Please follow these guidelines to keep the project organized and maintainable.
      Use Tailwind CSS in your components or add global styles in `src/app/globals.css`.
 
 5. **Test your changes** locally:
+
    ```bash
    npm run dev
    ```
 
-6. **Submit a pull request** with a clear description of your changes.
-   - **Important:** Submit all pull requests to the `dev` branch, not `main`.
-   - The `main` branch is protected and only accepts merges from `dev`.
+6. **Submit a pull request** into the **main** branch with a clear description of your changes.
 
 ---
 
@@ -59,10 +61,32 @@ Please follow these guidelines to keep the project organized and maintainable.
 
 ---
 
-## 🎨 Brand Guide
+## 🎨 MuLearn UI Branding Rules
 
-- Please refer to the [MuLearn Brand Guide](https://mulearn.org/r/brandguide) for colors, logos, and branding assets.
-- Ensure all UI and assets follow the official brand guidelines.
+All UI components and pages must use the MuLearn color and font system:
+
+- **Colors:**
+  - Use only the root CSS variables defined in `src/app/globals.css`:
+    - `--mulearn-trusty` (gradient)
+    - `--mulearn-trusty-blue`
+    - `--mulearn-duke-purple`
+    - `--mulearn-greyish`
+    - `--mulearn-blackish`
+    - `--mulearn-whitish`
+    - `--mulearn-gray-600` (for navigation and muted text)
+  - Do not use hardcoded color values (e.g., #2E85FE, #AF2EE6, #666771) in components. Always use the root CSS variables for colors.
+- **Fonts:**
+  - Only use `Plus Jakarta Sans` (`font-sans`) and `Circe Rounded` (`font-display`)
+  - No other font families are allowed
+- **Components:**
+  - Use shadcn/ui for all new UI components
+  - Add MuLearn variants for buttons, cards, inputs, etc. using the color system
+  - Document new variants in `src/components/ui/mulearn-shadcn-doc.md`
+
+## 📝 Documentation
+
+- All new components and variants must be documented in `mulearn-shadcn-doc.md`
+- Update `README.md` with any major UI or branding changes
 
 ---
 
