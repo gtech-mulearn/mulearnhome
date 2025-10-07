@@ -31,10 +31,10 @@ const page = () => {
             viewport={{ once: true, amount: 0.5 }}
             className="text-center md:text-left md:w-1/3 mx-4 md:mx-0">
             <p className="font-sans text-5xl font-semibold text-[#303030] md:text-7xl inline-block xl:inline-block lg:inline-block md:hidden md:w-[50%]  md:leading-tight">
-              <span className="font-semibold" style={{ color: 'var(--trusty-blue)' }}>µLearn Community</span> Partners
+              <span className="font-semibold text-[var(--trusty-blue)]" >µLearn Community</span> Partners
             </p>
             <p className="font-sans text-5xl font-semibold text-[#303030] md:text-7xl hidden md:inline-block xl:hidden lg:hidden md:leading-tight">
-              <span className="font-semibold" style={{ color: 'var(--trusty-blue)' }}>µLearn Comm<br></br>unity</span> Partner<br></br>s
+              <span className="font-semibold text-[var(--trusty-blue)]">µLearn Comm<br></br>unity</span> Partner<br></br>s
             </p>
             <p className="mt-6 md:mt-8 text-lg md:text-2xl w-full md:mx-0">
               When a group of like-minded people come together interesting
@@ -45,7 +45,7 @@ const page = () => {
 
           <div className="w-full flex justify-center  md:w-auto md:flex md:items-center md:justify-center">
             <Image
-              src={cdnUrl("/assets/community-partners/Coding workshop.gif")}
+              src={cdnUrl("src/modules/Public/CommPartners/assets/Coding workshop.gif")}
               width={0}
               height={0}
               alt="Coding Workshop Animation"
@@ -55,11 +55,11 @@ const page = () => {
           </div>
         </div>
 
-        <div className="max-w-7xl xl:w-7xl sm:mt-[6rem] md:mt-[8rem] lg:mt-[8rem] xl:mt-[8rem]" style={{ paddingBottom: "5rem", backgroundColor: 'var(--background)' }}>
+        <div className="max-w-7xl xl:w-7xl sm:mt-[6rem] md:mt-[8rem] lg:mt-[8rem] xl:mt-[0rem] pb-[5rem]" >
           <div className="lg:w-2/3 flex flex-col text-center md:text-left mx-4 md:mx-0 
-              pt-20 lg:pt-32 lg:pl-16" >
+              pt-20 lg:pt-32" >
             <p className="text-3xl md:text-5xl lg:ml-10 xl:ml-0  font-semibold font-sans">
-              <span style={{ color: 'var(--trusty-blue)' }}>Community</span> Partners
+              <span className="text-[var(--trusty-blue)]">Community</span> Partners
             </p>
             <p className="mt-6 md:mt-8 lg:ml-10 xl:ml-0 text-lg md:text-2xl md:mx-0 xl:w-[44rem]" style={{ marginTop: '0px' }}>
               µLearn has partnered with multiple communities to provide the
@@ -78,7 +78,7 @@ const page = () => {
             viewport={{ once: true, amount: 0.5 }}
 
             className="grid grid-cols-1 place-items-center 
-              sm:grid-cols-2 md:grid-cols-3 mt-[3rem] w-[100%]" style={{ marginTop: "1rem" }}>
+              sm:grid-cols-2 md:grid-cols-3 mt-[3rem] w-[100%]" >
             {(communityPartners as Partner[]).map((partner) => (
               <CommunityCard
                 key={partner.name}
