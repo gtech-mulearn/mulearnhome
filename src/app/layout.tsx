@@ -3,6 +3,8 @@ import React, { Suspense } from "react";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import MuLoader from "@components/Loader";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "µLearn",
@@ -40,7 +42,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning> {/* suppress hydration warning */}
       <body>
+        <Navbar/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

@@ -101,7 +101,7 @@ export const navItems = [
   },
   {
     label: "Donate",
-    href: "/donation",
+    href: "/donate",
     submenu: null,
   },
 ];

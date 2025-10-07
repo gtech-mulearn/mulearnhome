@@ -24,7 +24,6 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
       <Hero redirect={handleRedirect} />
       <Features />
       <Story />
@@ -35,7 +34,6 @@ const Home = () => {
       <Stats />
       <Community />
       <Newsletter />
-      <Footer />
     </div>
   );
 };

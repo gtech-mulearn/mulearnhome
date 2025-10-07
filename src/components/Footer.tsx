@@ -7,7 +7,7 @@ import { footer, socials, contactInfo } from "@/data/data";
 export default function Footer() {
   return (
     <motion.footer
-      className="bg-[var(--mulearn-whitish)] text-[var(--mulearn-blackish)] px-5 py-10 mt-20 border-t border-border text-center"
+      className="bg-[var(--mulearn-whitish)] text-[var(--mulearn-blackish)] px-5 py-10 border-t border-border text-center"
       variants={{
         hidden: { opacity: 0, y: 50 },
         visible: {
