@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants, easeOut } from "framer-motion";
-import SpecialEventCard from "@/app/(home)/components/SpecialEventCard";
+import SpecialEventCard from "@/app/(home)/_components/SpecialEventCard";
 import { specialevents } from "@/data/data";
 
 const fadeInUp: Variants = {
@@ -19,10 +19,10 @@ export default function SpecialEvents() {
         viewport={{ once: true }}
       >
         <motion.div variants={fadeInUp} className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--mulearn-blackish)]">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-mulearn-blackish">
             Special Events
           </h1>
-          <h6 className="text-lg text-[var(--mulearn-gray-600)] max-w-3xl mx-auto">
+          <h6 className="text-lg text-mulearn-gray-600 max-w-3xl mx-auto">
             Discover exclusive events designed to inspire innovation, enhance
             skills, and foster meaningful connections across technology,
             management, and creativity.

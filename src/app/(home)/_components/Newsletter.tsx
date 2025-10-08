@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { motion, Variants, easeOut } from "framer-motion";
 
 const fadeInUp: Variants = {
@@ -12,7 +13,7 @@ export default function Newsletter() {
     <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full">
       <motion.section
         id="newsletter"
-        className="bg-[var(--mulearn-greyish)]/20 rounded-2xl py-8 my-8 mx-auto max-w-[1000px] shadow-[0_2px_16px_0_rgba(0,0,0,0.02)] flex flex-col items-center gap-4"
+        className="bg-mulearn-greyish/20 rounded-2xl py-8 my-8 mx-auto max-w-[1000px] shadow-[0_2px_16px_0_rgba(0,0,0,0.02)] flex flex-col items-center gap-4"
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
@@ -20,7 +21,7 @@ export default function Newsletter() {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-2xl sm:text-[1.7rem] font-bold mb-5 text-[var(--mulearn-trusty-blue)] text-center px-4"
+          className="text-2xl sm:text-[1.7rem] font-bold mb-5 text-mulearn-trusty-blue text-center px-4"
         >
           Subscribe to our Newsletter
         </motion.h2>
@@ -41,13 +42,13 @@ export default function Newsletter() {
               name="email"
               required
               placeholder="E-mail"
-              className="py-3 px-4 border border-[var(--mulearn-gray-600)] rounded-lg text-base max-w-[500px] w-full sm:w-[400px] bg-[var(--mulearn-whitish)] transition-all duration-200 focus:border-[1.5px] focus:border-[var(--mulearn-trusty-blue)] focus:outline-none"
+              className="py-3 px-4 border border-mulearn-gray-600 rounded-lg text-base max-w-[500px] w-full sm:w-[400px] bg-mulearn-whitish transition-all duration-200 focus:border-[1.5px] focus:border-mulearn-trusty-blue focus:outline-none"
             />
             <input
               type="text"
               name="name"
               placeholder="Name (optional)"
-              className="py-3 px-4 border border-[var(--mulearn-gray-600)] rounded-lg text-base max-w-[500px] w-full sm:w-[400px] bg-[var(--mulearn-whitish)] transition-all duration-200 focus:border-[1.5px] focus:border-[var(--mulearn-trusty-blue)] focus:outline-none"
+              className="py-3 px-4 border border-mulearn-gray-600 rounded-lg text-base max-w-[500px] w-full sm:w-[400px] bg-mulearn-whitish transition-all duration-200 focus:border-[1.5px] focus:border-mulearn-trusty-blue focus:outline-none"
             />
           </motion.div>
 
@@ -67,13 +68,15 @@ export default function Newsletter() {
             </label>
           </motion.div>
 
-          <motion.button
-            variants={fadeInUp}
-            type="submit"
-            className="bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] border-none rounded-[20px] py-3 px-8 mb-8 font-bold text-base cursor-pointer transition-all duration-200 hover:bg-[var(--mulearn-duke-purple)]"
-          >
-            Subscribe
-          </motion.button>
+          <motion.div variants={fadeInUp}>
+            <Button
+              type="submit"
+              variant="mulearn-blue"
+              className="py-3 px-8 mb-8 font-bold"
+            >
+              Subscribe
+            </Button>
+          </motion.div>
         </form>
       </motion.section>
     </div>

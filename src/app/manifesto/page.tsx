@@ -4,8 +4,6 @@ import React from "react";
 import { cdnUrl } from "@/services/cdn";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Link from "next/link";
 
 const bglogo = cdnUrl("/src/modules/Public/Manifesto/assets/µ.png");
@@ -14,8 +12,7 @@ const handimg = cdnUrl("/src/modules/Public/Manifesto/assets/hand.png");
 export default function Manifesto() {
   return (
     <section className="overflow-x-hidden">
-      <Navbar />
-      <div className="relative min-h-[120px] flex flex-col md:flex-row bg-[var(--mulearn-trusty-blue)] mt-[6vw] md:h-[20vw] h-[40vw] pl-0 rounded-t-[1.2rem] md:rounded-none">
+      <div className="relative min-h-[120px] flex flex-col md:flex-row bg-mulearn-trusty-blue mt-[6vw] md:h-[20vw] h-[40vw] pl-0 rounded-t-[1.2rem] md:rounded-none">
         <Image
           src={bglogo}
           alt="µLearn background logo"
@@ -25,14 +22,14 @@ export default function Manifesto() {
           loading="lazy"
         />
         <div className="flex flex-col justify-center w-full md:w-4/5 pl-[1.2rem] md:pl-20 pt-[1.2rem] md:pt-12 h-full">
-          <div className="bg-[var(--mulearn-whitish)]/30 rounded-full pr-[6vw] md:pr-16 pl-[5vw] md:pl-8 py-[1vw] md:py-2 w-fit md:mb-4 uppercase text-[var(--mulearn-whitish)] text-[1.5vw] md:text-[1.3vw] font-medium">
+          <div className="bg-mulearn-whitish/30 rounded-full pr-[6vw] md:pr-16 pl-[5vw] md:pl-8 py-[1vw] md:py-2 w-fit md:mb-4 uppercase text-mulearn-whitish text-[1.5vw] md:text-[1.3vw] font-medium">
             Our Manifesto
           </div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-[var(--mulearn-whitish)] text-[10vw] md:text-[6.5vw] leading-[1.5] md:leading-none"
+            className="text-mulearn-whitish text-[10vw] md:text-[6.5vw] leading-[1.5] md:leading-none"
             style={{ fontFamily: "Retro Team" }}
           >
             We,The Unbound, The Unbowed
@@ -65,20 +62,19 @@ export default function Manifesto() {
 
       <div className="px-2 sm:px-4 md:px-24 text-center">
         <p className="text-[1.1rem] sm:text-[1.8rem] md:text-[2rem] tracking-wide">
-          <span className="text-[var(--mulearn-trusty-blue)] font-medium">
+          <span className="text-mulearn-trusty-blue font-medium">
             µLearn is our revolution.
           </span>{" "}
           Here, curiosity{" "}
-          <span className="text-[var(--mulearn-trusty-blue)]">reigns</span>, and
+          <span className="text-mulearn-trusty-blue">reigns</span>, and
           collaboration is our strongest weapon. We{" "}
-          <span className="text-[var(--mulearn-trusty-blue)]">transform</span>{" "}
-          failures into stepping stones, and together we{" "}
-          <span className="text-[var(--mulearn-trusty-blue)]]">redefine</span>{" "}
-          learning.
+          <span className="text-mulearn-trusty-blue">transform</span> failures
+          into stepping stones, and together we{" "}
+          <span className="text-mulearn-trusty-blue]">redefine</span> learning.
         </p>
       </div>
 
-      <div className="bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] flex flex-col justify-center items-center gap-4 md:gap-8 mt-8 mb-[1.2rem] mx-0 sm:mt-20 sm:mb-24 text-center py-6 px-4 rounded-b-2xl">
+      <div className="bg-mulearn-trusty-blue text-mulearn-whitish flex flex-col justify-center items-center gap-4 md:gap-8 mt-8 mb-[1.2rem] mx-0 sm:mt-20 sm:mb-24 text-center py-6 px-4 rounded-b-2xl">
         <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -91,13 +87,11 @@ export default function Manifesto() {
         </motion.h2>
 
         <Link href="https://app.mulearn.org" target="_blank" rel="noreferrer">
-          <button className="bg-[var(--mulearn-whitish)] text-[var(--mulearn-trusty-blue)] py-2 px-6 sm:px-8 sm:py-3 font-semibold text-[0.95rem] sm:text-[1.3rem] shadow hover:bg-[var(--mulearn-duke-purple)] hover:text-[var(--mulearn-whitish)] hover:scale-105 transition-all cursor-pointer rounded-full">
+          <button className="bg-mulearn-whitish text-mulearn-trusty-blue py-2 px-6 sm:px-8 sm:py-3 font-semibold text-[0.95rem] sm:text-[1.3rem] shadow hover:bg-mulearn-duke-purple hover:text-mulearn-whitish hover:scale-105 transition-all cursor-pointer rounded-full">
             Join µLearn
           </button>
         </Link>
       </div>
-
-      <Footer />
     </section>
   );
-};
+}

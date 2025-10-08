@@ -9,13 +9,12 @@ export default function Features() {
   const [expandedIndex, setExpandedIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [windowWidth, setWindowWidth] = useState<number>(0);
-useEffect(() => {
-  const handleResize = () => setWindowWidth(window.innerWidth);
-  window.addEventListener("resize", handleResize);
-  handleResize();
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
-
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -58,12 +57,10 @@ useEffect(() => {
       >
         <div className="pt-10 sm:pt-12">
           <h1 className="text-2xl sm:text-3xl lg:text-5xl text-left max-w-[35rem] font-extrabold leading-snug">
-            What{" "}
-            <span className="text-[var(--mulearn-trusty-blue)]">µLearn</span>{" "}
-            offers
+            What <span className="text-mulearn-trusty-blue">µLearn</span> offers
           </h1>
         </div>
-        <h6 className="font-normal max-w-[800px] text-center text-base sm:text-lg md:text-xl text-[var(--mulearn-gray-600)] px-2">
+        <h6 className="font-normal max-w-[800px] text-center text-base sm:text-lg md:text-xl text-mulearn-gray-600 px-2">
           µLearn offers a wide range of features and opportunities that help you
           learn, grow, and upskill yourself in a fun and engaging way. Here are
           some of the key features that µLearn offers.
@@ -89,7 +86,7 @@ useEffect(() => {
                   setIsHovering(true);
                 }
               }}
-              className={`featureCard flex flex-col items-center justify-between p-5 sm:p-6 overflow-hidden border border-gray-200 transition-all duration-300 ${
+              className={`featureCard flex flex-col items-center justify-between p-5 sm:p-6 overflow-hidden border border-mulearn-gray-600/20 transition-all duration-300 ${
                 i === 0
                   ? "rounded-t-xl sm:rounded-l-xl sm:rounded-tr-none"
                   : i === totalCards - 1
@@ -122,7 +119,7 @@ useEffect(() => {
                   {feature.title}
                 </h3>
                 <p
-                  className="transition-all duration-300 text-[var(--mulearn-gray-600)] leading-snug"
+                  className="transition-all duration-300 text-mulearn-gray-600 leading-snug"
                   style={{
                     fontSize: isCardActive(i)
                       ? "1rem"

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants, easeOut } from "framer-motion";
-import { comparisons} from "@/data/data";
+import { comparisons } from "@/data/data";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -22,17 +22,17 @@ export default function Comparison() {
           className="flex flex-col justify-center items-center"
           variants={fadeInUp}
         >
-          <h1 className="text-3xl sm:text-4xl lg:text-[2.5rem] text-[var(--mulearn-blackish)] font-extrabold mb-16 text-center">
+          <h1 className="text-3xl sm:text-4xl lg:text-[2.5rem] text-mulearn-blackish font-extrabold mb-16 text-center">
             μLearn is here to solve all your learning problems
           </h1>
 
           <table className="border-collapse w-full max-w-[800px]">
             <thead>
               <tr>
-                <th className="pb-4 border-b border-[var(--mulearn-greyish)] text-[var(--mulearn-blackish)] text-lg text-right pr-4">
+                <th className="pb-4 border-b border-mulearn-greyish text-mulearn-blackish text-lg text-right pr-4">
                   Problems with Existing Systems
                 </th>
-                <th className="pb-4 border-b border-[var(--mulearn-greyish)] text-[var(--mulearn-blackish)] text-lg text-left pl-4 border-l">
+                <th className="pb-4 border-b border-mulearn-greyish text-mulearn-blackish text-lg text-left pl-4 border-l">
                   How μLearn Works
                 </th>
               </tr>
@@ -44,9 +44,9 @@ export default function Comparison() {
                   return (
                     <tr key={index}>
                       <td className="py-8 px-4 text-right pr-8">{problem}</td>
-                      <td className="py-8 px-4 text-left pl-8 border-l border-[var(--mulearn-greyish)]">
+                      <td className="py-8 px-4 text-left pl-8 border-l border-mulearn-greyish">
                         {before}
-                        <span className="text-[var(--mulearn-trusty-blue)] font-bold">
+                        <span className="text-mulearn-trusty-blue font-bold">
                           {highlight}
                         </span>
                         {after}
@@ -58,7 +58,7 @@ export default function Comparison() {
                 return (
                   <tr key={index}>
                     <td className="py-8 px-4 text-right pr-8">{problem}</td>
-                    <td className="py-8 px-4 text-left pl-8 border-l border-[var(--mulearn-greyish)]">
+                    <td className="py-8 px-4 text-left pl-8 border-l border-mulearn-greyish">
                       {solution}
                     </td>
                   </tr>

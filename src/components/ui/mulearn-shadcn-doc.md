@@ -6,9 +6,9 @@ All components use the following CSS variables (defined in `globals.css`):
 
 ```css
 :root {
-  --mulearn-trusty: linear-gradient(135deg, #2E85FE 0%, #AF2EE6 100%);
-  --mulearn-trusty-blue: #2E85FE;
-  --mulearn-duke-purple: #AF2EE6;
+  --mulearn-trusty: linear-gradient(135deg, #2e85fe 0%, #af2ee6 100%);
+  --mulearn-trusty-blue: #2e85fe;
+  --mulearn-duke-purple: #af2ee6;
   --mulearn-greyish: #c4c4c4;
   --mulearn-blackish: #1a1a1a;
   --mulearn-whitish: #fefefe;
@@ -34,7 +34,7 @@ All components use the following CSS variables (defined in `globals.css`):
 ### Card
 
 ```tsx
-<Card className="bg-[var(--mulearn-trusty)] text-[var(--mulearn-whitish)]">...</Card>
+<Card className="bg-[var(--mulearn-trusty)] text-mulearn-whitish">...</Card>
 ```
 
 ### Input

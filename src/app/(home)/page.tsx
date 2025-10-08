@@ -2,18 +2,16 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar";
-import Hero from "@/app/(home)/components/Hero";
-import Features from "@/app/(home)/components/Features";
-import Story from "@/app/(home)/components/Story";
-import SpecialEvents from "@/app/(home)/components/SpecialEvents";
-import Comparison from "@/app/(home)/components/Comparison";
-import Opportunities from "@/app/(home)/components/Opportunities";
-import Roles from "@/app/(home)/components/Roles";
-import Stats from "@/app/(home)/components/Stats";
-import Community from "./components/Community";
-import Newsletter from "@/app/(home)/components/Newsletter";
-import Footer from "@/components/Footer";
+import Hero from "@/app/(home)/_components/Hero";
+import Features from "@/app/(home)/_components/Features";
+import Story from "@/app/(home)/_components/Story";
+import SpecialEvents from "@/app/(home)/_components/SpecialEvents";
+import Comparison from "@/app/(home)/_components/Comparison";
+import Opportunities from "@/app/(home)/_components/Opportunities";
+import Roles from "@/app/(home)/_components/Roles";
+import Stats from "@/app/(home)/_components/Stats";
+import Community from "@/app/(home)/_components/Community";
+import Newsletter from "@/app/(home)/_components/Newsletter";
 
 const Home = () => {
   const router = useRouter();

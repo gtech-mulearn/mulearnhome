@@ -3,6 +3,7 @@
 import { motion, Variants, easeOut } from "framer-motion";
 import { cdnUrl } from "@services/cdn";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 interface HeroProps {
   refreshToken?: string | null;
@@ -44,14 +45,11 @@ export default function Hero({ refreshToken, redirect }: HeroProps) {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[var(--mulearn-blackish)] leading-snug sm:leading-tight lg:leading-tight mb-4 sm:mb-6 max-w-3xl sm:max-w-4xl"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-mulearn-blackish leading-snug sm:leading-tight lg:leading-tight mb-4 sm:mb-6 max-w-3xl sm:max-w-4xl"
           >
             Your Ultimate Gateway
             <br />
-            to{" "}
-            <span className="text-[var(--mulearn-trusty-blue)]">
-              Peer-Led Growth
-            </span>
+            to <span className="text-mulearn-trusty-blue">Peer-Led Growth</span>
           </motion.h1>
 
           <motion.p
@@ -60,7 +58,7 @@ export default function Hero({ refreshToken, redirect }: HeroProps) {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-base sm:text-lg md:text-xl text-[var(--mulearn-gray-600)] mt-4 sm:mt-6 mb-6 sm:mb-8 max-w-xl sm:max-w-2xl font-normal"
+            className="text-base sm:text-lg md:text-xl text-mulearn-gray-600 mt-4 sm:mt-6 mb-6 sm:mb-8 max-w-xl sm:max-w-2xl font-normal"
           >
             An open community for learners, makers, and innovators
           </motion.p>
@@ -72,8 +70,9 @@ export default function Hero({ refreshToken, redirect }: HeroProps) {
             viewport={{ once: true }}
             variants={textVariant}
           >
-            <button
-              className="bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg md:text-lg font-semibold cursor-pointer transition-all duration-300 hover:bg-[var(--mulearn-duke-purple)] hover:shadow-xl hover:scale-105 active:scale-95"
+            <Button
+              variant={"mulearn-blue"}
+              className="px-6 sm:px-8 md:px-10 py-3 sm:py-4 sm:text-lg md:text-lg hover:shadow-xl hover:scale-105 active:scale-95"
               onClick={() =>
                 refreshToken
                   ? redirect("/dashboard/home")
@@ -81,7 +80,7 @@ export default function Hero({ refreshToken, redirect }: HeroProps) {
               }
             >
               Join µLearn
-            </button>
+            </Button>
           </motion.div>
         </div>
       </div>
