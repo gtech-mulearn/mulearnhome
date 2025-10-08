@@ -47,30 +47,22 @@ export default function Navbar() {
 
   const renderLink = (href?: string, label?: string) => {
     if (!href) return <span>{label}</span>;
-
-    const handleClick = () => setActiveSubmenu(null);
-    const isExternal = href.startsWith("http");
-
-    if (isExternal) {
+    const handleClick = () => {
+      setActiveSubmenu(null);
+    };
+    if (href.startsWith("http")) {
       return (
-        <Link
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={handleClick}
-        >
+        <Link href={href} target="_blank" rel="noopener noreferrer">
           {label}
         </Link>
       );
     }
-
     return (
       <Link href={href} prefetch onClick={handleClick}>
         {label}
       </Link>
     );
   };
-
 
   const getGridClass = (item: (typeof navItems)[number]) => {
     if (item.label === "Be Part of Us" || item.label === "Learning") {
