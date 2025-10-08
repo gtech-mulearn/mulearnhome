@@ -47,22 +47,30 @@ export default function Navbar() {
 
   const renderLink = (href?: string, label?: string) => {
     if (!href) return <span>{label}</span>;
-    const handleClick = () => {
-      setActiveSubmenu(null);
-    };
-    if (href.startsWith("https")) {
+
+    const handleClick = () => setActiveSubmenu(null);
+    const isExternal = href.startsWith("http");
+
+    if (isExternal) {
       return (
-        <Link href={href} target="_blank" rel="noopener noreferrer">
+        <Link
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={handleClick}
+        >
           {label}
         </Link>
       );
     }
+
     return (
       <Link href={href} prefetch onClick={handleClick}>
         {label}
       </Link>
     );
   };
+
 
   const getGridClass = (item: (typeof navItems)[number]) => {
     if (item.label === "Be Part of Us" || item.label === "Learning") {
@@ -130,9 +138,6 @@ export default function Navbar() {
                                     <li
                                       key={subIndex}
                                       className="text-mulearn-gray-600 text-[0.7rem] font-bold cursor-pointer rounded-lg transition-all duration-300 hover:bg-mulearn-trusty-blue/10 hover:text-mulearn-trusty-blue lg:text-[0.8rem] lg:px-2 lg:py-1 leading-snug relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-mulearn-trusty-blue after:transition-all after:duration-500 hover:after:w-full"
-                                      // onClick={() => {
-                                      //   setActiveSubmenu(null);
-                                      // }}
                                     >
                                       {renderLink(subItem.href, subItem.label)}
                                     </li>

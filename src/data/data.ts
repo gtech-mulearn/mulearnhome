@@ -83,12 +83,12 @@ export const navItems = [
   },
   {
     label: "Mentorship",
-    href: "/dashboard/search?activetab=mentors",
+    href: "https://app.mulearn.org/dashboard/search?activetab=mentors",
     submenu: null,
   },
   {
     label: "Learning",
-    href: "/dashboard/learningcircle",
+    href: "https://app.mulearn.org/dashboard/learningcircle",
     submenu: {
       Explore: [
         {
