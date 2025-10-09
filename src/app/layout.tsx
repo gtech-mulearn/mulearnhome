@@ -1,19 +1,38 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Plus_Jakarta_Sans } from "next/font/google"
-import "./globals.css"
+import type { Metadata } from "next";
+import React, { Suspense } from "react";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import MuLoader from "@components/Loader";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "µLearn",
+  description:
+    "Break the echo chamber",
+  authors: [{ name: "µLearn" }],
+  openGraph: {
+    title: "µLearn",
+    description:
+      "µLearn is a synergic philosophy of education, with a culture of mutual learning through micro groups of peers. µLearn is here to assist you in breaking through the echo chambers and free you from the shackles that have you grounded.",
+    siteName: "µLearn",
+    url: "https://mulearn.org/",
+    type: "website",
+    images: ["/assets/logo.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+  metadataBase: new URL("https://mulearn.org/"),
+};
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-jakarta",
+  variable: "--font-sans",
   display: "swap",
-})
+});
 
-export const metadata: Metadata = {
-  title: "µLearn",
-  description: "Personalized learning journey, tailored to each student's abilities and interests",
-}
 
 export default function RootLayout({
   children,
@@ -21,8 +40,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={plusJakarta.variable}>
-      <body className="font-jakarta antialiased">{children}</body>
+    <html lang="en" suppressHydrationWarning> {/* suppress hydration warning */}
+      <body>
+        <Navbar/>
+        {children}
+        <Footer/>
+      </body>
     </html>
   )
 }
