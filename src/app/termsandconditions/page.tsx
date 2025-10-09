@@ -1,17 +1,13 @@
 "use server";
 
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-
 export default async function TermsAndConditions() {
   return (
     <>
-      <Navbar />
-      <div className="mx-auto max-w-5xl lg:max-w-6xl px-4 sm:px-6 lg:px-8 py-16 text-[var(--mulearn-blackish)] text-base lg:text-lg leading-relaxed">
-        <h2 className="text-3xl lg:text-4xl font-bold mb-10 text-center text-[var(--mulearn-blackish)]">
+      <div className="mx-auto max-w-5xl lg:max-w-6xl px-4 sm:px-6 lg:px-8 py-16 text-mulearn-blackish text-base lg:text-lg leading-relaxed">
+        <h2 className="text-3xl lg:text-4xl font-bold mb-10 text-center text-mulearn-blackish">
           TERMS OF SERVICES
         </h2>
-        <p className="text-lg lg:text-xl font-semibold mb-12 text-center text-[var(--mulearn-blackish)]">
+        <p className="text-lg lg:text-xl font-semibold mb-12 text-center text-mulearn-blackish">
           These Terms of Services (“Terms” or “Agreement”) shall apply to use of
           μLearn platform (“μLearn” or “We” or “us”). By becoming a registered
           user of µLearn platform and by clicking the &quot;I Accept&quot;
@@ -22,12 +18,12 @@ export default async function TermsAndConditions() {
         </p>
         <ol className="space-y-12">
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Definitions:
             </strong>
-            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
-                <strong className="font-semibold text-[var(--mulearn-blackish)]">
+                <strong className="font-semibold text-mulearn-blackish">
                   Confidential Information
                 </strong>{" "}
                 means information provided by one party to the other including
@@ -41,7 +37,7 @@ export default async function TermsAndConditions() {
                 control of the disclosing party.
               </li>
               <li>
-                <strong className="font-semibold text-[var(--mulearn-blackish)]">
+                <strong className="font-semibold text-mulearn-blackish">
                   Intellectual Property Rights
                 </strong>{" "}
                 means and includes patents, trademarks, service marks, trade
@@ -55,21 +51,21 @@ export default async function TermsAndConditions() {
                 connection with the foregoing.
               </li>
               <li>
-                <strong className="font-semibold text-[var(--mulearn-blackish)]">
+                <strong className="font-semibold text-mulearn-blackish">
                   Representative
                 </strong>{" "}
                 means any director, officer, employee, agent or professional
                 advisor of μLearn.
               </li>
               <li>
-                <strong className="font-semibold text-[var(--mulearn-blackish)]">
+                <strong className="font-semibold text-mulearn-blackish">
                   Services
                 </strong>{" "}
                 means the services more particularly described in Clause 2 of
                 these Terms.
               </li>
               <li>
-                <strong className="font-semibold text-[var(--mulearn-blackish)]">
+                <strong className="font-semibold text-mulearn-blackish">
                   Training or Training Material(s)
                 </strong>{" "}
                 means the orientation programs, webinars, training or training
@@ -77,13 +73,13 @@ export default async function TermsAndConditions() {
                 the delivery of our Services.
               </li>
               <li>
-                <strong className="font-semibold text-[var(--mulearn-blackish)]">
+                <strong className="font-semibold text-mulearn-blackish">
                   Website
                 </strong>{" "}
                 means https://mulearn.org/ owned and maintained by μLearn.
               </li>
               <li>
-                <strong className="font-semibold text-[var(--mulearn-blackish)]0">
+                <strong className="font-semibold text-mulearn-blackish0">
                   You or you or your or yourself
                 </strong>{" "}
                 refers to the individual/user who uses the Services.
@@ -91,10 +87,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Services:
             </strong>
-            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 A description of our Services together with the Playbook are
                 available in our Website. Pursuant to these Terms, we will
@@ -118,10 +114,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Password Use and Security:
             </strong>
-            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 By registering in the µLearn platform, you acknowledge that the
                 account registered by you in µLearn platform is for your
@@ -150,10 +146,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               License Grant and Proprietary Rights:
             </strong>
-            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 μLearn hereby grants you a personal, limited, non-transferable,
                 non-exclusive and revocable license (without the right to
@@ -234,10 +230,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Code of Conduct:{" "}
             </strong>
-            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 You should be kind, respectful, inclusive, and supportive in all
                 your communications associated with μLearn.
@@ -278,10 +274,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Liability:
             </strong>
-            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 Except as expressly set forth in these Terms, neither Party
                 shall be liable for any indirect, consequential, exemplary,
@@ -307,10 +303,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Disclaimer:{" "}
             </strong>
-            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 Our content is created by experts and goes through strict
                 quality checks. The Website is available to users, including
@@ -338,10 +334,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Confidentiality:{" "}
             </strong>
-            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 Each party agrees to preserve the confidential and secret nature
                 of the other&apos;s Confidential Information and to use the
@@ -378,10 +374,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Termination:{" "}
             </strong>
-            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className="list-[lower-roman] pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 We shall be entitled to terminate these Terms and cease to
                 provide you with any Services with immediate effect in the event
@@ -425,18 +421,18 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Privacy Policy:{" "}
             </strong>
-            <ol className=" pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className=" pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>Please view our privacy policy for more details.</li>
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Indemnification:{" "}
             </strong>
-            <ol className=" pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className=" pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 You agree to indemnify, defend and hold μLearn, its affiliates,
                 its content providers and their Representatives harmless from
@@ -449,10 +445,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Force Majeure:{" "}
             </strong>
-            <ol className=" pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className=" pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 Neither Party shall be liable for delays in performance when
                 caused by any of the following, which are beyond the reasonable
@@ -468,10 +464,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Amendment:{" "}
             </strong>
-            <ol className=" pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className=" pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 We may update or amend these Terms from time to time to comply
                 with law or to meet its changing business requirements or to
@@ -486,10 +482,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               General terms:
             </strong>
-            <ol className=" pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className=" pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 These Terms together with the Website Disclaimer constitutes the
                 entire agreement between the parties on the subject matter
@@ -503,10 +499,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Governing Law & Jurisdiction:
             </strong>
-            <ol className="pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className="pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 These Terms shall be governed by and construed in accordance
                 with Indian law and courts at Trivandrum shall have exclusive
@@ -518,10 +514,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Contact Information:{" "}
             </strong>
-            <ol className="pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className="pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 If you have any comments, questions or concerns about any of the
                 information in this Agreement, or any other issues relating to
@@ -538,10 +534,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Cookies and similar technologies:
             </strong>
-            <ol className="pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className="pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 We may Process your Personal Data by placing or reading Cookies
                 and similar technologies. For more information, please see our
@@ -557,10 +553,10 @@ export default async function TermsAndConditions() {
             </ol>
           </li>
           <li className="space-y-5">
-            <strong className="text-2xl font-bold text-[var(--mulearn-blackish)]">
+            <strong className="text-2xl font-bold text-mulearn-blackish">
               Terms of Service:
             </strong>
-            <ol className="pl-6 lg:pl-8 space-y-4 text-[var(--mulearn-blackish)]">
+            <ol className="pl-6 lg:pl-8 space-y-4 text-mulearn-blackish">
               <li>
                 Please use English language for all official communications.
                 Should you have any questions regarding these Terms, please feel
@@ -582,7 +578,6 @@ export default async function TermsAndConditions() {
           </li>
         </ol>
       </div>
-      <Footer />
     </>
   );
 }

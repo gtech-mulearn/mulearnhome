@@ -22,6 +22,13 @@ export interface RolesContent {
   [key: string]: RoleItem[];
 }
 
+export interface Event {
+  title: string;
+  description: string;
+  link?: string;
+  date: string;
+}
+
 export const navItems = [
   {
     label: "About",
@@ -38,7 +45,7 @@ export const navItems = [
       EVENTS: [
         { label: "GLOBAL CALENDAR", href: "/events/calendar" },
         // { label: "ANNOUNCEMENTS", href: "/events/announcements" },
-        { label: "WEEKLY EVENTS", href: "/events/weekly" },
+        { label: "ALL EVENTS", href: "/events" },
       ],
       Programs: [
         { label: "LAUNCHPAD", href: "https://launchpadkerala.org/" },
@@ -76,12 +83,12 @@ export const navItems = [
   },
   {
     label: "Mentorship",
-    href: "/dashboard/search?activetab=mentors",
+    href: "https://app.mulearn.org/dashboard/search?activetab=mentors",
     submenu: null,
   },
   {
     label: "Learning",
-    href: "/dashboard/learningcircle",
+    href: "https://app.mulearn.org/dashboard/learningcircle",
     submenu: {
       Explore: [
         {
@@ -505,4 +512,101 @@ By visiting our Website or providing µLearn with your Information, you fully un
       subsections: [],
     },
   ],
+};
+
+export const in50hrs = {
+  features: [
+    {
+      title: "PITCH",
+      titleSpan: "IT",
+      description:
+        "Pitch your boldest ideas and captivate them all in just minutes.",
+    },
+    {
+      title: "PROTOTYPE",
+      titleSpan: "TO",
+      description:
+        "Dive into the hustle and bustle of collaboration as teams form and dive headfirst into building their prototypes.",
+    },
+    {
+      title: "GET FUNDED",
+      titleSpan: "GET",
+      description:
+        "Pitch your boldest ideas and captivate them all in just minutes.",
+    },
+  ],
+  steps: [
+    {
+      step: "STEP 1",
+      stepSpan: "1",
+      description:
+        "Collect your coupons, go to the In-50hr-Challenge and type /get-in50hours-coupon to get your coupon code.",
+    },
+    {
+      step: "STEP 2",
+      stepSpan: "2",
+      description:
+        "Go to MakeMyPass.com and register for the event using the coupon code. In case you are not in level 5, you can pay and register.",
+    },
+    {
+      step: "STEP 3",
+      stepSpan: "3",
+      description:
+        "You will receive a confirmation mail having the ticket for joining the event on the 23rd of February.",
+    },
+  ],
+};
+
+export const events: {
+  latestEvents: Event[];
+  recurringEvents: {
+    weekly: Event[];
+    biweekly: Event[];
+    monthly: Event[];
+    flagship: Event[];
+  };
+} = {
+  latestEvents: [
+    {
+      title: "Hacktoberfest 2025",
+      date: "Oct 1-31, 2025",
+      description:
+        "Hacktoberfest 2025 is a month-long open-source celebration where developers across the globe contribute to projects, improve software, and earn a digital badge.",
+    },
+  ],
+  recurringEvents: {
+    flagship: [],
+    weekly: [
+      {
+        title: "Inspiration Station Radio",
+        description:
+          "Everyone has a story to tell, the story about finding their passion, the story of learning new things and much more. Often times these stories are filled with fun and inspirations which fuel others to start their own journey.",
+        link: "/isr",
+        date: "Every Tuesday",
+      },
+      {
+        title: "Open Mic",
+        description:
+          "Already too exhausted by your weekly chores? Insert Open Mic 🎤 into the equation and your week becomes much more fun! The event aims to provide members an open stage to exhibit their skills and talents to the community.",
+        link: "/events/openmic",
+        date: "Every Thursday",
+      },
+      {
+        title: "µLearn Mentor Connect",
+        description:
+          "GTech μLearn presents Mentor Connect 👨🏽‍🏫, an original initiative as part of Weekly Twitch. This initiative will give members an opportunity to interact, learn, and explore their interests with mentors from the Industry.",
+        link: "/events/mentorconnect",
+        date: "Every Friday",
+      },
+      {
+        title: "Salt Mango Tree",
+        description:
+          "English! English! English! I avoid I don't like it, but English likes me, I can't avoid! Well since avoiding English isn't an option, let's try to work towards improving our knowledge of English, by practicing, together.",
+        link: "/events/saltmangotree",
+        date: "Every Wednesday",
+      },
+    ],
+    biweekly: [],
+    monthly: [],
+  },
 };

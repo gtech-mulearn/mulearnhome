@@ -41,7 +41,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
         />
         <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-0 transition-transform duration-300 ease-in-out">
           <button
-            className="bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] hover:bg-[var(--mulearn-duke-purple)] border-none rounded-[30px] py-3 px-8 text-base font-medium cursor-pointer transition-all duration-300 ease-in-out flex items-center justify-center w-full hover:shadow-[0_6px_20px_rgba(0,123,255,0.4)]"
+            className="bg-mulearn-trusty-blue text-mulearn-whitish hover:bg-mulearn-duke-purple border-none rounded-[30px] py-3 px-8 text-base font-medium cursor-pointer transition-all duration-300 ease-in-out flex items-center justify-center w-full hover:shadow-[0_6px_20px_rgba(0,123,255,0.4)]"
             onClick={() => setIsOpen(true)}
           >
             Read More
@@ -52,11 +52,11 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
       {isOpen && (
         <>
           <div
-            className="fixed inset-0 bg-[var(--mulearn-blackish)]/50 z-50"
+            className="fixed inset-0 bg-mulearn-blackish/50 z-50"
             onClick={() => setIsOpen(false)}
           />
           <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-            <div className="rounded-lg overflow-hidden max-w-[400px] w-[90%] max-h-[600px] bg-[var(--mulearn-whitish)]">
+            <div className="rounded-lg overflow-hidden max-w-[400px] w-[90%] max-h-[600px] bg-mulearn-whitish">
               <div className="relative h-[180px] overflow-hidden">
                 <div
                   className="bg-cover bg-center absolute top-0 left-0 right-0 bottom-0 w-full h-full"
@@ -65,7 +65,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
                   }}
                 />
                 <div
-                  className="absolute top-3 right-3 w-5 h-5 text-[var(--mulearn-whitish)] cursor-pointer p-1 rounded-full transition-colors duration-200 hover:bg-[var(--mulearn-whitish)]/20"
+                  className="absolute top-3 right-3 w-5 h-5 text-mulearn-whitish cursor-pointer p-1 rounded-full transition-colors duration-200 hover:bg-mulearn-whitish/20"
                   onClick={() => setIsOpen(false)}
                 >
                   <FiX className="w-5 h-5" />
@@ -74,7 +74,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
 
               <div className="pt-6 pb-4 px-6">
                 <div className="flex flex-col items-start gap-5">
-                  <p className="text-[var(--mulearn-gray-600)] text-base">
+                  <p className="text-mulearn-gray-600 text-base">
                     {specialevent.description}
                   </p>
                   <div className="flex flex-col items-start gap-4 w-full">
@@ -90,7 +90,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
                     )}
                     {specialevent.time && (
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[var(--mulearn-whitish)] text-[var(--mulearn-trusty-blue)]]">
+                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-mulearn-whitish text-mulearn-trusty-blue]">
                           <FiClock className="w-5 h-5" />
                         </div>
                         <p className="text-base">{specialevent.time}</p>
@@ -98,7 +98,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
                     )}
                     {specialevent.location && (
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[var(--mulearn-whitish)] text-[var(--Error)]">
+                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-mulearn-whitish text-[var(--Error)]">
                           <FaMapMarkerAlt className="w-5 h-5" />
                         </div>
                         <p className="text-base">{specialevent.location}</p>
@@ -108,9 +108,9 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
                 </div>
               </div>
 
-              <div className="bg-[var(--mulearn-whitish)] pt-2 pb-6 px-6">
+              <div className="bg-mulearn-whitish pt-2 pb-6 px-6">
                 <button
-                  className="bg-[var(--mulearn-trusty-blue)] text-[var(--mulearn-whitish)] font-semibold text-base rounded-md py-3 px-6 h-[50px] w-full transition-colors duration-200 border-none cursor-pointer hover:bg-[var(--mulearn-duke-purple)]"
+                  className="bg-mulearn-trusty-blue text-mulearn-whitish font-semibold text-base rounded-md py-3 px-6 h-[50px] w-full transition-colors duration-200 border-none cursor-pointer hover:bg-mulearn-duke-purple"
                   onClick={() => window.open(specialevent.link, "_blank")}
                 >
                   Explore More

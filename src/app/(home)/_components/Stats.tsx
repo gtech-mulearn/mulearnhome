@@ -84,11 +84,11 @@ export default function Stats() {
           <div className="flex-1">
             <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] text-center font-extrabold leading-normal min-w-0 sm:min-w-[400px]">
               The Impact of{" "}
-              <span className="text-[var(--mulearn-trusty-blue)]">μLearn</span>
+              <span className="text-mulearn-trusty-blue">μLearn</span>
             </h1>
           </div>
           <div className="flex-1">
-            <h6 className="font-normal mb-16 max-w-[800px] text-center text-lg sm:text-xl text-[var(--mulearn-gray-600)] mt-2.5">
+            <h6 className="font-normal mb-16 max-w-[800px] text-center text-lg sm:text-xl text-mulearn-gray-600 mt-2.5">
               Over the last year, we as a community have made an impact on a
               significant number of students, mentors, and facilitators,
               enabling them to gain more knowledge about the ecosystem of
@@ -154,14 +154,14 @@ function StatCard({
 }) {
   return (
     <div className="flex flex-col justify-center items-center p-4">
-      <p className="font-semibold text-[var(--mulearn-trusty-blue)] text-2xl sm:text-3xl lg:text-[2.5rem]">
+      <p className="font-semibold text-mulearn-trusty-blue text-2xl sm:text-3xl lg:text-[2.5rem]">
         {isString ? (
           value
         ) : (
           <CountUp end={value as number} duration={5} separator="," />
         )}
       </p>
-      <p className="text-sm sm:text-base font-medium mt-1 text-[var(--mulearn-blackish)]">
+      <p className="text-sm sm:text-base font-medium mt-1 text-mulearn-blackish">
         {label}
       </p>
     </div>
