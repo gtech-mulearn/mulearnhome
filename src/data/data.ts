@@ -35,8 +35,8 @@ export const navItems = [
     submenu: {
       "KEY PAGES": [
         { label: "MANIFESTO", href: "/manifesto" },
-        { label: "Team", href: "/team" },
-        { label: "Enablers", href: "/enablers" },
+        { label: "TEAM", href: "/team" },
+        { label: "ENABLERS", href: "/enablers" },
       ],
       Partners: [
         { label: "COMMUNITY PARTNERS", href: "/community-partners" },
@@ -51,7 +51,7 @@ export const navItems = [
         { label: "LAUNCHPAD", href: "https://launchpadkerala.org/" },
         { label: "PERMUTE", href: "https://permute.mulearn.org/" },
         { label: "TOP100SERIES", href: "https://top100coders.com/" },
-        { label: "Art of Teaching", href: "/artofteaching" },
+        { label: "ART OF TEACHING", href: "/artofteaching" },
         { label: "IN50HOURS", href: "/in50hours" },
       ],
       OTHERS: [
@@ -116,7 +116,7 @@ export const navItems = [
 export const features = [
   {
     title: "Community",
-    description: "Join 40,000+ learners & innovators.",
+    description: "Join 60,000+ learners & innovators.",
     image: cdnUrl(
       "public/assets/landing/College Project Concept Illustration.png"
     ),
@@ -609,4 +609,5 @@ export const events: {
     biweekly: [],
     monthly: [],
   },
+
 };
