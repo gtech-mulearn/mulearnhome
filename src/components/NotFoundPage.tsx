@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { cdnUrl } from "@/services/cdn"
+import { cdnUrl } from "@services/cdn";
 
 export default function NotFoundPage() {
     const stone = cdnUrl("src/components/assests/NotFound/Stone.webp")

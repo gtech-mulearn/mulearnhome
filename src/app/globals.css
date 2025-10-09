@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@import "tailwindcss";
+
+
 :root {
   /* MuLearn Brand Colors */
   --mulearn-trusty: linear-gradient(135deg, #2E85FE 0%, #AF2EE6 100%);
@@ -12,6 +15,22 @@
   --background: #ffffff;
   --foreground: #171717;
 }
+*{
+    /* margin: 0px; */
+    /* padding: 0%; */
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    /* color: #404D61; */
+    outline: none;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    /* icon highlighting fix */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
 
 @font-face {
   font-family: "Retro Team";
