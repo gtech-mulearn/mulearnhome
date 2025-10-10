@@ -35,7 +35,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={plusJakarta.variable}>
@@ -47,5 +47,5 @@ export default function RootLayout({
         </Suspense>
       </body>
     </html>
-  );
+  )
 }
