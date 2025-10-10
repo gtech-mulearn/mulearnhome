@@ -1,24 +1,4 @@
-export const termsAndConditions = {
-  title: "TERMS OF SERVICES",
-  lastUpdated: "September 2025",
-  introduction: `These Terms of Services (“Terms” or “Agreement”) shall apply to use of μLearn platform (“μLearn” or “We” or “us”). By becoming a registered user of µLearn platform and by clicking the "I Accept" button on this registration page, and by using the relevant Training, you acknowledge that you have read and understood this Terms of Services and you agree to be bound by all of the terms and conditions of this Agreement.`,
-  sections: [
-    {
-      heading: "Definitions:",
-      content: "",
-      subsections: [
-        "Confidential Information means information provided by one party to the other including in written, graphic, recorded, machine readable or other form concerning the business, clients, suppliers, finances and other areas of the disclosing party's business or products, but does not include information in the public domain other than through the default of the party disclosing the information, information required to be disclosed by any court or regulatory authority, or any information already in the possession or control of the disclosing party.",
-        "Intellectual Property Rights means and includes patents, trademarks, service marks, trade names, designs, copyrights, rights of privacy and publicity and other forms of intellectual or industrial property, know how, trade secrets, any other protected rights or assets and any licenses and permissions in connection therewith, in each and every part of the world and whether or not registered or registrable and for the full period thereof, and all extensions and renewals thereof, and all applications for registration in connection with the foregoing.",
-        "Representative means any director, officer, employee, agent or professional advisor of μLearn.",
-        "Services means the services more particularly described in Clause 2 of these Terms.",
-        "Training or Training Material(s) means the orientation programs, webinars, training or training materials provided by µLearn from time to time in the course of the delivery of our Services.",
-        "Website means https://mulearn.org/ owned and maintained by μLearn.",
-        "You or you or your or yourself refers to the individual/user who uses the Services."
-      ]
-    },
-    // Add more sections as needed, following the privacyPolicy structure
-  ]
-};
+
 import { cdnUrl } from "@/services/cdn";
 import { FaLinkedin, FaInstagram, FaYoutube, FaFacebook } from "react-icons/fa";
 
@@ -211,6 +191,90 @@ export const specialevents = [
     link: "https://www.instagram.com/mulearn.official/p/C6eHEzJyMMn/",
     image: cdnUrl("src/modules/Public/Home/assets/trivialideas.webp"),
     isLive: false,
+  },
+];
+
+export const communityPartners = [
+  {
+    name: "ASAP",
+    image: "src/modules/Public/CommPartners/assets/partners/asap.webp",
+    link: "https://asapkerala.gov.in/",
+  },
+
+  {
+    name: "Kerala Startup Mission",
+    image: "src/modules/Public/CommPartners/assets/partners/ksum.webp",
+    link: "https://startupmission.kerala.gov.in/",
+    // customlink: "/community-partners/iedc",
+    customlink: "",
+  },
+
+  {
+    name: "Blockchain",
+    image: "src/modules/Public/CommPartners/assets/partners/blockchain.webp",
+    link: "https://kba.ai/",
+    customlink: "",
+  },
+
+  {
+    name: "Foxlabs",
+    image: "src/modules/Public/CommPartners/assets/partners/foxlab.webp",
+    link: "https://mulearn.org/community-partners/foxlab",
+    // customlink: "/community-partners/foxlab",
+  },
+  {
+    name: "Institute of Electrical and Electronics Engineers",
+    image: "src/modules/Public/CommPartners/assets/partners/ieee.webp",
+    link: "https://www.ieee.org/",
+    customlink: "",
+  },
+  {
+    name: "Kites Foundation",
+    image: "src/modules/Public/CommPartners/assets/partners/kites.webp",
+    link: "https://kitesfoundation.org/",
+    customlink: "",
+  },
+  {
+    name: "Pygrammers",
+    image: "src/modules/Public/CommPartners/assets/partners/pygrammers.webp",
+    link: "https://pygrammers.org/",
+    customlink: "",
+  },
+  {
+    name: "XtrudAR",
+    image: "src/modules/Public/CommPartners/assets/partners/xtrudar.webp",
+    link: "https://xtrudar.riglabs.co/",
+    customlink: "",
+  },
+  {
+    name: "Kerala Development and Innovation Strategic Council",
+    image: "src/modules/Public/CommPartners/assets/partners/kdisc.webp",
+    link: "https://kdisc.kerala.gov.in/",
+  },
+  {
+    name: "Ether India",
+    image: "src/modules/Public/CommPartners/assets/partners/ether_logo.webp",
+    link: "https://etherindia.org/",
+  },
+  {
+    name: "Kuttycoders",
+    image: "src/modules/Public/CommPartners/assets/partners/kuttycoders.webp",
+    link: "https://kuttycoders.in/",
+  },
+  {
+    name: "Google Educators",
+    image: "src/modules/Public/CommPartners/assets/partners/google_android.webp",
+    link: "https://developer.android.com/teach",
+  },
+  {
+    name: "Google Developer Students Club",
+    image: "src/modules/Public/CommPartners/assets/partners/gdsc.webp",
+    link: "https://gdg.community-partners.dev/",
+  },
+  {
+    name: "ICFOSS",
+    image: "src/modules/Public/CommPartners/assets/partners/icfoss.webp",
+    link: "https://icfoss.in/",
   },
 ];
 
@@ -533,6 +597,28 @@ By visiting our Website or providing µLearn with your Information, you fully un
       subsections: [],
     },
   ],
+};
+
+export const termsAndConditions = {
+  title: "TERMS OF SERVICES",
+  lastUpdated: "September 2025",
+  introduction: `These Terms of Services (“Terms” or “Agreement”) shall apply to use of μLearn platform (“μLearn” or “We” or “us”). By becoming a registered user of µLearn platform and by clicking the "I Accept" button on this registration page, and by using the relevant Training, you acknowledge that you have read and understood this Terms of Services and you agree to be bound by all of the terms and conditions of this Agreement.`,
+  sections: [
+    {
+      heading: "Definitions:",
+      content: "",
+      subsections: [
+        "Confidential Information means information provided by one party to the other including in written, graphic, recorded, machine readable or other form concerning the business, clients, suppliers, finances and other areas of the disclosing party's business or products, but does not include information in the public domain other than through the default of the party disclosing the information, information required to be disclosed by any court or regulatory authority, or any information already in the possession or control of the disclosing party.",
+        "Intellectual Property Rights means and includes patents, trademarks, service marks, trade names, designs, copyrights, rights of privacy and publicity and other forms of intellectual or industrial property, know how, trade secrets, any other protected rights or assets and any licenses and permissions in connection therewith, in each and every part of the world and whether or not registered or registrable and for the full period thereof, and all extensions and renewals thereof, and all applications for registration in connection with the foregoing.",
+        "Representative means any director, officer, employee, agent or professional advisor of μLearn.",
+        "Services means the services more particularly described in Clause 2 of these Terms.",
+        "Training or Training Material(s) means the orientation programs, webinars, training or training materials provided by µLearn from time to time in the course of the delivery of our Services.",
+        "Website means https://mulearn.org/ owned and maintained by μLearn.",
+        "You or you or your or yourself refers to the individual/user who uses the Services."
+      ]
+    },
+    // Add more sections as needed, following the privacyPolicy structure
+  ]
 };
 
 export const in50hrs = {
