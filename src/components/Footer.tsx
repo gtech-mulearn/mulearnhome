@@ -7,7 +7,7 @@ import { footer, socials, contactInfo } from "@/data/data";
 export default function Footer() {
   return (
     <motion.footer
-      className="bg-[var(--mulearn-whitish)] text-[var(--mulearn-blackish)] px-5 py-10 border-t border-border text-center"
+      className="bg-mulearn-whitish text-mulearn-blackish px-5 py-10 border-t border-border text-center"
       variants={{
         hidden: { opacity: 0, y: 50 },
         visible: {
@@ -29,7 +29,7 @@ export default function Footer() {
                 <li key={link.title} className="mb-2">
                   <Link
                     href={link.url}
-                    className="text-[var(--mulearn-blackish)] no-underline transition-colors duration-300 hover:text-[var(--mulearn-trusty-blue)]"
+                    className="text-mulearn-blackish no-underline transition-colors duration-300 hover:text-mulearn-trusty-blue"
                   >
                     {link.title}
                   </Link>
@@ -49,7 +49,7 @@ export default function Footer() {
                   key={social.label}
                   href={social.url}
                   aria-label={social.label}
-                  className="text-2xl text-[var(--mulearn-blackish)] transition-colors duration-300 hover:text-[var(--mulearn-trusty-blue)] max-[480px]:text-xl"
+                  className="text-2xl text-mulearn-blackish transition-colors duration-300 hover:text-mulearn-trusty-blue max-[480px]:text-xl"
                 >
                   <Icon />
                 </Link>
@@ -89,4 +89,4 @@ export default function Footer() {
       </div>
     </motion.footer>
   );
-};
+}
