@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import { in50hrs } from "@/data/data";
 import { cdnUrl } from "@/services/cdn";
 import Link from "next/link";
@@ -34,7 +34,7 @@ export default function In50Hours() {
             Organized By
           </p>
           <div className="flex justify-center md:justify-start">
-            <Image
+            <MuImage
               src={supporters}
               alt="Supporters"
               width={288}
@@ -65,7 +65,7 @@ export default function In50Hours() {
           transition={{ duration: 0.8 }}
           className="w-full max-w-[20rem] sm:max-w-[25rem] md:max-w-[35rem] lg:max-w-[40rem] mx-auto md:mx-0"
         >
-          <Image
+          <MuImage
             src={heroimg}
             alt="In50Hours Hero"
             width={720}
@@ -138,7 +138,7 @@ export default function In50Hours() {
             Ticketing Partner
           </p>
           <div className="flex justify-center md:justify-start">
-            <Image
+            <MuImage
               src={makemypass}
               alt="MakeMyPass"
               width={128}
@@ -155,7 +155,7 @@ export default function In50Hours() {
           viewport={{ once: true }}
           className="w-full max-w-[20rem] sm:max-w-[25rem] md:max-w-[30rem]"
         >
-          <Image
+          <MuImage
             src={joinprgm}
             alt="How to Join Illustration"
             width={480}

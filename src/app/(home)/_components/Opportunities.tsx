@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import { opportunities } from "@/data/data";
 
 const fadeInUp: Variants = {
@@ -46,7 +46,7 @@ export default function Opportunities() {
               variants={fadeInUp}
             >
               <span className="w-full max-w-[150px]">
-                <Image
+                <MuImage
                   src={opportunity.icon}
                   alt={opportunity.name}
                   width={150}
