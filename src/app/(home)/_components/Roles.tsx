@@ -8,7 +8,7 @@ import {
   type Role,
   type RoleItem,
 } from "@/data/data";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -67,7 +67,7 @@ export default function Roles() {
             className="bg-mulearn-greyish/20 rounded-lg overflow-hidden text-center p-5 transition-transform duration-300 ease-in-out hover:-translate-y-[5px]"
             variants={fadeInUp}
           >
-            <Image
+            <MuImage
               src={item.image}
               alt={item.name}
               width={300}

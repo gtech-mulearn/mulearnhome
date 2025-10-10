@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import EventCard from "./EventCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
-import "swiper/css";
+import "swiper/css"; 
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { type Event } from "@/data/data";
@@ -21,7 +21,7 @@ export default function EventCarousel({ events }: Props) {
         spaceBetween={24}
         slidesPerView={1}
         autoplay={{
-          delay: 4000,
+          delay: 2000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}

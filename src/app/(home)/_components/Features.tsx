@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, Variants } from "framer-motion";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import { features } from "@/data/data";
 
 export default function Features() {
@@ -137,7 +137,7 @@ export default function Features() {
                   transform: isCardActive(i) ? "scale(1.1)" : "scale(1)",
                 }}
               >
-                <Image
+                <MuImage
                   src={feature.image}
                   alt={feature.title}
                   width={

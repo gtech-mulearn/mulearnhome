@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import { FiCalendar, FiClock, FiX } from "react-icons/fi";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
@@ -31,7 +31,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
   return (
     <>
       <div className="relative w-full max-w-[400px] h-[400px] rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] font-sans hover:-translate-y-[5px] hover:shadow-[0_15px_40px_rgba(0,0,0,0.2)]">
-        <Image
+        <MuImage
           src={specialevent.image}
           alt={specialevent.title}
           width={400}
