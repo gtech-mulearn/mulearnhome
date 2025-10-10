@@ -7,7 +7,7 @@ import Image, { ImageProps } from "next/image";
  */
 const MuImage = React.forwardRef<HTMLImageElement, ImageProps>((props, ref) => {
   const { width, height, style, ...rest } = props;
-  let newStyle = { ...style };
+  const newStyle = { ...style };
 
   if (width && !height) {
     newStyle.height = "auto";
@@ -15,7 +15,9 @@ const MuImage = React.forwardRef<HTMLImageElement, ImageProps>((props, ref) => {
     newStyle.width = "auto";
   }
 
-  return <Image ref={ref} width={width} height={height} style={newStyle} {...rest} />;
+  // Ensure alt is always present for accessibility
+  const alt = rest.alt ?? "";
+  return <Image ref={ref} width={width} height={height} style={newStyle} {...rest} alt={alt} />;
 });
 
 MuImage.displayName = "MuImage";
