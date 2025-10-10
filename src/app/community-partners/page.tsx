@@ -75,6 +75,7 @@ export default function CommmunityPartners() {
                 height: "auto",
                 borderRadius: "1.5rem",
               }}
+              unoptimized
             />
           </motion.div>
         </div>
@@ -108,9 +109,9 @@ export default function CommmunityPartners() {
             {(communityPartners as Partner[]).map((partner) => (
               <CommunityCard
                 key={partner.name}
-                cname={partner.name}
-                cimage={partner.image}
-                clink={partner.link}
+                name={partner.name}
+                image={partner.image}
+                link={partner.link}
                 customlink={partner.customlink}
               />
             ))}
