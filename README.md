@@ -139,8 +139,8 @@ Defined as CSS variables in `src/app/globals.css`:
 
 ```tsx
 <Button variant="mulearn">MuLearn Gradient Button</Button>
-<Card className="bg-[var(--mulearn-trusty)] text-[var(--mulearn-whitish)">...</Card>
-<h1 className="font-display text-[var(--mulearn-trusty)]">Gradient Heading</h1>
+<Card className="bg-mulearn-trusty text-mulearn-whitish">...</Card>
+<h1 className="font-display text-mulearn-trusty">Gradient Heading</h1>
 ```
 
 ---

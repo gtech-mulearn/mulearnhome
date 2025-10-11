@@ -11,7 +11,7 @@ const fadeInUp: Variants = {
 export default function Calendar() {
   return (
     <>
-      <div className="mx-4 md:mx-auto md:max-w-[1000px] mt-4 md:mt-14">
+      <div className="mx-4 md:mx-auto md:max-w-[1000px] mt-4 md:mt-14 min-h-screen">
         <motion.div
           initial="hidden"
           animate="visible"

@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import EventCard from "./EventCard";
-import { type Event } from "@/data/data";
+import { Event } from "@/lib/types";
 
 interface Props {
   events: Event[];

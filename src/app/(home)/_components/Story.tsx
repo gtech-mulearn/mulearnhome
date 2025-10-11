@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, Variants, easeOut } from "framer-motion";
+import { YouTubeEmbed } from "@next/third-parties/google";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -23,7 +24,7 @@ export default function Story() {
               Understand μLearn with a{" "}
               <span className="text-mulearn-trusty-blue">Story</span>
             </h1>
-            <h6 className="font-normal my-4 mb-8 max-w-[800px] text-left text-lg sm:text-xl text-mulearn-gray-600">
+            <h6 className="font-normal my-4 mb-8 max-w-[800px] text-lg sm:text-xl text-justify text-mulearn-gray-600">
               Meet Aami, an eager learner hungry for growth! Join her voyage
               through the captivating µVerse, where she seizes opportunities,
               builds learning circles, and immerses herself in events, emerging
@@ -44,12 +45,11 @@ export default function Story() {
             }}
             className="w-full h-full"
           >
-            <iframe
-              src="https://www.youtube.com/embed/M9serw-CLU0"
-              title="YouTube video on Mulearn"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              className="w-full h-full border-none"
-              loading="lazy"
+            <YouTubeEmbed
+              videoid="M9serw-CLU0"
+              style="w-full h-full border-none"
+              playlabel="true"
+              params="disablekb=1&enablejsapi=1&playsinline=1"
             />
           </motion.div>
         </div>

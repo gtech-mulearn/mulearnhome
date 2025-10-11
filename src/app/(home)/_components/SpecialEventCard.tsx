@@ -30,7 +30,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
 
   return (
     <>
-      <div className="relative w-full max-w-[400px] h-[400px] rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] font-sans hover:-translate-y-[5px] hover:shadow-[0_15px_40px_rgba(0,0,0,0.2)]">
+      <div className="relative w-full max-w-[400px] h-[400px] rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:-translate-y-[5px] hover:shadow-[0_15px_40px_rgba(0,0,0,0.2)]">
         <MuImage
           src={specialevent.image}
           alt={specialevent.title}
@@ -80,7 +80,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
                   <div className="flex flex-col items-start gap-4 w-full">
                     {specialevent.date && (
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[var(--green)]/50 text-[var(--green)]">
+                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-mulearn-greyish/50 text-mulearn-blackish">
                           <FiCalendar className="w-5 h-5" />
                         </div>
                         <p className="font-medium text-base">
@@ -98,7 +98,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
                     )}
                     {specialevent.location && (
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-mulearn-whitish text-[var(--Error)]">
+                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-mulearn-whitish text-mulearn-duke-purple">
                           <FaMapMarkerAlt className="w-5 h-5" />
                         </div>
                         <p className="text-base">{specialevent.location}</p>

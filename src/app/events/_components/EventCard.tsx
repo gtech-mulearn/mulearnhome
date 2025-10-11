@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar } from "lucide-react";
-import { type Event } from "@/data/data";
+import { Event } from "@/lib/types";
 
 interface Props {
   event: Event;
