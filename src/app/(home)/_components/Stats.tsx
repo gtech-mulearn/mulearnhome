@@ -24,7 +24,7 @@ export default function Stats() {
         setCounts(JSON.parse(event.data) as Counts);
       };
       const handleError = (event: Event) => {
-        console.error("WebSocket error: ", event);
+        void event;
       };
       socket.addEventListener("message", handleMessage);
       socket.addEventListener("error", handleError);

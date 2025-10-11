@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, Variants, easeOut } from "framer-motion";
+import { YouTubeEmbed } from "@next/third-parties/google";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -44,12 +45,11 @@ export default function Story() {
             }}
             className="w-full h-full"
           >
-            <iframe
-              src="https://www.youtube.com/embed/M9serw-CLU0"
-              title="YouTube video on Mulearn"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              className="w-full h-full border-none"
-              loading="lazy"
+            <YouTubeEmbed
+              videoid="M9serw-CLU0"
+              style="w-full h-full border-none"
+              playlabel="true"
+              params="controls=1&disablekb=1&enablejsapi=1&playsinline=1"
             />
           </motion.div>
         </div>
