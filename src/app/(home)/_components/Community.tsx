@@ -2,7 +2,7 @@
 
 import { motion, Variants, easeOut } from "framer-motion";
 import { cdnUrl } from "@/services/cdn";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import Link from "next/link";
 
 const fadeInUp: Variants = {
@@ -53,7 +53,7 @@ export default function Community() {
           variants={fadeInUp}
           className="flex justify-center items-center"
         >
-          <Image
+          <MuImage
             src={community}
             alt="Join community"
             height={640}

@@ -2,7 +2,7 @@
 
 import { motion, Variants, easeOut } from "framer-motion";
 import { cdnUrl } from "@services/cdn";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
 
 interface HeroProps {
@@ -93,7 +93,7 @@ export default function Hero({ refreshToken, redirect }: HeroProps) {
         variants={textVariant}
         className="relative w-full mt-8 sm:mt-12 md:mt-16 flex justify-center"
       >
-        <Image
+        <MuImage
           src={illustration}
           alt="Community illustration"
           width={1300}

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navItems, type SubItem } from "@data/data";
@@ -84,12 +84,13 @@ export default function Navbar() {
           transition={{ duration: 0.6 }}
         >
           <Link href="/" className="flex items-center flex-shrink-0">
-            <Image
+            <MuImage
               src="/assets/logo.png"
               alt="Mulearn Brand"
               width={170}
               height={170}
               priority
+              style={{ height: 'auto' }}
             />
           </Link>
 
@@ -162,12 +163,13 @@ export default function Navbar() {
         <>
           <div className="flex justify-between items-center p-4 relative z-[1000]">
             <Link href="/" className="flex items-center flex-shrink-0">
-              <Image
+              <MuImage
                 src="/assets/logo.png"
                 alt="Mulearn Brand"
                 width={170}
                 height={170}
                 priority
+                style={{ height: 'auto' }}
               />
             </Link>
             <motion.button

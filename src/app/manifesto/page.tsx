@@ -2,7 +2,7 @@
 
 import React from "react";
 import { cdnUrl } from "@/services/cdn";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -13,7 +13,7 @@ export default function Manifesto() {
   return (
     <section className="overflow-x-hidden">
       <div className="relative min-h-[120px] flex flex-col md:flex-row bg-mulearn-trusty-blue mt-[6vw] md:h-[20vw] h-[40vw] pl-0 rounded-t-[1.2rem] md:rounded-none">
-        <Image
+        <MuImage
           src={bglogo}
           alt="µLearn background logo"
           width={400}
@@ -36,7 +36,7 @@ export default function Manifesto() {
           </motion.h1>
         </div>
 
-        <Image
+        <MuImage
           src={handimg}
           alt="Hand illustration"
           width={400}
