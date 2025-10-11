@@ -25,7 +25,7 @@ export default function CommmunityPartners() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center md:ml-3 md:mr-3 xl:ml-0 xl:mr-0 lg:ml-0 lg:mr-0 ">
+      <div className="flex flex-col items-center justify-center md:ml-3 md:mr-3 xl:ml-0 xl:mr-0 lg:ml-0 lg:mr-0 min-h-screen">
         <div className="flex flex-col md:flex-row items-center justify-around w-full ">
           <motion.div
             initial="hidden"

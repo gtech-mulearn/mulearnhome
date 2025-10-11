@@ -14,7 +14,7 @@ const joinprgm = cdnUrl("src/modules/Public/In50Hours/tsimg.png");
 
 export default function In50Hours() {
   return (
-    <div className="flex flex-col justify-between items-center text-mulearn-blackish">
+    <div className="flex flex-col justify-between items-center text-mulearn-blackish min-h-screen">
       <div className="flex flex-col items-center justify-between p-2 sm:p-4 max-w-[1300px] w-full mx-auto md:flex-row md:items-center">
         <motion.div
           initial={{ opacity: 0, x: -50 }}

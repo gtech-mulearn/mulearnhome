@@ -36,7 +36,7 @@ export default function Events() {
 
   return (
     <>
-      <section className="bg-mulearn-whitish px-6 py-8 md:px-12">
+      <section className="bg-mulearn-whitish px-6 py-8 md:px-12 min-h-screen">
         <div className="max-w-[1300px] mx-auto mb-16">
           <motion.div
             initial="hidden"
