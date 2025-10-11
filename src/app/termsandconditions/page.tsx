@@ -23,7 +23,7 @@ const SubsectionList = ({ subsections }: { subsections: string[] }) => (
 
 export default async function TermsAndConditions() {
   return (
-    <main className="min-h-screen bg-[var(--mulearn-whitish)]">
+    <main className="min-h-screen bg-mulearn-whitish">
       <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10 xl:px-12">
         <header className="mb-10 text-center">
           <h1 className="mb-3 text-3xl sm:text-4xl font-extrabold text-mulearn-blackish tracking-tight uppercase">
@@ -51,11 +51,15 @@ export default async function TermsAndConditions() {
 
               <div className="mb-4 space-y-4">
                 {section.content &&
-                  section.content
-                    .split("\n\n")
-                    .map((paragraph, pIndex) => (
-                      <Paragraph key={pIndex} text={paragraph} />
-                    ))}
+                  (Array.isArray(section.content)
+                    ? section.content.map((paragraph, pIndex) => (
+                        <Paragraph key={pIndex} text={paragraph} />
+                      ))
+                    : section.content
+                        .split("\n\n")
+                        .map((paragraph, pIndex) => (
+                          <Paragraph key={pIndex} text={paragraph} />
+                        )))}
               </div>
 
               {section.subsections.length > 0 && (

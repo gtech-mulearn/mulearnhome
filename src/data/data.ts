@@ -666,55 +666,63 @@ export const termsAndConditions = {
     },
     {
       heading: "Indemnification",
-      subsections: [
+      content: [
         "You agree to indemnify, defend and hold μLearn, its affiliates, its content providers and their Representatives harmless from and against any and all claims, liability, losses, damages, costs and expenses (including reasonable legal fees on a solicitor and client basis) incurred by us as a result of or in connection with any breach or alleged breach by you or anyone acting on your behalf of any of these Terms.",
       ],
+      subsections: [],
     },
     {
       heading: "Force Majeure",
-      subsections: [
+      content: [
         "Neither Party shall be liable for delays in performance when caused by any of the following, which are beyond the reasonable control of the delayed Party: Acts of God, Acts of the public enemy, acts or failure to act by the other Party, acts of civil or military authority, governmental priorities, strikes or other labour disturbances, hurricanes, earthquakes, fires, floods, epidemics, embargoes, war, riots. In the event of any such delay, the date of delivery or of performance shall be extended for a period equal to the effect of time lost by reason of the delay.",
       ],
+      subsections: [],
     },
     {
       heading: "Amendment",
-      subsections: [
+      content: [
         "We may update or amend these Terms from time to time to comply with law or to meet its changing business requirements or to correct any errors without notice to you. Any updates or amendments will be posted on the Website. If there is any conflict between these Terms, any applicable Additional Terms and the Terms and Conditions of Website Use, the conflict shall be resolved according to the following order of priority: (i) the Additional Terms; (ii) the Terms; and (iii) the Terms and Conditions of Website Use.",
       ],
+      subsections: [],
     },
     {
       heading: "General Terms",
-      subsections: [
+      content: [
         "These Terms together with the Website Disclaimer constitutes the entire agreement between the parties on the subject matter hereof, and supersedes all prior or contemporaneous written or verbal agreements and understandings with you in connection therewith. If any provision of these Terms is held by a court of competent jurisdiction to be invalid, void or unenforceable, the remaining provisions shall, nevertheless, continue in full force and effect without being impaired or invalidated in any way.",
       ],
+      subsections: [],
     },
     {
       heading: "Governing Law & Jurisdiction",
-      subsections: [
+      content: [
         "These Terms shall be governed by and construed in accordance with Indian law and courts at Trivandrum shall have exclusive jurisdiction with respect of any dispute or other action arising as a result of, in relation to or regarding these Terms to the exclusion of any other court that may have jurisdiction in the matter.",
       ],
+      subsections: [],
     },
     {
       heading: "Contact Information",
-      subsections: [
+      content: [
         "If you have any comments, questions or concerns about any of the information in this Agreement, or any other issues relating to the Processing of Personal Data carried out by us, or on our behalf, you can contact us by any of the following methods:",
         "Email: mulearnadmin@gtechindia.org",
         "Postal Address: Technopark Trivandrum, Kazhakkoottam, Trivandrum - 695581, Kerala, India",
         "Telephone: +91 99957 10101",
       ],
+      subsections: [],
     },
     {
       heading: "Cookies and Similar Technologies",
-      subsections: [
+      content: [
         "We may Process your Personal Data by placing or reading Cookies and similar technologies. For more information, please see our Cookie Policy. When you visit our Website we may place Cookies onto your device, or read Cookies already on your device, subject always to obtaining your consent, where required, in accordance with Applicable Law. We use Cookies to record information about your device, your browser and in some cases, your preferences and browsing habits. We may process your Personal Data through Cookies and similar technologies, in accordance with our Cookie Policy and Privacy Policy.",
       ],
+      subsections: [],
     },
     {
       heading: "Terms of Service",
-      subsections: [
+      content: [
         "Please use English language for all official communications. Should you have any questions regarding these Terms, please feel free to reach out to mulearnadmin@gtechindia.org.",
         "All use of our Website(s), or our Services is subject to these Terms. We recommend that you review our Terms of Use regularly, in order to review any changes we might make from time to time. Any changes to this Agreement will be posted on the Website and will become effective and be binding on you immediately upon posting in our Website. µLearn may also change the terms by notifying you by any other reasonable form of notification, effective immediately upon notice being provided. Your continued use of the µLearn platform constitutes your acceptance of those changes.",
       ],
+      subsections: [],
     },
   ],
 };

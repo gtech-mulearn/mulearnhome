@@ -95,7 +95,7 @@ export default function Navbar() {
             />
           </Link>
 
-          <ul className="flex items-center gap-8 list-none m-0 p-0 xl:gap-8 lg:gap-6 md:gap-4 font-sans">
+          <ul className="flex items-center gap-8 list-none m-0 p-0 xl:gap-8 lg:gap-6 md:gap-4">
             {navItems.map((item, index) => (
               <motion.li
                 key={index}

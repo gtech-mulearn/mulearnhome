@@ -8,19 +8,19 @@ const formatText = (text: string) =>
     .replace(/\*(.*?)\*/g, "<em>$1</em>")
     .replace(
       /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g,
-      '<a href="mailto:$1" class="font-medium text-[var(--mulearn-trusty-blue)] underline underline-offset-4 hover:text-[var(--mulearn-duke-purple)]">$1</a>'
+      '<a href="mailto:$1" class="font-medium text-mulearn-trusty-blue underline underline-offset-4 hover:text-mulearn-duke-purple">$1</a>'
     );
 
 const Paragraph = ({ text }: { text: string }) => (
   <p
-    className="text-[15px] sm:text-base leading-7 text-[var(--mulearn-blackish)] font-sans text-justify"
+    className="text-[15px] sm:text-base leading-7 text-mulearn-blackish text-justify"
     dangerouslySetInnerHTML={{ __html: formatText(text) }}
   />
 );
 
 const SubsectionList = ({ subsections }: { subsections: string[] }) => (
   <ol
-    className="ml-6 space-y-3 text-[15px] sm:text-base text-[var(--mulearn-blackish)] font-sans text-justify"
+    className="ml-6 space-y-3 text-[15px] sm:text-base text-mulearn-blackish text-justify"
     style={{ listStyleType: "lower-roman" }}
   >
     {subsections.map((subsection, index) => (
