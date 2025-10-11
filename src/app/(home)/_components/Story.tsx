@@ -49,7 +49,7 @@ export default function Story() {
               videoid="M9serw-CLU0"
               style="w-full h-full border-none"
               playlabel="true"
-              params="controls=1&disablekb=1&enablejsapi=1&playsinline=1"
+              params="disablekb=1&enablejsapi=1&playsinline=1"
             />
           </motion.div>
         </div>

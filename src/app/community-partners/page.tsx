@@ -3,7 +3,7 @@
 import { communityPartners } from "@/data/data";
 import CommunityCard from "@/app/community-partners/_components/CommunityCard";
 import { cdnUrl } from "@services/cdn";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import { motion, Variants, easeOut } from "framer-motion";
 import { Partner } from "@/lib/types";
 
@@ -55,7 +55,7 @@ export default function CommmunityPartners() {
             variants={fadeInRight}
             className="w-full flex justify-center md:w-auto md:flex md:items-center md:justify-center"
           >
-            <Image
+            <MuImage
               src={cdnUrl(
                 "src/modules/Public/CommPartners/assets/Coding workshop.gif"
               )}
