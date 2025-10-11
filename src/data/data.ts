@@ -662,7 +662,8 @@ export const termsAndConditions = {
     },
     {
       heading: "Privacy Policy",
-      subsections: ["Please refer to our Privacy Policy for more details."],
+      content: ["Please refer to our Privacy Policy for more details."],
+      subsections: [],
     },
     {
       heading: "Indemnification",
