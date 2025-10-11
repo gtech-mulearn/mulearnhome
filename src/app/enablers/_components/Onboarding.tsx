@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { enablers } from "@/data/data";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import Link from "next/link";
 import { motion, Variants, easeOut } from "framer-motion";
 
@@ -38,7 +38,7 @@ export default function Onboarding() {
               key={index}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true }}
               variants={fadeInUp}
             >
               <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -48,7 +48,7 @@ export default function Onboarding() {
                       <div className="text-7xl font-bold text-mulearn-trusty-blue/10 select-none">
                         {step.number}
                       </div>
-                      <Image
+                      <MuImage
                         src={step.image}
                         alt={step.title}
                         width={100}

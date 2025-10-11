@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { enablers } from "@/data/data";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import Link from "next/link";
 import { motion, Variants, easeOut } from "framer-motion";
 
@@ -49,12 +49,12 @@ export default function Programs() {
               key={index}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true }}
               variants={fadeInUp}
             >
               <Card className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
                 <div className="relative w-auto overflow-hidden">
-                  <Image
+                  <MuImage
                     src={program.image}
                     alt={program.title}
                     width={200}

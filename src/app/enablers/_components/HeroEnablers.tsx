@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { cdnUrl } from "@/services/cdn";
 import { motion } from "framer-motion";
+import MuImage from "@/components/MuImage";
 
 const heroImage = cdnUrl("src/modules/Public/EnablersPage/assests/Hero.webp");
 
@@ -42,7 +42,7 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="relative w-full max-w-md lg:max-w-lg">
-              <Image
+              <MuImage
                 src={heroImage}
                 alt="Hero Image"
                 width={400}

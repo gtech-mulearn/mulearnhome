@@ -15,7 +15,7 @@ export default function WhoIsEnabler() {
           className="max-w-4xl mx-auto text-center space-y-6"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true }}
           variants={{
             hidden: { opacity: 0, y: 50 },
             visible: {

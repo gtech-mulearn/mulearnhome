@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import { enablers } from "@/data/data";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { motion, Variants, easeOut } from "framer-motion";
@@ -35,12 +35,12 @@ export default function Benefits() {
               className="rounded-2xl border border-mulearn-gray-600/20 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 p-8 flex flex-col space-y-6"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true }}
               variants={fadeInUp}
             >
               {benefit.image && (
                 <div className="w-full h-36 rounded-2xl overflow-hidden flex items-center justify-center">
-                  <Image
+                  <MuImage
                     src={benefit.image}
                     alt={benefit.title}
                     className="object-cover w-full h-full"

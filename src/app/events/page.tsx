@@ -3,7 +3,8 @@
 import { motion, type Variants, easeOut } from "framer-motion";
 import EventCarousel from "@/app/events/_components/EventCarousel";
 import Grid from "@/app/events/_components/Grid";
-import { events, type Event } from "@/data/data";
+import { events } from "@/data/data";
+import { Event } from "@/lib/types";
 
 export default function Events() {
   const fadeInUp: Variants = {

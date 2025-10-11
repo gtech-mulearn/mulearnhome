@@ -33,13 +33,13 @@ const SubsectionList = ({ subsections }: { subsections: string[] }) => (
 
 export default async function PrivacyPolicy() {
   return (
-    <main className="min-h-screen bg-[var(--mulearn-whitish)]">
+    <main className="min-h-screen bg-mulearn-whitish">
       <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10 xl:px-12">
         <header className="mb-10 text-center">
-          <h1 className="mb-3 text-3xl sm:text-4xl font-extrabold font-display text-[var(--mulearn-blackish)] tracking-tight uppercase">
+          <h1 className="mb-3 text-3xl sm:text-4xl font-extrabold text-mulearn-blackish tracking-tight uppercase">
             {privacyPolicy.title}
           </h1>
-          <p className="text-sm text-[var(--mulearn-gray-600)] font-sans">
+          <p className="text-sm text-mulearn-gray-600">
             Last Updated: {privacyPolicy.lastUpdated}
           </p>
         </header>
@@ -53,7 +53,7 @@ export default async function PrivacyPolicy() {
         <div className="space-y-12">
           {privacyPolicy.sections.map((section, index) => (
             <section key={index} className="scroll-mt-20">
-              <h2 className="mb-3 text-lg font-semibold font-display text-[var(--mulearn-blackish)] text-justify">
+              <h2 className="mb-3 text-lg font-semibold text-mulearn-blackish text-justify">
                 {index + 1}. {section.heading}
               </h2>
 

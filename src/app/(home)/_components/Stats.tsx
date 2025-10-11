@@ -3,30 +3,7 @@
 import { motion, Variants, easeOut } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
-
-interface OrgTypeCount {
-  org_type: string;
-  org_count: number;
-}
-
-interface KarmaPowCount {
-  karma_count: number;
-  pow_count: number;
-}
-
-interface RoleCount {
-  role__title: string;
-  role_count: number;
-}
-
-interface Counts {
-  members: number;
-  learning_circle_count: number;
-  org_type_counts: OrgTypeCount[];
-  ig_count: number;
-  karma_pow_count: KarmaPowCount;
-  enablers_mentors_count: RoleCount[];
-}
+import { Counts } from "@/lib/types";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },

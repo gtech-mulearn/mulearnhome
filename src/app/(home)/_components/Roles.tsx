@@ -2,12 +2,8 @@
 
 import { useState } from "react";
 import { motion, Variants } from "framer-motion";
-import {
-  rolesTitle,
-  rolesContent,
-  type Role,
-  type RoleItem,
-} from "@/data/data";
+import { rolesTitle, rolesContent } from "@/data/data";
+import { Role, RoleItem } from "@/lib/types";
 import MuImage from "@/components/MuImage";
 
 const fadeInUp: Variants = {

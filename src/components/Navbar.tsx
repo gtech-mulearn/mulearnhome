@@ -5,7 +5,8 @@ import Link from "next/link";
 import MuImage from "@/components/MuImage";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { navItems, type SubItem } from "@data/data";
+import { navItems } from "@data/data";
+import { SubItem } from "@/lib/types";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -90,7 +91,7 @@ export default function Navbar() {
               width={170}
               height={170}
               priority
-              style={{ height: 'auto' }}
+              style={{ height: "auto" }}
             />
           </Link>
 
@@ -169,7 +170,7 @@ export default function Navbar() {
                 width={170}
                 height={170}
                 priority
-                style={{ height: 'auto' }}
+                style={{ height: "auto" }}
               />
             </Link>
             <motion.button
