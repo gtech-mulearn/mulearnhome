@@ -34,13 +34,13 @@ All components use the following CSS variables (defined in `globals.css`):
 ### Card
 
 ```tsx
-<Card className="bg-[var(--mulearn-trusty)] text-mulearn-whitish">...</Card>
+<Card className="bg-mulearn-trusty text-mulearn-whitish">...</Card>
 ```
 
 ### Input
 
 ```tsx
-<Input className="border-[var(--mulearn-trusty)]" />
+<Input className="border-mulearn-trusty" />
 ```
 
 ## How to Add New Components

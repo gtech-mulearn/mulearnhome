@@ -39,6 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={plusJakarta.variable}>
+      <head>
+        <link rel="preload" as="font" href="/fonts/CirceRounded-Bold.otf" crossOrigin="anonymous" />
+      </head>
       <body className="font-sans antialiased">
         <Suspense fallback={<MuLoader />}>
           <Navbar />

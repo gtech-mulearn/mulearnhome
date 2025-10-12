@@ -3,7 +3,8 @@
 import { motion, type Variants, easeOut } from "framer-motion";
 import EventCarousel from "@/app/events/_components/EventCarousel";
 import Grid from "@/app/events/_components/Grid";
-import { events, type Event } from "@/data/data";
+import { events } from "@/data/data";
+import { Event } from "@/lib/types";
 
 export default function Events() {
   const fadeInUp: Variants = {
@@ -35,7 +36,7 @@ export default function Events() {
 
   return (
     <>
-      <section className="bg-mulearn-whitish px-6 py-8 md:px-12">
+      <section className="bg-mulearn-whitish px-6 py-8 md:px-12 min-h-screen">
         <div className="max-w-[1300px] mx-auto mb-16">
           <motion.div
             initial="hidden"
