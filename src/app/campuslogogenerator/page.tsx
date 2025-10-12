@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useRef, useState } from "react";
+import * as htmlToImage from "html-to-image";
 
 const CampusLogoGenerator = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -13,7 +14,6 @@ const CampusLogoGenerator = () => {
       setBottomOffset(mobile ? "4rem" : "5.5rem");
     };
 
-    // Set initial value
     handleResize();
     
     window.addEventListener('resize', handleResize);
@@ -34,7 +34,7 @@ const CampusLogoGenerator = () => {
 
   const MAX_CHARS = 15;
 
-  //  USE CSS VARIABLES INSTEAD OF HARDCODED COLORS
+  
   const logoTypes = ["MuLearn", "YIP"] as const;
   const muLogoVariants = ["Profile Pic", "Transparent Bg"] as const;
   const yipLogoVariants = ["Black", "Red", "Dark"] as const;
@@ -52,7 +52,6 @@ const CampusLogoGenerator = () => {
   const yipLogoRed = "/logo-template/yip-logo-red.svg";
   const yipLogoDark = "/logo-template/yip-logo-dark.svg";
 
-  // Logo variants for µLearn (using the same logo file with different CSS filters)
   const logoVariants = {
     white: mulearnLogo,
     blue: mulearnLogo, 
@@ -90,18 +89,41 @@ const CampusLogoGenerator = () => {
     }
   }
 
-  const handleGenerate = () => {
-    if (!campusCode) return alert("Campus Code is required");
+  // download function that downloads the image
+  const downloadImg = async () => {
+    let dataUrl;
 
-    alert(
-      `Generating logo with:
-      Campus Code: ${campusCode}
-      Logo Variant: ${logoType}
-      File Type: ${fileType}`
-    );
+    if (!campusCode) return alert("Campus Code is required");
+    if (!domEl.current) return alert("Logo element not found");
+
+    setIsDownloading(true);
+
+    try {
+      switch (fileType) {
+        case "PNG":
+          dataUrl = await htmlToImage.toPng(domEl.current);
+          break;
+        case "SVG":
+          dataUrl = await htmlToImage.toSvg(domEl.current);
+          break;
+        default:
+          dataUrl = await htmlToImage.toPng(domEl.current);
+      }
+
+      const link = document.createElement("a");
+      const prefix = logoType === "MuLearn" ? "mulearn" : "yip";
+      link.download = `${prefix}-campus-logo.${fileType.toLowerCase()}`;
+      link.href = dataUrl;
+      link.click();
+    } catch (error) {
+      console.error("Error downloading image:", error);
+      alert("Error downloading image. Please try again.");
+    } finally {
+      setIsDownloading(false);
+    }
   };
 
-  // Get filter style based on selected variant
+ 
   const getLogoFilter = () => {
     switch(selectedLogoVariant) {
       case "white": return { filter: "brightness(0) invert(1)" };
@@ -112,14 +134,41 @@ const CampusLogoGenerator = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen h-screen bg-background text-foreground overflow-hidden">
-      {/* Main Content */}
-     <div className="flex flex-col sm:flex-row min-h-screen bg-mulearn-whitish border-2 border-mulearn-greyish overflow-auto">
+  const getCampusCodeStyle = (isRound: boolean = false) => {
+    const baseStyle = {
+      position: "absolute" as const,
+      zIndex: 20,
+      color: "var(--mulearn-whitish)"
+    };
 
-        {/* Logo Preview Section */}
+    if (logoType === "YIP") {
+      return {
+        ...baseStyle,
+        color: yipLogoTextColors[yipLogoVariant],
+        bottom: "1.5rem",
+        textAlign: "center" as const,
+        width: "100%"
+      };
+    }
+
+   
+    return {
+      ...baseStyle,
+      bottom: isRound ? "5.5rem" : bottomOffset,
+      right: "2rem", 
+      textAlign: "right" as const,
+      whiteSpace: "nowrap" as const,
+      transform: "translateX(0)"
+    };
+  };
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="flex flex-col sm:flex-row min-h-screen bg-mulearn-whitish">
+
+       
         <div 
-          className="flex justify-center items-center gap-8 sm:gap-16 w-full py-8 sm:py-6 px-4 sm:px-6 sm:h-screen border-b-2 sm:border-b-0 sm:border-r-2 border-mulearn-greyish"
+          className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 w-full py-8 sm:py-6 px-4 sm:px-6 border-b-2 sm:border-b-0 sm:border-r-2 border-mulearn-greyish"
           style={{ background: "var(--mulearn-blackish)" }}
         >
           {/* Square Display */}
@@ -161,37 +210,18 @@ const CampusLogoGenerator = () => {
               alt="Logo"
             />
 
+            
             <span
-              className={
-                logoType === "MuLearn"
-                  ? "absolute font-light text-2xl tracking-wide text-center w-full"
-                  : "absolute text-2xl text-center w-full font-bold"
-              }
-              style={
-                logoType === "YIP"
-                  ? {
-                      color: yipLogoTextColors[yipLogoVariant],
-                      position: "absolute",
-                      bottom: "1.5rem",
-                      zIndex: 20
-                    }
-                  : {
-                      position: "absolute",
-                      bottom: bottomOffset,
-                      zIndex: 20,
-                       color: "var(--mulearn-whitish)" 
-                     
-                    }
-              }
+              className="absolute font-light text-2xl tracking-wide"
+              style={getCampusCodeStyle(false)}
             >
               {campusCode ? campusCode : "Campus"}
             </span>
           </div>
 
-          {/* Round Display */}
           {(logoType === "YIP" || muLogoVariant === "Profile Pic") && (
             <div
-              className="relative overflow-hidden hidden rounded-full w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:flex justify-center shadow-lg"
+              className="relative overflow-hidden rounded-full w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 flex justify-center shadow-lg sm:hidden"
               style={
                 logoType === "MuLearn"
                   ? muLogoVariant === "Transparent Bg"
@@ -226,27 +256,56 @@ const CampusLogoGenerator = () => {
                 style={logoType === "MuLearn" ? getLogoFilter() : {}}
                 alt="Logo"
               />
+              
               <span
+                className="absolute font-light text-2xl tracking-wide"
+                style={getCampusCodeStyle(true)}
+              >
+                {campusCode ? campusCode : "Campus"}
+              </span>
+            </div>
+          )}
+
+          {(logoType === "YIP" || muLogoVariant === "Profile Pic") && (
+            <div
+              className="relative overflow-hidden hidden sm:flex rounded-full w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:flex justify-center shadow-lg"
+              style={
+                logoType === "MuLearn"
+                  ? muLogoVariant === "Transparent Bg"
+                    ? { backgroundColor: "transparent" }
+                    : { backgroundColor: logoBgColor }
+                  : yipLogoVariant === "Dark"
+                  ? { backgroundColor: "var(--mulearn-blackish)" }
+                  : { backgroundColor: "var(--mulearn-whitish)" }
+              }
+            >
+              {logoType === "MuLearn" && muLogoVariant === "Profile Pic" && (
+                <div className="absolute top-0 left-0 right-0 bottom-0 z-0 overflow-hidden rounded-full">
+                  <img
+                    src={stripesPattern}
+                    alt="stripes background"
+                    className="min-w-full min-h-full w-full h-full object-fill"
+                    style={{ objectPosition: "center", transform: "scale(1.05)" }}
+                  />
+                </div>
+              )}
+              
+              <img
+                src={logoType === "MuLearn" ? mulearnLogo : yipLogoImages[yipLogoVariant]}
                 className={
                   logoType === "MuLearn"
-                    ? "absolute font-light text-2xl tracking-wide text-center w-full"
-                    : "absolute text-2xl text-center w-full font-bold"
+                    ? "w-2/3 absolute top-1/2 transform -translate-y-1/2 z-10"
+                    : yipLogoVariant === "Dark"
+                    ? "ml-4 w-3/5 top-6 absolute"
+                    : "w-1/2 top-6 absolute"
                 }
-                style={
-                  logoType === "YIP"
-                    ? {
-                        color: yipLogoTextColors[yipLogoVariant],
-                        position: "absolute",
-                        bottom: "1.5rem",
-                        zIndex: 20
-                      }
-                    : {
-                        position: "absolute",
-                        bottom: "5.5rem",
-                        zIndex: 20,
-                        color: "var(--mulearn-whitish)"
-                      }
-                }
+                style={logoType === "MuLearn" ? getLogoFilter() : {}}
+                alt="Logo"
+              />
+              
+              <span
+                className="absolute font-light text-2xl tracking-wide"
+                style={getCampusCodeStyle(true)}
               >
                 {campusCode ? campusCode : "Campus"}
               </span>
@@ -254,8 +313,7 @@ const CampusLogoGenerator = () => {
           )}
         </div>
 
-        {/* Controls */}
-        <form className="w-full sm:w-1/2 md:w-1/3 sm:max-w-lg sm:h-screen p-3 sm:p-5 sm:pl-8 lg:p-8 lg:pl-12 flex flex-col justify-between bg-background overflow-hidden"
+        <form className="w-full sm:w-1/2 md:w-1/3 p-3 sm:p-5 sm:pl-8 lg:p-8 lg:pl-12 flex flex-col justify-between bg-background"
         >
           <div>
             <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-foreground font-display">
@@ -337,7 +395,6 @@ const CampusLogoGenerator = () => {
                 ))}
             </div>
 
-            {/* Logo Color Selection for µLearn */}
             {(logoType === "MuLearn" && muLogoVariant === "Transparent Bg") && (
               <div className="bg-mulearn-whitish p-2 rounded-lg mb-3 h-auto shadow-md">
                 <label className="block mb-2 text-xs font-semibold text-mulearn-gray-600 h-5">Foreground Color</label>
@@ -427,13 +484,14 @@ const CampusLogoGenerator = () => {
             </div>
           </div>
 
+          {/*calls actual download function */}
           <button
             type="button"
             className="text-mulearn-whitish font-medium rounded-lg text-base px-4 py-3 h-12 shadow-lg transition-all duration-200 w-full mt-0 mb-2 z-10 relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed font-display"
             style={{ 
               backgroundColor: isDownloading ? 'var(--mulearn-gray-600)' : 'var(--mulearn-trusty-blue)'
             }}
-            onClick={handleGenerate}
+            onClick={downloadImg}
             disabled={isDownloading || !campusCode}
           >
             {isDownloading ? (
@@ -458,7 +516,7 @@ const CampusLogoGenerator = () => {
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                   ></path>
                 </svg>
-                Generating...
+                Downloading...
               </div>
             ) : (
               "Download Logo"
