@@ -921,3 +921,1970 @@ export const enablers = {
     },
   ],
 };
+
+export const team = [
+  {
+    year: "µTeam",
+    teams: [
+      {
+        members: [
+          {
+            name: "Deepu S Nath",
+            muid: "deepusnath@mulearn",
+            image: "public/assets/team/muteam/execom/Deepu S Nath.webp",
+            team: "Managing Director Faya",
+            lead: "",
+            social: { linkedin: "https://linkedin.com/in/deepusnath" },
+          },
+          {
+            name: "Anoop Ambika",
+            muid: "anoopambika@mulearn",
+            image: "public/assets/team/muteam/execom/Anoop Ambika.webp",
+            team: "CEO, KSUM",
+            lead: "",
+            social: { linkedin: "https://linkedin.com/in/anoopambika" },
+          },
+          {
+            name: "Dinesh Thambi",
+            muid: "dineshthambi@mulearn",
+            image: "public/assets/team/muteam/execom/Dinesh Thampi.webp",
+            team: "Vice President TCS",
+            lead: "",
+            social: { linkedin: "https://www.linkedin.com/in/dineshthampi/" },
+          },
+          {
+            name: "Karthik Kalathil",
+            muid: "karthikkalathil@mulearn",
+            image: "public/assets/team/muteam/execom/Karthik Kalathil.webp",
+            team: "Co-Founder Wattlecorp Cybersecurity",
+            lead: "",
+            social: { linkedin: "https://linkedin.com/in/kalathil-karthik" },
+          },
+          {
+            name: "Rejah Rahim",
+            muid: "rejahrahim@mulearn",
+            image: "public/assets/team/muteam/execom/Rejah Rehim.webp",
+            team: "Founder Beagle Security",
+            lead: "",
+            social: { linkedin: "https://www.linkedin.com/in/rejah/" },
+          },
+          {
+            name: "Suhail V P",
+            muid: "suhailvp@mulearn",
+            image: "public/assets/team/muteam/execom/Suhail V P.webp",
+            team: "CEO Nucore",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/suhail-vp-25807613/",
+            },
+          },
+          {
+            name: "Tina James",
+            muid: "tinajames@mulearn",
+            image: "public/assets/team/muteam/execom/Tina James.webp",
+            team: "CEO Revyrie Global",
+            lead: "",
+            social: { linkedin: "https://in.linkedin.com/in/tinaajames" },
+          },
+          {
+            name: "Dr. Bijoy A Jose",
+            muid: "bijoyjose@mulearn",
+            image: "public/assets/team/muteam/execom/Dr. Bijoy A Jose.webp",
+            team: "Associate Professor CUSAT",
+            lead: "",
+            social: { linkedin: "https://www.linkedin.com/in/bijoyjose" },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: "2025",
+    teams: [
+      {
+        type: "µLearn HQ",
+        members: [
+          {
+            name: "Sachin Raj M",
+            muid: "sachinrajm@mulearn",
+            image: "public/assets/team/2023/pillars/Sachin Raj M.webp",
+            team: "Program Manager",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/sachinrajm/",
+              twitter: "https://twitter.com/SachinRaj2018",
+              github: "https://github.com/sachin-raj-m",
+            },
+          },
+        ],
+      },
+      {
+        type: "µLearn Fellows",
+        members: [
+          {
+            name: "Muhammed Ziyan Ummalil",
+            muid: "muhammedziyanummalil@mulearn",
+            image: "public/assets/team/Muhammed Ziyan Ummalil.jpg",
+            team: "IG Strategist",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/mziyan/",
+              github: "https://github.com/venommz7",
+            },
+          },
+          {
+            name: "Dev Nandan S",
+            muid: "devnandan@mulearn",
+            image: "public/assets/team/Dev Nandan.jpg",
+            team: "UX Strategist",
+            lead: "",
+            social: {
+              linkedin: "https://in.linkedin.com/in/dev-nandan-design",
+            },
+          },
+          {
+            name: "Abikrishna S",
+            muid: "abikrishnas-1@mulearn",
+            image: "public/assets/team/Abikrishna S.jpeg",
+            team: "Graphic Design",
+            lead: "",
+            social: { linkedin: "https://www.linkedin.com/in/abikrishna-s/" },
+          },
+        ],
+      },
+      {
+        type: "µLearn Associates",
+        members: [
+          {
+            name: "Mehbin A C",
+            muid: "mehbinac@mulearn",
+            image: "public/assets/team/Mehbin A C.jpg",
+            team: "Interest Group Management",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/mehbinac/",
+              github: "https://github.com/Mehbin0/",
+            },
+          },
+          {
+            name: "Alina Pinheiro",
+            muid: "alinapinheiro@mulearn",
+            image: "public/assets/team/Alina Pinheiro.jpeg",
+            team: "Content Writing",
+            lead: "",
+            social: { linkedin: "https://www.linkedin.com/in/alina-pinheiro" },
+          },
+          {
+            name: "Sabal Krishna S",
+            muid: "sabalkrishnas@mulearn",
+            image: "public/assets/team/Sabal Krishna S.jpg",
+            team: "Project Management",
+            lead: "",
+            social: {
+              linkedin: "https://in.linkedin.com/in/sabal-krishna-s-29b758298",
+            },
+          },
+          {
+            name: "Awindas R",
+            muid: "awindasr@mulearn",
+            image: "public/assets/team/Awin Das R.jpeg",
+            team: "Development",
+            lead: "",
+            social: { linkedin: "https://in.linkedin.com/in/awindsr" },
+          },
+          {
+            name: "K H Arjun",
+            muid: "kharjun@mulearn",
+            image: "public/assets/team/K H Arjun.jpeg",
+            team: "Social Media Management",
+            lead: "",
+            social: { linkedin: "https://www.linkedin.com/in/kharjun/" },
+          },
+          {
+            name: "Salahudheen Thajudheen",
+            muid: "salahudheenthajudheen@mulearn",
+            image:
+              "public/assets/team/2024/Associates and Junior Associates/Salahudheen Thajudheen.jpeg",
+            team: "Quality Assurance",
+            lead: "",
+            social: {
+              linkedin: "https://in.linkedin.com/in/salahudheen--thajudheen-",
+            },
+          },
+          {
+            name: "Dia Promod",
+            muid: "diapramod@mulearn",
+            image: "public/assets/team/Dia Promod.jpeg",
+            team: "Interest Group Management",
+            lead: "",
+            social: { linkedin: "https://in.linkedin.com/in/dia-promod" },
+          },
+          {
+            name: "G Hithesh",
+            muid: "ghithesh@mulearn",
+            image: "public/assets/team/G Hithesh.jpg",
+            team: "Partner Engagement",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/hithesh-g-9a09612a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            },
+          },
+          {
+            name: "Agnivesh P S",
+            muid: "agniveshp.s.@mulearn",
+            image: "public/assets/team/Agnivesh PS.png",
+            team: "Graphic Designer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/agniveshps/",
+              twitter: "https://twitter.com/AgniveshPS23",
+              github: "https://github.com/lyfofagni",
+            },
+          },
+          {
+            name: "Joel Basil Kurian",
+            muid: "joelbasilkurian@mulearn",
+            image:
+              "public/assets/team/2024/Interns/Campus Management/Joel Basil Kurian.jpeg",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Jyothsna P Nair",
+            muid: "jyothsnapnair-1@mulearn",
+            image:
+              "public/assets/team/2024/Interns/Operation Manager/Jyothsna P Nair.jpeg",
+            team: "Operation Manager",
+            lead: "",
+            social: {
+              linkedin: "www.linkedin.com/in/jyothsna-p-nair-11b734273",
+            },
+          },
+          {
+            name: "Gifton Shibu",
+            muid: "giftonshibu@mulearn",
+            image: "public/assets/team/Gifton Shibu.jpg",
+            team: "Campus Management",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/gifton07",
+              github: "https://github.com/Gifton07",
+            },
+          },
+        ],
+      },
+      {
+        type: "µLearn Interns Q2",
+        members: [
+          {
+            name: "Sadiya Suneer",
+            muid: "sadiya3276@mulearn",
+            image: "public/assets/team/Sadiya Suneer.jpg",
+            team: "UI/UX Designer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/sadiya-suneer-2aab27278/",
+            },
+          },
+          {
+            name: "Amith Abey Stephen",
+            muid: "Amithabeystephen@mulearn",
+            image: "public/assets/team/Amith Abey Stephen.jpg",
+            team: "Frontend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://linkedin.com/in/amith-abey-stephen",
+              github: "https://github.com/Amith-Abey-Stephen",
+            },
+          },
+          {
+            name: "Aravind Manoj",
+            muid: "aravindmanoj-1@mulearn",
+            image: "public/assets/team/Aravind Manoj.jpg",
+            team: "Frontend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/aravindmanoj",
+              github: "https://github.com/aravind-manoj",
+            },
+          },
+          {
+            name: "Mishal Shanavas",
+            muid: "mishalshanavas@mulearn",
+            image: "public/assets/team/Mishal Shanavas.jpg",
+            team: "Backend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/mishalshanavas",
+              github: "https://github.com/mishalshanavas",
+            },
+          },
+          {
+            name: "Nandana Vipin",
+            muid: "nandanavipin@mulearn",
+            image: "public/assets/team/Nandana Vipin.jpg",
+            team: "HR Executive",
+            lead: "",
+            social: { linkedin: "https://www.linkedin.com/in/nandana-vipin" },
+          },
+          {
+            name: "ASHNA E L",
+            muid: "ashna-1@mulearn",
+            image: "public/assets/team/ASHNA E L.jpg",
+            team: "Public Relation",
+            lead: "",
+            social: { linkedin: "https://www.linkedin.com/in/ashnalinson" },
+          },
+          {
+            name: "NANDAKISHORE P",
+            muid: "nandakishorep-1@mulearn",
+            image: "public/assets/team/NANDAKISHORE P.jpeg",
+            team: "Backend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/nandakishore-p-44a743151/",
+              github: "https://github.com/nanda-kshr",
+            },
+          },
+          {
+            name: "Neha Shaju",
+            muid: "nehashaju@mulearn",
+            image: "public/assets/team/Neha Shaju.jpg",
+            team: "UI/UX Designer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/nehashaju212",
+              github: "https://github.com/Nehashaju212",
+            },
+          },
+          {
+            name: "Jithin M",
+            muid: "jithinm@mulearn",
+            image: "public/assets/team/Jithin M.jpeg",
+            team: "Project Coordinator",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/jithin04/",
+              twitter: "https://x.com/jithinm04",
+            },
+          },
+          {
+            name: "Devika Anil",
+            muid: "devikaanil-1@mulearn",
+            image: "public/assets/team/Devika Anil.jpg",
+            team: "Project Coordinator",
+            lead: "",
+            social: { linkedin: "https://www.linkedin.com/in/-devikaanil/" },
+          },
+          {
+            name: "Baina Elsa Biju",
+            muid: "bainaelsabiju@mulearn",
+            image: "public/assets/team/Baina Elsa Biju.jpeg",
+            team: "Project Coordinator",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/baina-elsa-biju-b83598347/",
+            },
+          },
+          {
+            name: "Alna Mariya C T",
+            muid: "alnamariyact@mulearn",
+            image: "public/assets/team/Alna Mariya C T.jpg",
+            team: "Graphic Designer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/alnatony/",
+              github: "https://github.com/alnatony",
+            },
+          },
+        ],
+      },
+      {
+        type: "µLearn Interns Q1",
+        members: [
+          {
+            name: "Niranj R",
+            muid: "niranjr@mulearn",
+            image: "public/assets/team/Niranj R.png",
+            team: "UI/UX Designer",
+            lead: "",
+            social: { linkedin: "www.linkedin.com/in/niranj-r" },
+          },
+          {
+            name: "ANZA S",
+            muid: "anzas@mulearn",
+            image: "public/assets/team/Anza S.jpg",
+            team: "Public Relations",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/anza-s-2006yam?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+              twitter: "https://x.com/AnzaS2006?t=mZTUtHHlVsvYfQdmZr9JGQ&s=03",
+              github: "https://github.com/ANZA-logos",
+            },
+          },
+          {
+            name: "Dheeraj.kp",
+            muid: "dheerajkp-3@mulearn",
+            image: "public/assets/team/Dheeraj J P.jpg",
+            team: "Graphic Designer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/dheeraj-kurungadath-268bb3294",
+            },
+          },
+          {
+            name: "Nandakiran R",
+            muid: "nandakiranr@mulearn",
+            image: "public/assets/team/Nandakiran R.jpeg",
+            team: "Frontend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/nandakiran-r",
+              twitter: "https://x.com/nandakiran_r",
+              github: "https://github.com/nandakiran-r",
+            },
+          },
+          {
+            name: "Manupriya Dhanush",
+            muid: "manupriyadhanush@mulearn",
+            image: "public/assets/team/Manupriya Dhanush Vayalambron.jpg",
+            team: "Content Writers",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/manupriya-dhanush-vayalambron",
+              twitter: "https://x.com/manupriya_d_v",
+              github: "https://github.com/Manupriya-Vayalambron/",
+            },
+          },
+          {
+            name: "Maryam Mohammed Yahya",
+            muid: "maryammohamedyahya@mulearn",
+            image: "public/assets/team/Maryam Mohamed Yahya.jpg",
+            team: "Content Writers",
+            lead: "",
+            social: { github: "https://github.com/maryammohamedyahya" },
+          },
+          {
+            name: "Anna Jaison",
+            muid: "annajaison@mulearn",
+            image: "public/assets/team/Anna Jaison.jpg",
+            team: "Backend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/anna-jaison-/",
+              github: "https://github.com/Anna-Jaison",
+            },
+          },
+          {
+            name: "Vasif Abdulla p",
+            muid: "vasifabdullap@mulearn",
+            image: "public/assets/team/Vasif Abdulla P.JPG",
+            team: "Frontend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/vasifabdulla",
+              twitter:
+                "https://x.com/vasif_abdulla?t=V0b4CmdTZvy6enzk3ptymg&s=09",
+              github: "https://github.com/Vasif-abdulla",
+            },
+          },
+          {
+            name: "Akshay S Kumar",
+            muid: "akshayskumar-1@mulearn",
+            image: "public/assets/team/Akshay S Kumar.jpg",
+            team: "Public Relations",
+            lead: "",
+            social: { linkedin: "https://www.linkedin.com/in/akshaycse" },
+          },
+          {
+            name: "Sreenandan K M",
+            muid: "sreenandankm@mulearn",
+            image: "public/assets/team/Sreenand K M.png",
+            team: "Backend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/sreenandankm/",
+              github: "https://github.com/Sree077",
+            },
+          },
+          {
+            name: "Anand SG",
+            muid: "anandsg@mulearn",
+            image: "public/assets/team/Anand S G.jpg",
+            team: "Public Relations",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/anand-sg-298b5226a",
+              github: "https://github.com/Anand-S-G",
+            },
+          },
+          {
+            name: "Shezma Bijumon",
+            muid: "shezmabijumon@mulearn",
+            image: "public/assets/team/Shezma Bijumon.jpg",
+            team: "Social Media Manager",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/shezma-bijumon-b55755308/",
+            },
+          },
+          {
+            name: "Devika S H",
+            muid: "devikash@mulearn",
+            image: "public/assets/team/Devika S H.jpeg",
+            team: "Graphic Designer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/devika-s-h?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+            },
+          },
+          {
+            name: "Sharanya Sanjeev",
+            muid: "sharanyasanjeev@mulearn",
+            image: "public/assets/team/Sharanya Sanjeev.jpg",
+            team: "Social Media Manager",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/sharanya-sanjeev05/",
+            },
+          },
+          {
+            name: "Sabareesh P R",
+            muid: "sabareeshpr@mulearn",
+            image: "public/assets/team/Sabareesh P R.jpg",
+            team: "Graphic Designer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/sabareeshpr",
+            },
+          },
+          {
+            name: "Yadhukrishna n p",
+            muid: "yadhukrishnanp@mulearn",
+            image: "public/assets/team/Yadukrishna N P.jpg",
+            team: "Backend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/yadhukrishnx/",
+              twitter: "https://x.com/yadhukrishnx",
+              github: "https://github.com/yadhukrishnx",
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: "2024",
+    teams: [
+      {
+        type: "µlearn Associates",
+        members: [
+          {
+            name: "Govind K",
+            image: "public/assets/team/Govind K.jpg",
+            muid: "govindk@mulearn",
+            team: "Program Manager",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/govind-k-0285a0254/",
+              twitter: "",
+              github: "",
+            },
+          },
+          {
+            name: "Rahul Nath R",
+            image: "public/assets/team/2023/yip/Rahul Nath R.webp",
+            muid: "",
+            team: "Finance",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/rahul-nath-r-6b133429/",
+              github: "",
+              twitter: "",
+            },
+          },
+          {
+            name: "Prijun S Padman",
+            image: "public/assets/team/Prijun S Padman.jpg",
+            muid: "prijunspadman@mulearn",
+            team: "Media",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/prijunspadman/",
+              github: "",
+              twitter: "",
+            },
+          },
+          {
+            name: "Ahamed Jishfaan M S",
+            image: "public/assets/team/2023/pillars/Ahamed Jishfaan M S.webp",
+            muid: "ahamedjishfaanms@mulearn",
+            team: "Operations and Strategic Initiatives",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/ahamed-jishfaanms-4b362a230",
+              twitter: "https://twitter.com/jishfaan",
+              github: "",
+            },
+          },
+          {
+            name: "Kochouseph John",
+            image: "public/assets/team/2023/pillars/Kochouseph John.webp",
+            muid: "kochousephjohn26@gmail.com",
+            team: "Key Administrator",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/kochouseph-john-b86149212",
+              twitter: "",
+              github: "https://github.com/Kochouseph26John",
+            },
+          },
+          {
+            name: "Sachin Raj M",
+            image: "public/assets/team/2023/pillars/Sachin Raj M.webp",
+            muid: "sachinrajm@mulearn",
+            team: "Interns and Documentation",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/sachinrajm/",
+              twitter: "https://twitter.com/SachinRaj2018",
+              github: "https://github.com/sachin-raj-m",
+            },
+          },
+          {
+            name: "Jenin Joseph",
+            image: "public/assets/team/2023/pillars/Jenin Joseph.webp",
+            muid: "jeninjoseph@mulearn",
+            team: "Technical",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/jenin-joseph/",
+              twitter: "https://twitter.com/__Jenin__",
+              github: "https://github.com/Jenin82",
+            },
+          },
+          {
+            name: "Muhammed R",
+            image: "public/assets/team/Muhammed R.jpeg",
+            muid: "muhammedr@mulearn",
+            team: "Hardware",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/muhammed-r/",
+              twitter: "https://twitter.com/muhammedr7025",
+              github: "https://github.com/muhammedr7025",
+            },
+          },
+          {
+            name: "Adithya A R",
+            image: "public/assets/team/2023/pillars/Adithya A R.webp",
+            muid: "adithyaar@mulearn",
+            team: "FAB, Hardware and Warehouse",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/adithya-rajesh-a07092247",
+              twitter: "https://twitter.com/AdithyaRajesh01",
+              github: "https://github.com/AdithyaRajesh10",
+            },
+          },
+        ],
+      },
+      {
+        type: "µLearn Interns Q1",
+        members: [
+          {
+            name: "Chethas L Pramod",
+            image:
+              "public/assets/team/2024/Interns/Backend Developer/Chethas L Pramod.jpeg",
+            muid: "chethaslpramod@mulearn",
+            team: "Backend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://linkedin.com/in/chethaslp",
+              twitter: "",
+              github: "https://github.com/chethaslp",
+            },
+          },
+          {
+            name: "Sharon Aliyas Johnson",
+            image:
+              "public/assets/team/2024/Interns/Backend Developer/Sharon Aliyas Johnson.jpeg",
+            muid: "sharonaliyasjohnson@mulearn",
+            team: "Backend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/sharonaliyas/",
+              twitter: "",
+              github: "https://github.com/SharonAliyas5573",
+            },
+          },
+          {
+            name: "Rinto Joseph T R",
+            image: "public/assets/team/Rinto Joseph T R.jpg",
+            muid: "rintojosephtr@mulearn",
+            team: "Bot Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/rintojosephtr/",
+              twitter: "https://x.com/rinto_joseph_tr?s=09",
+              github: "https://github.com/rinto11804",
+            },
+          },
+          {
+            name: "Parthip.P.R",
+            image: "public/assets/team/Parthip.P.R.jpeg",
+            muid: "parthip.p.r@mulearn",
+            team: "Backend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/parthip-p-r-25987b229/",
+              twitter: "",
+              github: "https://github.com/ParthipPR",
+            },
+          },
+          {
+            name: "Kethan Krishna P K",
+            image:
+              "public/assets/team/2024/Interns/Backend Developer/Kethan Krishna P K.jpeg",
+            muid: "kethankrishnapk@mulearn",
+            team: "Backend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/kethan-krishna-6a4226262/",
+              twitter: "",
+              github: "https://github.com/Kethankrk",
+            },
+          },
+          {
+            name: "Dilshad Mohammed",
+            image:
+              "public/assets/team/2024/Interns/Backend Developer/Dilshad Mohammed.jpeg",
+            muid: "dilshadmohammed@mulearn",
+            team: "Backend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/dilshad-mohammed",
+              twitter: "",
+              github: "https://github.com/dilshadmohammed",
+            },
+          },
+          {
+            name: "ALFRIN POULOSE",
+            image:
+              "public/assets/team/2024/Interns/Backend Developer/ALFRIN POULOSE.jpeg",
+            muid: "alfrinpoulose@mulearn",
+            team: "Backend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/alfrinpoulose/",
+              twitter: "",
+              github: "https://github.com/AlfrinP",
+            },
+          },
+          {
+            name: "Namitha Manoj",
+            image: "public/assets/team/Namitha Manoj.jpg",
+            muid: "namithamanoj-1@mulearn",
+            team: "Operation Manager",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/namithamanoj/",
+              twitter: "",
+              github: "https://github.com/nami63",
+            },
+          },
+          {
+            name: "ABHIJITH K R",
+            image:
+              "public/assets/team/2024/Interns/Backend Developer/ABHIJITH K R.jpeg",
+            muid: "abhijithkr-1@mulearn",
+            linkedin: "https://www.linkedin.com/in/abhijith-k-r-0a181a236/",
+            twitter: "",
+            github: "https://github.com/krAbhijith",
+            team: "Backend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/abhijith-k-r-0a181a236/",
+              twitter: "",
+              github: "https://github.com/krAbhijith",
+            },
+          },
+          {
+            name: "Noyal Joseph",
+            image:
+              "public/assets/team/2024/Interns/Bot Developer/Noyal Joseph.jpeg",
+            muid: "noyaljoseph@mulearn",
+            team: "Bot Developer",
+            lead: "",
+            social: {
+              linkedin: "www.linkedin.com/in/stdestiny",
+              twitter: "",
+              github: "https://github.com/stdensity",
+            },
+          },
+          {
+            name: "Maryam Mohamed Yahya",
+            image: "public/assets/team/Maryam Mohamed Yahya.jpg",
+            muid: "maryammohamedyahya@mulearn",
+            team: "Content Writers",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/maryam-mohamed-yahya-568810294/",
+              twitter: "",
+              github: "github.com/MaryamMohamedYahya",
+            },
+          },
+          {
+            name: "Manupriya Dhanush Vayalambron",
+            image: "public/assets/team/Manupriya Dhanush Vayalambron.jpg",
+            muid: "manupriyadhanushvayalambron-1@mulearn",
+            team: "Content Writers",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/manupriya-dhanush-vayalambron?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+              twitter: "",
+              github: "https://github.com/Manupriya-Vayalambron",
+            },
+          },
+          {
+            name: "Tanmaya Remeyn",
+            muid: "tanmayaremeyn@mulearn",
+            image: "public/assets/team/Tanmaya Remeyn.jpg",
+            team: "Content Writers",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/tanmaya-remeyn-627370291/",
+              twitter: "",
+              github: "",
+            },
+          },
+          {
+            name: "Lekha R",
+            muid: "lekhar.@mulearn",
+            image: "public/assets/team/Lekha R.jpg",
+            team: "Content Writer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/lekha-r-0a0b88230",
+            },
+          },
+          {
+            name: "Shinana Uzhunnan",
+            muid: "shinanauzhunnan@mulearn",
+            image: "public/assets/team/Shinana Uzhunnan.jpg",
+            team: "Content Writers",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/shinana-uzhunnan-86837a250/",
+              github: "https://github.com/Shinanauzhunnan",
+            },
+          },
+          {
+            name: "Smrithi T S",
+            muid: "smrithits@mulearn",
+            image: "public/assets/team/Smrithi T S.jpeg",
+            team: "Content Writers",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/smrithi-t-s-300141292",
+              twitter: "https://twitter.com/Smrithi_TS",
+              github: "https://github.com/SmrithiIsTired",
+            },
+          },
+          {
+            name: "ANGANA S",
+            muid: "anganas@mulearn",
+            image: "public/assets/team/ANGANA S.JPG",
+            team: "Operation Manager",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/angana-s",
+            },
+          },
+          {
+            name: "ANAS N",
+            muid: "anasn@mulearn",
+            image: "public/assets/team/ANAS N.jpg",
+            team: "Partner Engagement",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/anas-n-5a845820a/",
+            },
+          },
+          {
+            name: "Durga Satheesh",
+            muid: "durgasatheesh@mulearn",
+            image: "public/assets/team/Durga Satheesh.jpg",
+            team: "Interest Group Management",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/durga-satheesh-723264270",
+              twitter: "",
+              github: "",
+            },
+          },
+          {
+            name: "NAYANIKA B GITANJALI",
+            muid: "nayanikab.gitanjali@mulearn",
+            image: "public/assets/team/NAYANIKA B GITANJALI.jpg",
+            team: "Content Writers",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/nayanika-b-gitanjali-041b992b3",
+              twitter: "",
+              github: "",
+            },
+          },
+          {
+            name: "M. R. Lekshmi Priya",
+            muid: "m.r.lekshmipriya@mulearn",
+            image: "public/assets/team/M. R. Lekshmi Priya.jpg",
+            team: "Social Media Marketer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/lekshmi-priya-m-r-70b517290",
+              twitter: "",
+              github: "",
+            },
+          },
+          {
+            name: "Karthika Pazhampilly",
+            muid: "karthikapazhampilly@mulearn",
+            image: "public/assets/team/Karthika Pazhampilly.jpg",
+            team: "Social Media Marketer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/karthika-pazhampilly-509887286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+              twitter: "",
+              github: "https://github.com/Karthika-Pazhampilly",
+            },
+          },
+          {
+            name: "NIRANJ R",
+            muid: "niranjr@mulearn",
+            image: "public/assets/team/NIRANJ R.jpg",
+            team: "Graphic Designer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/niranj-r-8308b2275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+              twitter: "",
+              github: "",
+            },
+          },
+          {
+            name: "Jose Thomas",
+            muid: "josethomas@mulearn",
+            image: "public/assets/team/Jose Thomas (2).png",
+            team: "Social Media Marketer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/jose-thomas-62696527b/",
+              twitter: "",
+              github: "https://github.com/josethomas45",
+            },
+          },
+          {
+            name: "Arjun C Vinod",
+            muid: "arjuncvinod@mulearn",
+            image: "public/assets/team/Arjun C Vinod.jpg",
+            team: "UI Developer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/arjun-c-vinod/",
+              twitter: "https://twitter.com/ArjunCVinod7",
+              github: "https://github.com/arjuncvinod",
+            },
+          },
+          {
+            name: "Alan Francis Santhosh",
+            muid: "alanfrancissanthosh-1@mulearn",
+            image:
+              "public/assets/team/2024/Interns/Frontend Developer/Alan Francis Santhosh.jpeg",
+            team: "Frontend Developer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/alan-francis-santhosh-92811b298/",
+              twitter: "",
+              github: "https://github.com/alanfrancis442",
+            },
+          },
+          {
+            name: "NANDHANA KP",
+            muid: "nandhanakp@mulearn",
+            image: "public/assets/team/NANDHANA KP.jpg",
+            team: "Content Writers",
+            lead: "",
+            social: {
+              linkedin: "www.linkedin.com/in/nandhana-kp-662312251",
+              twitter: "",
+              github: "",
+            },
+          },
+          {
+            name: "SANDRA ALEX",
+            muid: "sandraalex-1@mulearn",
+            image: "public/assets/team/SANDRA ALEX.jpg",
+            team: "Interest Group Management",
+            lead: "",
+            social: {
+              linkedin: "www.linkedin.com/in/sandra07alex",
+              twitter: "",
+              github: "https://github.com/Sandra07alex",
+            },
+          },
+          {
+            name: "Maanas M S",
+            muid: "maanastvm@gmail.com@mulearn",
+            image: "public/assets/team/Maanas M S.png",
+            team: "Public Relation",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/maanasms",
+              twitter: "https://twitter.com/maanasms",
+              github: "https://github.com/elementaryrock",
+            },
+          },
+          {
+            name: "Ayush Krishnan U",
+            muid: "ayushkrishnanu@mulearn",
+            image: "public/assets/team/Ayush Krishnan U.jpg",
+            team: "Social Media Marketer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/ayush-krishnan-u-910520259/",
+              twitter: "",
+              github: "https://github.com/ayushkrishnan",
+            },
+          },
+          {
+            name: "Joe Varghese Abraham",
+            muid: "joevargheseabraham@mulearn",
+            image: "public/assets/team/Joe Varghese Abraham.JPG",
+            team: "Interest Group Management",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/joe-varghese-abraham/",
+              twitter: "",
+              github: "https://github.com/JoeVA2020",
+            },
+          },
+          {
+            name: "Rafan Hatim",
+            muid: "rafanhatim@mulearn",
+            image: "public/assets/team/Rafan Hatim.jpeg",
+            team: "UI Developers",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/rafanhatim/",
+              github: "https://github.com/AFarHitman7",
+            },
+          },
+          {
+            name: "ABIKRISHNA S",
+            muid: "abikrishnas-1@mulearn",
+            image:
+              "public/assets/team/2024/Interns/Graphic Designer/ABIKRISHNA S.jpeg",
+            team: "Graphic Designer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/abi-krishna-s-70303323b/",
+            },
+          },
+          {
+            name: "Muhammed Sinan N",
+            muid: "muhammedsinan-5@mulearn",
+            image:
+              "public/assets/team/2024/Interns/Graphic Designer/Muhammed Sinan N.jpeg",
+            team: "Graphic Designer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/muhammed-sinan-n-0112a12a3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            },
+          },
+          {
+            name: "Agnivesh P S",
+            muid: "agniveshp.s.@mulearn",
+            image: "public/assets/team/Agnivesh PS.png",
+            team: "Graphic Designer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/agniveshps/",
+              twitter: "https://twitter.com/AgniveshPS23",
+              github: "https://github.com/lyfofagni",
+            },
+          },
+          {
+            name: "Sreedev Vp",
+            muid: "sreedevvp@mulearn",
+            image: "public/assets/team/Sreedev Vp.jpeg",
+            team: "UI Designer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/sreedev-vp-65517a267?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+            },
+          },
+          {
+            name: "Sajir A",
+            muid: "sajira@mulearn",
+            image: "public/assets/team/Sajir A.jpg",
+            team: "UX Designer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/sajir-abdul-a96a9b286/",
+            },
+          },
+          {
+            name: "Chris Thomas Abraham",
+            muid: "christhomasabraham@mulearn",
+            image: "public/assets/team/Maryam Mohamed Yahya.jpg",
+            team: "Graphic Designer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/chris-thomas-abraham-411458298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            },
+          },
+          {
+            name: "Aysha K H",
+            muid: "ayshakh@mulearn",
+            image: "public/assets/team/Aysha K H.jpeg",
+            team: "Public Relation",
+            lead: "",
+            social: {
+              linkedin: "linkedin.com/in/aysha-kh-9261382aa",
+            },
+          },
+          {
+            name: "Maria Sara Raju",
+            muid: "mariasararaju@mulearn",
+            image: "public/assets/team/Maria Sara Raju.jpg",
+            team: "Operation Manager",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/maria-sara-raju-53856a2a9/",
+              github: "https://github.com/marianedi",
+            },
+          },
+          {
+            name: "Alen Koshy Pramod",
+            muid: "alenpramod@mulearn",
+            image: "public/assets/team/Alen Koshy Pramod.jpg",
+            team: "Operation Manager",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/alen-koshy-pramod-2241b7228/",
+            },
+          },
+          {
+            name: "Chaithra C B",
+            muid: "chaithracb@mulearn",
+            image: "public/assets/team/Chaithra C B.jpg",
+            team: "HR Executive",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/chaithra-c-b-32a8492a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            },
+          },
+          {
+            name: "Aaron shaji",
+            muid: "aaronanniyan@mulearn",
+            image: "public/assets/team/Aaron shaji.png",
+            team: "Interest Group Management",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/a6rron/",
+              twitter: "https://twitter.com/home",
+              github: "https://github.com/A6rron",
+            },
+          },
+          {
+            name: "Arjun TK",
+            muid: "arjuntk-1@mulearn",
+            image: "public/assets/team/Arjun TK.jpg",
+            team: "Content Writers",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/arjuntk005?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+              github: "https://github.com/Arjun941",
+            },
+          },
+          {
+            name: "sidhardh Balaji SM",
+            muid: "sidhardhbalajism@mulearn",
+            image: "public/assets/team/sidhardh balaji sm.jpg",
+            team: "Operation Manager",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/sidhardh-balaji-3b1028253/",
+            },
+          },
+          {
+            name: "Niranjan Biju",
+            muid: "niranjanbiju@mulearn",
+            image:
+              "public/assets/team/2024/Interns/Operation Manager/Niranjan Biju.jpeg",
+            team: "Operation Manager",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/niranjan-biju-573957284",
+              github: "https://github.com/Niranjan-Biju",
+            },
+          },
+          {
+            name: "Muhammed Nabeel N A",
+            muid: "muhammednabeel@mulearn",
+            image: "public/assets/team/Muhammed Nabeel N A.jpg",
+            team: "UX Designer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/nabeel-mn1/",
+            },
+          },
+          {
+            name: "Muhammed Ziyan Ummalil",
+            muid: "muhammedziyanummalil@mulearn",
+            image: "public/assets/team/Muhammed Ziyan Ummalil.jpg",
+            team: "Operation Manager",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/mziyan/",
+              github: "https://github.com/venommz7",
+            },
+          },
+          {
+            name: "Jyothsna P Nair",
+            muid: "jyothsnapnair-1@mulearn",
+            image:
+              "public/assets/team/2024/Interns/Operation Manager/Jyothsna P Nair.jpeg",
+            team: "Operation Manager",
+            lead: "",
+            social: {
+              linkedin: "www.linkedin.com/in/jyothsna-p-nair-11b734273",
+            },
+          },
+          {
+            name: "Akash A",
+            muid: "akasha@mulearn",
+            image:
+              "public/assets/team/2024/Interns/Operation Manager/Akash A.jpeg",
+            team: "Operation Manager",
+            lead: "",
+            social: {
+              linkedin: "https://linkedin.com/in/ecoholic",
+              twitter: "https://twitter.com/ecoholic84",
+              github: "https://github.com/ecoholic84",
+            },
+          },
+          {
+            name: "Marvin Varghese Mathew",
+            muid: "marvinmathew@mulearn",
+            image: "public/assets/team/Marvin Varghese Mathew.jpg",
+            team: "Digital Marketing",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/marvin-v-mathew-881446255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+            },
+          },
+          {
+            name: "Abhishek R S",
+            muid: "abhishekrs@mulearn",
+            image: "public/assets/team/Abhishek R S.jpg",
+            team: "Operation Manager, QA Tester",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/abhishek-rs-a0a360231?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+            },
+          },
+          {
+            name: "Betcy Rajan",
+            muid: "betcyrajan@mulearn",
+            image:
+              "public/assets/team/2024/Interns/Operation Manager/Betcy Rajan.jpeg",
+            team: "Operation Manager",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/betcy-rajan",
+              github: "https://github.com/Betcy-Rajan",
+            },
+          },
+          {
+            name: "Geevarghese Regi",
+            muid: "geevarghese@mulearn",
+            image: "public/assets/team/Geevarghese Regi.jpg",
+            team: "Frontend Developer",
+            lead: "",
+            social: {
+              linkedin: "https://in.linkedin.com/in/geevarghese-regi-658531214",
+              github: "https://github.com/karivarkey",
+            },
+          },
+          {
+            name: "YASAR ARAFATH M",
+            muid: "yasararafathm@mulearn",
+            image: "public/assets/team/YASAR ARAFATH M.png",
+            team: "Partner Engagement",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/yasar-arafath-203126218",
+            },
+          },
+          {
+            name: "Mehbin A C",
+            muid: "mehbinac@mulearn",
+            image: "public/assets/team/Mehbin A C.jpg",
+            team: "Operation Manager",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/mehbinac/",
+              github: "https://github.com/Mehbin0/",
+            },
+          },
+          {
+            name: "G Hithesh",
+            muid: "ghithesh@mulearn",
+            image: "public/assets/team/G Hithesh.jpg",
+            team: "Partner Engagement",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/hithesh-g-9a09612a8",
+            },
+          },
+          {
+            name: "Aryan C",
+            muid: "aryanc@mulearn",
+            image: "public/assets/team/Aryan C.jpg",
+            team: "Interest Group Management",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/aryan-cholakkal-3a7616225/",
+              github: "https://github.com/aryancholakkal",
+            },
+          },
+          {
+            name: "DILSHAD AHAMMED N",
+            muid: "dilshadahammedn@mulearn",
+            image: "public/assets/team/DILSHAD AHAMMED N.jpg",
+            team: "Public Relation",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/dilshad-ahemmed/",
+              github: "https://github.com/DilshadAhammed",
+            },
+          },
+          {
+            name: "Anna Jaison",
+            muid: "annajaison@mulearn",
+            image:
+              "public/assets/team/2024/Interns/Public Relation/Anna Jaison.jpeg",
+            team: "Public Relation",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/anna-jaison-/",
+              twitter: "https://twitter.com/anna_jaiso19448",
+              github: "https://github.com/Anna-Jaison",
+            },
+          },
+          {
+            name: "Aimee Jobi",
+            muid: "aimeejobi@mulearn",
+            image: "public/assets/team/Aimee Jobi.jpg",
+            team: "HR Executive",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/aimee-jobi/",
+              github: "https://github.com/aims0426",
+            },
+          },
+          {
+            name: "Shreerag Namboothiri K H",
+            muid: "shreeragnamboothirikh@mulearn",
+            image: "public/assets/team/Shreerag Namboothiri K H.jpeg",
+            team: "QA Tester",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/shreerag-namboothiri-k-h-2014b6243",
+              github: "https://github.com/shreeragkh",
+            },
+          },
+          {
+            name: "Pavithra S S",
+            muid: "pavithrass@mulearn",
+            image: "public/assets/team/Pavithra S S.jpg",
+            team: "UI Designer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/pavithra-s-s-91246b257",
+              github: "https://github.com/pavithra-175",
+            },
+          },
+          {
+            name: "Aiswarya Muralidharan",
+            muid: "aiswarya-5@mulearn",
+            image:
+              "public/assets/team/2024/Interns/QA Tester/Aiswarya Muralidharan.jpeg",
+            team: "QA Tester",
+            lead: "",
+            social: {
+              linkedin: "https://linkedin.com/in/aiswary-a-m-5b4b91296/",
+            },
+          },
+          {
+            name: "Vidhya Vijayakumar",
+            muid: "vidhyavijayakumar@mulearn",
+            image:
+              "public/assets/team/2024/Interns/QA Tester/Vidhya Vijayakumar.jpeg",
+            team: "QA Tester",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/vidhya-vijayakumar-15a502226",
+              github: "https://github.com/vidhya-vjkumar",
+            },
+          },
+          {
+            name: "Janukrishna A.S",
+            muid: "janukrishnaa.s@mulearn",
+            image: "public/assets/team/Janukrishna A.S.jpg",
+            team: "Interest Group Management",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/janukrishna-a-s-4ba8301b2/",
+            },
+          },
+          {
+            name: "Arjun Subhash Kumar",
+            muid: "arjunsubhashkumar@mulearn",
+            image: "public/assets/team/Arjun Subhash Kumar.jpg",
+            team: "Partner Engagement",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/arjun-subhash-kumar-b44198299/",
+            },
+          },
+          {
+            name: "EDWIN SHAJU MALAKARAN",
+            muid: "edwinshaju@mulearn",
+            image:
+              "public/assets/team/2024/Interns/UI Designer/EDWIN SHAJU MALAKARAN.jpeg",
+            team: "UI Designer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/edwinlegend",
+              github: "https://github.com/EDWINLEGEND",
+            },
+          },
+          {
+            name: "Bhagyasree",
+            muid: "bhagyasree@mulearn",
+            image: "public/assets/team/Bhagyasree.jpg",
+            team: "UI Designer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/bhagya-sree-a2a870291",
+            },
+          },
+          {
+            name: "George Emmanuel Thomas",
+            muid: "georgeemmanuelthomas@mulearn",
+            image: "public/assets/team/George Emmanuel Thomas.jpeg",
+            team: "Frontend Developer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/george-emmanuel-thomas-518060202/",
+              github: "https://github.com/GeorgeET15",
+            },
+          },
+          {
+            name: "Fathima B",
+            muid: "fathimab-1@mulearn",
+            image: "public/assets/team/Fathima B.jpg",
+            team: "Social Media Marketer",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/fathimabee2003",
+              github: "https://github.com/fxb-in",
+            },
+          },
+          {
+            name: "Nobin Sijo",
+            muid: "nobinsijo@mulearn",
+            image: "public/assets/team/Nobin Sijo.jpg",
+            team: "UI Designer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/nobin-sijo-a22711291/?originalSubdomain=in",
+              github: "https://github.com/WhiteCode77T/",
+            },
+          },
+          {
+            name: "Sneha Mariam Mani",
+            muid: "snehamariammani@mulearn",
+            image:
+              "public/assets/team/2024/Interns/UX Designer/Sneha Mariam Mani.jpeg",
+            team: "UX Designer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/sneha-mariam-mani-9367a0204/",
+            },
+          },
+          {
+            name: "Niveditha Deepak",
+            muid: "nivedithadeepak@mulearn",
+            image:
+              "public/assets/team/2024/Interns/UX Designer/Niveditha Deepak.jpeg",
+            team: "UX Designer",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/niveditha-deepak-68550121b/",
+            },
+          },
+          {
+            name: "Devadathan DR",
+            muid: "devadathandr@mulearn",
+            image: "public/assets/team/Devadathan DR.jpg",
+            team: "Digital Marketing",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/devadathandr",
+              github: "https://github.com/Devadathandr",
+            },
+          },
+          {
+            name: "Abhishek R S",
+            muid: "abhishekrs@mulearn",
+            image: "public/assets/team/Abhishek R S.jpg",
+            team: "Digital Marketing",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/abhishek-r-s-a0a360231",
+            },
+          },
+          {
+            name: "Muhammed Saif CA",
+            image: "public/assets/team/Muhammed Saif CA.jpg",
+            muid: "muhmmedsaifca@mulearn",
+            team: "Partner Engagement",
+            lead: "",
+            social: {
+              linkedin:
+                "https://www.linkedin.com/in/muhammed-saif-ca-72a612204",
+            },
+          },
+          {
+            name: "Sona M B",
+            image: "public/assets/team/Sona M B.jpg",
+            muid: "sonamb@mulearn",
+            team: "Partner Engagement",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/sona-m-b-b08b9a219",
+            },
+          },
+          {
+            name: "Sabal Krishna S",
+            image: "public/assets/team/Sabal Krishna S.jpg",
+            muid: "sabalkrishnas@mulearn",
+            team: "Partner Engagement",
+            lead: "",
+            social: {
+              linkedin: "https://in.linkedin.com/in/sabal-krishna-s-29b758298",
+            },
+          },
+          {
+            name: "BISWAS SEKHAR",
+            image:
+              "public/assets/team/2024/Interns/Graphic Designer/BISWAS SEKHAR.jpeg",
+            muid: "biswassekhar@mulearn",
+            team: "Graphic Designer",
+            lead: "",
+            social: {
+              linkedin: "https://in.linkedin.com/in/biswas-sekhar",
+              github: "https://github.com/Biswas-Sekhar",
+            },
+          },
+          {
+            name: "Tomson J Finosh",
+            image: "public/assets/team/Tomson J Finosh.jpg",
+            muid: "tomsonjfinosh@mulearn",
+            team: "Digital Marketing, Social Media Marketer, Content Writers",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/tomson-j-785063279",
+            },
+          },
+          {
+            name: "TINO S N",
+            image: "public/assets/team/TINO S.N.jpg",
+            muid: "tino.s.n@mulearn",
+            team: "Interest Group Management",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/tinosn",
+              github: "https://github.com/Tinosn",
+            },
+          },
+          {
+            name: "Aswin Krishna",
+            image: "public/assets/team/Aswin Krishna.jpg",
+            muid: "aswinkrishna-3@mulearn",
+            team: "Interest Group Management",
+            lead: "",
+            social: {
+              linkedin: "https://www.linkedin.com/in/aswinkrishna07",
+              twitter: "https://twitter.com/733n_wolf",
+            },
+          },
+          {
+            name: "Abinson Suresh",
+            image:
+              "public/assets/team/2024/Interns/Campus Management/Abinson Suresh.jpeg",
+            muid: "abinsonsuresh@mulearn",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Reny Mathew",
+            image:
+              "public/assets/team/2024/Interns/Campus Management/Reny Mathew.jpeg",
+            muid: "renymathew@mulearn",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Sona Ponnachen",
+            image:
+              "public/assets/team/2024/Interns/Campus Management/Sona Ponnachen.jpeg",
+            muid: "sonaponnachen@mulearn",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Salahudheen Thajudheen",
+            image:
+              "public/assets/team/2024/Associates and Junior Associates/Salahudheen Thajudheen.jpeg",
+            muid: "salahudheenthajudheen@mulearn",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Anandha Krishnan S",
+            image:
+              "public/assets/team/2024/Interns/Campus Management/Anandha Krishnan.jpeg",
+            muid: "anandhakrishnans@mulearn",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Nijin K Varghese",
+            image:
+              "public/assets/team/2024/Interns/Campus Management/Nijin K Varghese.jpeg",
+            muid: "nijinkvarghese@mulearn",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Basil Vazhathottathil",
+            image:
+              "public/assets/team/2024/Interns/Campus Management/Basil Vazhathottathil.jpeg",
+            muid: "basilvazhathottathil@mulearn",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Anamika C",
+            image:
+              "public/assets/team/2024/Interns/Campus Management/Anamika C.jpeg",
+            muid: "anamikac@mulearn",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Mohammed Ameen",
+            image:
+              "public/assets/team/2024/Interns/Campus Management/Mohammed Ameen.jpeg",
+            muid: "mohammedameen@mulearn",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Sinan Sulaiman",
+            image: "",
+            muid: "sinansulaiman@mulearn",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Naslu KK",
+            image:
+              "public/assets/team/2024/Interns/Campus Management/Naslu kk.jpeg",
+            muid: "naslukk@mulearn",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Joel Basil Kurian",
+            image:
+              "public/assets/team/2024/Interns/Campus Management/Joel Basil Kurian.jpeg",
+            muid: "joelbasilkurian@mulearn",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Rishikesh M Sujith",
+            image: "",
+            muid: "rishikeshmsujith-1@mulearn",
+            team: "Campus Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Jovit Mathew",
+            image: "",
+            muid: "jovitmathew@mulearn",
+            team: "Frontend Developer",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Alan K Anil",
+            image: "",
+            muid: "alankanil@mulearn",
+            team: "Frontend Developer",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Dev Nandan S",
+            image: "public/assets/team/Dev Nandan.jpg",
+            muid: "devnandan@mulearn",
+            team: "Graphic Designer",
+            lead: "",
+            social: {
+              linkedin: "https://in.linkedin.com/in/dev-nandan-design",
+            },
+          },
+          {
+            name: "Aron shaji",
+            image:
+              "public/assets/team/2024/Interns/Interest Group Management/Aaron Shaji.jpeg",
+            muid: "Aaronshaji@mulearn",
+            team: "Interest Group Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Jeeva Vinod",
+            image:
+              "public/assets/team/2024/Interns/Interest Group Management/Jeeva Vinod.jpeg",
+            muid: "jeevavinod@mulearn",
+            team: "Interest Group Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Adarsh Madhusoodanan",
+            image:
+              "public/assets/team/2024/Interns/Interest Group Management/Adarsh Madhusoodanan.jpeg",
+            muid: "adarshmadhusoodanan@mulearn",
+            team: "Interest Group Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Dany Koshy P",
+            image:
+              "public/assets/team/2024/Interns/Interest Group Management/Dany Koshy P.jpeg",
+            muid: "danykoshyp@mulearn",
+            team: "Interest Group Management",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Ardra p",
+            image:
+              "public/assets/team/2024/Interns/Operation Manager/Ardra p.jpeg",
+            muid: "ardrap-1@mulearn",
+            team: "Operation Manager",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "SUSAN SERAH KOSHY",
+            image:
+              "public/assets/team/2024/Interns/Partner Engagement/SUSAN SERAH KOSHY.jpeg",
+            muid: "susanserahkoshy@mulearn",
+            team: "Partner Engagement",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Ajay Johny",
+            image: "",
+            muid: "ajayjohny@mulearn",
+            team: "Partner Engagement",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Leya Thomas",
+            image: "",
+            muid: "leyathomas@mulearn",
+            team: "Public Relation",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Ansan Johny",
+            image: "public/assets/team/2024/Interns/QA Tester/Ansan Johny.jpeg",
+            muid: "ansanjohny@mulearn",
+            team: "QA Tester",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Nandana Pradeep",
+            image:
+              "public/assets/team/2024/Interns/Frontend Developer/Nandana Pradeep.jpeg",
+            muid: "nandanapradeep@mulearn",
+            team: "Frontend Developer",
+            lead: "",
+            social: {},
+          },
+          {
+            name: "Muhammed Saleel CP",
+            image: "",
+            muid: "muhammedsaleelcp@mulearn",
+            team: "Graphic Designer",
+            lead: "",
+            social: {},
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: "2023",
+    teams: [
+      {
+        type: "Mulearn Associates",
+        members: [
+          {
+            name: "Grace Turner",
+            muid: "grace.turner@mulearn",
+            image: "https://cdn.example.com/grace.jpg",
+            team: "Community Management",
+            lead: "",
+            social: {
+              linkedin: "https://linkedin.com/in/graceturner",
+              twitter: "https://twitter.com/graceturner",
+              github: "https://github.com/graceturner",
+            },
+          },
+        ],
+      },
+      {
+        type: "µLearn HQ",
+        members: [
+          {
+            name: "Zoe Hill",
+            muid: "zoe.hill@mulearn",
+            image: "https://cdn.example.com/zoe.jpg",
+            team: "Core Operations",
+            lead: "",
+            social: {
+              linkedin: "https://linkedin.com/in/zoehill",
+              twitter: "https://twitter.com/zoehill",
+              github: "https://github.com/zoehill",
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: "2022",
+    teams: [
+      {
+        type: "Mulearn Associates",
+        members: [
+          {
+            name: "Lily Mitchell",
+            muid: "lily.mitchell@mulearn",
+            image: "https://cdn.example.com/lily.jpg",
+            team: "Project Support",
+            lead: "",
+            social: {
+              linkedin: "https://linkedin.com/in/lilymitchell",
+              twitter: "https://twitter.com/lilymitchell",
+              github: "https://github.com/lilymitchell",
+            },
+          },
+        ],
+      },
+      {
+        type: "µLearn HQ",
+        members: [
+          {
+            name: "Ava Campbell",
+            muid: "ava.campbell@mulearn",
+            image: "https://cdn.example.com/ava.jpg",
+            team: "Core Operations",
+            lead: "",
+            social: {
+              linkedin: "https://linkedin.com/in/avacampbell",
+              twitter: "https://twitter.com/avacampbell",
+              github: "https://github.com/avacampbell",
+            },
+          },
+        ],
+      },
+    ],
+  },
+];
