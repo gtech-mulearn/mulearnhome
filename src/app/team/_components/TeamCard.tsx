@@ -6,18 +6,7 @@ import { cdnUrl } from "@/services/cdn";
 import { cn } from "@/lib/utils";
 import MuImage from "@/components/MuImage";
 import Link from "next/link";
-
-interface TeamCardProps {
-  name: string;
-  designation?: string;
-  image?: string;
-  linkedin?: string;
-  github?: string;
-  twitter?: string;
-  muid?: string;
-  lead?: string;
-  team?: string;
-}
+import { TeamCardProps } from "@/lib/types";
 
 const fallbackImage = cdnUrl("public/assets/team/default.webp");
 
@@ -52,7 +41,7 @@ export function TeamCard({
           alt={name}
           width={128}
           height={128}
-          className="rounded-lg object-cover object-top w-36 h-36 sm:w-32 sm:h-32"
+          className="rounded-lg w-32 h-32 object-cover object-top"
           loading="lazy"
         />
       </div>

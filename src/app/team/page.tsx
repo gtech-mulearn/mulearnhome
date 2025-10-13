@@ -11,8 +11,10 @@ import {
 } from "@/components/ui/select";
 import { TeamCard } from "@/app/team/_components/TeamCard";
 import { team } from "@/data/data";
+import { YearData, Teams } from "@/lib/types";
 import { cdnUrl } from "@/services/cdn";
 import MuImage from "@/components/MuImage";
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -38,25 +40,6 @@ const fadeInUp: Variants = {
 
 type YearType = "2025" | "2024" | "2023" | "2022";
 
-interface TeamMember {
-  name: string;
-  muid: string;
-  image: string;
-  team: string;
-  lead: string;
-  social: { linkedin?: string; twitter?: string; github?: string };
-}
-
-interface Team {
-  type: string;
-  members: TeamMember[];
-}
-
-interface YearData {
-  year: string;
-  teams: Team[];
-}
-
 export default function Team() {
   const [activeYear, setActiveYear] = useState<YearType>("2025");
 
@@ -67,7 +50,7 @@ export default function Team() {
     | YearData
     | undefined;
 
-  const renderTeamGrid = (teams: Team[]) =>
+  const renderTeamGrid = (teams: Teams[]) =>
     teams.map((team, teamIndex) => (
       <div key={teamIndex} className="mb-8 w-full">
         <h2 className="text-4xl font-semibold mb-4 text-foreground text-center">
@@ -144,7 +127,7 @@ export default function Team() {
 
       {muTeamData && (
         <div className="mb-12 max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-foreground text-center">
+          <h2 className="text-4xl font-bold mb-8 text-foreground text-center">
             µTeam
           </h2>
           {renderTeamGrid(muTeamData.teams)}

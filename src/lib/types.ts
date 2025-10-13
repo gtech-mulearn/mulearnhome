@@ -63,3 +63,36 @@ export type Partner = {
   link: string;
   customlink?: string;
 };
+
+
+export interface TeamMember {
+  name: string;
+  muid: string;
+  image: string;
+  team: string;
+  lead: string;
+  social: { linkedin?: string; twitter?: string; github?: string };
+}
+
+export interface Teams {
+  type: string;
+  members: TeamMember[];
+}
+
+export interface YearData {
+  year: string;
+  teams: Teams[];
+}
+
+
+export interface TeamCardProps {
+  name: string;
+  designation?: string;
+  image?: string;
+  linkedin?: string;
+  github?: string;
+  twitter?: string;
+  muid?: string;
+  lead?: string;
+  team?: string;
+}
