@@ -4067,13 +4067,11 @@ export const team = [
             name: "Fayis Mohammed",
             team: "React.js Developer",
             image: "public/assets/team/2023/community/Fayis Mohammed.webp",
-            linkedin: "https://linkedin.com/in/abhijithes/",
           },
           {
             name: "Arjun A G",
             team: "Django Developer",
             image: "public/assets/team/2023/community/Arjun A G.webp",
-            linkedin: "https://linkedin.com/in/abhijithes/",
           },
           {
             name: "Amjed Saleel K",
