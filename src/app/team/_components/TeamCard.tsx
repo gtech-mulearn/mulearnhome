@@ -47,19 +47,13 @@ export function TeamCard({
 
       <div className="flex flex-col justify-between gap-2 w-full">
         <div>
-          {name && (
-            <h3 className="text-2xl font-semibold text-center">{name}</h3>
-          )}
+          {name && <h3 className="text-2xl font-semibold">{name}</h3>}
           {(lead || designation) && (
-            <p className="text-sm text-mulearn-gray-600 text-center">
+            <p className="text-sm text-mulearn-gray-600">
               {lead ? `${lead} Lead` : designation}
             </p>
           )}
-          {muid && (
-            <p className="text-[10px] text-mulearn-gray-600 text-center">
-              {muid}
-            </p>
-          )}
+          {muid && <p className="text-[10px] text-mulearn-gray-600">{muid}</p>}
           {teamRoles.length > 0 && (
             <ul
               className={cn(

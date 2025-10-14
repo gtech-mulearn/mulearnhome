@@ -121,7 +121,7 @@ export default function Team() {
 
   return (
     <motion.div
-      className="text-centerr"
+      className="text-center"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
