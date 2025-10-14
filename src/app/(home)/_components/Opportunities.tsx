@@ -52,6 +52,7 @@ export default function Opportunities() {
                   width={150}
                   height={150}
                   className="w-full h-auto"
+                  loading="lazy"
                 />
               </span>
               <h6 className="text-2xl mt-6 font-semibold text-center">

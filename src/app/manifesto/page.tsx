@@ -19,6 +19,7 @@ export default function Manifesto() {
           width={400}
           height={400}
           className="absolute w-[55vw] md:w-[35vw] h-[200px] align-middle"
+          loading="lazy"
         />
         <div className="flex flex-col justify-center w-full md:w-4/5 pl-[1.2rem] md:pl-20 pt-[1.2rem] md:pt-12 h-full">
           <div className="bg-mulearn-whitish/30 rounded-full pr-[6vw] md:pr-16 pl-[5vw] md:pl-8 py-[1vw] md:py-2 w-fit md:mb-4 uppercase text-mulearn-whitish text-[1.5vw] md:text-[1.3vw] font-medium">

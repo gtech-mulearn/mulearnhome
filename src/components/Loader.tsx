@@ -9,6 +9,7 @@ export default function MuLoader() {
         height={400}
         width={400}
         unoptimized={true}
+        priority
       />
     </div>
   );
