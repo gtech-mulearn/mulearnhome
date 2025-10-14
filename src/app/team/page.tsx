@@ -92,7 +92,7 @@ export default function Team() {
                         lead={member.lead}
                         linkedin={member.linkedin}
                         github={member.github}
-                        twitter={member.twitter}
+                        x={member.x}
                       />
                     ))}
                   </div>
@@ -110,7 +110,7 @@ export default function Team() {
                       lead={member.lead}
                       linkedin={member.linkedin}
                       github={member.github}
-                      twitter={member.twitter}
+                      x={member.x}
                     />
                   ))}
                 </div>

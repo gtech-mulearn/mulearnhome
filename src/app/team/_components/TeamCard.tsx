@@ -16,7 +16,7 @@ export function TeamCard({
   image,
   linkedin,
   github,
-  twitter,
+  x,
   muid,
   lead,
   team,
@@ -83,7 +83,7 @@ export function TeamCard({
             </ul>
           )}
 
-          {(linkedin || github || twitter) && (
+          {(linkedin || github || x) && (
             <div className="flex flex-wrap justify-center sm:justify-end gap-2.5 mt-2">
               {linkedin && (
                 <Link
@@ -105,9 +105,9 @@ export function TeamCard({
                   <FaGithub size={24} />
                 </Link>
               )}
-              {twitter && (
+              {x && (
                 <Link
-                  href={twitter}
+                  href={x}
                   target="_blank"
                   rel="noreferrer"
                   className="text-mulearn-blackish hover:text-mulearn-trusty-blue transition-colors"

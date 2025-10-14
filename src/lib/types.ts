@@ -71,7 +71,7 @@ export interface TeamMember {
   team: string;
   lead: string;
   linkedin?: string;
-  twitter?: string;
+  x?: string;
   github?: string;
 }
 
@@ -98,7 +98,7 @@ export interface TeamCardProps {
   image?: string;
   linkedin?: string;
   github?: string;
-  twitter?: string;
+  x?: string;
   muid?: string;
   lead?: string;
   team?: string;
