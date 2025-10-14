@@ -133,7 +133,7 @@ export default function Team() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex-1 text-left"
+            className="flex-1 text-center md:text-left"
           >
             <h2 className="text-5xl md:text-[4.2rem] font-bold text-mulearn-blackish leading-tight">
               The{" "}
@@ -142,13 +142,12 @@ export default function Team() {
               </span>{" "}
               Behind The Machine.
             </h2>
-            <p className="text-xl md:text-2xl my-8 text-mulearn-gray-600">
+            <p className="text-xl md:text-2xl my-8 text-justify md:text-left text-mulearn-gray-600">
               The &apos;µLearn&apos; community&apos;s growth to this moment
               would not have been possible without the team&apos;s soul and
               heart...
             </p>
           </motion.div>
-
           <motion.div
             variants={fadeInRight}
             initial="hidden"
