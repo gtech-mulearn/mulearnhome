@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import React, { Suspense } from "react";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import MuLoader from "@components/Loader";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -27,8 +28,20 @@ export const metadata: Metadata = {
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const circe = localFont({
+  src: "../components/fonts/CirceRounded-Bold.otf",
+  variable: "--font-display",
+  display: "swap",
+});
+
+const retro = localFont({
+  src: "../components/fonts/Retro_Team.otf",
+  variable: "--font-retro",
   display: "swap",
 });
 
@@ -38,10 +51,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={plusJakarta.variable}>
-      <head>
-        <link rel="preload" as="font" href="/fonts/CirceRounded-Bold.otf" crossOrigin="anonymous" />
-      </head>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${plusJakarta.variable} ${circe.variable} ${retro.variable}`}
+    >
       <body className="font-sans antialiased">
         <Suspense fallback={<MuLoader />}>
           <Navbar />

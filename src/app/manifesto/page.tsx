@@ -19,7 +19,6 @@ export default function Manifesto() {
           width={400}
           height={400}
           className="absolute w-[55vw] md:w-[35vw] h-[200px] align-middle"
-          loading="lazy"
         />
         <div className="flex flex-col justify-center w-full md:w-4/5 pl-[1.2rem] md:pl-20 pt-[1.2rem] md:pt-12 h-full">
           <div className="bg-mulearn-whitish/30 rounded-full pr-[6vw] md:pr-16 pl-[5vw] md:pl-8 py-[1vw] md:py-2 w-fit md:mb-4 uppercase text-mulearn-whitish text-[1.5vw] md:text-[1.3vw] font-medium">
@@ -30,9 +29,9 @@ export default function Manifesto() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-mulearn-whitish text-[10vw] md:text-[6.5vw] leading-[1.5] md:leading-none"
-            style={{ fontFamily: "Retro Team" }}
+            style={{ fontFamily: "var(--font-retro)" }}
           >
-            We,The Unbound, The Unbowed
+            We, The Unbound, The Unbowed
           </motion.h1>
         </div>
 

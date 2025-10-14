@@ -67,21 +67,21 @@ export default function Footer() {
         <div className="max-[480px]:text-sm">
           <Link
             href={`mailto:${contactInfo.email}`}
-            className="text-[#1976d2] no-underline"
+            className="text-mulearn-trusty-blue no-underline"
           >
             {contactInfo.email}
           </Link>
           {" | "}
           <Link
             href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
-            className="text-[#1976d2] no-underline"
+            className="text-mulearn-trusty-blue no-underline"
           >
             {contactInfo.phone}
           </Link>
           {" | "}
           <Link
             href={`https://${contactInfo.website}`}
-            className="text-[#1976d2] no-underline"
+            className="text-mulearn-trusty-blue no-underline"
           >
             {contactInfo.website}
           </Link>
