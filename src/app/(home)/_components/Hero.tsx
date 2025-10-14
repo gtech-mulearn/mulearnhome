@@ -98,11 +98,7 @@ export default function Hero({ refreshToken, redirect }: HeroProps) {
           alt="Community illustration"
           width={1300}
           height={900}
-          className="object-cover w-full max-w-7xl"
-          sizes="(max-width: 640px) 100vw,
-         (max-width: 1024px) 90vw,
-         (max-width: 1280px) 80vw,
-         1200px"
+          className="object-cover max-h-[250px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[600px] xl:max-h-[700px]"
           priority
           fetchPriority="high"
         />
