@@ -146,7 +146,6 @@ h5{
 }
 
 @theme inline {
-  --font-retro: var(--font-retro), sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

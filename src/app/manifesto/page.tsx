@@ -28,9 +28,10 @@ export default function Manifesto() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="font-retro text-mulearn-whitish text-[10vw] md:text-[6.5vw] leading-[1.5] md:leading-none"
+            className="text-mulearn-whitish text-[10vw] md:text-[6.5vw] leading-[1.5] md:leading-none"
+            style={{ fontFamily: "var(--font-retro)" }}
           >
-            We, The Unbound, The Unbowed
+            We,The Unbound, The Unbowed
           </motion.h1>
         </div>
 
