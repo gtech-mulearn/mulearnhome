@@ -126,7 +126,7 @@ export default function Team() {
       animate="visible"
       variants={containerVariants}
     >
-      <div className="py-24 px-4 flex justify-center">
+      <div className="py-12 px-4 flex justify-center">
         <div className="flex flex-col md:flex-row items-center max-w-7xl w-full gap-8">
           <motion.div
             variants={fadeInLeft}
