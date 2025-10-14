@@ -65,9 +65,9 @@ export default function Team() {
               image={member.image}
               team={member.team}
               lead={member.lead}
-              linkedin={member.social.linkedin}
-              github={member.social.github}
-              twitter={member.social.twitter}
+              linkedin={member.linkedin}
+              github={member.github}
+              twitter={member.twitter}
             />
           ))}
         </div>
@@ -91,7 +91,10 @@ export default function Team() {
               viewport={{ once: true }}
               className="text-5xl md:text-[4.2rem] font-bold text-mulearn-blackish leading-tight"
             >
-              The <span className="font-semibold text-mulearn-trusty-blue">Gears</span>{" "}
+              The{" "}
+              <span className="font-semibold text-mulearn-trusty-blue">
+                Gears
+              </span>{" "}
               Behind The Machine.
             </motion.h2>
             <motion.p
@@ -101,9 +104,9 @@ export default function Team() {
               viewport={{ once: true }}
               className="text-xl md:text-2xl my-8 text-mulearn-gray-600"
             >
-              The &apos;µLearn&apos; community&apos;s growth to this moment
-              would not have been possible without the team&apos;s soul and
-              heart...
+              The &apos;µLearn&apos; commutwitternity&apos;s growth to this
+              moment would not have been possible without the team&apos;s soul
+              and heart...
             </motion.p>
           </div>
           <motion.div

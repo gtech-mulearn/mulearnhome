@@ -71,8 +71,10 @@ export interface TeamMember {
   image: string;
   team: string;
   lead: string;
-  social: { linkedin?: string; twitter?: string; github?: string };
-}
+  linkedin?: string; 
+  twitter?: string; 
+  github?: string 
+};
 
 export interface Teams {
   type: string;
