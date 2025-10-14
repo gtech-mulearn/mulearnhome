@@ -315,7 +315,7 @@ export const rolesContent: RolesContent = {
       id: 4,
       name: "Brand Presence",
       description:
-        "Elevate your brand reputation by engaging with a vibrant learning ecosystem. Build lasting relationships with future industry leaders while teaming your company as an innovator in the tech community.",
+        "Elevate your brand reputation by engaging with a vibrant learning ecosystem. Build lasting relationships with future industry leaders while positioning your company as an innovator in the tech community.",
       image: cdnUrl("public/assets/landing/brand.webp"),
     },
   ],
