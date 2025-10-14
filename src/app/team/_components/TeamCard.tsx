@@ -42,6 +42,7 @@ export function TeamCard({
           width={128}
           height={128}
           className="rounded-lg w-32 h-32 object-cover object-top"
+          loading="lazy"
         />
       </div>
 
