@@ -45,8 +45,7 @@ const retro = localFont({
   display: "swap",
 });
 
-const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL;
-const cdnDomain = cdnUrl ? cdnUrl.replace(/\/.*$/, "") : null;
+const cdnurl = process.env.NEXT_PUBLIC_CDN_URL;
 
 export default function RootLayout({
   children,
@@ -60,9 +59,8 @@ export default function RootLayout({
       className={`${plusJakarta.variable} ${circe.variable} ${retro.variable}`}
     >
       <head>
-        {cdnDomain && (
-          <link rel="preconnect" href={cdnDomain} crossOrigin="anonymous" />
-        )}
+        <link rel="preconnect" href={cdnurl} />
+        <link rel="dns-prefetch" href={cdnurl} />
       </head>
       <body className="font-sans antialiased">
         <Suspense fallback={<MuLoader />}>
