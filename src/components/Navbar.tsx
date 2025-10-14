@@ -49,7 +49,6 @@ export default function Navbar() {
   const renderLink = (href?: string, label?: string) => {
     if (!href) return <span>{label}</span>;
     const handleClick = () => {
-      // Ensure alt is always present for accessibility
       setActiveSubmenu(null);
     };
     if (href.startsWith("http")) {
