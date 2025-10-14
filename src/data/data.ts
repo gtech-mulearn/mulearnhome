@@ -923,9 +923,12 @@ export const enablers = {
 
 export const team = [
   {
-    year: "µTeam",
+    year: "Executive Committee",
     teams: [
       {
+        type: "Executive Committee",
+        description:
+          "The Executive Members are those who serve as the community's skeleton and propel it forward from the rear.",
         members: [
           {
             id: 1,
@@ -992,6 +995,8 @@ export const team = [
     teams: [
       {
         type: "µLearn HQ",
+        description:
+          "The HQ members are the ones who are the backbone of the community. They are the ones who are responsible for the smooth functioning of different teams and the community as a whole.",
         members: [
           {
             name: "Sachin Raj M",
@@ -1007,6 +1012,8 @@ export const team = [
       },
       {
         type: "µLearn Fellows",
+        description:
+          "The Fellows are the ones who are responsible for the smooth functioning of different teams and the community as a whole.",
         members: [
           {
             name: "Muhammed Ziyan Ummalil",
@@ -1042,6 +1049,8 @@ export const team = [
       },
       {
         type: "µLearn Associates",
+        description:
+          "The Associates are the ones who are responsible for the smooth functioning of different teams and the community as a whole.",
         members: [
           {
             name: "Mehbin A C",
@@ -1171,6 +1180,8 @@ export const team = [
       },
       {
         type: "µLearn Interns Q2",
+        description:
+          "The Pillars of µLearn are the ones who support the µLearn Community. They are a group of students who assist the peers with their work and help the community thrive.",
         members: [
           {
             name: "Sadiya Suneer",
@@ -1295,6 +1306,8 @@ export const team = [
       },
       {
         type: "µLearn Interns Q1",
+        description:
+          "The Pillars of µLearn are the ones who support the µLearn Community. They are a group of students who assist the peers with their work and help the community thrive.",
         members: [
           {
             name: "Niranj R",
@@ -1470,6 +1483,8 @@ export const team = [
     teams: [
       {
         type: "µlearn Associates",
+        description:
+          "The Associates are the ones who are responsible for the smooth functioning of different teams and the community as a whole.",
         members: [
           {
             name: "Govind K",
@@ -1565,6 +1580,8 @@ export const team = [
       },
       {
         type: "µLearn Interns Q1",
+        description:
+          "The Pillars of µLearn are the ones who support the µLearn Community. They are a group of students who assist the peers with their work and help the community thrive.",
         members: [
           {
             name: "Chethas L Pramod",
@@ -2737,6 +2754,8 @@ export const team = [
     teams: [
       {
         type: "µLearn HQ",
+        description:
+          "The HQ members are the ones who are the backbone of the community. They are the ones who are responsible for the smooth functioning of different teams and the community as a whole.",
         members: [
           {
             name: "K Thomas Mathew",
@@ -2804,6 +2823,8 @@ export const team = [
       },
       {
         type: "µlearn Associates",
+        description:
+          "The Associates are the ones who are responsible for the smooth functioning of different teams and the community as a whole.",
         members: [
           {
             name: "Adnan Kattekaden",
@@ -2847,6 +2868,8 @@ export const team = [
       },
       {
         type: "µlearn Pillars Q3",
+        description:
+          "The Pillars of µLearn are the ones who support the µLearn Community. They are a group of students who assist the peers with their work and help the community thrive.",
         members: [
           {
             name: "John Philip George",
@@ -3702,6 +3725,8 @@ export const team = [
       },
       {
         type: "µlearn Pillars Q1",
+        description:
+          "The Pillars of µLearn are the ones who support the µLearn Community. They are a group of students who assist the peers with their work and help the community thrive.",
         members: [
           {
             name: "Jomon Chacko",
@@ -4098,6 +4123,8 @@ export const team = [
     teams: [
       {
         type: "YIP Organization",
+        description:
+          "Here are the members of the crew and interns who helped to make the YIP a big success.",
         members: [
           {
             id: 1,
@@ -5011,552 +5038,571 @@ export const team = [
         ],
       },
       {
-        type: "Core Team",
-        members: [
-          {
-            id: 0,
-            name: "Akshaya Rajesh",
-            designation: "Director, GTech Community",
-            image: "public/assets/team/muteam/core/Akshaya Rajesh.webp",
-          },
-          {
-            id: 1,
-            name: "Bijoy Sijo",
-            designation: "Director, GTech Operations",
-            image: "public/assets/team/muteam/core/Bijoy Sijo.webp",
-          },
-          {
-            id: 2,
-            name: "Angel Rose",
-            designation: "Joint Director, Student Community",
-            image: "public/assets/team/muteam/core/Angel Rose.webp",
-          },
-          {
-            id: 3,
-            name: "Chaithanya Liz R T",
-            designation: "Joint Director, Technical Community",
-            image: "public/assets/team/muteam/core/Chaithanya Liz R T.webp",
-          },
-          {
-            id: 4,
-            name: "Vinu Balagopal A P",
-            designation: "Joint Director, Need Aggregation",
-            image: "public/assets/team/muteam/core/Vinu Balagopal A P.webp",
-          },
-          {
-            id: 5,
-            name: "Aswin S Seshdari",
-            designation: "Joint Director, Faculty Enablement",
-            image: "public/assets/team/muteam/core/Aswin S Seshdari.webp",
-          },
-          {
-            id: 6,
-            name: "Finu Muhammed Shameem",
-            designation: "Joint Director, Community",
-            image: "public/assets/team/muteam/core/Finu Muhammed Shameem.webp",
-          },
-          {
-            id: 7,
-            name: "Jessno Oommen Jose",
-            designation: "Joint Director, Network Partners",
-            image: "public/assets/team/muteam/core/Jessno Oommen Jose.webp",
-          },
-          {
-            id: 8,
-            name: "Andrea Rose Aureo",
-            designation: "Joint Director, Operations",
-            image: "public/assets/team/muteam/core/Andrea Rose Aureo.webp",
-          },
-          {
-            id: 9,
-            name: "Mohamed Faraz M S",
-            designation: "Joint Director, Operations",
-            image: "public/assets/team/muteam/core/Mohamed Faraz M S.webp",
-          },
-          {
-            id: 10,
-            name: "Adithyan Jayakumar",
-            designation: "Media Lead",
-            image: "public/assets/team/muteam/core/Adithyan Jayakumar.webp",
-          },
-          {
-            id: 11,
-            name: "Arjun Krishna",
-            designation: "Media Lead",
-            image: "public/assets/team/muteam/core/Arjun Krishna.webp",
-          },
-          {
-            id: 12,
-            name: "Akash Santosh",
-            designation: "Tech Lead",
-            image: "public/assets/team/muteam/core/Akash Santosh.webp",
-          },
-        ],
-      },
-      {
-        type: "Zonal Leads",
-        members: [
-          {
-            id: 0,
-            name: "Albin Mathews Joseph",
-            designation: "Zonal Head South Zone",
-            image: "public/assets/team/muteam/zonal/Albin Mathews Joseph.webp",
-          },
-          {
-            id: 1,
-            name: "Josvin Jose",
-            designation: "Zonal Head Central Zone",
-            image: "public/assets/team/muteam/zonal/Josvin Jose.webp",
-          },
-          {
-            id: 2,
-            name: "Mayoosha T",
-            designation: "Zonal Head North Zone",
-            image: "public/assets/team/muteam/zonal/Mayoosha T.webp",
-          },
-          {
-            id: 3,
-            name: "B. Raj Shankar",
-            designation: "Zonal Head South Zone",
-            image: "public/assets/team/muteam/zonal/B. Raj Shankar.webp",
-          },
-          {
-            id: 4,
-            name: "Ciril P Thomas",
-            designation: "Zonal Head North Zone",
-            image: "public/assets/team/muteam/zonal/Ciril P Thomas.webp",
-          },
-          {
-            id: 5,
-            name: "Ebin Varshese",
-            designation: "Zonal Head Central Zone",
-            image: "public/assets/team/muteam/zonal/Ebin Varshese.webp",
-          },
-          {
-            id: 6,
-            name: "Gopeekrishnan G S",
-            designation: "Zonal Head South Zone",
-            image: "public/assets/team/muteam/zonal/Gopeekrishnan G S.webp",
-          },
-          {
-            id: 7,
-            name: "Nouman N",
-            designation: "Zonal Head North Zone",
-            image: "public/assets/team/muteam/zonal/Nouman N.webp",
-          },
-          {
-            id: 8,
-            name: "Sreelakshmi A",
-            designation: "Zonal Head Central Zone",
-            image: "public/assets/team/muteam/zonal/Sreelakshmi A.webp",
-          },
-        ],
-      },
-      {
-        type: "District Leads",
-        members: [
-          {
-            id: 0,
-            name: "Abhijithh K P",
-            designation: "Kasaragod District Head",
-            image: "public/assets/team/muteam/district/Abhijithh K P.webp",
-          },
-          {
-            id: 1,
-            name: "Adil S",
-            designation: "Idukki District Head",
-            image: "public/assets/team/muteam/district/Adil S.webp",
-          },
-          {
-            id: 2,
-            name: "Abdul Sameeu",
-            designation: "Ernakulam District Head",
-            image: "public/assets/team/muteam/district/Abdul Sameeu.webp",
-          },
-          {
-            id: 3,
-            name: "Adith V Mohanan",
-            designation: "Kozhikode District Head",
-            image: "public/assets/team/muteam/district/Adith V Mohanan.webp",
-          },
-          {
-            id: 4,
-            name: "Adithya S Renu",
-            designation: "District Head",
-            image: "public/assets/team/muteam/district/Adithya S Renu.webp",
-          },
-          {
-            id: 5,
-            name: "Akhil K John",
-            designation: "Pathanamthitta District Head",
-            image: "public/assets/team/muteam/district/Akhil K John.webp",
-          },
-          {
-            id: 6,
-            name: "Akshay AN",
-            designation: "Idukki District Head",
-            image: "public/assets/team/muteam/district/Akshay AN.webp",
-          },
-          {
-            id: 7,
-            name: "Aldrin Andrew",
-            designation: "Pathanamthitta District Head",
-            image: "public/assets/team/muteam/district/Aldrin Andrew.webp",
-          },
-          {
-            id: 8,
-            name: "Ameena Nuwaira Thwahir Ameen",
-            designation: "Wayanad District Head",
-            image:
-              "public/assets/team/muteam/district/Ameena Nuwaira Thwahir Ameen.webp",
-          },
-          {
-            id: 9,
-            name: "Amritha G S",
-            designation: "Trivandrum District Head",
-            image: "public/assets/team/muteam/district/Amritha G S.webp",
-          },
-          {
-            id: 10,
-            name: "Ananthakrishnan",
-            designation: "District Head",
-            image: "public/assets/team/muteam/district/Ananthakrishnan.webp",
-          },
-          {
-            id: 11,
-            name: "Anjana V",
-            designation: "Kozhikode District Head",
-            image: "public/assets/team/muteam/district/Anjana V.webp",
-          },
-          {
-            id: 12,
-            name: "Anupam A B",
-            designation: "District Head",
-            image: "public/assets/team/muteam/district/Anupam A B.webp",
-          },
-          {
-            id: 13,
-            name: "Aswin C Baiju",
-            designation: "Wayanad District Head",
-            image: "public/assets/team/muteam/district/Aswin C Baiju.webp",
-          },
-          {
-            id: 14,
-            name: "Athul Benny",
-            designation: "Kannur District Head",
-            image: "public/assets/team/muteam/district/Athul Benny.webp",
-          },
-          {
-            id: 15,
-            name: "Henna Jelwa U K",
-            designation: "Malappuram District Head",
-            image: "public/assets/team/muteam/district/Henna Jelwa U K.webp",
-          },
-          {
-            id: 16,
-            name: "Jaison Joshi",
-            designation: "Palakkad District Head",
-            image: "public/assets/team/muteam/district/Jaison Joshi.webp",
-          },
-          {
-            id: 17,
-            name: "Jayasankar J P",
-            designation: "Pathanamthitta District Head",
-            image: "public/assets/team/muteam/district/Jayasankar J P.webp",
-          },
-          {
-            id: 18,
-            name: "Jeevan Joseph",
-            designation: "Kottayam District Head",
-            image: "public/assets/team/muteam/district/Jeevan Joseph.webp",
-          },
-          {
-            id: 19,
-            name: "Jesin Vengilatt",
-            designation: "Wayanad District Head",
-            image: "public/assets/team/muteam/district/Jesin Vengilatt.webp",
-          },
-          {
-            id: 20,
-            name: "Majesty Raj",
-            designation: "Kozhikode District Head",
-            image: "public/assets/team/muteam/district/Majesty Raj.webp",
-          },
-          {
-            id: 21,
-            name: "Melvin",
-            designation: "District Head",
-            image: "public/assets/team/muteam/district/Melvin.webp",
-          },
-          {
-            id: 22,
-            name: "Merin Susan",
-            designation: "Trivandrum District Head",
-            image: "public/assets/team/muteam/district/Merin Susan.webp",
-          },
-          {
-            id: 23,
-            name: "Milan Deepak",
-            designation: "Ernakulam District Head",
-            image: "public/assets/team/muteam/district/Milan Deepak.webp",
-          },
-          {
-            id: 24,
-            name: "Muhammed Nabeel T K",
-            designation: "Kasaragod District Head",
-            image:
-              "public/assets/team/muteam/district/Muhammed Nabeel T K.webp",
-          },
-          {
-            id: 25,
-            name: "Naaja F",
-            designation: "Kollam District Head",
-            image: "public/assets/team/muteam/district/Naaja F.webp",
-          },
-          {
-            id: 26,
-            name: "Navya K",
-            designation: "Kannur District Head",
-            image: "public/assets/team/muteam/district/Navya K.webp",
-          },
-          {
-            id: 27,
-            name: "Neeraj Menon",
-            designation: "Palakkad District Head",
-            image: "public/assets/team/muteam/district/Neeraj Menon.webp",
-          },
-          {
-            id: 28,
-            name: "Rajeev R",
-            designation: "Palakkad District Head",
-            image: "public/assets/team/muteam/district/Rajeev R.webp",
-          },
-          {
-            id: 29,
-            name: "Rishikesh V K",
-            designation: "Kannur District Head",
-            image: "public/assets/team/muteam/district/Rishikesh V K.webp",
-          },
-          {
-            id: 30,
-            name: "Saieedha Mol N K",
-            designation: "Malappuram District Head",
-            image: "public/assets/team/muteam/district/Saieedha Mol N K.webp",
-          },
-          {
-            id: 31,
-            name: "Sandra Krishnan",
-            designation: "Kottayam District Head",
-            image: "public/assets/team/muteam/district/Sandra Krishnan.webp",
-          },
-          {
-            id: 32,
-            name: "Sandra",
-            designation: "Kottayam District Head",
-            image: "public/assets/team/muteam/district/Sandra.webp",
-          },
-          {
-            id: 33,
-            name: "Silsa Shaji",
-            designation: "Ernakulam District Head",
-            image: "public/assets/team/muteam/district/Silsa Shaji.webp",
-          },
-          {
-            id: 34,
-            name: "Sneha PV",
-            designation: "Kollam District Head",
-            image: "public/assets/team/muteam/district/Sneha PV.webp",
-          },
-          {
-            id: 35,
-            name: "Sooraj P",
-            designation: "Kasaragod District Head",
-            image: "public/assets/team/muteam/district/Sooraj P.webp",
-          },
-          {
-            id: 36,
-            name: "Steena Xavier",
-            designation: "Thrissur District Head",
-            image: "public/assets/team/muteam/district/Steena Xavier.webp",
-          },
-          {
-            id: 37,
-            name: "Swathi R",
-            designation: "District Head",
-            image: "public/assets/team/muteam/district/Swathi R.webp",
-          },
-          {
-            id: 38,
-            name: "Terrance Johnson",
-            designation: "Thrissur District Head",
-            image: "public/assets/team/muteam/district/Terrance Johnson.webp",
-          },
-          {
-            id: 39,
-            name: "Vishnu Prathap",
-            designation: "Idukki District Head",
-            image: "public/assets/team/muteam/district/Vishnu Prathap.webp",
-          },
-          {
-            id: 40,
-            name: "Gowrishankar V. V",
-            designation: "Alappuzha District Head",
-            image: "public/assets/team/muteam/district/Gowrishankar V. V.webp",
-          },
-        ],
-      },
-      {
-        type: "Campus Ambassadors",
-        members: [
-          {
-            id: 0,
-            name: "Albin Mathews Ali",
-            designation: "Vimal Jyothi",
-            image: "public/assets/team/muteam/ca/Albin Mathews Ali.webp",
-          },
-          {
-            id: 1,
-            name: "Muhammed Rashid",
-            designation: "Vimal Jyothi",
-            image: "public/assets/team/muteam/ca/Muhammed Rashid.webp",
-          },
-          {
-            id: 2,
-            name: "Prince Judit Das",
-            designation: "Vimal Jyothi",
-            image: "public/assets/team/muteam/ca/Prince Judit Das.webp",
-          },
-          {
-            id: 3,
-            name: "Amritha G S",
-            designation: "Trinity College of Engineering",
-            image: "public/assets/team/muteam/ca/Amritha G S.webp",
-          },
-          {
-            id: 4,
-            name: "Unnikrishnan GB",
-            designation: "Trinity College of Engineering",
-            image: "public/assets/team/muteam/ca/Unnikrishnan GB.webp",
-          },
-          {
-            id: 5,
-            name: "Arjun B S",
-            designation: "Trinity College of Engineering",
-            image: "public/assets/team/muteam/ca/Arjun B S.webp",
-          },
-          {
-            id: 6,
-            name: "Kusanath",
-            designation: "St Joseph's College",
-            image: "public/assets/team/muteam/ca/Kusanath.webp",
-          },
-          {
-            id: 7,
-            name: "Nishanth",
-            designation: "St Joseph's College",
-            image: "public/assets/team/muteam/ca/Nishanth.webp",
-          },
-          {
-            id: 8,
-            name: "Sandra Pramod",
-            designation: "St Joseph's College",
-            image: "public/assets/team/muteam/ca/Sandra Pramod.webp",
-          },
-          {
-            id: 9,
-            name: "B. Raj Shankar Menon",
-            designation: "Mar Baselios College",
-            image: "public/assets/team/muteam/ca/B. Raj Shankar Menon.webp",
-          },
-          {
-            id: 10,
-            name: "Gopeekrishnan G S",
-            designation: "Mar Baselios College",
-            image: "public/assets/team/muteam/ca/Gopeekrishnan G S.webp",
-          },
-          {
-            id: 11,
-            name: "Jessno Oommen Jose",
-            designation: "Mar Baselios College",
-            image: "public/assets/team/muteam/ca/Jessno Oommen Jose.webp",
-          },
-          {
-            id: 12,
-            name: "Arjun P",
-            designation: "KMCT College of Enginnering",
-            image: "public/assets/team/muteam/ca/Arjun P.webp",
-          },
-          {
-            id: 13,
-            name: "Hridya Nanda",
-            designation: "KMCT College of Enginnering",
-            image: "public/assets/team/muteam/ca/Hridya Nanda.webp",
-          },
-          {
-            id: 14,
-            name: "Jibin",
-            designation: "KMCT College of Enginnering",
-            image: "public/assets/team/muteam/ca/Jibin.webp",
-          },
-          {
-            id: 15,
-            name: "Jesin Vengilatt",
-            designation: "GEC Wayanad",
-            image: "public/assets/team/muteam/ca/Jesin Vengilatt.webp",
-          },
-          {
-            id: 16,
-            name: "Aswin C Baiju",
-            designation: "GEC Wayanad",
-            image: "public/assets/team/muteam/ca/Aswin C Baiju.webp",
-          },
-          {
-            id: 17,
-            name: "Ameena Nuwaira Thwahir Ameen",
-            designation: "GEC Wayanad",
-            image:
-              "public/assets/team/muteam/ca/Ameena Nuwaira Thwahir Ameen.webp",
-          },
-          {
-            id: 18,
-            name: "Abisa M",
-            designation: "College of Enginnering Perumon",
-            image: "public/assets/team/muteam/ca/Abisa M.webp",
-          },
-          {
-            id: 19,
-            name: "Aldrin Andrew",
-            designation: "College of Enginnering Perumon",
-            image: "public/assets/team/muteam/ca/Aldrin Andrew.webp",
-          },
-          {
-            id: 20,
-            name: "Gregory Jobe C",
-            designation: "College of Enginnering Perumon",
-            image: "public/assets/team/muteam/ca/Gregory Jobe C.webp",
-          },
-          {
-            id: 21,
-            name: "Anoop",
-            designation: "Christ College of Engineering",
-            image: "public/assets/team/muteam/ca/Anoop.webp",
-          },
-          {
-            id: 22,
-            name: "Arun Joseph",
-            designation: "Christ College of Engineering",
-            image: "public/assets/team/muteam/ca/Arun Joseph.webp",
-          },
-          {
-            id: 23,
-            name: "Austin S",
-            designation: "Christ College of Engineering",
-            image: "public/assets/team/muteam/ca/Austin S.webp",
+        type: "Community Team",
+        description:
+          "The Community Team was the one who brought the achievements at the most; it links industry and academia and forges connections between students, faculty, mentors, and others.",
+        subteams: [
+          {
+            type: "Core Team",
+            members: [
+              {
+                id: 0,
+                name: "Akshaya Rajesh",
+                designation: "Director, GTech Community",
+                image: "public/assets/team/muteam/core/Akshaya Rajesh.webp",
+              },
+              {
+                id: 1,
+                name: "Bijoy Sijo",
+                designation: "Director, GTech Operations",
+                image: "public/assets/team/muteam/core/Bijoy Sijo.webp",
+              },
+              {
+                id: 2,
+                name: "Angel Rose",
+                designation: "Joint Director, Student Community",
+                image: "public/assets/team/muteam/core/Angel Rose.webp",
+              },
+              {
+                id: 3,
+                name: "Chaithanya Liz R T",
+                designation: "Joint Director, Technical Community",
+                image: "public/assets/team/muteam/core/Chaithanya Liz R T.webp",
+              },
+              {
+                id: 4,
+                name: "Vinu Balagopal A P",
+                designation: "Joint Director, Need Aggregation",
+                image: "public/assets/team/muteam/core/Vinu Balagopal A P.webp",
+              },
+              {
+                id: 5,
+                name: "Aswin S Seshdari",
+                designation: "Joint Director, Faculty Enablement",
+                image: "public/assets/team/muteam/core/Aswin S Seshdari.webp",
+              },
+              {
+                id: 6,
+                name: "Finu Muhammed Shameem",
+                designation: "Joint Director, Community",
+                image:
+                  "public/assets/team/muteam/core/Finu Muhammed Shameem.webp",
+              },
+              {
+                id: 7,
+                name: "Jessno Oommen Jose",
+                designation: "Joint Director, Network Partners",
+                image: "public/assets/team/muteam/core/Jessno Oommen Jose.webp",
+              },
+              {
+                id: 8,
+                name: "Andrea Rose Aureo",
+                designation: "Joint Director, Operations",
+                image: "public/assets/team/muteam/core/Andrea Rose Aureo.webp",
+              },
+              {
+                id: 9,
+                name: "Mohamed Faraz M S",
+                designation: "Joint Director, Operations",
+                image: "public/assets/team/muteam/core/Mohamed Faraz M S.webp",
+              },
+              {
+                id: 10,
+                name: "Adithyan Jayakumar",
+                designation: "Media Lead",
+                image: "public/assets/team/muteam/core/Adithyan Jayakumar.webp",
+              },
+              {
+                id: 11,
+                name: "Arjun Krishna",
+                designation: "Media Lead",
+                image: "public/assets/team/muteam/core/Arjun Krishna.webp",
+              },
+              {
+                id: 12,
+                name: "Akash Santosh",
+                designation: "Tech Lead",
+                image: "public/assets/team/muteam/core/Akash Santosh.webp",
+              },
+            ],
+          },
+          {
+            type: "Zonal Leads",
+            members: [
+              {
+                id: 0,
+                name: "Albin Mathews Joseph",
+                designation: "Zonal Head South Zone",
+                image:
+                  "public/assets/team/muteam/zonal/Albin Mathews Joseph.webp",
+              },
+              {
+                id: 1,
+                name: "Josvin Jose",
+                designation: "Zonal Head Central Zone",
+                image: "public/assets/team/muteam/zonal/Josvin Jose.webp",
+              },
+              {
+                id: 2,
+                name: "Mayoosha T",
+                designation: "Zonal Head North Zone",
+                image: "public/assets/team/muteam/zonal/Mayoosha T.webp",
+              },
+              {
+                id: 3,
+                name: "B. Raj Shankar",
+                designation: "Zonal Head South Zone",
+                image: "public/assets/team/muteam/zonal/B. Raj Shankar.webp",
+              },
+              {
+                id: 4,
+                name: "Ciril P Thomas",
+                designation: "Zonal Head North Zone",
+                image: "public/assets/team/muteam/zonal/Ciril P Thomas.webp",
+              },
+              {
+                id: 5,
+                name: "Ebin Varshese",
+                designation: "Zonal Head Central Zone",
+                image: "public/assets/team/muteam/zonal/Ebin Varshese.webp",
+              },
+              {
+                id: 6,
+                name: "Gopeekrishnan G S",
+                designation: "Zonal Head South Zone",
+                image: "public/assets/team/muteam/zonal/Gopeekrishnan G S.webp",
+              },
+              {
+                id: 7,
+                name: "Nouman N",
+                designation: "Zonal Head North Zone",
+                image: "public/assets/team/muteam/zonal/Nouman N.webp",
+              },
+              {
+                id: 8,
+                name: "Sreelakshmi A",
+                designation: "Zonal Head Central Zone",
+                image: "public/assets/team/muteam/zonal/Sreelakshmi A.webp",
+              },
+            ],
+          },
+          {
+            type: "District Leads",
+            members: [
+              {
+                id: 0,
+                name: "Abhijithh K P",
+                designation: "Kasaragod District Head",
+                image: "public/assets/team/muteam/district/Abhijithh K P.webp",
+              },
+              {
+                id: 1,
+                name: "Adil S",
+                designation: "Idukki District Head",
+                image: "public/assets/team/muteam/district/Adil S.webp",
+              },
+              {
+                id: 2,
+                name: "Abdul Sameeu",
+                designation: "Ernakulam District Head",
+                image: "public/assets/team/muteam/district/Abdul Sameeu.webp",
+              },
+              {
+                id: 3,
+                name: "Adith V Mohanan",
+                designation: "Kozhikode District Head",
+                image:
+                  "public/assets/team/muteam/district/Adith V Mohanan.webp",
+              },
+              {
+                id: 4,
+                name: "Adithya S Renu",
+                designation: "District Head",
+                image: "public/assets/team/muteam/district/Adithya S Renu.webp",
+              },
+              {
+                id: 5,
+                name: "Akhil K John",
+                designation: "Pathanamthitta District Head",
+                image: "public/assets/team/muteam/district/Akhil K John.webp",
+              },
+              {
+                id: 6,
+                name: "Akshay AN",
+                designation: "Idukki District Head",
+                image: "public/assets/team/muteam/district/Akshay AN.webp",
+              },
+              {
+                id: 7,
+                name: "Aldrin Andrew",
+                designation: "Pathanamthitta District Head",
+                image: "public/assets/team/muteam/district/Aldrin Andrew.webp",
+              },
+              {
+                id: 8,
+                name: "Ameena Nuwaira Thwahir Ameen",
+                designation: "Wayanad District Head",
+                image:
+                  "public/assets/team/muteam/district/Ameena Nuwaira Thwahir Ameen.webp",
+              },
+              {
+                id: 9,
+                name: "Amritha G S",
+                designation: "Trivandrum District Head",
+                image: "public/assets/team/muteam/district/Amritha G S.webp",
+              },
+              {
+                id: 10,
+                name: "Ananthakrishnan",
+                designation: "District Head",
+                image:
+                  "public/assets/team/muteam/district/Ananthakrishnan.webp",
+              },
+              {
+                id: 11,
+                name: "Anjana V",
+                designation: "Kozhikode District Head",
+                image: "public/assets/team/muteam/district/Anjana V.webp",
+              },
+              {
+                id: 12,
+                name: "Anupam A B",
+                designation: "District Head",
+                image: "public/assets/team/muteam/district/Anupam A B.webp",
+              },
+              {
+                id: 13,
+                name: "Aswin C Baiju",
+                designation: "Wayanad District Head",
+                image: "public/assets/team/muteam/district/Aswin C Baiju.webp",
+              },
+              {
+                id: 14,
+                name: "Athul Benny",
+                designation: "Kannur District Head",
+                image: "public/assets/team/muteam/district/Athul Benny.webp",
+              },
+              {
+                id: 15,
+                name: "Henna Jelwa U K",
+                designation: "Malappuram District Head",
+                image:
+                  "public/assets/team/muteam/district/Henna Jelwa U K.webp",
+              },
+              {
+                id: 16,
+                name: "Jaison Joshi",
+                designation: "Palakkad District Head",
+                image: "public/assets/team/muteam/district/Jaison Joshi.webp",
+              },
+              {
+                id: 17,
+                name: "Jayasankar J P",
+                designation: "Pathanamthitta District Head",
+                image: "public/assets/team/muteam/district/Jayasankar J P.webp",
+              },
+              {
+                id: 18,
+                name: "Jeevan Joseph",
+                designation: "Kottayam District Head",
+                image: "public/assets/team/muteam/district/Jeevan Joseph.webp",
+              },
+              {
+                id: 19,
+                name: "Jesin Vengilatt",
+                designation: "Wayanad District Head",
+                image:
+                  "public/assets/team/muteam/district/Jesin Vengilatt.webp",
+              },
+              {
+                id: 20,
+                name: "Majesty Raj",
+                designation: "Kozhikode District Head",
+                image: "public/assets/team/muteam/district/Majesty Raj.webp",
+              },
+              {
+                id: 21,
+                name: "Melvin",
+                designation: "District Head",
+                image: "public/assets/team/muteam/district/Melvin.webp",
+              },
+              {
+                id: 22,
+                name: "Merin Susan",
+                designation: "Trivandrum District Head",
+                image: "public/assets/team/muteam/district/Merin Susan.webp",
+              },
+              {
+                id: 23,
+                name: "Milan Deepak",
+                designation: "Ernakulam District Head",
+                image: "public/assets/team/muteam/district/Milan Deepak.webp",
+              },
+              {
+                id: 24,
+                name: "Muhammed Nabeel T K",
+                designation: "Kasaragod District Head",
+                image:
+                  "public/assets/team/muteam/district/Muhammed Nabeel T K.webp",
+              },
+              {
+                id: 25,
+                name: "Naaja F",
+                designation: "Kollam District Head",
+                image: "public/assets/team/muteam/district/Naaja F.webp",
+              },
+              {
+                id: 26,
+                name: "Navya K",
+                designation: "Kannur District Head",
+                image: "public/assets/team/muteam/district/Navya K.webp",
+              },
+              {
+                id: 27,
+                name: "Neeraj Menon",
+                designation: "Palakkad District Head",
+                image: "public/assets/team/muteam/district/Neeraj Menon.webp",
+              },
+              {
+                id: 28,
+                name: "Rajeev R",
+                designation: "Palakkad District Head",
+                image: "public/assets/team/muteam/district/Rajeev R.webp",
+              },
+              {
+                id: 29,
+                name: "Rishikesh V K",
+                designation: "Kannur District Head",
+                image: "public/assets/team/muteam/district/Rishikesh V K.webp",
+              },
+              {
+                id: 30,
+                name: "Saieedha Mol N K",
+                designation: "Malappuram District Head",
+                image:
+                  "public/assets/team/muteam/district/Saieedha Mol N K.webp",
+              },
+              {
+                id: 31,
+                name: "Sandra Krishnan",
+                designation: "Kottayam District Head",
+                image:
+                  "public/assets/team/muteam/district/Sandra Krishnan.webp",
+              },
+              {
+                id: 32,
+                name: "Sandra",
+                designation: "Kottayam District Head",
+                image: "public/assets/team/muteam/district/Sandra.webp",
+              },
+              {
+                id: 33,
+                name: "Silsa Shaji",
+                designation: "Ernakulam District Head",
+                image: "public/assets/team/muteam/district/Silsa Shaji.webp",
+              },
+              {
+                id: 34,
+                name: "Sneha PV",
+                designation: "Kollam District Head",
+                image: "public/assets/team/muteam/district/Sneha PV.webp",
+              },
+              {
+                id: 35,
+                name: "Sooraj P",
+                designation: "Kasaragod District Head",
+                image: "public/assets/team/muteam/district/Sooraj P.webp",
+              },
+              {
+                id: 36,
+                name: "Steena Xavier",
+                designation: "Thrissur District Head",
+                image: "public/assets/team/muteam/district/Steena Xavier.webp",
+              },
+              {
+                id: 37,
+                name: "Swathi R",
+                designation: "District Head",
+                image: "public/assets/team/muteam/district/Swathi R.webp",
+              },
+              {
+                id: 38,
+                name: "Terrance Johnson",
+                designation: "Thrissur District Head",
+                image:
+                  "public/assets/team/muteam/district/Terrance Johnson.webp",
+              },
+              {
+                id: 39,
+                name: "Vishnu Prathap",
+                designation: "Idukki District Head",
+                image: "public/assets/team/muteam/district/Vishnu Prathap.webp",
+              },
+              {
+                id: 40,
+                name: "Gowrishankar V. V",
+                designation: "Alappuzha District Head",
+                image:
+                  "public/assets/team/muteam/district/Gowrishankar V. V.webp",
+              },
+            ],
+          },
+          {
+            type: "Campus Ambassadors",
+            members: [
+              {
+                id: 0,
+                name: "Albin Mathews Ali",
+                designation: "Vimal Jyothi",
+                image: "public/assets/team/muteam/ca/Albin Mathews Ali.webp",
+              },
+              {
+                id: 1,
+                name: "Muhammed Rashid",
+                designation: "Vimal Jyothi",
+                image: "public/assets/team/muteam/ca/Muhammed Rashid.webp",
+              },
+              {
+                id: 2,
+                name: "Prince Judit Das",
+                designation: "Vimal Jyothi",
+                image: "public/assets/team/muteam/ca/Prince Judit Das.webp",
+              },
+              {
+                id: 3,
+                name: "Amritha G S",
+                designation: "Trinity College of Engineering",
+                image: "public/assets/team/muteam/ca/Amritha G S.webp",
+              },
+              {
+                id: 4,
+                name: "Unnikrishnan GB",
+                designation: "Trinity College of Engineering",
+                image: "public/assets/team/muteam/ca/Unnikrishnan GB.webp",
+              },
+              {
+                id: 5,
+                name: "Arjun B S",
+                designation: "Trinity College of Engineering",
+                image: "public/assets/team/muteam/ca/Arjun B S.webp",
+              },
+              {
+                id: 6,
+                name: "Kusanath",
+                designation: "St Joseph's College",
+                image: "public/assets/team/muteam/ca/Kusanath.webp",
+              },
+              {
+                id: 7,
+                name: "Nishanth",
+                designation: "St Joseph's College",
+                image: "public/assets/team/muteam/ca/Nishanth.webp",
+              },
+              {
+                id: 8,
+                name: "Sandra Pramod",
+                designation: "St Joseph's College",
+                image: "public/assets/team/muteam/ca/Sandra Pramod.webp",
+              },
+              {
+                id: 9,
+                name: "B. Raj Shankar Menon",
+                designation: "Mar Baselios College",
+                image: "public/assets/team/muteam/ca/B. Raj Shankar Menon.webp",
+              },
+              {
+                id: 10,
+                name: "Gopeekrishnan G S",
+                designation: "Mar Baselios College",
+                image: "public/assets/team/muteam/ca/Gopeekrishnan G S.webp",
+              },
+              {
+                id: 11,
+                name: "Jessno Oommen Jose",
+                designation: "Mar Baselios College",
+                image: "public/assets/team/muteam/ca/Jessno Oommen Jose.webp",
+              },
+              {
+                id: 12,
+                name: "Arjun P",
+                designation: "KMCT College of Enginnering",
+                image: "public/assets/team/muteam/ca/Arjun P.webp",
+              },
+              {
+                id: 13,
+                name: "Hridya Nanda",
+                designation: "KMCT College of Enginnering",
+                image: "public/assets/team/muteam/ca/Hridya Nanda.webp",
+              },
+              {
+                id: 14,
+                name: "Jibin",
+                designation: "KMCT College of Enginnering",
+                image: "public/assets/team/muteam/ca/Jibin.webp",
+              },
+              {
+                id: 15,
+                name: "Jesin Vengilatt",
+                designation: "GEC Wayanad",
+                image: "public/assets/team/muteam/ca/Jesin Vengilatt.webp",
+              },
+              {
+                id: 16,
+                name: "Aswin C Baiju",
+                designation: "GEC Wayanad",
+                image: "public/assets/team/muteam/ca/Aswin C Baiju.webp",
+              },
+              {
+                id: 17,
+                name: "Ameena Nuwaira Thwahir Ameen",
+                designation: "GEC Wayanad",
+                image:
+                  "public/assets/team/muteam/ca/Ameena Nuwaira Thwahir Ameen.webp",
+              },
+              {
+                id: 18,
+                name: "Abisa M",
+                designation: "College of Enginnering Perumon",
+                image: "public/assets/team/muteam/ca/Abisa M.webp",
+              },
+              {
+                id: 19,
+                name: "Aldrin Andrew",
+                designation: "College of Enginnering Perumon",
+                image: "public/assets/team/muteam/ca/Aldrin Andrew.webp",
+              },
+              {
+                id: 20,
+                name: "Gregory Jobe C",
+                designation: "College of Enginnering Perumon",
+                image: "public/assets/team/muteam/ca/Gregory Jobe C.webp",
+              },
+              {
+                id: 21,
+                name: "Anoop",
+                designation: "Christ College of Engineering",
+                image: "public/assets/team/muteam/ca/Anoop.webp",
+              },
+              {
+                id: 22,
+                name: "Arun Joseph",
+                designation: "Christ College of Engineering",
+                image: "public/assets/team/muteam/ca/Arun Joseph.webp",
+              },
+              {
+                id: 23,
+                name: "Austin S",
+                designation: "Christ College of Engineering",
+                image: "public/assets/team/muteam/ca/Austin S.webp",
+              },
+            ],
           },
         ],
       },
       {
         type: "Tech Team",
+        description:
+          "Here are the members of the crew who contributed to developing the website and bot, collected resources and gave suggestions about UX.",
         members: [
           {
             id: 1,
