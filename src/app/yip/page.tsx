@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { yip } from "@/data/data";
 
 export const metadata = {
   title: "YIP | µLearn",
@@ -8,137 +9,162 @@ export const metadata = {
 };
 
 export default function YipPage() {
-  const events = [
-    {
-      type: "type1",
-      icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/prereg.webp",
-      phaseLabel: "Pre\nRegistration",
-      title: "Step One",
-      description: (
+  // function to make specific text bold
+  const makeBold = (text: string, boldPhrases: string[]) => {
+    let result: React.ReactNode[] = [text];
+    
+    boldPhrases.forEach((phrase) => {
+      const newResult: React.ReactNode[] = [];
+      result.forEach((part) => {
+        if (typeof part === 'string') {
+          const parts = part.split(phrase);
+          parts.forEach((p, idx) => {
+            newResult.push(p);
+            if (idx < parts.length - 1) {
+              newResult.push(<strong key={`${phrase}-${idx}`}>{phrase}</strong>);
+            }
+          });
+        } else {
+          newResult.push(part);
+        }
+      });
+      result = newResult;
+    });
+    
+    return result;
+  };
+
+  // function to render descriptions with clickable links and bold text
+  const renderDescription = (description: string, link?: string, index?: number) => {
+    // in step 1 - Make "Click Here" clickable
+    if (index === 0 && link) {
+      const parts = description.split("Click Here");
+      return (
         <>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://yip.kerala.gov.in/yipapp/index.php/Idea2022"
-          >
-            <span className="hover:text-[#fa8322]">
+          {parts[0]}
+          <Link href={link} target="_blank" rel="noopener noreferrer">
+            <span className="hover:text-chart-5 transition-colors">
               <strong>Click Here</strong>
             </span>
-          </a>{" "}
-          to go to the Pre-Registration page. Enter all your details in the
-          Pre-Registration Form and complete OTP Verification. You&apos;ll receive an
-          email with login credentials.
+          </Link>
+          {parts[1]}
         </>
-      ),
-    },
-    {
-      type: "type2",
-      icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/studentreg.webp",
-      phaseLabel: "Ideator\nRegistration",
-      title: "Step Two",
-      description: (
+      );
+    }
+
+    // in step 2 - Make "Click Here to Login" clickable and "Profile Completion" bold
+    if (index === 1 && link) {
+      const parts = description.split("Click Here to Login");
+      const boldPhrases = ["Profile Completion"];
+      return (
         <>
-          <a
-            href="https://yip.kerala.gov.in/yipapp/index.php/Init/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span className="hover:text-[#fa8322]">
+          {parts[0]}
+          <Link href={link} target="_blank" rel="noopener noreferrer">
+            <span className="hover:text-mulearn-trusty-blue transition-colors">
               <strong>Click Here to Login</strong>
             </span>
-          </a>
-          , then complete your profile under the Profile Completion section and
-          submit.
+          </Link>
+          {makeBold(parts[1], boldPhrases)}
         </>
-      ),
-    },
-    {
-      type: "type3",
-      icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/yip-voc.webp",
-      phaseLabel: "Voice of\nStakeholder",
-      title: "Step Three",
-      description: (
-        <>
-          Complete the VOS Module from your dashboard and post with the hashtag{" "}
-          <strong>#yip5.0-vos</strong> to gain <strong>400 Karma Points</strong>.
-        </>
-      ),
-    },
-    {
-      type: "type1",
-      icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/team.webp",
-      phaseLabel: "Team\nFormation",
-      title: "Step Four",
-      description: (
-        <>
-          Form a team of 2–5 members using the Group Formation option. One member
-          creates the group; others join with the team name and password.
-        </>
-      ),
-    },
-    {
-      type: "type1",
-      icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/ideafind.webp",
-      phaseLabel: "Idea\nSubmission",
-      title: "Step Five",
-      description: (
-        <>
-          Submit your idea under Idea Submission. Post your certificate with{" "}
-          <strong>#yip5.0-idea</strong> to gain <strong>800 Karma Points</strong>.
-        </>
-      ),
-    },
-    {
-      type: "type2",
-      icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/approved.webp",
-      phaseLabel: "Institutional\nApproval",
-      title: "Step Six",
-      description: (
-        <>
-          After submission, get your idea approved by your institution&apos;s
-          authority.
-        </>
-      ),
-    },
-    {
-      type: "type3",
-      icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/evaluation.webp",
-      phaseLabel: "Preliminary\nEvaluation",
-      title: "Step Seven",
-      description: (
-        <>
-          Approved ideas undergo evaluation at district and state levels. Winning
-          teams receive prizes.
-        </>
-      ),
-    },
-    {
-      type: "type1",
-      icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/winner%20annoucement.webp",
-      phaseLabel: "Winner\nAnnouncement",
-      title: "Step Eight",
-      description: (
-        <>
-          Final winners receive financial and mentoring support to implement
-          their ideas.
-        </>
-      ),
-    },
-  ];
+      );
+    }
+
+    // Step 3 - Voice of Stakeholder
+    if (index === 2) {
+      const boldPhrases = [
+        "Voice of Stakeholder(VOS Module)",
+        "#yip5.0-vos",
+        "400 Karma Points"
+      ];
+      return <>{makeBold(description, boldPhrases)}</>;
+    }
+
+    // Step 4 - Team Formation
+    if (index === 3) {
+      const boldPhrases = [
+        "You can form a team consisting of minimum 2 members and maximum 5 members by clicking the Group Formation Button from the left navbar. Only one person from a group is required to form the group"
+      ];
+      return <>{makeBold(description, boldPhrases)}</>;
+    }
+
+    // Step 5 - Idea Submission
+    if (index === 4) {
+      const boldPhrases = [
+        "person who formed the team",
+        "Idea Submission Option",
+        "#yip5.0-idea",
+        "800 Karma Points"
+      ];
+      return <>{makeBold(description, boldPhrases)}</>;
+    }
+
+    // Step 6 - Institutional Approval
+    if (index === 5) {
+      return <>{description}</>;
+    }
+
+    // Step 7 - Preliminary Evaluation
+    if (index === 6) {
+      const boldPhrases = ["teams"];
+      return <>{makeBold(description, boldPhrases)}</>;
+    }
+
+    // Step 8 - Winner Announcement
+    if (index === 7) {
+      const boldPhrases = [
+        "the best of those teams are provided financial and mentoring support to implement their ideas."
+      ];
+      return <>{makeBold(description, boldPhrases)}</>;
+    }
+
+    // Default case
+    return description;
+  };
+
+  // function to get background colors based on type
+  const getTypeColors = (type: string) => {
+    switch (type) {
+      case "type1":
+        return {
+          iconBg: "bg-chart-4",
+          labelBg: "bg-chart-5", 
+          textColor: "text-chart-4"
+        };
+      case "type2":
+        return {
+          iconBg: "bg-yip-icon-light-blue", 
+          labelBg: "bg-mulearn-trusty-blue",
+          textColor: "text-mulearn-trusty-blue"
+        };
+      case "type3":
+        return {
+          iconBg: "bg-yip-light-green", // Light green - keeping this as it's a lighter shade
+          labelBg: "bg-yip-dark-green", // Green shade
+          textColor: "text-yip-dark-green"
+        };
+      default:
+        return {
+          iconBg: "bg-mulearn-greyish",
+          labelBg: "bg-mulearn-gray-600",
+          textColor: "text-mulearn-gray-600"
+        };
+    }
+  };
 
   return (
     <main role="main" className="min-h-screen w-full font-poppins">
       <section className="max-w-[1600px] mx-auto">
         <div className="flex flex-row justify-center items-stretch mt-8 mx-4 flex-wrap relative">
           <div className="max-w-[855px] shadow-[0px_0px_23px_rgba(130,177,255,0.22)] rounded-[25px] m-4 relative">
-            <div className="bg-[#c0defb] flex flex-row z-0 rounded-[25px] relative">
+            <div className="bg-yip-light-blue flex flex-row z-0 rounded-[25px] relative">
               <div className="p-8">
-                <p className="font-light text-[2.25rem] leading-[47px] max-w-[28rem] tracking-[0.02em] capitalize text-[#674063]">
+                <p className="font-light text-[2.25rem] leading-[47px] max-w-[28rem] tracking-[0.02em] capitalize text-yip-hero-text">
                   Kerala&apos;s Biggest{" "}
                   <strong className="font-bold">
                     Innovation Celebration is here!
                   </strong>
                 </p>
+                <br />
                 <Image
                   src="https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/lines.png"
                   alt="Decorative lines"
@@ -146,7 +172,7 @@ export default function YipPage() {
                   height={30}
                   className="mt-[-3rem] max-w-[15rem] h-auto"
                 />
-                <p className="mt-[-2rem] mb-8 font-medium text-[1.5rem] max-w-[20rem] leading-[33px] capitalize text-[#674063]">
+                <p className="mt-[-2rem] mb-8 font-medium text-[1.5rem] max-w-[20rem] leading-[33px] capitalize text-yip-hero-text">
                   Young Innovators Programme 5.0
                 </p>
               </div>
@@ -162,7 +188,7 @@ export default function YipPage() {
               href="https://yip.kerala.gov.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute mt-[-2rem] mr-12 right-0 z-10 bg-white shadow-[0px_17px_31px_rgba(0,0,0,0.12)] rounded-xl font-semibold text-[1.25rem] px-[4.5rem] py-3 leading-[33px] capitalize text-[#674063] hover:bg-[#704a6c] hover:text-white transition-all duration-300"
+              className="absolute mt-[-2rem] mr-12 right-0 z-10 bg-mulearn-whitish shadow-[0px_17px_31px_rgba(0,0,0,0.12)] rounded-xl font-semibold text-[1.25rem] px-[4.5rem] py-3 leading-[33px] capitalize text-yip-hero-text hover:bg-yip-hero-text-hover hover:text-mulearn-whitish transition-all duration-300"
             >
               Apply Now
             </Link>
@@ -210,7 +236,7 @@ export default function YipPage() {
             </div>
 
             <div className="max-w-[538px] p-8 shadow-[0px_0px_23px_rgba(130,177,255,0.22)] rounded-[25px] m-4 flex flex-col items-center transition-all duration-300">
-              <p className="font-medium text-[2.25rem] leading-[36px] capitalize text-[#030a1a] max-[768px]:text-[1.75rem]">
+              <p className="font-medium text-[2.25rem] leading-[36px] capitalize text-mulearn-blackish max-[768px]:text-[1.75rem]">
                 Brainstorm, Collaborate, And Create
               </p>
               <Image
@@ -230,8 +256,8 @@ export default function YipPage() {
             </div>
           </div>
 
-          <div className="flex flex-row justify-between items-center flex-wrap bg-[#db4569] p-8 m-4 w-full rounded-[25px]">
-            <div className="font-light text-[1.75rem] leading-[36px] max-w-[38rem] text-white max-[768px]:text-[1.35rem] max-[768px]:leading-[24px]">
+          <div className="flex flex-row justify-between items-center flex-wrap bg-yip-pink-card p-8 m-4 w-full rounded-[25px]">
+            <div className="font-light text-[1.75rem] leading-[36px] max-w-[38rem] text-mulearn-whitish max-[768px]:text-[1.35rem] max-[768px]:leading-[24px]">
               Pitch your{" "}
               <strong className="font-bold">
                 ideas and work alongside industry experts
@@ -258,128 +284,100 @@ export default function YipPage() {
 
       <section className="my-[7vh]">
         <div className="max-w-7xl mx-auto px-4">
-          <p className="text-center text-[#404040] text-[2.1rem] font-semibold">
+          <p className="text-center text-mulearn-blackish text-[2.1rem] font-semibold">
             YIP Idea Registration Procedure
           </p>
           <div className="flex flex-col mx-auto my-10 relative z-[5]">
-            {events.map((event, index) => (
-              <div
-                key={index}
-                className={`timeline-event mb-5 relative flex my-5 rounded-md self-center w-[50vw] max-[786px]:w-full max-[786px]:flex-col ${
-                  index % 2 === 0 ? "flex-row-reverse" : ""
-                }`}
-              >
-                <div className="hidden lg:block w-full">
-                  <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div
-                      className={`flex items-center ${
-                        index % 2 === 0 ? "flex-row-reverse" : ""
-                      }`}
-                    >
+            {yip.map((event, index) => {
+              const colors = getTypeColors(event.type);
+              
+              return (
+                <div
+                  key={index}
+                  className={`timeline-event mb-5 relative flex my-5 rounded-md self-center w-[50vw] max-[786px]:w-full max-[786px]:flex-col ${
+                    index % 2 === 0 ? "flex-row-reverse" : ""
+                  }`}
+                >
+                  <div className="hidden lg:block w-full">
+                    <div className="bg-mulearn-whitish rounded-lg shadow-md overflow-hidden">
                       <div
-                        className={`flex-shrink-0 w-32 h-32 flex items-center justify-center ${
-                          event.type === "type1"
-                            ? "bg-[#ffc773]"
-                            : event.type === "type2"
-                            ? "bg-[#87bbfe]"
-                            : "bg-[#aff1b6]"
+                        className={`flex items-center ${
+                          index % 2 === 0 ? "flex-row-reverse" : ""
                         }`}
                       >
-                        <Image
-                          src={event.icon}
-                          alt={`${event.title} icon`}
-                          width={80}
-                          height={80}
-                          className="w-20 h-20 object-contain"
-                        />
-                      </div>
-                      <div
-                        className={`flex-shrink-0 px-8 py-6 text-white font-bold text-lg min-w-[200px] flex items-center justify-center ${
-                          event.type === "type1"
-                            ? "bg-[#fa8322]"
-                            : event.type === "type2"
-                            ? "bg-[#555ac0]"
-                            : "bg-[#24b47e]"
-                        }`}
-                      >
-                        <div className="text-center">
-                          {event.phaseLabel.split("\n").map((line, i) => (
-                            <span key={i} className="block">
-                              {line}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="flex-1 p-6">
                         <div
-                          className={`text-[1.2rem] uppercase font-semibold tracking-[1.5px] mb-3 ${
-                            event.type === "type1"
-                              ? "text-[#fa8322]"
-                              : event.type === "type2"
-                              ? "text-[#555ac0]"
-                              : "text-[#24b47e]"
-                          }`}
+                          className={`flex-shrink-0 w-32 h-32 flex items-center justify-center ${colors.iconBg}`}
                         >
-                          {event.title}
+                          <Image
+                            src={event.icon}
+                            alt={`${event.title} icon`}
+                            width={80}
+                            height={80}
+                            className="w-20 h-20 object-contain"
+                          />
                         </div>
-                        <div className="text-gray-700">{event.description}</div>
+                        <div
+                          className={`flex-shrink-0 px-8 py-6 text-mulearn-whitish font-bold text-lg min-w-[200px] flex items-center justify-center ${colors.labelBg}`}
+                        >
+                          <div className="text-center">
+                            {event.phaseLabel.split("\n").map((line, i) => (
+                              <span key={i} className="block">
+                                {line}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="flex-1 p-6">
+                          <div
+                            className={`text-[1.2rem] uppercase font-semibold tracking-[1.5px] mb-3 ${colors.textColor}`}
+                          >
+                            {event.title}
+                          </div>
+                          <div className="text-mulearn-blackish">
+                            {renderDescription(event.description, event.link, index)}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="lg:hidden w-full">
+                    <div
+                      className={`h-32 flex items-center justify-center ${colors.iconBg}`}
+                    >
+                      <Image
+                        src={event.icon}
+                        alt={`${event.title} icon`}
+                        width={80}
+                        height={50}
+                        className="w-20 h-20 object-contain"
+                      />
+                    </div>
+                    <div
+                      className={`flex items-center justify-center py-4 text-mulearn-whitish font-bold text-lg ${colors.labelBg}`}
+                    >
+                      <div className="text-center">
+                        {event.phaseLabel.split("\n").map((line, i) => (
+                          <span key={i} className="block">
+                            {line}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="bg-mulearn-whitish p-6 shadow-md">
+                      <div
+                        className={`text-[1.2rem] uppercase font-semibold tracking-[1.5px] mb-3 ${colors.textColor}`}
+                      >
+                        {event.title}
+                      </div>
+                      <div className="text-mulearn-blackish">
+                        {renderDescription(event.description, event.link, index)}
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <div className="lg:hidden w-full">
-                  <div
-                    className={`h-32 flex items-center justify-center ${
-                      event.type === "type1"
-                        ? "bg-[#ffc773]"
-                        : event.type === "type2"
-                        ? "bg-[#87bbfe]"
-                        : "bg-[#aff1b6]"
-                    }`}
-                  >
-                    <Image
-                      src={event.icon}
-                      alt={`${event.title} icon`}
-                      width={80}
-                      height={80}
-                      className="w-20 h-20 object-contain"
-                    />
-                  </div>
-                  <div
-                    className={`flex items-center justify-center py-4 text-white font-bold text-lg ${
-                      event.type === "type1"
-                        ? "bg-[#fa8322]"
-                        : event.type === "type2"
-                        ? "bg-[#555ac0]"
-                        : "bg-[#24b47e]"
-                    }`}
-                  >
-                    <div className="text-center">
-                      {event.phaseLabel.split("\n").map((line, i) => (
-                        <span key={i} className="block">
-                          {line}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="bg-white p-6 shadow-md">
-                    <div
-                      className={`text-[1.2rem] uppercase font-semibold tracking-[1.5px] mb-3 ${
-                        event.type === "type1"
-                          ? "text-[#fa8322]"
-                          : event.type === "type2"
-                          ? "text-[#555ac0]"
-                          : "text-[#24b47e]"
-                      }`}
-                    >
-                      {event.title}
-                    </div>
-                    <div className="text-gray-700">{event.description}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
