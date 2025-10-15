@@ -166,7 +166,7 @@ export const specialevents = [
     description:
       "Have an idea that's out-of-the-box crazy? This is your chance to turn it into a real product! ",
     recurrence: "Monthly",
-    link: "https://www.instagram.com/mulearn.official/p/C6eHEzJyMMn/",
+    link: "https://mulearn.org/trivial-ideas",
     image: cdnUrl("src/modules/Public/Home/assets/trivialideas.webp"),
     isLive: false,
   },
