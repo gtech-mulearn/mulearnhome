@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { yip } from "@/data/data";
+import { cdnUrl } from "@/services/cdn";
 
 export const metadata = {
   title: "YIP | µLearn",
@@ -166,7 +167,7 @@ export default function YipPage() {
                 </p>
                 <br />
                 <Image
-                  src="https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/lines.png"
+                  src={cdnUrl("src/modules/Public/yip/assets/lines.png")}
                   alt="Decorative lines"
                   width={240}
                   height={30}
@@ -177,7 +178,7 @@ export default function YipPage() {
                 </p>
               </div>
               <Image
-                src="https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/boxoneimg.png"
+                src={cdnUrl("src/modules/Public/yip/assets/boxoneimg.png")}
                 alt="YIP celebration graphic"
                 width={380}
                 height={288}
@@ -219,14 +220,14 @@ export default function YipPage() {
               </p>
               <div className="flex flex-row-reverse justify-between flex-wrap max-[490px]:flex-col max-[490px]:items-center">
                 <Image
-                  src="https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/qrcode.png"
+                  src={cdnUrl("src/modules/Public/yip/assets/qrcode.png")}
                   alt="YIP App QR code"
                   width={192}
                   height={192}
                   className="h-[12rem] w-auto max-[490px]:mt-8"
                 />
                 <Image
-                  src="https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/cat.png"
+                  src={cdnUrl("src/modules/Public/yip/assets/cat.png")}
                   alt="Mascot"
                   width={192}
                   height={192}
@@ -240,14 +241,14 @@ export default function YipPage() {
                 Brainstorm, Collaborate, And Create
               </p>
               <Image
-                src="https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/bllines.png"
+                src={cdnUrl("src/modules/Public/yip/assets/bllines.png")}
                 alt="Decorative blue lines"
                 width={240}
                 height={30}
                 className="mt-[-20px] mb-[10px] h-auto"
               />
               <Image
-                src="https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/Starting%20a%20business%20project-amico.png"
+                src={cdnUrl("src/modules/Public/yip/assets/Starting%20a%20business%20project-amico.png")}
                 alt="Students collaborating illustration"
                 width={320}
                 height={192}
@@ -272,7 +273,7 @@ export default function YipPage() {
               and make a meaningful impact.
             </div>
             <Image
-              src="https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/box_fourimg.png"
+              src={cdnUrl("src/modules/Public/yip/assets/box_fourimg.png")}
               alt="Team pitching illustration"
               width={380}
               height={200}
@@ -309,7 +310,7 @@ export default function YipPage() {
                           className={`flex-shrink-0 w-32 h-32 flex items-center justify-center ${colors.iconBg}`}
                         >
                           <Image
-                            src={event.icon}
+                            src={(event.icon)}
                             alt={`${event.title} icon`}
                             width={80}
                             height={80}
@@ -346,7 +347,7 @@ export default function YipPage() {
                       className={`h-32 flex items-center justify-center ${colors.iconBg}`}
                     >
                       <Image
-                        src={event.icon}
+                        src={(event.icon)}
                         alt={`${event.title} icon`}
                         width={80}
                         height={50}

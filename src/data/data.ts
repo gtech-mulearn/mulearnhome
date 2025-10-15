@@ -927,7 +927,7 @@ export const enablers = {
   export const yip = [
   {
     type: "type1",
-    icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/prereg.webp",
+    icon: cdnUrl("src/modules/Public/yip/assets/procedure/prereg.webp"),
     phaseLabel: "Pre\nRegistration",
     title: "Step One",
     link: "https://yip.kerala.gov.in/yipapp/index.php/Idea2022",
@@ -936,7 +936,7 @@ export const enablers = {
   },
   {
     type: "type2",
-    icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/studentreg.webp",
+    icon: cdnUrl("src/modules/Public/yip/assets/procedure/studentreg.webp"),
     phaseLabel: "Ideator\nRegistration",
     title: "Step Two",
     link: "https://yip.kerala.gov.in/yipapp/index.php/Init/",
@@ -945,7 +945,7 @@ export const enablers = {
   },
   {
     type: "type3",
-    icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/yip-voc.webp",
+    icon: cdnUrl("src/modules/Public/yip/assets/procedure/yip-voc.webp"),
     phaseLabel: "Voice of\nStakeholder",
     title: "Step Three",
     description:
@@ -953,7 +953,7 @@ export const enablers = {
   },
   {
     type: "type1",
-    icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/team.webp",
+    icon: cdnUrl("src/modules/Public/yip/assets/procedure/team.webp"),
     phaseLabel: "Team\nFormation",
     title: "Step Four",
     description:
@@ -961,7 +961,7 @@ export const enablers = {
   },
   {
     type: "type1",
-    icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/ideafind.webp",
+    icon: cdnUrl("src/modules/Public/yip/assets/procedure/ideafind.webp"),
     phaseLabel: "Idea\nSubmission",
     title: "Step Five",
     description:
@@ -969,7 +969,7 @@ export const enablers = {
   },
   {
     type: "type2",
-    icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/approved.webp",
+    icon: cdnUrl("src/modules/Public/yip/assets/procedure/approved.webp"),
     phaseLabel: "Institutional\nApproval",
     title: "Step Six",
     description:
@@ -977,7 +977,7 @@ export const enablers = {
   },
   {
     type: "type3",
-    icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/evaluation.webp",
+    icon: cdnUrl("src/modules/Public/yip/assets/procedure/evaluation.webp"),
     phaseLabel: "Preliminary\nEvaluation",
     title: "Step Seven",
     description:
@@ -985,7 +985,7 @@ export const enablers = {
   },
   {
     type: "type1",
-    icon: "https://s3.ap-south-1.amazonaws.com/cdn.mulearn/src/modules/Public/yip/assets/procedure/winner%20annoucement.webp",
+    icon: cdnUrl("src/modules/Public/yip/assets/procedure/winner%20annoucement.webp"),
     phaseLabel: "Winner\nAnnouncement",
     title: "Step Eight",
     description:
