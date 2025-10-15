@@ -22,7 +22,6 @@ const CommunityCard: React.FC<CommunityCardProps> = ({
                 className="w-16 rounded-md object-contain mr-8"
                 width={200}
                 height={100}
-                loading="lazy"
                 sizes="64px"
                 unoptimized
               />
@@ -43,7 +42,6 @@ const CommunityCard: React.FC<CommunityCardProps> = ({
                 className="w-16 rounded-md object-contain mr-8"
                 width={200}
                 height={100}
-                loading="lazy"
               />
 
               {name && (

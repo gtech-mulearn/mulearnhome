@@ -159,7 +159,6 @@ export default function Features() {
                     }
                     height={120}
                     className="object-contain"
-                    loading="lazy"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 110px"
                   />
                 </div>
