@@ -132,15 +132,15 @@ export default function YipPage() {
         };
       case "type2":
         return {
-          iconBg: "bg-yip-icon-light-blue", 
+          iconBg: "bg-card", // Light blue - keeping this as it's a lighter shade
           labelBg: "bg-mulearn-trusty-blue",
           textColor: "text-mulearn-trusty-blue"
         };
       case "type3":
         return {
-          iconBg: "bg-yip-light-green", // Light green - keeping this as it's a lighter shade
-          labelBg: "bg-yip-dark-green", // Green shade
-          textColor: "text-yip-dark-green"
+          iconBg: "bg-chart-2", // Light green - keeping this as it's a lighter shade
+          labelBg: "bg-chart-3", // Green shade
+          textColor: "text-chart-3"
         };
       default:
         return {
@@ -156,9 +156,9 @@ export default function YipPage() {
       <section className="max-w-[1600px] mx-auto">
         <div className="flex flex-row justify-center items-stretch mt-8 mx-4 flex-wrap relative">
           <div className="max-w-[855px] shadow-[0px_0px_23px_rgba(130,177,255,0.22)] rounded-[25px] m-4 relative">
-            <div className="bg-yip-light-blue flex flex-row z-0 rounded-[25px] relative">
+            <div className="bg-card flex flex-row z-0 rounded-[25px] relative">
               <div className="p-8">
-                <p className="font-light text-[2.25rem] leading-[47px] max-w-[28rem] tracking-[0.02em] capitalize text-yip-hero-text">
+                <p className="font-light text-[2.25rem] leading-[47px] max-w-[28rem] tracking-[0.02em] capitalize text-mulearn-duke-purple">
                   Kerala&apos;s Biggest{" "}
                   <strong className="font-bold">
                     Innovation Celebration is here!
@@ -172,7 +172,7 @@ export default function YipPage() {
                   height={30}
                   className="mt-[-3rem] max-w-[15rem] h-auto"
                 />
-                <p className="mt-[-2rem] mb-8 font-medium text-[1.5rem] max-w-[20rem] leading-[33px] capitalize text-yip-hero-text">
+                <p className="mt-[-2rem] mb-8 font-medium text-[1.5rem] max-w-[20rem] leading-[33px] capitalize text-mulearn-duke-purple">
                   Young Innovators Programme 5.0
                 </p>
               </div>
@@ -188,7 +188,7 @@ export default function YipPage() {
               href="https://yip.kerala.gov.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute mt-[-2rem] mr-12 right-0 z-10 bg-mulearn-whitish shadow-[0px_17px_31px_rgba(0,0,0,0.12)] rounded-xl font-semibold text-[1.25rem] px-[4.5rem] py-3 leading-[33px] capitalize text-yip-hero-text hover:bg-yip-hero-text-hover hover:text-mulearn-whitish transition-all duration-300"
+              className="absolute mt-[-2rem] mr-12 right-0 z-10 bg-mulearn-whitish shadow-[0px_17px_31px_rgba(0,0,0,0.12)] rounded-xl font-semibold text-[1.25rem] px-[4.5rem] py-3 leading-[33px] capitalize text-mulearn-duke-purple hover:bg-mulearn-duke-purple hover:text-mulearn-whitish transition-all duration-300"
             >
               Apply Now
             </Link>
@@ -256,7 +256,7 @@ export default function YipPage() {
             </div>
           </div>
 
-          <div className="flex flex-row justify-between items-center flex-wrap bg-yip-pink-card p-8 m-4 w-full rounded-[25px]">
+          <div className="flex flex-row justify-between items-center flex-wrap bg-mulearn-duke-purple p-8 m-4 w-full rounded-[25px]">
             <div className="font-light text-[1.75rem] leading-[36px] max-w-[38rem] text-mulearn-whitish max-[768px]:text-[1.35rem] max-[768px]:leading-[24px]">
               Pitch your{" "}
               <strong className="font-bold">
