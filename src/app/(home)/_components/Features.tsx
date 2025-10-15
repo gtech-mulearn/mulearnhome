@@ -2,7 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, Variants } from "framer-motion";
+import Link from "next/link";
 import MuImage from "@/components/MuImage";
+import { Button } from "@/components/ui/button";
 import { features } from "@/data/data";
 
 export default function Features() {
@@ -86,7 +88,7 @@ export default function Features() {
                   setIsHovering(true);
                 }
               }}
-              className={`featureCard flex flex-col items-center justify-between p-5 sm:p-6 overflow-hidden border border-mulearn-gray-600/20 transition-all duration-300 ${
+              className={`featureCard flex flex-col p-5 sm:p-6 overflow-hidden border border-mulearn-gray-600/20 transition-all duration-300 ${
                 i === 0
                   ? "rounded-t-xl sm:rounded-l-xl sm:rounded-tr-none"
                   : i === totalCards - 1
@@ -105,59 +107,75 @@ export default function Features() {
                 transition: "all 0.3s ease",
               }}
             >
-              <div className="flex flex-col items-center text-center mb-4 transition-transform duration-300 px-2">
-                <h3
-                  className="font-semibold mb-1 sm:mb-2 transition-all duration-300"
+              {/* Flexible content wrapper */}
+              <div className="flex flex-col flex-1 items-center text-center px-2">
+                <div className="mb-4 transition-transform duration-300">
+                  <h3
+                    className="font-semibold mb-1 sm:mb-2 transition-all duration-300"
+                    style={{
+                      fontSize: isCardActive(i)
+                        ? "1.4rem"
+                        : isMobile
+                        ? "1rem"
+                        : "1.1rem",
+                    }}
+                  >
+                    {feature.title}
+                  </h3>
+                  <p
+                    className="transition-all duration-300 text-mulearn-gray-600 leading-snug"
+                    style={{
+                      fontSize: isCardActive(i)
+                        ? "1rem"
+                        : isMobile
+                        ? "0.9rem"
+                        : "0.85rem",
+                    }}
+                  >
+                    {feature.description}
+                  </p>
+                </div>
+
+                <div
+                  className="relative transition-transform duration-300"
                   style={{
-                    fontSize: isCardActive(i)
-                      ? "1.4rem"
-                      : isMobile
-                      ? "1rem"
-                      : "1.1rem",
+                    transform: isCardActive(i) ? "scale(1.1)" : "scale(1)",
                   }}
                 >
-                  {feature.title}
-                </h3>
-                <p
-                  className="transition-all duration-300 text-mulearn-gray-600 leading-snug"
-                  style={{
-                    fontSize: isCardActive(i)
-                      ? "1rem"
-                      : isMobile
-                      ? "0.9rem"
-                      : "0.85rem",
-                  }}
-                >
-                  {feature.description}
-                </p>
+                  <MuImage
+                    src={feature.image}
+                    alt={feature.title}
+                    width={
+                      feature.title === "Community"
+                        ? 110
+                        : feature.title === "Mentors"
+                        ? 100
+                        : feature.title === "Interest Groups"
+                        ? 80
+                        : feature.title === "Roadmaps"
+                        ? 90
+                        : feature.title === "Challenges"
+                        ? 100
+                        : 90
+                    }
+                    height={120}
+                    className="object-contain"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-              <div
-                className="relative transition-transform duration-300 mb-2 sm:mb-0"
-                style={{
-                  transform: isCardActive(i) ? "scale(1.1)" : "scale(1)",
-                }}
+              <Link
+                href={feature.url}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <MuImage
-                  src={feature.image}
-                  alt={feature.title}
-                  width={
-                    feature.title === "Community"
-                      ? 110
-                      : feature.title === "Mentors"
-                      ? 100
-                      : feature.title === "Interest Groups"
-                      ? 80
-                      : feature.title === "Roadmaps"
-                      ? 90
-                      : feature.title === "Challenges"
-                      ? 100
-                      : 90
-                  }
-                  height={120}
-                  className="object-contain"
-                  loading="lazy"
-                />
-              </div>
+                <Button
+                  variant="mulearn-blue"
+                  className="mt-auto px-4 py-2 font-semibold"
+                >
+                  {feature.cta}
+                </Button>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
