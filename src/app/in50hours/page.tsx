@@ -40,6 +40,7 @@ export default function In50Hours() {
               width={288}
               height={60}
               className="w-[16rem] sm:w-[18rem] mb-4"
+              loading="lazy"
             />
           </div>
           <div className="flex justify-center md:justify-start">
@@ -71,6 +72,7 @@ export default function In50Hours() {
             width={720}
             height={400}
             className="w-full object-cover"
+            loading="lazy"
           />
         </motion.div>
       </div>

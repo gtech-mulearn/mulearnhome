@@ -30,7 +30,7 @@ export default function Manifesto() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-mulearn-whitish text-[10vw] md:text-[6.5vw] leading-[1.5] md:leading-none"
-            style={{ fontFamily: "Retro Team" }}
+            style={{ fontFamily: "var(--font-retro)" }}
           >
             We,The Unbound, The Unbowed
           </motion.h1>

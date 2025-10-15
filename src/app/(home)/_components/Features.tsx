@@ -155,6 +155,7 @@ export default function Features() {
                   }
                   height={120}
                   className="object-contain"
+                  loading="lazy"
                 />
               </div>
             </motion.div>

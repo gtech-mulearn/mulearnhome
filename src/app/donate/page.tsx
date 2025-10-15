@@ -2,6 +2,10 @@ import MuImage from "@/components/MuImage";
 import React from "react";
 import DonateCounters from "@/app/donate/_components/DonateCounters";
 import DonationForm from "@/app/donate/_components/DonationForm";
+import { cdnUrl } from "@/services/cdn";
+
+
+const heroimg = cdnUrl("src/modules/Public/Donation/assets/heroImg.jpg");
 
 export default function Donate() {
   return (
@@ -20,7 +24,7 @@ export default function Donate() {
 
           <div className="mt-6 w-full flex justify-center md:justify-start">
             <MuImage
-              src="/assets/donate/heroImg.webp"
+              src={heroimg}
               alt="Donate"
               width={500}
               height={500}
