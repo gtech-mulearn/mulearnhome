@@ -3,6 +3,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   compress: true,
   reactStrictMode: true,
+  experimental: {
+    cssChunking: true,
+    inlineCss: true,
+    optimizeCss: true,
+  },
   images: {
     remotePatterns: [
       {
