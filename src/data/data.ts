@@ -1,7 +1,6 @@
 import { cdnUrl } from "@/services/cdn";
 import { FaLinkedin, FaInstagram, FaYoutube, FaFacebook } from "react-icons/fa";
 import { Event, Role, RolesContent } from "@/lib/types";
-import { url } from "inspector";
 
 export const navItems = [
   {

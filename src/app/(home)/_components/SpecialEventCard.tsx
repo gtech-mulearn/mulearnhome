@@ -21,6 +21,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
           width={400}
           height={180}
           className="object-cover w-full h-full"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 50vw, 400px"
         />
         <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-0 transition-transform duration-300 ease-in-out">
           <Button

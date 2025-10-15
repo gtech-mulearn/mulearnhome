@@ -107,7 +107,6 @@ export default function Features() {
                 transition: "all 0.3s ease",
               }}
             >
-              {/* Flexible content wrapper */}
               <div className="flex flex-col flex-1 items-center text-center px-2">
                 <div className="mb-4 transition-transform duration-300">
                   <h3
@@ -123,7 +122,7 @@ export default function Features() {
                     {feature.title}
                   </h3>
                   <p
-                    className="transition-all duration-300 text-mulearn-gray-600 leading-snug"
+                    className="transition-all duration-300 text-mulearn-gray-600 leading-tight"
                     style={{
                       fontSize: isCardActive(i)
                         ? "1rem"
@@ -161,6 +160,7 @@ export default function Features() {
                     height={120}
                     className="object-contain"
                     loading="lazy"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 110px"
                   />
                 </div>
               </div>
