@@ -2728,7 +2728,7 @@ export const team = [
           },
           {
             name: "Leya Thomas",
-            image: "",
+            image: "public/assets/team/2023/pillars/Leya Thomas.webp",
             muid: "leyathomas@mulearn",
             linkedin: "",
             x: "",
