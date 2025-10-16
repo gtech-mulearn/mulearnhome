@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600","700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -59,15 +59,18 @@ export default function RootLayout({
       className={`${plusJakarta.variable} ${circe.variable} ${retro.variable}`}
     >
       <head>
-        <link rel="preconnect" href={cdnurl} />
+        <link rel="preconnect" href={cdnurl} crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://cdn.jsdelivr.net"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href={cdnurl} />
       </head>
       <body className="font-sans antialiased">
-        <Suspense fallback={<MuLoader />}>
-          <Navbar />
-          {children}
-          <Footer />
-        </Suspense>
+        <Navbar />
+        <Suspense fallback={<MuLoader />}>{children}</Suspense>
+        <Footer />
       </body>
     </html>
   );

@@ -94,12 +94,16 @@ export const features = [
       "public/assets/landing/College Project Concept Illustration.png"
     ),
     bgColor: "#9bc8ff",
+    cta: "Join Community",
+    url: "https://app.mulearn.org",
   },
   {
     title: "Mentors",
     description: "Learn from those ahead of you, mentor those behind you.",
     image: cdnUrl("public/assets/landing/searching.png"),
     bgColor: "#ffb0a1",
+    cta: "Find a Mentor",
+    url: "https://app.mulearn.org/dashboard/search?activetab=mentors",
   },
   {
     title: "Interest Groups",
@@ -108,24 +112,32 @@ export const features = [
       "public/assets/landing/Content Team Concept Illustration.png"
     ),
     bgColor: "#5ce5c9",
+    cta: "Explore IGs",
+    url: "/interestgroups",
   },
   {
     title: "Roadmaps",
     description: "Structured learning paths for skill mastery.",
     image: cdnUrl("public/assets/landing/Roadmap.png"),
     bgColor: "#ffe399",
+    cta: "View Roadmaps",
+    url: "https://app.mulearn.org/dashboard/search?activetab=mulearners",
   },
   {
     title: "Challenges",
     description: "Engage in real-world problem-solving.",
     image: cdnUrl("public/assets/landing/collab.png"),
     bgColor: "#b594ff",
+    cta: "Start Challenges",
+    url: "https://app.mulearn.org/dashboard/mujourney",
   },
   {
     title: "Opportunities",
     description: "Discover Gigs, Jobs, and best opportunities around you",
     image: "https://www.propeers.in/images/cuate.svg",
     bgColor: "#55bfe9",
+    cta: "See Opportunities",
+    url: "/careers",
   },
 ];
 
@@ -135,8 +147,6 @@ export const specialevents = [
     title: "Top 100 Coders",
     description:
       "Welcome to the Top 100 Coders initiative Recognised by Kerala Govt. We're on a mission to recognize and empower the best coders in India. If you're passionate about coding and want to make a significant impact in the tech community, you're in the right place.",
-    // date: "2025-04-09",
-    // participants: 100,
     link: "https://top100coders.com/",
     image: cdnUrl("src/modules/Public/Home/assets/top-100.webp"),
     isLive: true,
@@ -146,8 +156,6 @@ export const specialevents = [
     title: "Launchpad",
     description:
       "Launchpad Kerala 2024 is a premier job fair that brings together talented individuals and innovative companies in the technical and engineering fields.",
-    // date: "2024-06-02",
-    // participants: 200,
     link: "https://launchpad.mulearn.org/",
     image: cdnUrl("src/modules/Public/Home/assets/launchpad.webp"),
     isLive: false,
@@ -158,9 +166,7 @@ export const specialevents = [
     description:
       "Have an idea that's out-of-the-box crazy? This is your chance to turn it into a real product! ",
     recurrence: "Monthly",
-    // date: "2025-02-02",
-    // participants: 500,
-    link: "https://www.instagram.com/mulearn.official/p/C6eHEzJyMMn/",
+    link: "https://mulearn.org/trivial-ideas",
     image: cdnUrl("src/modules/Public/Home/assets/trivialideas.webp"),
     isLive: false,
   },
@@ -449,10 +455,26 @@ export const footer = [
     links: [
       { title: "Blog", url: "https://gtechmulearn.medium.com/" },
       { title: "Team", url: "/team" },
-      { title: "Career Labs", url: "https://mulearn.org/careers" },
+      { title: "Career Labs", url: "/careers" },
       {
         title: "Interest Groups",
         url: "https://app.mulearn.org/dashboard/interestgroups",
+      },
+      { title: "Donate", url: "/donate" },
+    ],
+  },
+  {
+    title: "Be Part of Us",
+    links: [
+      { title: "Campus", url: "be-a-part/campus" },
+      { title: "Companies", url: "be-a-part/companies" },
+      {
+        title: "Students",
+        url: "https://app.mulearn.org/dashboard/search?activetab=mulearners",
+      },
+      {
+        title: "Mentors",
+        url: "https://app.mulearn.org/dashboard/search?activetab=mentors",
       },
     ],
   },
@@ -2672,7 +2694,7 @@ export const team = [
           },
           {
             name: "Leya Thomas",
-            image: "",
+            image: "public/assets/team/2023/pillars/Leya Thomas.webp",
             muid: "leyathomas@mulearn",
             linkedin: "",
             x: "",

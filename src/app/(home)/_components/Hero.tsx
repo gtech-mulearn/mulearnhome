@@ -98,9 +98,10 @@ export default function Hero({ refreshToken, redirect }: HeroProps) {
           alt="Community illustration"
           width={1300}
           height={900}
-          className="object-cover max-h-[250px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[600px] xl:max-h-[700px]"
+          className="object-cover h-auto"
           priority
           fetchPriority="high"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 70vw, (max-width: 1280px) 60vw, 50vw"
         />
       </motion.div>
     </motion.header>

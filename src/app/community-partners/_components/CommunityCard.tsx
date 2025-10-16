@@ -22,9 +22,9 @@ const CommunityCard: React.FC<CommunityCardProps> = ({
                 className="w-16 rounded-md object-contain mr-8"
                 width={200}
                 height={100}
-                loading="lazy"
+                sizes="64px"
+                unoptimized
               />
-
               {name && (
                 <span className="text-mulearn-gray-600 text-[0.9rem] text-right font-semibold w-[150px]">
                   {name}
@@ -42,7 +42,6 @@ const CommunityCard: React.FC<CommunityCardProps> = ({
                 className="w-16 rounded-md object-contain mr-8"
                 width={200}
                 height={100}
-                loading="lazy"
               />
 
               {name && (

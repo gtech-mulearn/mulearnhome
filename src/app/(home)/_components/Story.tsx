@@ -47,9 +47,10 @@ export default function Story() {
           >
             <YouTubeEmbed
               videoid="M9serw-CLU0"
-              style="w-full h-full border-none"
+              style="border-none"
               playlabel="true"
               params="disablekb=1&enablejsapi=1&playsinline=1"
+
             />
           </motion.div>
         </div>

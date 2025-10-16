@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { motion, Variants, easeOut } from "framer-motion";
 import SpecialEventCard from "@/app/(home)/_components/SpecialEventCard";
+import { Button } from "@/components/ui/button";
 import { specialevents } from "@/data/data";
 
 const fadeInUp: Variants = {
@@ -35,6 +37,11 @@ export default function SpecialEvents() {
                 specialevent={specialevent}
               />
             ))}
+          </div>
+          <div className="mt-12">
+            <Link href="/events">
+              <Button variant={"mulearn-blue"} className="px-8 py-3 text-lg">View All Events</Button>
+            </Link>
           </div>
         </motion.div>
       </motion.section>

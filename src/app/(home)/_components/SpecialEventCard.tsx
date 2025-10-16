@@ -2,26 +2,10 @@
 
 import React from "react";
 import MuImage from "@/components/MuImage";
+import { Button } from "@/components/ui/button";
 import { FiCalendar, FiClock, FiX } from "react-icons/fi";
 import { FaMapMarkerAlt } from "react-icons/fa";
-
-interface SpecialEvent {
-  id: number;
-  title: string;
-  description: string;
-  date?: string;
-  recurrence?: string;
-  participants?: number;
-  image: string;
-  link: string;
-  isLive: boolean;
-  isExpired?: boolean | null;
-  isComingSoon?: boolean | null;
-  organization?: string;
-  tags?: string[];
-  location?: string;
-  time?: string;
-}
+import { SpecialEvent } from "@/lib/types";
 
 const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
   specialevent,
@@ -37,14 +21,16 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
           width={400}
           height={180}
           className="object-cover w-full h-full"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 50vw, 400px"
         />
         <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-0 transition-transform duration-300 ease-in-out">
-          <button
-            className="bg-mulearn-trusty-blue text-mulearn-whitish hover:bg-mulearn-duke-purple border-none rounded-[30px] py-3 px-8 text-base font-medium cursor-pointer transition-all duration-300 ease-in-out flex items-center justify-center w-full hover:shadow-[0_6px_20px_rgba(0,123,255,0.4)]"
+          <Button
+            variant={"mulearn-blue"}
+            className="border-none py-3 px-8 text-base font-medium ease-in-out flex items-center justify-center w-full hover:shadow-[0_6px_20px_rgba(0,123,255,0.4)]"
             onClick={() => setIsOpen(true)}
           >
             Read More
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -67,7 +53,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
                   className="absolute top-3 right-3 w-5 h-5 text-mulearn-whitish cursor-pointer p-1 rounded-full transition-colors duration-200 hover:bg-mulearn-whitish/20"
                   onClick={() => setIsOpen(false)}
                 >
-                  <FiX className="w-5 h-5" />
+                  <FiX className="w-5 h-5 text-mulearn-trusty-blue" />
                 </div>
               </div>
 
@@ -108,12 +94,13 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
               </div>
 
               <div className="bg-mulearn-whitish pt-2 pb-6 px-6">
-                <button
-                  className="bg-mulearn-trusty-blue text-mulearn-whitish font-semibold text-base rounded-md py-3 px-6 h-[50px] w-full transition-colors duration-200 border-none cursor-pointer hover:bg-mulearn-duke-purple"
+                <Button
+                  variant={"mulearn-blue"}
+                  className="font-semibold rounded-md py-3 px-6 h-[50px] w-full border-none cursor-pointer"
                   onClick={() => window.open(specialevent.link, "_blank")}
                 >
                   Explore More
-                </button>
+                </Button>
               </div>
             </div>
           </div>
