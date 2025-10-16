@@ -83,7 +83,7 @@ export default function Features() {
                 min-w-[200px]
                 sm:min-w-[240px]
                 md:min-w-[250px]
-                lg:min-w-[280px]
+                lg:min-w-[360px]
                 `}
               style={{
                 backgroundColor: isCardActive(i) ? feature.bgColor : "white",
@@ -105,13 +105,13 @@ export default function Features() {
                   {feature.title}
                 </h3>
                 <p
-                  className="transition-all duration-300 text-mulearn-gray-600 leading-tight"
+                  className="transition-all duration-300 text-mulearn-blackish leading-tight"
                   style={{
                     fontSize: isCardActive(i)
                       ? "1rem"
                       : isMobile
                       ? "0.9rem"
-                      : "0.85rem",
+                      : "0.9rem",
                   }}
                 >
                   {feature.description}
@@ -126,7 +126,19 @@ export default function Features() {
                 <MuImage
                   src={feature.image}
                   alt={feature.title}
-                  width={isMobile ? 100 : 120}
+                  width={
+                    feature.title === "Community"
+                      ? 150
+                      : feature.title === "Mentors"
+                      ? 120
+                      : feature.title === "Interest Groups"
+                      ? 130
+                      : feature.title === "Roadmaps"
+                      ? 150
+                      : feature.title === "Challenges"
+                      ? 170
+                      : 100
+                  }
                   height={120}
                   className="object-cover max-w-full h-auto"
                 />
