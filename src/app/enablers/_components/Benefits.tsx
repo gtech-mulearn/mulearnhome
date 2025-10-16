@@ -46,6 +46,7 @@ export default function Benefits() {
                     className="object-cover w-full h-full"
                     width={400}
                     height={150}
+                    loading="lazy"
                   />
                 </div>
               )}

@@ -45,24 +45,13 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-@font-face {
-  font-family: "Retro Team";
-  src: url("/fonts/Retro_Team.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "font-display";
-  src: url("/fonts/CirceRounded-Bold.otf") format("opentype");
-  font-display: swap;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5{
-  font-family: "font-display", sans-serif;
-}
+    font-family: var(--font-display);
+  }
 
 * {
   box-sizing: border-box;

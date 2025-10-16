@@ -100,6 +100,7 @@ export default function Hero({ refreshToken, redirect }: HeroProps) {
           height={900}
           className="object-cover max-h-[250px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[600px] xl:max-h-[700px]"
           priority
+          fetchPriority="high"
         />
       </motion.div>
     </motion.header>
