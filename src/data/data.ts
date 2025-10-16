@@ -170,40 +170,6 @@ export const specialevents = [
     image: cdnUrl("src/modules/Public/Home/assets/trivialideas.webp"),
     isLive: false,
   },
-  {
-    id: 4,
-    title: "In50Hrs",
-    description:
-      "Unleash your creativity, form teams, and present your groundbreaking products directly to potential investors—all in just 50 hours!🔥  ",
-    link: "/in50hours",
-    image: cdnUrl("src/modules/Public/In50Hours/heroimg.png"),
-    isLive: false,
-  },
-  {
-    id: 5,
-    title: "Perµte",
-    description:
-      "The annual flagship celebration of the µLearn Foundation—an electrifying gathering that honors excellence, sparks bold ideas through thought-provoking panels, unveils visionary roadmaps, and ignites connections across a vibrant tapestry of talent and innovation.",
-    link: "https://permute.mulearn.org/",
-    image: cdnUrl("src/modules/Public/Home/assets/trivialideas.webp"),
-    isLive: false,
-  },
-  {
-    id: 6,
-    title: "Amuse",
-    description: "The annual μLearn interns meet-up ",
-    link: "https://www.instagram.com/mulearn.official/p/C6eHEzJyMMn/",
-    image: cdnUrl("src/modules/Public/Home/assets/trivialideas.webp"),
-    isLive: false,
-  },
-  {
-    id: 7,
-    title: "Mutate",
-    description: "The annual μLearn campus meet-up",
-    link: "https://mulearn.org",
-    image: cdnUrl("src/modules/Public/Home/assets/trivialideas.webp"),
-    isLive: false,
-  },
 ];
 
 export const communityPartners = [
