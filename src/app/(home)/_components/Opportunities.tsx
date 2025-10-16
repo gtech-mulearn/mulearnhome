@@ -54,7 +54,7 @@ export default function Opportunities() {
                   className="w-full h-auto"
                 />
               </span>
-              <h6 className="text-2xl mt-6 font-semibold text-center">
+              <h6 className="text-xl mt-6 font-semibold text-center">
                 {opportunity.name}
               </h6>
             </motion.div>
