@@ -134,7 +134,7 @@ export default function Features() {
                       : feature.title === "Interest Groups"
                       ? 120
                       : feature.title === "Roadmaps"
-                      ? 150
+                      ? 130
                       : feature.title === "Challenges"
                       ? 170
                       : 100
