@@ -131,7 +131,7 @@ function StatCard({
 }) {
   return (
     <div className="flex flex-col justify-center items-center p-4">
-      <p className="font-semibold text-mulearn-trusty-blue text-2xl sm:text-3xl lg:text-[2.5rem]">
+      <p className="font-semibold text-mulearn-trusty-blue text-2xl sm:text-3xl lg:text-[2rem]">
         {isString ? (
           value
         ) : (
