@@ -131,35 +131,37 @@ const CampusLogoGenerator = () => {
   };
 
   const getCampusCodeStyle = (isRound: boolean = false) => {
-    const baseStyle = {
-      position: "absolute" as const,
-      zIndex: 20,
-      color: "var(--mulearn-whitish)"
-    };
+  const baseStyle = {
+    position: "absolute" as const,
+    zIndex: 20,
+    color: "var(--mulearn-whitish)"
+  };
 
-    if (logoType === "YIP") {
-      return {
-        ...baseStyle,
-        color: yipLogoTextColors[yipLogoVariant],
-        bottom: "1.5rem",
-        textAlign: "center" as const,
-        width: "100%"
-      };
-    }
-
+  if (logoType === "YIP") {
     return {
+      ...baseStyle,
+      color: yipLogoTextColors[yipLogoVariant],
+      bottom: "1.5rem",
+      textAlign: "center" as const,
+      width: "100%"
+    };
+  }
+
+  // For mulearn logos - responsive positioning
+  return {
     ...baseStyle,
     bottom: isRound
       ? isMobile
-        ? "3.8rem" // ✅ lower position for small screens
-        : "5.5rem" // ✅ normal position for desktop
+        ? "3.8rem"
+        : "5.5rem"
       : bottomOffset,
-    right: "3rem",
+   
+    right: isMobile ? "2rem" : "3rem", 
     textAlign: "right" as const,
     whiteSpace: "nowrap" as const,
     transform: "translateX(0)",
   };
-  };
+};
 
   return (
     <div className="min-h-screen bg-background text-foreground">
