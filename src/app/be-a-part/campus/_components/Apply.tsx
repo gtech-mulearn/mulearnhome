@@ -28,7 +28,7 @@ export default function Apply() {
         >
           <Button
             variant="mulearn-blue"
-            className=" bg-mulearn-whitish text-mulearn-trusty-blue hover:text-mulearn-whitish group inline-flex items-center gap-2 rounded-full  px-8 py-4 text-lg font-semibold cursor-pointer"
+            className="bg-mulearn-whitish text-mulearn-trusty-blue hover:text-mulearn-whitish group inline-flex items-center text-center justify-center gap-2 px-6 py-3 text-base font-semibold sm:px-8 sm:py-4 sm:text-lg w-full sm:w-auto"
           >
             Apply to Start a Chapter
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
