@@ -83,7 +83,7 @@ export default function Onboarding() {
                           </svg>
                         </Link>
                       </h3>
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p className="text-mulearn-gray-600 leading-relaxed">
                         {step.description}
                       </p>
                     </div>
