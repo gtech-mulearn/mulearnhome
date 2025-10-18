@@ -5886,67 +5886,67 @@ export const team = [
 export const CompanyPartner = [
   {
     name: "Google",
-    logo: "assets/company-partners/Google.webp",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Google-logo.webp",
     website: "https://about.google/",
     descritpion: "A global technology leader offering internet services, cloud computing, and digital innovations."
   },
   {
     name: "SunTec Business Solutions Pvt. Ltd",
-    logo: "assets/company-partners/SunTec.webp",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/SunTec.webp",
     website: "https://www.suntecgroup.com/",
     descritpion: "A Kerala-based company providing revenue management and billing solutions for banks and telecoms."
   },
   {
     name: "Zerone Consulting Pvt. Ltd",
-    logo: "assets/company-partners/Zerone.webp",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Zerone.webp",
     website: "https://www.zerone-consulting.com/",
     descritpion: "A software engineering firm delivering custom cloud and AI-driven solutions."
   },
   {
     name: "Travancore Analytics",
-    logo: "assets/company-partners/Travancore.webp",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Travancore.webp",
     website: "https://www.travancoreanalytics.com/",
     descritpion: "A digital product development company specializing in AR/VR, IoT, and enterprise software."
   },
   {
     name: "ECESIS GROUP",
-    logo: "assets/company-partners/Ecesis.webp",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Ecesis.webp",
     website: "https://www.ecesistech.com/",
     descritpion: "A technology and business solutions company offering IT, BPO, and consulting services."
   },
   {
     name: "PIT Solutions",
-    logo: "assets/company-partners/Pits.webp",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Google-logo.webp",
     website: "https://www.pitsolutions.com/",
     descritpion: "A global IT services company providing web, mobile, and enterprise software solutions."
   },
   {
     name: "Softnotions",
-    logo: "assets/company-partners/Softnotions.webp",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Softnotions.webp",
     website: "https://softnotions.com/",
     descritpion: "An IT consulting and software development firm focused on digital transformation and innovation."
   },
   {
     name: "Triassic Solutions",
-    logo: "assets/company-partners/Triassic.webp",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Triassic.webp",
     website: "https://triassicsolutions.com/",
     descritpion: "A software development and consulting company delivering enterprise technology solutions."
   },
   {
     name: "Experion",
-    logo: "assets/company-partners/Experion.webp",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Experion.webp",
     website: "https://www.experionglobal.com/",
     descritpion: "A global digital transformation company building software products and data-driven solutions."
   },
   {
     name: "TRAVANLEO",
-    logo: "assets/company-partners/Travenleo.webp",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Travenleo.webp",
     website: "https://travanleo.com/",
     description: "A technology firm helping enterprises with SAP, cloud, and custom software services."
   },
   {
     name: "THINKPALM TECHNOLOGIES",
-    logo: "assets/company-partners/Thinkpalm.webp",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Thinkpalm.webp",
     website: "https://thinkpalm.com/",
     description: "A product engineering and IT services company specializing in embedded and digital solutions."
   },
