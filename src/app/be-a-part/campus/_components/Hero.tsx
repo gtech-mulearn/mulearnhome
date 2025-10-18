@@ -37,7 +37,7 @@ export default function Hero() {
             className="flex justify-center lg:justify-end"
           >
             <MuImage
-              src="/assets/campus/illustration.webp"
+              src="/assets/campus/illustration.svg"
               alt="μLearn Campus Chapter Illustration"
               width={300}
               height={300}
