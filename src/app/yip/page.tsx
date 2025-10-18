@@ -1,4 +1,4 @@
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import Link from "next/link";
 import { yip } from "@/data/data";
 import { cdnUrl } from "@/services/cdn";
@@ -13,16 +13,23 @@ export const metadata = {
 export default function YipPage() {
   const makeBold = (text: string, boldPhrases: string[]) => {
     let result: React.ReactNode[] = [text];
-    
+
     boldPhrases.forEach((phrase) => {
       const newResult: React.ReactNode[] = [];
       result.forEach((part) => {
-        if (typeof part === 'string') {
+        if (typeof part === "string") {
           const parts = part.split(phrase);
           parts.forEach((p, idx) => {
             newResult.push(p);
             if (idx < parts.length - 1) {
-              newResult.push(<strong key={`${phrase}-${idx}`} className="text-mulearn-trusty-blue">{phrase}</strong>);
+              newResult.push(
+                <strong
+                  key={`${phrase}-${idx}`}
+                  className="text-mulearn-trusty-blue"
+                >
+                  {phrase}
+                </strong>
+              );
             }
           });
         } else {
@@ -31,11 +38,15 @@ export default function YipPage() {
       });
       result = newResult;
     });
-    
+
     return result;
   };
 
-  const renderDescription = (description: string, link?: string, index?: number) => {
+  const renderDescription = (
+    description: string,
+    link?: string,
+    index?: number
+  ) => {
     if (index === 0 && link) {
       const parts = description.split("Click Here");
       return (
@@ -71,14 +82,14 @@ export default function YipPage() {
       const boldPhrases = [
         "Voice of Stakeholder(VOS Module)",
         "#yip5.0-vos",
-        "400 Karma Points"
+        "400 Karma Points",
       ];
       return <>{makeBold(description, boldPhrases)}</>;
     }
 
     if (index === 3) {
       const boldPhrases = [
-        "You can form a team consisting of minimum 2 members and maximum 5 members by clicking the Group Formation Button from the left navbar. Only one person from a group is required to form the group"
+        "You can form a team consisting of minimum 2 members and maximum 5 members by clicking the Group Formation Button from the left navbar. Only one person from a group is required to form the group",
       ];
       return <>{makeBold(description, boldPhrases)}</>;
     }
@@ -88,7 +99,7 @@ export default function YipPage() {
         "person who formed the team",
         "Idea Submission Option",
         "#yip5.0-idea",
-        "800 Karma Points"
+        "800 Karma Points",
       ];
       return <>{makeBold(description, boldPhrases)}</>;
     }
@@ -104,7 +115,7 @@ export default function YipPage() {
 
     if (index === 7) {
       const boldPhrases = [
-        "the best of those teams are provided financial and mentoring support to implement their ideas."
+        "the best of those teams are provided financial and mentoring support to implement their ideas.",
       ];
       return <>{makeBold(description, boldPhrases)}</>;
     }
@@ -155,7 +166,7 @@ export default function YipPage() {
                   </strong>
                 </h2>
                 <br />
-                <Image
+                <MuImage
                   src={cdnUrl("src/modules/Public/yip/assets/lines.png")}
                   alt="Decorative lines"
                   width={240}
@@ -166,7 +177,7 @@ export default function YipPage() {
                   Young Innovators Programme 5.0
                 </p>
               </div>
-              <Image
+              <MuImage
                 src={cdnUrl("src/modules/Public/yip/assets/boxoneimg.png")}
                 alt="YIP celebration graphic"
                 width={380}
@@ -215,14 +226,14 @@ export default function YipPage() {
                 Download the <br /> YIP App Now!
               </h3>
               <div className="flex flex-row-reverse justify-between flex-wrap max-[490px]:flex-col max-[490px]:items-center">
-                <Image
+                <MuImage
                   src={cdnUrl("src/modules/Public/yip/assets/qrcode.png")}
                   alt="YIP App QR code"
                   width={192}
                   height={192}
                   className="h-[12rem] w-auto max-[490px]:mt-8"
                 />
-                <Image
+                <MuImage
                   src={cdnUrl("src/modules/Public/yip/assets/cat.png")}
                   alt="Mascot"
                   width={192}
@@ -236,14 +247,14 @@ export default function YipPage() {
               <h3 className="font-medium text-[2.25rem] leading-[36px] capitalize text-mulearn-blackish max-[768px]:text-[1.75rem]">
                 Brainstorm, Collaborate, And Create
               </h3>
-              <Image
+              <MuImage
                 src={cdnUrl("src/modules/Public/yip/assets/bllines.png")}
                 alt="Decorative blue lines"
                 width={240}
                 height={30}
                 className="mt-[-20px] mb-[10px] h-auto"
               />
-              <Image
+              <MuImage
                 src={cdnUrl(
                   "src/modules/Public/yip/assets/Starting%20a%20business%20project-amico.png"
                 )}
@@ -270,7 +281,7 @@ export default function YipPage() {
               </strong>{" "}
               and make a meaningful impact.
             </div>
-            <Image
+            <MuImage
               src={cdnUrl("src/modules/Public/yip/assets/box_fourimg.png")}
               alt="Team pitching illustration"
               width={380}
@@ -307,7 +318,7 @@ export default function YipPage() {
                         <div
                           className={`flex-shrink-0 w-32 h-32 flex items-center justify-center ${colors.iconBg}`}
                         >
-                          <Image
+                          <MuImage
                             src={event.icon}
                             alt={`${event.title} icon`}
                             width={80}
@@ -348,7 +359,7 @@ export default function YipPage() {
                     <div
                       className={`h-32 flex items-center justify-center ${colors.iconBg}`}
                     >
-                      <Image
+                      <MuImage
                         src={event.icon}
                         alt={`${event.title} icon`}
                         width={80}
