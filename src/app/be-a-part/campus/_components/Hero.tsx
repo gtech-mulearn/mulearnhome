@@ -1,5 +1,6 @@
 "use client";
 
+import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -9,22 +10,27 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-3xl text-center"
-        >
-          <h1 className="mb-6 text-balance text-5xl font-bold leading-tight tracking-tight text-mulearn-blackish lg:text-7xl">
-            Ignite Your <span className="text-mulearn-trusty-blue">Community</span>
-          </h1>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center lg:text-left"
+          >
+            <h2 className="text-5xl lg:text-6xl font-semibold mb-3 tracking-wide text-mulearn-blackish">
+              <span className="text-mulearn-trusty-blue">µLearn</span> Campus
+              Chapter
+            </h2>
+            <h3 className="mb-2 text-2xl lg:text-3xl font-bold text-mulearn-blackish">
+              Ignite Your{" "}
+              <span className="text-mulearn-trusty-blue">Community</span>
+            </h3>
 
-          <p className="mb-10 text-pretty text-xl leading-relaxed text-mulearn-gray-600 lg:text-2xl">
-            Build the future through peer-to-peer learning, proof-of-work, and a
-            55,000+ strong community
-          </p>
+            <p className="mb-10 text-xl lg:text-2xl leading-relaxed text-mulearn-gray-600">
+              Build the future through peer-to-peer learning, proof-of-work, and
+              a 55,000+ strong community.
+            </p>
 
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="https://airtable.com/appFdefxOwIVlTv1b/shrmtngt3zopg8eVh"
               target="_blank"
@@ -38,8 +44,24 @@ export default function Hero() {
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-center lg:justify-end"
+          >
+            <MuImage
+              src="/assets/campus/illustration.webp"
+              alt="μLearn Campus Chapter Illustration"
+              width={300}
+              height={300}
+              className="w-full h-auto max-w-md rounded-2xl object-contain"
+              priority
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
