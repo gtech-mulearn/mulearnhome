@@ -378,7 +378,7 @@ export default function YipPage() {
                         ))}
                       </div>
                     </div>
-                    <div className="bg-mulearn-whitish p-6 shadow-md">
+                    <div className="bg-mulearn-whitish mt-4 p-6 shadow-md rounded-2xl border">
                       <div
                         className={`text-[1.2rem] uppercase font-semibold tracking-[1.5px] mb-3 ${colors.textColor}`}
                       >
