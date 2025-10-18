@@ -157,7 +157,7 @@ export default function YipPage() {
       <section className="max-w-[1600px] mx-auto">
         <div className="flex flex-row justify-center items-stretch mt-8 mx-4 flex-wrap relative">
           <div className="max-w-[855px] shadow-[0px_0px_23px_rgba(130,177,255,0.22)] rounded-[25px] m-4 relative">
-            <div className="bg-card flex flex-row z-0 rounded-[25px] relative">
+            <div className="bg-mulearn-whitish flex flex-row z-0 rounded-[25px] relative">
               <div className="p-8">
                 <h2 className="text-[2.5rem] leading-[47px] max-w-[28rem] tracking-[0.02em] capitalize text-mulearn-blackish">
                   Kerala&apos;s Biggest{" "}
