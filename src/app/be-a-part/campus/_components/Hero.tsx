@@ -1,15 +1,12 @@
 "use client";
 
 import MuImage from "@/components/MuImage";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
+      <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -17,11 +14,11 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="text-center lg:text-left"
           >
-            <h2 className="text-5xl lg:text-6xl font-semibold mb-3 tracking-wide text-mulearn-blackish">
+            <h2 className="text-5xl lg:text-6xl font-semibold mb-8 tracking-wide text-mulearn-blackish">
               <span className="text-mulearn-trusty-blue">µLearn</span> Campus
               Chapter
             </h2>
-            <h3 className="mb-2 text-2xl lg:text-3xl font-bold text-mulearn-blackish">
+            <h3 className="mb-6 text-3xl lg:text-5xl font-semibold leading-tight tracking-tight text-mulearn-blackish">
               Ignite Your{" "}
               <span className="text-mulearn-trusty-blue">Community</span>
             </h3>
@@ -30,20 +27,6 @@ export default function Hero() {
               Build the future through peer-to-peer learning, proof-of-work, and
               a 55,000+ strong community.
             </p>
-
-            <Link
-              href="https://airtable.com/appFdefxOwIVlTv1b/shrmtngt3zopg8eVh"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant={"mulearn-blue"}
-                className="group inline-flex items-center gap-2 rounded-full px-8 py-4 text-lg font-semibold transition-all cursor-pointer"
-              >
-                Start a Chapter
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
           </motion.div>
 
           <motion.div
