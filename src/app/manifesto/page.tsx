@@ -3,6 +3,7 @@
 import React from "react";
 import { cdnUrl } from "@/services/cdn";
 import MuImage from "@/components/MuImage";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -85,9 +86,9 @@ export default function Manifesto() {
         </motion.h2>
 
         <Link href="https://app.mulearn.org" target="_blank" rel="noreferrer">
-          <button className="bg-mulearn-whitish text-mulearn-trusty-blue py-2 px-6 sm:px-8 sm:py-3 font-semibold text-[0.95rem] sm:text-[1.3rem] shadow hover:bg-mulearn-duke-purple hover:text-mulearn-whitish hover:scale-105 transition-all cursor-pointer rounded-full">
+          <Button variant={"mulearn-blue"} className="bg-mulearn-whitish text-mulearn-trusty-blue py-2 px-6 sm:px-8 sm:py-3 font-semibold text-[0.95rem] sm:text-[1.3rem] shadow hover:bg-mulearn-duke-purple hover:text-mulearn-whitish hover:scale-105 transition-all cursor-pointer rounded-full">
             Join µLearn
-          </button>
+          </Button>
         </Link>
       </div>
     </section>

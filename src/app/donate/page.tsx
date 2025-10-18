@@ -4,7 +4,6 @@ import DonateCounters from "@/app/donate/_components/DonateCounters";
 import DonationForm from "@/app/donate/_components/DonationForm";
 import { cdnUrl } from "@/services/cdn";
 
-
 const heroimg = cdnUrl("src/modules/Public/Donation/assets/heroImg.jpg");
 
 export default function Donate() {
@@ -17,7 +16,7 @@ export default function Donate() {
             <br />
             Our <span className="text-mulearn-trusty-blue">Mission</span>
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-muted-foreground">
+          <p className="mt-3 text-sm sm:text-base text-mulearn-gray-600">
             Foster an innovation culture, introduce new technologies, and
             develop skilled entrepreneurs.
           </p>
@@ -44,4 +43,4 @@ export default function Donate() {
       </div>
     </div>
   );
-};
+}
