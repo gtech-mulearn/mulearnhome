@@ -182,7 +182,7 @@ export default function YipPage() {
                 alt="YIP celebration graphic"
                 width={380}
                 height={288}
-                className="absolute right-0 bottom-0 h-[18rem] rounded-[0_0_25px_0] w-auto max-[685px]:hidden"
+                className="absolute right-4 bottom-0 h-[18rem] rounded-[0_0_25px_0] w-auto max-[685px]:hidden"
               />
             </div>
             <Link
