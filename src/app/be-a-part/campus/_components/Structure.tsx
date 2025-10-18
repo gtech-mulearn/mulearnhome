@@ -30,7 +30,7 @@ export default function Structure() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="rounded-2xl p-6 text-center shadow-sm transition-all border hover:scale-105 hover:shadow-md"
               >
-                <div className="mb-2 text-3xl font-bold text-primary">
+                <div className="mb-2 text-3xl font-bold text-mulearn-trusty-blue">
                   {item.value}
                 </div>
                 <div className="mb-1 font-semibold text-mulearn-blackish">

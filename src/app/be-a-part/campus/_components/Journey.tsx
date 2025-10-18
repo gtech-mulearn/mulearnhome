@@ -34,10 +34,10 @@ export default function Journey() {
                   {idx + 1}
                 </div>
                 <div className="flex-1">
-                  <h3 className="mb-1 text-lg font-bold text-mulearn-blackish">
+                  <h3 className="mb-1 text-2xl font-bold text-mulearn-blackish">
                     {step.title}
                   </h3>
-                  <p className="text-mulearn-gray-600">{step.desc}</p>
+                  <p className=" text-xl text-mulearn-gray-600">{step.desc}</p>
                 </div>
               </motion.div>
             ))}

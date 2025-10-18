@@ -5948,15 +5948,15 @@ export const campusChapter = {
       value: "5–10 students",
       desc: "Trained through Mutate",
     },
-    { label: "Faculty Mentor", value: "1 anchor", desc: "Ensures continuity" },
+    { label: "Faculty Mentor", value: "1 Anchor", desc: "Ensures continuity" },
     {
       label: "Learning Circles",
       value: "Domain-focused",
       desc: "AI, Web, Design, etc.",
     },
     {
-      label: "Chapter Lead",
-      value: "1 coordinator",
+      label: "Campus Lead",
+      value: "1 Coordinator",
       desc: "Links to Foundation",
     },
   ],
