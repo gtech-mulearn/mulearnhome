@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { yip } from "@/data/data";
 import { cdnUrl } from "@/services/cdn";
-import { Button } from "@/components/ui/button";
 
 export const metadata = {
   title: "YIP | µLearn",
@@ -11,6 +10,7 @@ export const metadata = {
 };
 
 export default function YipPage() {
+  // function to make specific text bold
   const makeBold = (text: string, boldPhrases: string[]) => {
     let result: React.ReactNode[] = [text];
     
@@ -35,7 +35,9 @@ export default function YipPage() {
     return result;
   };
 
+  // function to render descriptions with clickable links and bold text
   const renderDescription = (description: string, link?: string, index?: number) => {
+    // in step 1 - Make "Click Here" clickable
     if (index === 0 && link) {
       const parts = description.split("Click Here");
       return (
@@ -51,6 +53,7 @@ export default function YipPage() {
       );
     }
 
+    // in step 2 - Make "Click Here to Login" clickable and "Profile Completion" bold
     if (index === 1 && link) {
       const parts = description.split("Click Here to Login");
       const boldPhrases = ["Profile Completion"];
@@ -67,6 +70,7 @@ export default function YipPage() {
       );
     }
 
+    // Step 3 - Voice of Stakeholder
     if (index === 2) {
       const boldPhrases = [
         "Voice of Stakeholder(VOS Module)",
@@ -76,6 +80,7 @@ export default function YipPage() {
       return <>{makeBold(description, boldPhrases)}</>;
     }
 
+    // Step 4 - Team Formation
     if (index === 3) {
       const boldPhrases = [
         "You can form a team consisting of minimum 2 members and maximum 5 members by clicking the Group Formation Button from the left navbar. Only one person from a group is required to form the group"
@@ -83,6 +88,7 @@ export default function YipPage() {
       return <>{makeBold(description, boldPhrases)}</>;
     }
 
+    // Step 5 - Idea Submission
     if (index === 4) {
       const boldPhrases = [
         "person who formed the team",
@@ -93,15 +99,18 @@ export default function YipPage() {
       return <>{makeBold(description, boldPhrases)}</>;
     }
 
+    // Step 6 - Institutional Approval
     if (index === 5) {
       return <>{description}</>;
     }
 
+    // Step 7 - Preliminary Evaluation
     if (index === 6) {
       const boldPhrases = ["teams"];
       return <>{makeBold(description, boldPhrases)}</>;
     }
 
+    // Step 8 - Winner Announcement
     if (index === 7) {
       const boldPhrases = [
         "the best of those teams are provided financial and mentoring support to implement their ideas."
@@ -109,9 +118,11 @@ export default function YipPage() {
       return <>{makeBold(description, boldPhrases)}</>;
     }
 
+    // Default case
     return description;
   };
 
+  // function to get background colors based on type
   const getTypeColors = (type: string) => {
     switch (type) {
       case "type1":
@@ -122,14 +133,14 @@ export default function YipPage() {
         };
       case "type2":
         return {
-          iconBg: "bg-card",
+          iconBg: "bg-card", // Light blue - keeping this as it's a lighter shade
           labelBg: "bg-mulearn-trusty-blue",
           textColor: "text-mulearn-trusty-blue"
         };
       case "type3":
         return {
-          iconBg: "bg-chart-2",
-          labelBg: "bg-chart-3",
+          iconBg: "bg-chart-2", // Light green - keeping this as it's a lighter shade
+          labelBg: "bg-chart-3", // Green shade
           textColor: "text-chart-3"
         };
       default:
@@ -142,18 +153,18 @@ export default function YipPage() {
   };
 
   return (
-    <main role="main" className="min-h-screen w-full text-mulearn-blackish">
+    <main role="main" className="min-h-screen w-full font-poppins">
       <section className="max-w-[1600px] mx-auto">
         <div className="flex flex-row justify-center items-stretch mt-8 mx-4 flex-wrap relative">
           <div className="max-w-[855px] shadow-[0px_0px_23px_rgba(130,177,255,0.22)] rounded-[25px] m-4 relative">
             <div className="bg-card flex flex-row z-0 rounded-[25px] relative">
               <div className="p-8">
-                <h2 className="text-[2.5rem] leading-[47px] max-w-[28rem] tracking-[0.02em] capitalize text-mulearn-blackish">
+                <p className="font-light text-[2.25rem] leading-[47px] max-w-[28rem] tracking-[0.02em] capitalize text-mulearn-duke-purple">
                   Kerala&apos;s Biggest{" "}
-                  <strong className="font-bold text-mulearn-trusty-blue">
+                  <strong className="font-bold">
                     Innovation Celebration is here!
                   </strong>
-                </h2>
+                </p>
                 <br />
                 <Image
                   src={cdnUrl("src/modules/Public/yip/assets/lines.png")}
@@ -162,7 +173,7 @@ export default function YipPage() {
                   height={30}
                   className="mt-[-3rem] max-w-[15rem] h-auto"
                 />
-                <p className="mt-[-2rem] mb-8 font-medium text-[1.5rem] max-w-[20rem] leading-[33px] capitalize text-mulearn-trusty-blue">
+                <p className="mt-[-2rem] mb-8 font-medium text-[1.5rem] max-w-[20rem] leading-[33px] capitalize text-mulearn-duke-purple">
                   Young Innovators Programme 5.0
                 </p>
               </div>
@@ -178,18 +189,14 @@ export default function YipPage() {
               href="https://yip.kerala.gov.in/"
               target="_blank"
               rel="noopener noreferrer"
+              className="absolute mt-[-2rem] mr-12 right-0 z-10 bg-mulearn-whitish shadow-[0px_17px_31px_rgba(0,0,0,0.12)] rounded-xl font-semibold text-[1.25rem] px-[4.5rem] py-3 leading-[33px] capitalize text-mulearn-duke-purple hover:bg-mulearn-duke-purple hover:text-mulearn-whitish transition-all duration-300"
             >
-              <Button
-                variant={"mulearn-blue"}
-                className="absolute mt-[-2rem] mr-12 right-0 z-10 shadow-[0px_17px_31px_rgba(0,0,0,0.12)] rounded-xl font-semibold text-[1.25rem] px-[4.5rem] py-3 leading-[33px] capitalize"
-              >
-                Apply Now
-              </Button>
+              Apply Now
             </Link>
-            <div className="mt-8 p-8 text-[1.35rem] leading-[30px]">
+            <div className="mt-8 p-8 font-light text-[1.35rem] leading-[30px]">
               <p>
                 YIP 5.0 is here and{" "}
-                <strong className="font-bold text-mulearn-trusty-blue">
+                <strong className="font-bold">
                   it&apos;s bigger and more impactful than ever before!
                 </strong>{" "}
                 Backed by the Kerala government.
@@ -197,23 +204,20 @@ export default function YipPage() {
                 <br />
                 This year&apos;s initiative provides an incredible opportunity
                 for{" "}
-                <strong className="font-bold text-mulearn-trusty-blue">
+                <strong className="font-bold">
                   college and university students
                 </strong>{" "}
                 to showcase their innovation skills and create{" "}
-                <strong className="font-bold text-mulearn-trusty-blue">
-                  real-world impact
-                </strong>
-                .
+                <strong className="font-bold">real-world impact</strong>.
               </p>
             </div>
           </div>
 
           <div className="max-[1460px]:flex max-[1460px]:flex-row max-[1460px]:justify-between max-[1460px]:flex-wrap max-[1048px]:flex-col max-[1048px]:items-center max-[1048px]:justify-center">
             <div className="max-w-[538px] min-w-[20rem] p-8 shadow-[0px_0px_23px_rgba(130,177,255,0.22)] rounded-[25px] m-4 flex flex-col justify-stretch transition-all duration-300">
-              <h3 className="font-medium text-[2.25rem] leading-[47px] tracking-[0.02em] capitalize ml-4 text-right max-[490px]:text-center">
+              <p className="font-medium text-[2.25rem] leading-[47px] tracking-[0.02em] capitalize ml-4 text-right max-[490px]:text-center">
                 Download the <br /> YIP App Now!
-              </h3>
+              </p>
               <div className="flex flex-row-reverse justify-between flex-wrap max-[490px]:flex-col max-[490px]:items-center">
                 <Image
                   src={cdnUrl("src/modules/Public/yip/assets/qrcode.png")}
@@ -233,9 +237,9 @@ export default function YipPage() {
             </div>
 
             <div className="max-w-[538px] p-8 shadow-[0px_0px_23px_rgba(130,177,255,0.22)] rounded-[25px] m-4 flex flex-col items-center transition-all duration-300">
-              <h3 className="font-medium text-[2.25rem] leading-[36px] capitalize text-mulearn-blackish max-[768px]:text-[1.75rem]">
+              <p className="font-medium text-[2.25rem] leading-[36px] capitalize text-mulearn-blackish max-[768px]:text-[1.75rem]">
                 Brainstorm, Collaborate, And Create
-              </h3>
+              </p>
               <Image
                 src={cdnUrl("src/modules/Public/yip/assets/bllines.png")}
                 alt="Decorative blue lines"
@@ -244,9 +248,7 @@ export default function YipPage() {
                 className="mt-[-20px] mb-[10px] h-auto"
               />
               <Image
-                src={cdnUrl(
-                  "src/modules/Public/yip/assets/Starting%20a%20business%20project-amico.png"
-                )}
+                src={cdnUrl("src/modules/Public/yip/assets/Starting%20a%20business%20project-amico.png")}
                 alt="Students collaborating illustration"
                 width={320}
                 height={192}
@@ -255,7 +257,7 @@ export default function YipPage() {
             </div>
           </div>
 
-          <div className="flex flex-row justify-between items-center flex-wrap bg-mulearn-trusty-blue p-8 m-4 w-full rounded-[25px]">
+          <div className="flex flex-row justify-between items-center flex-wrap bg-mulearn-duke-purple p-8 m-4 w-full rounded-[25px]">
             <div className="font-light text-[1.75rem] leading-[36px] max-w-[38rem] text-mulearn-whitish max-[768px]:text-[1.35rem] max-[768px]:leading-[24px]">
               Pitch your{" "}
               <strong className="font-bold">
@@ -283,13 +285,13 @@ export default function YipPage() {
 
       <section className="my-[7vh]">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-center text-mulearn-blackish text-[2.1rem] font-semibold">
+          <p className="text-center text-mulearn-blackish text-[2.1rem] font-semibold">
             YIP Idea Registration Procedure
-          </h2>
+          </p>
           <div className="flex flex-col mx-auto my-10 relative z-[5]">
             {yip.map((event, index) => {
               const colors = getTypeColors(event.type);
-
+              
               return (
                 <div
                   key={index}
@@ -308,7 +310,7 @@ export default function YipPage() {
                           className={`flex-shrink-0 w-32 h-32 flex items-center justify-center ${colors.iconBg}`}
                         >
                           <Image
-                            src={event.icon}
+                            src={(event.icon)}
                             alt={`${event.title} icon`}
                             width={80}
                             height={80}
@@ -333,11 +335,7 @@ export default function YipPage() {
                             {event.title}
                           </div>
                           <div className="text-mulearn-blackish">
-                            {renderDescription(
-                              event.description,
-                              event.link,
-                              index
-                            )}
+                            {renderDescription(event.description, event.link, index)}
                           </div>
                         </div>
                       </div>
@@ -349,7 +347,7 @@ export default function YipPage() {
                       className={`h-32 flex items-center justify-center ${colors.iconBg}`}
                     >
                       <Image
-                        src={event.icon}
+                        src={(event.icon)}
                         alt={`${event.title} icon`}
                         width={80}
                         height={50}
@@ -374,11 +372,7 @@ export default function YipPage() {
                         {event.title}
                       </div>
                       <div className="text-mulearn-blackish">
-                        {renderDescription(
-                          event.description,
-                          event.link,
-                          index
-                        )}
+                        {renderDescription(event.description, event.link, index)}
                       </div>
                     </div>
                   </div>
