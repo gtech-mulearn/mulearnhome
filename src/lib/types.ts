@@ -121,3 +121,13 @@ export interface TeamCardProps {
   lead?: string;
   team?: string;
 }
+
+export interface VideoTestimonial {
+  id: string;
+  name: string;
+  organization: string;
+  role: string;
+  videoUrl: string;
+  thumbnailUrl: string;
+  profileImage: string;
+}
