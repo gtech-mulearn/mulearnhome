@@ -6,7 +6,7 @@ import { BookOpen, Users } from "lucide-react";
 export default function LevelBenefitsCTA() {
   return (
     <motion.section
-      className="py-20 md:py-28 bg-gradient-to-br from-mulearn-whitish via-blue-50 to-purple-50"
+      className="py-20 md:py-28 bg-gradient-to-br from-mulearn-whitish via-blue-50 to-[#2E85FE]/10"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
@@ -15,7 +15,7 @@ export default function LevelBenefitsCTA() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6 } }}
           viewport={{ once: true }}
-          className="text-center bg-gradient-to-r from-mulearn-trusty-blue to-mulearn-duke-purple rounded-3xl p-12 text-white"
+          className="text-center bg-gradient-to-r from-mulearn-trusty-blue to-[#2E85FE] rounded-3xl p-12 text-white"
         >
           <h3 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Start Your Journey?
