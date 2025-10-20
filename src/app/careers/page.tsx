@@ -17,31 +17,34 @@ export default function CareersPage() {
         </p>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {careers.map((job, index) => (
-            <Card key={index} className="shadow-lg rounded-2xl border border-gray-200">
-              <CardContent className="p-6 flex flex-col items-start text-left">
-                {job.image && (
-                  <div className="w-full h-40 relative mb-4 rounded-xl overflow-hidden">
-                    <Image
-                      src={job.image}
-                      alt={job.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <h2 className="font-display text-xl mb-2 text-mulearn-trusty-blue">
-                  {job.title}
-                </h2>
-                <p className="text-mulearn-gray-600 mb-3">{job.department}</p>
-                <p className="text-sm mb-4">{job.description}</p>
-                <Button
-                  variant="mulearn"
-                  className="self-start mt-auto px-4 py-2"
+          {careers.map((job) => (
+            <Card
+              key={job.id}
+              className="rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
+            >
+              {/* Image */}
+              <img
+                src={job.image || "/placeholder.svg"}
+                alt={job.title}
+                className="w-full h-40 object-cover"
+              />
+
+              {/* Text Content */}
+              <div className="p-5 flex flex-col flex-grow">
+                <h3 className="text-lg font-semibold text-[#0056D2]">{job.title}</h3>
+                <p className="text-gray-500 text-sm mb-2">{job.department}</p>
+                <p className="text-gray-700 text-sm flex-grow">{job.description}</p>
+
+                {/* Button */}
+                <a
+                  href={job.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block text-center bg-gradient-to-r from-[#4C6EF5] to-[#228BE6] text-white py-2 px-4 rounded-lg font-medium hover:scale-105 transition-transform"
                 >
                   Apply Now
-                </Button>
-              </CardContent>
+                </a>
+              </div>
             </Card>
           ))}
         </div>
