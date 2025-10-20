@@ -6437,3 +6437,26 @@ export const impactStats: ImpactStat[] = [
   { number: "1,000+", label: "Mentors", icon: "GraduationCap" },
   { number: "100+", label: "Success Stories", icon: "TrendingUp" },
 ];
+export const careers = [
+  {
+    title: "Frontend Developer",
+    department: "Engineering",
+    description:
+      "Build and maintain responsive, accessible web interfaces using Next.js, TypeScript, and Tailwind CSS.",
+    image: "/assets/careers/frontend.jpg",
+  },
+  {
+    title: "UI/UX Designer",
+    department: "Design",
+    description:
+      "Design elegant, intuitive interfaces that align with the MuLearn brand system and user needs.",
+    image: "/assets/careers/uiux.jpg",
+  },
+  {
+    title: "Community Manager",
+    department: "Operations",
+    description:
+      "Engage and grow the MuLearn community through events, collaborations, and outreach initiatives.",
+    image: "/assets/careers/community.jpg",
+  },
+];
