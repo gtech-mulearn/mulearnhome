@@ -8,7 +8,7 @@ import {
   ImpactStat,
   AnnualReport,
 } from "@/lib/types";
-import { Calendar, Clock, PartyPopper, Sparkle, Target, Trophy, Users, Zap, BookOpen, Code, Palette, Database, Smartphone, Globe, Award, MessageCircle, TrendingUp, CheckCircle} from "lucide-react";
+import { Calendar, Clock, PartyPopper, Sparkle, Target, Trophy, Users, Zap, BookOpen, Code, Palette, Database, Smartphone, Globe, Award, MessageCircle, TrendingUp, CheckCircle, Star, ArrowRight, BookOpenCheck, GraduationCap, Crown, Rocket} from "lucide-react";
 
 
 export const navItems = [
@@ -20,6 +20,7 @@ export const navItems = [
         { label: "TEAM", href: "/team" },
         { label: "ENABLERS", href: "/enablers" },
         { label: "ANNUAL REPORTS", href: "/report" },
+        { label: "LEVEL STRUCTURE", href: "/levelstructure" },
         // { label: "ANNOUNCEMENTS", href: "/events/announcements" },
         { label: "EVENTS", href: "/events" },
       ],
@@ -6652,3 +6653,237 @@ export const annualReports: AnnualReport[] = [
     publishedDate: "2023-01-05"
   }
 ];
+
+// Level Structure Data
+export const levelStructure = {
+  title: "μLearn Level Structure",
+  subtitle: "Your journey from beginner to expert through our comprehensive learning levels",
+  description: "Navigate through our structured learning levels designed to guide you from foundational concepts to advanced expertise. Each level builds upon the previous one, ensuring a comprehensive and progressive learning experience.",
+  levels: [
+    {
+      id: "level-1",
+      level: 1,
+      title: "The First Hello",
+      subtitle: "Self-Introduction",
+      icon: Users,
+      color: "from-blue-400 to-blue-600",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200",
+      description: "Your journey starts with visibility. Introduce yourself publicly so peers, mentors and opportunities can find you.",
+      duration: "~1 day",
+      prerequisites: "None",
+      skills: [
+        "Owning your story",
+        "Public visibility",
+        "Peer connection"
+      ],
+      activities: [
+        "Post a short self-introduction",
+        "Share interests and aspirations",
+        "Engage with 3 peer intros"
+      ],
+      milestones: [
+        "Publish your first intro",
+        "Receive 3 peer interactions",
+        "Join a community channel"
+      ],
+      nextLevel: "The Mindset Shift"
+    },
+    {
+      id: "level-2",
+      level: 2,
+      title: "The Mindset Shift",
+      subtitle: "Fixed → Growth → Abundance",
+      icon: TrendingUp,
+      color: "from-purple-400 to-purple-600",
+      bgColor: "bg-purple-50",
+      borderColor: "border-purple-200",
+      description: "Rewrite limiting narratives. Move from fixed to growth, and finally to abundance thinking through reflection and peer nudges.",
+      duration: "1–2 weeks",
+      prerequisites: "Level 1",
+      skills: [
+        "Growth mindset",
+        "Abundance thinking",
+        "Reflection habits"
+      ],
+      activities: [
+        "Complete mindset reflections",
+        "Attend a peer discussion",
+        "Reframe 2 limiting beliefs"
+      ],
+      milestones: [
+        "Document mindset shifts",
+        "Share a public learning plan",
+        "Support a peer with feedback"
+      ],
+      nextLevel: "Tool Mastery"
+    },
+    {
+      id: "level-3",
+      level: 3,
+      title: "Tool Mastery",
+      subtitle: "The Explorer’s Compass",
+      icon: BookOpenCheck,
+      color: "from-green-400 to-green-600",
+      bgColor: "bg-green-50",
+      borderColor: "border-green-200",
+      description: "Build tool literacy so ideas become executable. Pick the essential tools in your path and use them to create.",
+      duration: "2–3 weeks",
+      prerequisites: "Level 2",
+      skills: [
+        "Core tool workflows",
+        "Version control basics",
+        "Rapid prototyping"
+      ],
+      activities: [
+        "Set up toolchain (e.g., GitHub/Notion)",
+        "Ship a tiny demo using selected tools",
+        "Document your workflow"
+      ],
+      milestones: [
+        "Public repo or workspace",
+        "Demo link/screenshot",
+        "Tooling checklist completed"
+      ],
+      nextLevel: "The Path of Choice"
+    },
+    {
+      id: "level-4",
+      level: 4,
+      title: "The Path of Choice",
+      subtitle: "Interest Groups",
+      icon: Target,
+      color: "from-teal-400 to-teal-600",
+      bgColor: "bg-teal-50",
+      borderColor: "border-teal-200",
+      description: "Pick your tribe (AI, Web, Film, Civil/Mechanical, Creative Arts, Space/Hardware, etc.) and anchor under mentors and pathways.",
+      duration: "2–4 weeks",
+      prerequisites: "Level 3",
+      skills: [
+        "Focused exploration",
+        "Mentor-aligned learning",
+        "Portfolio planning"
+      ],
+      activities: [
+        "Join one Interest Group",
+        "Complete the IG onboarding",
+        "Start a portfolio thread"
+      ],
+      milestones: [
+        "IG membership confirmed",
+        "First mini-proof-of-work",
+        "Mentor feedback received"
+      ],
+      nextLevel: "The Global Arena"
+    },
+    {
+      id: "level-5",
+      level: 5,
+      title: "The Global Arena",
+      subtitle: "Challenges, Hackathons & Competitions",
+      icon: Trophy,
+      color: "from-orange-400 to-orange-600",
+      bgColor: "bg-orange-50",
+      borderColor: "border-orange-200",
+      description: "Face global peers via challenges and hackathons. Raising the bar sharpens skills and builds recognition.",
+      duration: "3–6 weeks",
+      prerequisites: "Level 4",
+      skills: [
+        "Competitive problem-solving",
+        "Team workflows",
+        "Time-bound delivery"
+      ],
+      activities: [
+        "Join a global/IG challenge",
+        "Contribute in a team setting",
+        "Publish post-mortem learnings"
+      ],
+      milestones: [
+        "Submission to 1 competition",
+        "Team portfolio update",
+        "Judge/mentor feedback logged"
+      ],
+      nextLevel: "Build & Ship"
+    },
+    {
+      id: "level-6",
+      level: 6,
+      title: "Build & Ship",
+      subtitle: "Proof-of-Impact",
+      icon: Rocket,
+      color: "from-rose-400 to-rose-600",
+      bgColor: "bg-rose-50",
+      borderColor: "border-rose-200",
+      description: "Build real solutions and ship to users. Move beyond prototypes into deployed, used, and iterated products.",
+      duration: "4–8 weeks",
+      prerequisites: "Level 5",
+      skills: [
+        "Product delivery",
+        "User feedback loops",
+        "Cross-disciplinary collaboration"
+      ],
+      activities: [
+        "Ship a v1 to real users",
+        "Measure usage and impact",
+        "Iterate from feedback"
+      ],
+      milestones: [
+        "Live deployment link",
+        "Usage metrics captured",
+        "Impact story published"
+      ],
+      nextLevel: "The μVerse"
+    },
+    {
+      id: "level-7",
+      level: 7,
+      title: "The μVerse",
+      subtitle: "Opportunities & Access",
+      icon: Globe,
+      color: "from-indigo-400 to-indigo-600",
+      bgColor: "bg-indigo-50",
+      borderColor: "border-indigo-200",
+      description: "Convert talent into pipelines of opportunity: internships, freelance, Launchpad hiring, NGO/Govt collabs, venture support, and fellowships.",
+      duration: "Ongoing",
+      prerequisites: "Level 6",
+      skills: [
+        "Career navigation",
+        "Industry collaboration",
+        "Opportunity readiness"
+      ],
+      activities: [
+        "Apply to 2 opportunities",
+        "Prepare portfolio for outreach",
+        "Engage with a mentor pool"
+      ],
+      milestones: [
+        "Interview/offer/freelance gig",
+        "Fellowship or pilot accepted",
+        "Community contribution loop"
+      ],
+      nextLevel: "—"
+    }
+  ],
+  benefits: [
+    {
+      icon: Star,
+      title: "Structured Progression",
+      description: "Clear learning path with defined milestones and achievements"
+    },
+    {
+      icon: Users,
+      title: "Community Support",
+      description: "Learn alongside peers and get guidance from mentors"
+    },
+    {
+      icon: Award,
+      title: "Recognition & Badges",
+      description: "Earn badges and recognition for your achievements"
+    },
+    {
+      icon: TrendingUp,
+      title: "Career Growth",
+      description: "Build skills that directly impact your career trajectory"
+    }
+  ]
+};
