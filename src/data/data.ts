@@ -8,7 +8,7 @@ import {
   ImpactStat,
   AnnualReport,
 } from "@/lib/types";
-import { Calendar, Clock, PartyPopper, Sparkle, Target, Trophy, Users, Zap, BookOpen, Code, Palette, Database, Smartphone, Globe, Award, MessageCircle, TrendingUp, CheckCircle, Star, ArrowRight, BookOpenCheck, GraduationCap, Crown, Rocket} from "lucide-react";
+import { Calendar, Clock, PartyPopper, Sparkle, Target, Trophy, Users, Zap, BookOpen, Code, Palette, Database, Smartphone, Globe, Award, MessageCircle, TrendingUp, CheckCircle, Star, BookOpenCheck, Rocket } from "lucide-react";
 
 
 export const navItems = [

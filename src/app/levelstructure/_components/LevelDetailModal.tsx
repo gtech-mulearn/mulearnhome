@@ -3,9 +3,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle, Clock, Users, Target, BookOpen, Award, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import type { Level } from "@/lib/types";
 
 interface LevelDetailModalProps {
-  level: any;
+  level: Level | null;
   isOpen: boolean;
   onClose: () => void;
 }
@@ -85,7 +86,7 @@ export default function LevelDetailModal({ level, isOpen, onClose }: LevelDetail
               <div>
                 <h3 className="text-2xl font-bold text-mulearn-blackish mb-4 flex items-center">
                   <Target className="w-6 h-6 mr-2 text-mulearn-trusty-blue" />
-                  Key Skills You'll Learn
+                  Key Skills You&apos;ll Learn
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {level.skills.map((skill: string, index: number) => (

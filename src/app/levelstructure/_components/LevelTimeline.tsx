@@ -5,6 +5,7 @@ import { levelStructure } from "@/data/data";
 import { ArrowRight, CheckCircle, Clock, Users, Target, Info } from "lucide-react";
 import { useState } from "react";
 import LevelDetailModal from "./LevelDetailModal";
+import type { Level } from "@/lib/types";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -30,10 +31,10 @@ const levelVariant: Variants = {
 };
 
 export default function LevelTimeline() {
-  const [selectedLevel, setSelectedLevel] = useState<any>(null);
+  const [selectedLevel, setSelectedLevel] = useState<Level | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleLevelClick = (level: any) => {
+  const handleLevelClick = (level: Level) => {
     setSelectedLevel(level);
     setIsModalOpen(true);
   };
@@ -74,7 +75,7 @@ export default function LevelTimeline() {
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-mulearn-trusty-blue to-mulearn-duke-purple transform md:-translate-x-0.5" />
           
           <div className="space-y-12 md:space-y-16">
-            {levelStructure.levels.map((level, index) => (
+            {levelStructure.levels.map((level: Level, index: number) => (
               <motion.div
                 key={level.id}
                 custom={index}

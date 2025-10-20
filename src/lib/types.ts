@@ -214,3 +214,24 @@ export interface AnnualReport {
   highlights?: string[];
   publishedDate: string;
 }
+
+// Level structure types
+import type { ComponentType, SVGProps } from "react";
+
+export interface Level {
+  id: string;
+  level: number;
+  title: string;
+  subtitle?: string;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  color?: string;
+  bgColor?: string;
+  borderColor?: string;
+  description?: string;
+  duration?: string;
+  prerequisites?: string;
+  skills: string[];
+  activities: string[];
+  milestones: string[];
+  nextLevel?: string;
+}
