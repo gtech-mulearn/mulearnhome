@@ -1,0 +1,29 @@
+<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="entreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="400" height="250" fill="url(#entreGrad)" rx="16"/>
+  
+  <circle cx="80" cy="125" r="120" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="320" cy="200" r="80" fill="rgba(255,255,255,0.08)"/>
+  
+  <g transform="translate(200, 95)" filter="url(#glow)">
+    <path d="M0,-25 L-8,-8 L-25,-5 L-12,5 L-15,22 L0,13 L15,22 L12,5 L25,-5 L8,-8 Z" fill="white" opacity="0.9"/>
+    <circle cx="0" cy="0" r="8" fill="url(#entreGrad)"/>
+  </g>
+  
+  <text x="200" y="165" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="white" text-anchor="middle" filter="url(#glow)">Entrepreneurship</text>
+  
+  <text x="200" y="190" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.9)" text-anchor="middle">µLearn</text>
+</svg>

@@ -1,27 +1,13 @@
 import { cdnUrl } from "@/services/cdn";
 import { FaLinkedin, FaInstagram, FaYoutube, FaFacebook } from "react-icons/fa";
-import { Event, Role, RolesContent } from "@/lib/types";
+import {
+  Event,
+  Role,
+  RolesContent,
+  GalleryItem,
+  ImpactStat,
+} from "@/lib/types";
 import { Calendar, Clock, PartyPopper, Sparkle, Target, Trophy, Users, Zap } from "lucide-react";
-
-export interface GalleryItem {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  category: "events" | "students" | "companies" | "mentors" | "impact-stories";
-  type: "image" | "video";
-  stats?: {
-    participants?: number;
-    campuses?: number;
-    companies?: number;
-  };
-}
-
-export interface ImpactStat {
-  number: string;
-  label: string;
-  icon: string; // We'll use string names since we can't import React components here
-}
 
 export const navItems = [
   {
@@ -31,15 +17,8 @@ export const navItems = [
         { label: "MANIFESTO", href: "/manifesto" },
         { label: "TEAM", href: "/team" },
         { label: "ENABLERS", href: "/enablers" },
-      ],
-      Partners: [
-        { label: "COMMUNITY PARTNERS", href: "/community-partners" },
-        { label: "COMPANY PARTNERS", href: "/company-partners" },
-      ],
-      EVENTS: [
-        { label: "GLOBAL CALENDAR", href: "/events/calendar" },
         // { label: "ANNOUNCEMENTS", href: "/events/announcements" },
-        { label: "ALL EVENTS", href: "/events" },
+        { label: "EVENTS", href: "/events" },
       ],
       Programs: [
         { label: "LAUNCHPAD", href: "https://launchpadkerala.org/" },
@@ -57,6 +36,7 @@ export const navItems = [
           label: "NEWSLETTER",
           href: "https://online.fliphtml5.com/slydm/yljq/",
         },
+        { label: "GLOBAL CALENDAR", href: "/events/calendar" },
         {
           label: "IMPACT GALLERY",
           href: "/impact-gallery",
@@ -77,6 +57,10 @@ export const navItems = [
         { label: "Campus", href: "/be-a-part/campus" },
         { label: "Campus Logo Generator", href: "/campus-logo-generator" },
       ],
+      Partners: [
+        { label: "COMMUNITY PARTNERS", href: "/community-partners" },
+        { label: "COMPANY PARTNERS", href: "/company-partners" },
+      ],
     },
   },
   {
@@ -91,7 +75,7 @@ export const navItems = [
       Explore: [
         {
           label: "Interest Groups",
-          href: "https://app.mulearn.org/dashboard/interestgroups",
+          href: "/interest-groups",
         },
         {
           label: "Learning Circle",
@@ -138,7 +122,7 @@ export const features = [
     ),
     bgColor: "#5ce5c9",
     cta: "Explore IGs",
-    url: "/interestgroups",
+    url: "/interest-groups",
   },
   {
     title: "Roadmaps",
@@ -164,6 +148,89 @@ export const features = [
     cta: "See Opportunities",
     url: "/careers",
   },
+];
+
+export const interestGroups = [
+    {
+        name: "UI/UX",
+        link: "https://app.mulearn.org/dashboard/interestgroups/46fe1fb7-7b04-4ebe-837d-120bc16d0e0a",
+        tagline: "Design beautiful, user-friendly experiences",
+        image: "/assets/InterestGroups/design.svg",
+        description:
+            "Master the art of user interface and user experience design. Share portfolios, get feedback, and learn the latest design trends."
+    },
+    {
+        name: "Web Development",
+        link: "https://app.mulearn.org/dashboard/interestgroups/9b8aaf7f-16a0-4a66-ae53-79b8c25e5faa",
+        tagline: "Build the web, shape the world",
+        image: "/assets/InterestGroups/webdev.svg",
+        description:
+            "Explore frontend, backend, and full-stack development. Collaborate on real-world web projects and learn modern frameworks."
+    },
+    {
+        name: "Cybersecurity",
+        link: "https://app.mulearn.org/dashboard/interestgroups/3a74725e-a05a-418b-a275-39d68ad9a416",
+        tagline: "Secure the digital frontier",
+        image: "/assets/InterestGroups/cyber.svg",
+        description:
+            "Learn how to protect systems and data. Participate in CTFs, workshops, and security challenges."
+    },
+    {
+        name: "Game Development",
+        link: "https://app.mulearn.org/dashboard/interestgroups/1be43a3a-bcfb-4ef1-b77a-959b01bcb782",
+        tagline: "Create immersive gaming experiences",
+        image: "/assets/InterestGroups/game.svg",
+        description:
+            "Dive into game design, development, and storytelling. Collaborate on projects and learn from industry experts."
+    },
+    {
+        name: "Internet Of Things (IOT) And Robotics",
+        link: "https://app.mulearn.org/dashboard/interestgroups/d379d82b-e116-4b67-8128-670916e6bb42",
+        tagline: "Connect the world, automate the future",
+        image: "/assets/InterestGroups/iot.svg",
+        description:
+            "Explore IoT devices, robotics, and automation. Build smart systems and learn about hardware integration."
+    },
+    {
+        name: "Digital Marketing",
+        link: "https://app.mulearn.org/dashboard/interestgroups/5bf2bdfe-5c22-48ab-9572-9e9836c70e79",
+        tagline: "Grow brands in the digital age",
+        image: "/assets/InterestGroups/marketing.svg",
+        description:
+            "Master SEO, social media, and online campaigns. Learn strategies to boost engagement and reach."
+    },
+    {
+        name: "Cloud and DevOps",
+        link: "https://app.mulearn.org/dashboard/interestgroups/1719d19a-0206-4161-9c6f-0a7dba44d4e5",
+        tagline: "Deploy, scale, and automate",
+        image: "/assets/InterestGroups/cloud.svg",
+        description:
+            "Learn cloud platforms, CI/CD, and infrastructure automation. Collaborate on scalable solutions."
+    },
+    {
+        name: "Product Management",
+        link: "https://app.mulearn.org/dashboard/interestgroups/04d29c15-4de4-4b43-ad63-0f4760c62919",
+        tagline: "Build products people love",
+        image: "/assets/InterestGroups/product.svg",
+        description:
+            "Discover the art of product strategy, development, and launch. Work with teams to deliver impactful solutions."
+    },
+    {
+        name: "Entrepreneurship",
+        link: "https://app.mulearn.org/dashboard/interestgroups/243a1bda-893c-4de3-b457-51e7cb517d83",
+        tagline: "Turn ideas into reality",
+        image: "/assets/InterestGroups/entrepreneurship.svg",
+        description:
+            "Learn how to start, grow, and scale ventures. Connect with founders and innovators."
+    },
+    {
+        name: "AR/VR",
+        link: "https://app.mulearn.org/dashboard/interestgroups/2de0ee0c-ddc3-4f02-bf93-b6bd2d0625c3",
+        tagline: "Experience the future in 3D",
+        image: "/assets/InterestGroups/arvr.svg",
+        description:
+            "Explore augmented and virtual reality. Build immersive applications and learn cutting-edge tech."
+    }
 ];
 
 export const specialevents = [
@@ -483,7 +550,7 @@ export const footer = [
       { title: "Career Labs", url: "/careers" },
       {
         title: "Interest Groups",
-        url: "https://app.mulearn.org/dashboard/interestgroups",
+        url: "/interest-groups",
       },
       { title: "Donate", url: "/donate" },
     ],
@@ -492,7 +559,7 @@ export const footer = [
     title: "Be Part of Us",
     links: [
       { title: "Campus", url: "be-a-part/campus" },
-      { title: "Companies", url: "be-a-part/companies" },
+      { title: "Companies", url: "be-a-part/company" },
       {
         title: "Students",
         url: "https://app.mulearn.org/dashboard/search?activetab=mulearners",
@@ -508,6 +575,7 @@ export const footer = [
     links: [
       { title: "Terms and Conditions", url: "/termsandconditions" },
       { title: "Privacy Policy", url: "/privacypolicy" },
+      { title: "Refund Policy", url: "/refundpolicy" },
     ],
   },
 ];
@@ -541,6 +609,123 @@ export const contactInfo = {
   email: "info@mulearn.org",
   phone: "+91 89436 47000",
   website: "www.mulearn.org",
+};
+
+export const refundPolicy = {
+  title: "REFUND POLICY",
+  lastUpdated: "October 2025",
+  introduction: `This Refund Policy is issued by µLearn Foundation, which includes its parent, subsidiaries and affiliates (together, "µLearn", or <strong>"We"</strong> or <strong>"us"</strong> or <strong>"our(s)"</strong>). This policy outlines the terms and conditions under which donations made to µLearn Foundation may be refunded.
+
+At µLearn Foundation, we are committed to transparency and accountability in all our operations, including the management of donations. We deeply appreciate your support and want to ensure that your contribution experience is positive and clear.`,
+  sections: [
+    {
+      heading: "General Donation Policy",
+      content:
+        "All donations made to µLearn Foundation are considered final and non-refundable unless specifically stated otherwise or required by law. Donations are voluntary contributions made to support our mission of empowering students through education and technology.",
+      subsections: [
+        "Donations are used exclusively for educational programs, community initiatives, student support, and operational expenses related to our mission.",
+        "Once processed, donations are allocated to various programs and activities, making refunds administratively challenging and potentially disruptive to our operations.",
+        "Donors are encouraged to carefully review their donation amount and frequency (one-time, monthly, or yearly) before completing the transaction.",
+      ],
+    },
+    {
+      heading: "Refund Eligibility",
+      content:
+        "While donations are generally non-refundable, we recognize that certain circumstances may warrant consideration for a refund. Refund requests may be considered in the following situations:",
+      subsections: [
+        "<strong>Duplicate Transactions:</strong> If you have been charged multiple times for the same donation due to a technical error or processing issue.",
+        "<strong>Unauthorized Transactions:</strong> If a donation was made without your knowledge or authorization, and you can provide reasonable evidence of the unauthorized transaction.",
+        "<strong>Processing Errors:</strong> If there was a clear error in the processing of your donation amount (e.g., you intended to donate ₹1,000 but were charged ₹10,000 due to a system error).",
+        "<strong>Immediate Request:</strong> Refund requests made within 48 hours of the donation transaction may be considered on a case-by-case basis.",
+      ],
+    },
+    {
+      heading: "Non-Refundable Circumstances",
+      content:
+        "The following circumstances are explicitly considered non-refundable:",
+      subsections: [
+        "Change of mind after the donation has been processed.",
+        "Financial hardship or personal circumstances that arise after making the donation.",
+        "Disagreement with how funds are allocated or utilized by µLearn Foundation.",
+        "Donations made more than 7 days prior to the refund request.",
+        "Recurring donations where advance notice of cancellation was not provided as per the cancellation policy.",
+      ],
+    },
+    {
+      heading: "Refund Request Process",
+      content:
+        "If you believe you qualify for a refund based on the eligibility criteria outlined above, please follow this process:",
+      subsections: [
+        "<strong>Contact Us:</strong> Send an email to <em>info@mulearn.org</em> with the subject line 'Donation Refund Request'.",
+        "<strong>Provide Required Information:</strong> Include your full name, email address, phone number, transaction date, transaction ID/reference number, donation amount, and detailed reason for the refund request with supporting documentation if applicable.",
+        "<strong>Review Period:</strong> We will review your request within 7-10 business days of receipt.",
+        "<strong>Decision Notification:</strong> You will be notified via email about the approval or denial of your refund request.",
+        "<strong>Processing Time:</strong> If approved, refunds will be processed within 14-21 business days and credited back to the original payment method used for the donation.",
+      ],
+    },
+    {
+      heading: "Recurring Donations",
+      content:
+        "For donors who have set up recurring donations (monthly or yearly), the following terms apply:",
+      subsections: [
+        "You may cancel recurring donations at any time by logging into your account or contacting us at <em>info@mulearn.org</em>.",
+        "Cancellation requests must be submitted at least 5 business days before the next scheduled donation date to ensure processing.",
+        "Already processed recurring donations are subject to the same refund policy as one-time donations.",
+        "No refunds will be provided for past recurring donations that were successfully processed unless they meet the refund eligibility criteria.",
+      ],
+    },
+    {
+      heading: "Tax Deductibility and Refunds",
+      content:
+        "Important considerations regarding tax implications of donations and refunds:",
+      subsections: [
+        "If you have claimed a tax deduction for your donation and subsequently receive a refund, you are responsible for amending your tax returns accordingly.",
+        "µLearn Foundation will provide updated donation receipts reflecting any refunds processed.",
+        "Consult with a tax professional regarding the implications of refunded donations on your tax filings.",
+      ],
+    },
+    {
+      heading: "Alternative to Refunds",
+      content:
+        "In situations where a refund may not be possible but you have concerns about your donation, we offer the following alternatives:",
+      subsections: [
+        "<strong>Donation Reallocation:</strong> You may request that your donation be reallocated to a different program or initiative within µLearn Foundation.",
+        "<strong>Credit for Future Donations:</strong> In certain circumstances, we may offer a credit that can be applied to future donations or program participation fees.",
+        "<strong>Recognition Adjustment:</strong> If there are concerns about donor recognition or acknowledgment, we will work with you to address these matters appropriately.",
+      ],
+    },
+    {
+      heading: "Contact Information",
+      content:
+        "For any questions, concerns, or requests related to this Refund Policy, please contact us:",
+      subsections: [
+        "<strong>Email:</strong> <em>info@mulearn.org</em>",
+        "<strong>Phone:</strong> <em>+91 89436 47000</em>",
+        "<strong>Address:</strong> Technopark Phase 1, Thiruvananthapuram, Kerala - 695581",
+        "<strong>Website:</strong> <em>www.mulearn.org</em>",
+      ],
+    },
+    {
+      heading: "Dispute Resolution",
+      content:
+        "If you are not satisfied with our response to your refund request, you may:",
+      subsections: [
+        "Request an escalation to senior management for further review.",
+        "Seek mediation through appropriate consumer protection channels.",
+        "Contact your payment provider or bank to dispute the transaction (note: this should be a last resort and may affect future donation capabilities).",
+      ],
+    },
+    {
+      heading: "Policy Updates",
+      content:
+        "<strong>Mulearn Foundation reserves the right to modify or update this donation refund policy at any time without prior notice. Any revisions will be effective immediately upon posting on our website or other communication channels.</strong>",
+      subsections: [
+        "Donors are encouraged to review this policy periodically to stay informed of any changes.",
+        "Continued donations after policy updates constitute acceptance of the revised terms.",
+        "Material changes to this policy will be communicated to active recurring donors via email.",
+      ],
+    },
+  ],
 };
 
 export const privacyPolicy = {
@@ -5908,6 +6093,74 @@ export const team = [
   },
 ];
 
+export const CompanyPartner = [
+  {
+    name: "Google",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Google-logo.webp",
+    website: "https://about.google/",
+    descritpion: "A global technology leader offering internet services, cloud computing, and digital innovations."
+  },
+  {
+    name: "SunTec Business Solutions Pvt. Ltd",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/SunTec.webp",
+    website: "https://www.suntecgroup.com/",
+    descritpion: "A Kerala-based company providing revenue management and billing solutions for banks and telecoms."
+  },
+  {
+    name: "Zerone Consulting Pvt. Ltd",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Zerone.webp",
+    website: "https://www.zerone-consulting.com/",
+    descritpion: "A software engineering firm delivering custom cloud and AI-driven solutions."
+  },
+  {
+    name: "Travancore Analytics",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Travancore.webp",
+    website: "https://www.travancoreanalytics.com/",
+    descritpion: "A digital product development company specializing in AR/VR, IoT, and enterprise software."
+  },
+  {
+    name: "ECESIS GROUP",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Ecesis.webp",
+    website: "https://www.ecesistech.com/",
+    descritpion: "A technology and business solutions company offering IT, BPO, and consulting services."
+  },
+  {
+    name: "PIT Solutions",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Google-logo.webp",
+    website: "https://www.pitsolutions.com/",
+    descritpion: "A global IT services company providing web, mobile, and enterprise software solutions."
+  },
+  {
+    name: "Softnotions",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Softnotions.webp",
+    website: "https://softnotions.com/",
+    descritpion: "An IT consulting and software development firm focused on digital transformation and innovation."
+  },
+  {
+    name: "Triassic Solutions",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Triassic.webp",
+    website: "https://triassicsolutions.com/",
+    descritpion: "A software development and consulting company delivering enterprise technology solutions."
+  },
+  {
+    name: "Experion",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Experion.webp",
+    website: "https://www.experionglobal.com/",
+    descritpion: "A global digital transformation company building software products and data-driven solutions."
+  },
+  {
+    name: "TRAVANLEO",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Travenleo.webp",
+    website: "https://travanleo.com/",
+    description: "A technology firm helping enterprises with SAP, cloud, and custom software services."
+  },
+  {
+    name: "THINKPALM TECHNOLOGIES",
+    logo: "/src/modules/Public/CompanyPartners/assets/companies/Thinkpalm.webp",
+    website: "https://thinkpalm.com/",
+    description: "A product engineering and IT services company specializing in embedded and digital solutions."
+  },
+];
 export const campusChapter = {
   journey: [
     { title: "Interest Form", desc: "Express interest in creating a chapter" },
@@ -5954,7 +6207,11 @@ export const campusChapter = {
       title: "Proof-of-Work",
       desc: "GitHub repos, portfolios, demos",
     },
-    { icon: Target, title: "Gamify Growth", desc: "Karma Points & leaderboards" },
+    {
+      icon: Target,
+      title: "Gamify Growth",
+      desc: "Karma Points & leaderboards",
+    },
     {
       icon: Sparkle,
       title: "Mini Communities",
@@ -5985,7 +6242,66 @@ export const campusChapter = {
     },
   ],
 };
-// Add gallery data
+
+export const companies = [
+  {
+    alt: "CAFIT",
+    src: "/assets/careers/companies/cafit.webp",
+  },
+  {
+    alt: "Carestack",
+    src: "/assets/careers/companies/carestack.webp",
+  },
+  {
+    alt: "cdf",
+    src: "/assets/careers/companies/cdf.webp",
+  },
+  {
+    alt: "Ecesis",
+    src: "/assets/careers/companies/ecesis.webp",
+  },
+  {
+    alt: "Experion",
+    src: "/assets/careers/companies/experion.webp",
+  },
+  {
+    alt: "EY",
+    src: "/assets/careers/companies/ey.webp",
+  },
+  {
+    alt: "Nucore",
+    src: "/assets/careers/companies/nucore.webp",
+  },
+  {
+    alt: "Softnotion",
+    src: "/assets/careers/companies/softnotions.webp",
+  },
+  {
+    alt: "SunTec",
+    src: "/assets/careers/companies/suntec.webp",
+  },
+  {
+    alt: "Tata Elexis",
+    src: "/assets/careers/companies/tata.webp",
+  },
+  {
+    alt: "Techfunic",
+    src: "/assets/careers/companies/techfunic.webp",
+  },
+  {
+    alt: "Thinkpalm",
+    src: "/assets/careers/companies/thinkpalm.webp",
+  },
+  {
+    alt: "Undaku",
+    src: "/assets/careers/companies/undaku.webp",
+  },
+  {
+    alt: "YIP",
+    src: "/assets/careers/companies/yip.webp",
+  },
+];
+
 export const galleryData: GalleryItem[] = [
   {
     id: "1",

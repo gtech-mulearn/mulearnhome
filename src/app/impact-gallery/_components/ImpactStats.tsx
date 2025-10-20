@@ -11,9 +11,9 @@ import {
   GraduationCap, 
   TrendingUp 
 } from "lucide-react";
-import { impactStats, ImpactStat } from "@/data/data";
+import { impactStats } from "@/data/data";
+import { ImpactStat } from "@/lib/types";
 
-// Map icon names to actual components
 const iconMap = {
   Users,
   School,

@@ -38,7 +38,7 @@ export default function BestPractices() {
                   )}
                 </div>
 
-                <h3 className="mb-2 text-lg font-bold text-mulearn-blackish">
+                <h3 className="mb-2 text-xl font-bold text-mulearn-blackish">
                   {practice.title}
                 </h3>
                 <p className="text-mulearn-gray-600">{practice.desc}</p>

@@ -121,3 +121,85 @@ export interface TeamCardProps {
   lead?: string;
   team?: string;
 }
+
+export interface CareersCardProps {
+  role?: string;
+  remuneration?: string;
+  vacancies?: string;
+  location?: string;
+  lastdate?: string;
+  duration?: string;
+  logo?: string;
+  applylink?: string;
+  jdlink?: string;
+  extraField?: string;
+  extraContent?: string;
+  extraButton?: string;
+  organization?: string;
+}
+
+export interface ClosedCareersCardProps {
+  date?: string;
+  title?: string;
+  location?: string;
+  qualifications?: string;
+  role?: string;
+  duration?: string;
+  remuneration?: string;
+}
+
+export interface NewHiringRole {
+  logo?: string;
+  role?: string;
+  remuneration?: string;
+  vacancies?: string;
+  location?: string;
+  lastdate?: string;
+  applylink?: string;
+  jdlink?: string;
+  duration?: string;
+  extrafieldname?: string;
+  extrafieldvalue?: string;
+  extrafieldlink?: string;
+  organization?: string;
+}
+
+export interface PreviousHiringRole {
+  logo?: string;
+  title?: string;
+  company?: string;
+  qualifications?: string;
+  remumeration?: string;
+  date?: string;
+  role?: string;
+  remuneration?: string;
+  location?: string;
+  lastdate?: string;
+  poster?: string;
+  duration?: string;
+}
+
+export interface Company {
+  alt: string;
+  src: string;
+}
+
+export interface GalleryItem {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  category: "events" | "students" | "companies" | "mentors" | "impact-stories";
+  type: "image" | "video";
+  stats?: {
+    participants?: number;
+    campuses?: number;
+    companies?: number;
+  };
+}
+
+export interface ImpactStat {
+  number: string;
+  label: string;
+  icon: string;
+}

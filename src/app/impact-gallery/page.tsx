@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import GalleryGrid from "./_components/GalleryGrid";
 import FilterButtons from "./_components/FilterButtons";
 import ImpactStats from "./_components/ImpactStats";
-import { GalleryItem } from "@/data/data";
+import { GalleryItem } from "@/lib/types";
 import LightboxModal from "./_components/LightboxModal";
 
 export default function ImpactGallery() {
@@ -13,7 +13,6 @@ export default function ImpactGallery() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-mulearn-whitish to-white">
-      {/* Hero Section */}
       <section 
   className="relative py-20"
   style={{ background: "var(--mulearn-trusty)" }}
@@ -37,11 +36,7 @@ export default function ImpactGallery() {
 
   </div>
 </section>
-
-      {/* Impact Stats */}
       <ImpactStats />
-
-      {/* Gallery Section */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-12">
@@ -52,20 +47,14 @@ export default function ImpactGallery() {
               Explore the stories, events, and milestones that define our community&apos;s journey
             </p>
           </div>
-
-          {/* Filter Buttons */}
           <FilterButtons 
             activeFilter={activeFilter}
             onFilterChange={setActiveFilter}
           />
-
-          {/* Gallery Grid */}
           <GalleryGrid 
             activeFilter={activeFilter}
             onItemClick={setSelectedItem}
           />
-
-          {/* Lightbox Modal */}
           {selectedItem && (
             <LightboxModal 
               item={selectedItem}

@@ -2,7 +2,8 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import MediaCard from "./MediaCard";
-import { galleryData, GalleryItem } from "@/data/data";
+import { galleryData } from "@/data/data";
+import { GalleryItem } from "@/lib/types";
 
 interface GalleryGridProps {
   activeFilter: string;

@@ -1,0 +1,30 @@
+<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="webdevGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4c1d95;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="400" height="250" fill="url(#webdevGrad)" rx="16"/>
+  
+  <circle cx="80" cy="125" r="120" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="320" cy="200" r="80" fill="rgba(255,255,255,0.08)"/>
+  
+  <g transform="translate(200, 100)" filter="url(#glow)">
+    <path d="M-25,-15 L-35,-5 L-35,5 L-25,15" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M25,-15 L35,-5 L35,5 L25,15" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <line x1="-10" y1="-20" x2="10" y2="20" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  
+  <text x="200" y="165" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="white" text-anchor="middle" filter="url(#glow)">Web Development</text>
+  
+  <text x="200" y="190" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.9)" text-anchor="middle">µLearn</text>
+</svg>

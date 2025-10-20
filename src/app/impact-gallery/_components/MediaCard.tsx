@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GalleryItem } from "@/data/data";
+import { GalleryItem } from "@/lib/types";
 import { 
    School, Building2, Eye, UsersRound, Calendar,Target,Award,Users2,Briefcase,
   GraduationCap,Sparkles

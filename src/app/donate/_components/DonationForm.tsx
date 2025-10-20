@@ -1,64 +1,160 @@
 "use client";
 
-import React, { useState } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
+import React, { useState, useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
 
 type DonationType = "one-time" | "monthly" | "yearly";
 
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  panNumber: string;
-  isOrganisation: boolean;
-  organisationName: string;
-  termsAccepted: boolean;
-}
+const donationFormSchema = z.object({
+  name: z.string()
+    .min(2, { message: "Name must be at least 2 characters" })
+    .max(100, { message: "Name must not exceed 100 characters" })
+    .regex(/^[a-zA-Z\s]+$/, { message: "Name can only contain letters and spaces" }),
+  
+  email: z.string()
+    .email({ message: "Please enter a valid email address" })
+    .min(5, { message: "Email is required" }),
+  
+  phone: z.string()
+    .regex(/^(\+91[\s]?)?[0-9]{10}$/, { message: "Please enter a valid 10-digit phone number" })
+    .min(10, { message: "Phone number must be 10 digits" }),
+  
+  panNumber: z.string()
+    .regex(/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/, { 
+      message: "Invalid PAN format. Use format: ABCDE1234F" 
+    })
+    .length(10, { message: "PAN must be exactly 10 characters" }),
+  
+  isOrganisation: z.boolean(),
+  
+  organisationName: z.string().optional(),
+  
+  termsAccepted: z.boolean()
+    .refine((val) => val === true, {
+      message: "You must accept the terms and conditions"
+    }),
+  
+  donationAmount: z.number()
+    .min(1, { message: "Please select or enter a donation amount" })
+    .positive({ message: "Donation amount must be positive" }),
+  
+  donationType: z.enum(['one-time', 'monthly', 'yearly'])
+}).refine((data) => {
+  // If organisation is checked, organisation name is required
+  if (data.isOrganisation && (!data.organisationName || data.organisationName.trim() === '')) {
+    return false;
+  }
+  return true;
+}, {
+  message: "Organisation name is required when paying as an organisation",
+  path: ["organisationName"]
+})
+
+type DonationFormData = z.infer<typeof donationFormSchema>
 
 export default function DonationForm() {
-  const [donationType, setDonationType] = useState<DonationType>("one-time");
-  const [selectedAmount, setSelectedAmount] = useState<string>("");
-  const [customAmount, setCustomAmount] = useState<string>("");
-  const [totalAmount, setTotalAmount] = useState<number>(0);
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
-    panNumber: "",
-    isOrganisation: false,
-    organisationName: "",
-    termsAccepted: false,
-  });
+  const [mounted, setMounted] = useState(false)
+  const [donationType, setDonationType] = useState<DonationType>('one-time')
+  const [selectedAmount, setSelectedAmount] = useState<string>('')
+  const [customAmount, setCustomAmount] = useState<string>('')
 
-  const donationAmounts = [
-    { id: "amount-10000", label: "₹10,000", amount: 10000 },
-    { id: "amount-50000", label: "₹50,000", amount: 50000 },
-    { id: "amount-100000", label: "₹1,00,000", amount: 100000 },
-    { id: "amount-500000", label: "₹5,00,000", amount: 500000 },
-    { id: "amount-custom", label: "Custom Amount", isCustom: true },
-  ];
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+    watch,
+    setValue
+  } = useForm<DonationFormData>({
+    resolver: zodResolver(donationFormSchema),
+    mode: 'onChange',
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      panNumber: '',
+      isOrganisation: false,
+      organisationName: '',
+      termsAccepted: false,
+      donationAmount: 0,
+      donationType: 'one-time'
+    }
+  })
+
+  // Get donation amounts based on donation type
+  const getDonationAmounts = (type: DonationType) => {
+    switch (type) {
+      case 'monthly':
+        return [
+          { id: 'amount-10000', label: '₹10,000', amount: 10000 },
+          { id: 'amount-25000', label: '₹25,000', amount: 25000 },
+          { id: 'amount-50000', label: '₹50,000', amount: 50000 },
+          { id: 'amount-100000', label: '₹1,00,000', amount: 100000 },
+          { id: 'amount-custom', label: 'Custom Amount', isCustom: true }
+        ]
+      case 'yearly':
+        return [
+          { id: 'amount-100000', label: '₹1,00,000', amount: 100000 },
+          { id: 'amount-500000', label: '₹5,00,000', amount: 500000 },
+          { id: 'amount-1000000', label: '₹10,00,000', amount: 1000000 },
+          { id: 'amount-2500000', label: '₹25,00,000', amount: 2500000 },
+          { id: 'amount-custom', label: 'Custom Amount', isCustom: true }
+        ]
+      case 'one-time':
+      default:
+        return [
+          { id: 'amount-50000', label: '₹50,000', amount: 50000 },
+          { id: 'amount-100000', label: '₹1,00,000', amount: 100000 },
+          { id: 'amount-500000', label: '₹5,00,000', amount: 500000 },
+          { id: 'amount-1000000', label: '₹10,00,000', amount: 1000000 },
+          { id: 'amount-custom', label: 'Custom Amount', isCustom: true }
+        ]
+    }
+  }
+
+  const donationAmounts = getDonationAmounts(donationType)
+
+  const isOrganisation = watch('isOrganisation')
+  const totalAmount = watch('donationAmount') || 0
+
+  // Handle client-side hydration
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Reset amount selection when donation type changes
+  useEffect(() => {
+    setSelectedAmount('')
+    setCustomAmount('')
+    setValue('donationAmount', 0, { shouldValidate: true })
+    setValue('donationType', donationType, { shouldValidate: true })
+  }, [donationType, setValue])
 
   const handleAmountChange = (optionId: string, amount?: number) => {
     setSelectedAmount(optionId);
     if (amount) {
-      setTotalAmount(amount);
-      setCustomAmount("");
+      setValue('donationAmount', amount, { shouldValidate: true })
+      setCustomAmount('')
     }
   };
 
   const handleCustomAmountChange = (value: string) => {
-    setCustomAmount(value);
-    const numValue = parseFloat(value) || 0;
-    setTotalAmount(numValue);
-  };
+    setCustomAmount(value)
+    const numValue = parseFloat(value) || 0
+    setValue('donationAmount', numValue, { shouldValidate: true })
+  }
 
-  const handleFormChange = (field: keyof FormData, value: string | boolean) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
+  const onSubmit = (data: DonationFormData) => {
+    console.log('Form submitted:', data)
+    // Handle form submission (e.g., navigate to payment gateway)
+    alert('Form is valid! Proceeding to payment...')
+  }
 
   const renderDonationForm = (tabType: string) => (
     <TabsContent value={tabType} className="space-y-8 mt-8">
@@ -79,11 +175,12 @@ export default function DonationForm() {
               id="name"
               type="text"
               placeholder="John Doe"
-              value={formData.name}
-              onChange={(e) => handleFormChange("name", e.target.value)}
-              className="h-11 bg-mulearn-whitish border-mulearn-gray-600/20 focus:border-mulearn-trusty-blue focus:ring-1 focus:ring-mulearn-trusty-blue transition-all"
-              required
+              {...register('name')}
+              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${errors.name ? 'border-red-500' : ''}`}
             />
+            {errors.name && (
+              <p className="text-xs text-red-500 mt-1">{errors.name.message}</p>
+            )}
           </div>
 
           <div className="space-y-2">
@@ -97,11 +194,12 @@ export default function DonationForm() {
               id="email"
               type="email"
               placeholder="john.doe@example.com"
-              value={formData.email}
-              onChange={(e) => handleFormChange("email", e.target.value)}
-              className="h-11 bg-mulearn-white border-mulearn-gray-600/20 focus:border-mulearn-trusty-blue focus:ring-1 focus:ring-mulearn-trusty-blue transition-all"
-              required
+              {...register('email')}
+              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${errors.email ? 'border-red-500' : ''}`}
             />
+            {errors.email && (
+              <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>
+            )}
           </div>
 
           <div className="space-y-2">
@@ -115,11 +213,12 @@ export default function DonationForm() {
               id="phone"
               type="tel"
               placeholder="+91 98765 43210"
-              value={formData.phone}
-              onChange={(e) => handleFormChange("phone", e.target.value)}
-              className="h-11 bg-mulearn-whitish border-mulearn-gray-600/20 focus:border-mulearn-trusty-blue focus:ring-1 focus:ring-mulearn-trusty-blue transition-all"
-              required
+              {...register('phone')}
+              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${errors.phone ? 'border-red-500' : ''}`}
             />
+            {errors.phone && (
+              <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>
+            )}
           </div>
 
           <div className="space-y-2">
@@ -133,14 +232,17 @@ export default function DonationForm() {
               id="pan"
               type="text"
               placeholder="ABCDE1234F"
-              value={formData.panNumber}
-              onChange={(e) =>
-                handleFormChange("panNumber", e.target.value.toUpperCase())
-              }
-              className="h-11 bg-mulearn-whitish border-mulearn-gray-600/20 focus:border-mulearn-trusty-blue focus:ring-1 focus:ring-mulearn-trusty-blue transition-all"
+              {...register('panNumber', {
+                onChange: (e) => {
+                  e.target.value = e.target.value.toUpperCase()
+                }
+              })}
               maxLength={10}
-              required
+              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${errors.panNumber ? 'border-red-500' : ''}`}
             />
+            {errors.panNumber && (
+              <p className="text-xs text-red-500 mt-1">{errors.panNumber.message}</p>
+            )}
           </div>
         </div>
 
@@ -148,11 +250,8 @@ export default function DonationForm() {
           <input
             type="checkbox"
             id="isOrganisation"
-            checked={formData.isOrganisation}
-            onChange={(e) =>
-              handleFormChange("isOrganisation", e.target.checked)
-            }
-            className="w-4 h-4 text-mulearn-trusty-blue border-mulearn-gray-600/30 rounded focus:ring-2 focus:ring-mulearn-trusty-blue focus:ring-offset-0 transition-all cursor-pointer"
+            {...register('isOrganisation')}
+            className="w-4 h-4 text-[var(--mulearn-trusty-blue)] border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-[var(--mulearn-trusty-blue)] focus:ring-offset-0 transition-all cursor-pointer"
           />
           <Label
             htmlFor="isOrganisation"
@@ -162,7 +261,8 @@ export default function DonationForm() {
           </Label>
         </div>
 
-        {formData.isOrganisation && (
+        {/* Organisation Name (conditional) */}
+        {isOrganisation && (
           <div className="space-y-2 animate-in fade-in duration-200">
             <Label
               htmlFor="organisationName"
@@ -175,13 +275,12 @@ export default function DonationForm() {
               id="organisationName"
               type="text"
               placeholder="Enter organisation name"
-              value={formData.organisationName}
-              onChange={(e) =>
-                handleFormChange("organisationName", e.target.value)
-              }
-              className="h-11 bg-mulearn-whitish border-mulearn-gray-600/20 focus:border-mulearn-trusty-blue focus:ring-1 focus:ring-mulearn-trusty-blue transition-all"
-              required
+              {...register('organisationName')}
+              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${errors.organisationName ? 'border-red-500' : ''}`}
             />
+            {errors.organisationName && (
+              <p className="text-xs text-red-500 mt-1">{errors.organisationName.message}</p>
+            )}
           </div>
         )}
       </div>
@@ -191,18 +290,17 @@ export default function DonationForm() {
           Select Amount
         </h3>
 
-        <RadioGroup
-          value={selectedAmount}
-          onValueChange={(v) => {
-            const option = donationAmounts.find((o) => o.id === v);
-            if (option?.isCustom) {
-              setSelectedAmount(v);
-              if (customAmount) setTotalAmount(parseFloat(customAmount) || 0);
-            } else {
-              handleAmountChange(v, option?.amount);
+        <RadioGroup value={selectedAmount} onValueChange={(v) => {
+          const option = donationAmounts.find(o => o.id === v)
+          if (option?.isCustom) {
+            setSelectedAmount(v)
+            if (customAmount) {
+              setValue('donationAmount', parseFloat(customAmount) || 0, { shouldValidate: true })
             }
-          }}
-        >
+          } else {
+            handleAmountChange(v, option?.amount)
+          }
+        }}>
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {donationAmounts.slice(0, 4).map((option) => (
               <Label
@@ -267,7 +365,28 @@ export default function DonationForm() {
         </RadioGroup>
       </div>
     </TabsContent>
-  );
+  )
+
+  // Prevent hydration mismatch by only rendering after mount
+  if (!mounted) {
+    return (
+      <div className="w-full bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col max-h-[calc(100vh-10rem)] overflow-hidden">
+        <div className="flex-1 overflow-y-auto px-6 sm:px-10 py-8 sm:py-10 min-h-0">
+          <div className="mb-10">
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-2 text-gray-900 dark:text-gray-50 tracking-tight">
+              Make a Donation
+            </h2>
+            <p className="text-gray-500 dark:text-gray-400 text-sm sm:text-base">
+              Support our mission to empower students through education
+            </p>
+          </div>
+          <div className="flex items-center justify-center py-20">
+            <div className="animate-pulse text-gray-400">Loading form...</div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="w-full bg-mulearn-whitish rounded-lg border border-mulearn-gray-600/20 shadow-sm flex flex-col max-h-[calc(100vh-10rem)] overflow-hidden">
@@ -312,74 +431,64 @@ export default function DonationForm() {
         </Tabs>
       </div>
 
-      <div className="border-t border-mulearn-gray-600/20 bg-mulearn-whitish px-6 sm:px-10 py-6">
-        <div className="flex flex-col gap-5">
-          <div className="flex items-start space-x-3">
-            <input
-              type="checkbox"
-              id="termsAccepted"
-              checked={formData.termsAccepted}
-              onChange={(e) =>
-                handleFormChange("termsAccepted", e.target.checked)
-              }
-              className="w-4 h-4 mt-0.5 text-mulearn-trusty-blue border-mulearn-gray-600/30 rounded focus:ring-2 focus:ring-mulearn-trusty-blue focus:ring-offset-0 transition-all cursor-pointer"
-            />
-            <Label
-              htmlFor="termsAccepted"
-              className="text-xs sm:text-sm text-mulearn-gray-600 cursor-pointer leading-relaxed"
-            >
-              I agree to the{" "}
-              <a
-                href="/termsandconditions"
-                target="_blank"
-                className="text-mulearn-trusty-blue hover:underline"
-              >
-                Terms and Conditions
-              </a>
-              ,{" "}
-              <a
-                href="/privacypolicy"
-                target="_blank"
-                className="text-mulearn-trusty-blue hover:underline"
-              >
-                Privacy Policy
-              </a>{" "}
-              and{" "}
-              <a
-                href="#"
-                target="_blank"
-                className="text-mulearn-trusty-blue hover:underline"
-              >
-                Refund Policy
-              </a>
-            </Label>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-            <div>
-              <p className="text-xs text-gray-500 mb-1">Donation Amount</p>
-              <p className="text-3xl sm:text-4xl font-semibold text-mulearn-blackish tracking-tight">
-                ₹{totalAmount.toLocaleString("en-IN")}
-              </p>
+      {/* Fixed Footer with Total and Continue Button */}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="border-t border-gray-200 dark:border-gray-800 bg-white  px-6 sm:px-10 py-6">
+          <div className="flex flex-col gap-5">
+            {/* Terms and Conditions Checkbox */}
+            <div className="flex items-start space-x-3">
+              <input
+                type="checkbox"
+                id="termsAccepted"
+                {...register('termsAccepted')}
+                className="w-4 h-4 mt-0.5 text-[var(--mulearn-trusty-blue)] border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-[var(--mulearn-trusty-blue)] focus:ring-offset-0 transition-all cursor-pointer"
+              />
+              <div className="flex-1">
+                <Label htmlFor="termsAccepted" className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 cursor-pointer leading-relaxed">
+                  I agree to the{' '}
+                  <a href="/termsandconditions" target="_blank" className="text-[var(--mulearn-trusty-blue)] hover:underline">
+                    Terms and Conditions
+                  </a>
+                  ,{' '}
+                  <a href="/privacypolicy" target="_blank" className="text-[var(--mulearn-trusty-blue)] hover:underline">
+                    Privacy Policy
+                  </a>
+                  {' '}and{' '}
+                  <a href="/refundpolicy" target="_blank" className="text-[var(--mulearn-trusty-blue)] hover:underline">
+                    Refund Policy
+                  </a>
+                </Label>
+                {errors.termsAccepted && (
+                  <p className="text-xs text-red-500 mt-1">{errors.termsAccepted.message}</p>
+                )}
+              </div>
             </div>
-            <Button
-              variant="mulearn"
-              className="sm:w-auto h-12 px-8 font-medium text-base shadow-sm hover:shadow transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={
-                totalAmount === 0 ||
-                !formData.termsAccepted ||
-                !formData.name ||
-                !formData.email ||
-                !formData.phone ||
-                !formData.panNumber ||
-                (formData.isOrganisation && !formData.organisationName)
-              }
-            >
-              Continue to Payment
-            </Button>
+
+            {/* Donation Amount Error */}
+            {errors.donationAmount && (
+              <p className="text-xs text-red-500">{errors.donationAmount.message}</p>
+            )}
+
+            {/* Total and Continue */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+              <div>
+                <p className="text-xs text-gray-500 dark:text-gray-500 mb-1">Donation Amount</p>
+                <p className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-gray-50 tracking-tight">
+                  ₹{totalAmount.toLocaleString('en-IN')}
+                </p>
+              </div>
+              <Button 
+                type="submit"
+                variant="mulearn" 
+                className="sm:w-auto h-12 px-8 font-medium text-base shadow-sm hover:shadow transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={!isValid || totalAmount === 0}
+              >
+                Continue to Payment
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

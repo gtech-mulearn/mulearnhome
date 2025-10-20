@@ -1,7 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
-import { GalleryItem } from "@/data/data";
+import { GalleryItem } from "@/lib/types";
 
 interface LightboxModalProps {
   item: GalleryItem;

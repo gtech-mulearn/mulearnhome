@@ -1,0 +1,31 @@
+<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="uiuxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="400" height="250" fill="url(#uiuxGrad)" rx="16"/>
+  
+  <circle cx="80" cy="125" r="120" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="320" cy="200" r="80" fill="rgba(255,255,255,0.08)"/>
+  
+  <g transform="translate(200, 85)">
+    <path d="M-15,-25 L-10,-30 L10,-10 L5,-5 Z" fill="white" filter="url(#glow)"/>
+    <path d="M5,-5 L-5,5 L-10,0 L0,-10 Z" fill="white" opacity="0.8" filter="url(#glow)"/>
+    <circle cx="-12" cy="-28" r="4" fill="white" filter="url(#glow)"/>
+    <rect x="-8" y="8" width="16" height="16" rx="2" fill="white" opacity="0.9" filter="url(#glow)"/>
+  </g>
+  
+  <text x="200" y="165" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="white" text-anchor="middle" filter="url(#glow)">UI/UX Design</text>
+  
+  <text x="200" y="190" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.9)" text-anchor="middle">µLearn</text>
+</svg>
