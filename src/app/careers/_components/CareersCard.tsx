@@ -1,23 +1,22 @@
-import MuImage from "@/components/MuImage";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { CareersCardProps } from "@/lib/types";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const CareersCard = ({
-  role,
-  remuneration,
-  vacancies,
-  location,
-  lastdate,
-  duration,
+interface CareerCardProps {
+  title: string;
+  department: string;
+  description: string;
+  logo: string;
+  applyLink: string;
+}
+
+export default function CareersCard({
+  title,
+  department,
+  description,
   logo,
-  applylink,
-  jdlink,
-  extraField,
-  extraContent,
-  extraButton,
-  organization,
-}: CareersCardProps) => {
+  applyLink,
+}: CareerCardProps) {
   return (
     <div className="w-80 rounded-lg border-2 border-mulearn-trusty-blue bg-white p-6 shadow-sm">
       {logo && (
@@ -67,7 +66,6 @@ const CareersCard = ({
           </span>
           <span className="mr-2.5 ">{location}</span>
         </p>
-      )}
 
       {lastdate && (
         <p className="mb-2.5 text-center text-base">
@@ -130,6 +128,4 @@ const CareersCard = ({
       </div>
     </div>
   );
-};
-
-export default CareersCard;
+}
