@@ -1,161 +1,177 @@
 "use client";
 
-import React, { useState, useEffect } from 'react'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as z from 'zod'
-import { toast } from 'sonner'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Button } from '@/components/ui/button'
-import { submitDonationForm } from '@/services/donation'
+import React, { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { toast } from "sonner";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { submitDonationForm } from "@/services/donation";
 
 type DonationType = "one-time" | "monthly" | "yearly";
 
-const donationFormSchema = z.object({
-  name: z.string()
-    .min(2, { message: "Name must be at least 2 characters" })
-    .max(100, { message: "Name must not exceed 100 characters" })
-    .regex(/^[a-zA-Z\s]+$/, { message: "Name can only contain letters and spaces" }),
-  
-  email: z.string()
-    .email({ message: "Please enter a valid email address" })
-    .min(5, { message: "Email is required" }),
-  
-  phone: z.string()
-    .regex(/^(\+91[\s]?)?[0-9]{10}$/, { message: "Please enter a valid 10-digit phone number" })
-    .min(10, { message: "Phone number must be 10 digits" }),
-  
-  panNumber: z.string()
-    .regex(/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/, { 
-      message: "Invalid PAN format. Use format: ABCDE1234F" 
-    })
-    .length(10, { message: "PAN must be exactly 10 characters" }),
-  
-  isOrganisation: z.boolean(),
-  
-  organisationName: z.string().optional(),
-  
-  termsAccepted: z.boolean()
-    .refine((val) => val === true, {
-      message: "You must accept the terms and conditions"
-    }),
-  
-  donationAmount: z.number()
-    .min(1, { message: "Please select or enter a donation amount" })
-    .positive({ message: "Donation amount must be positive" }),
-  
-  donationType: z.enum(['one-time', 'monthly', 'yearly'])
-}).refine((data) => {
-  // If organisation is checked, organisation name is required
-  if (data.isOrganisation && (!data.organisationName || data.organisationName.trim() === '')) {
-    return false;
-  }
-  return true;
-}, {
-  message: "Organisation name is required when paying as an organisation",
-  path: ["organisationName"]
-})
+const donationFormSchema = z
+  .object({
+    name: z
+      .string()
+      .min(2, { message: "Name must be at least 2 characters" })
+      .max(100, { message: "Name must not exceed 100 characters" })
+      .regex(/^[a-zA-Z\s]+$/, {
+        message: "Name can only contain letters and spaces",
+      }),
 
-type DonationFormData = z.infer<typeof donationFormSchema>
+    email: z
+      .string()
+      .email({ message: "Please enter a valid email address" })
+      .min(5, { message: "Email is required" }),
+
+    phone: z
+      .string()
+      .regex(/^(\+91[\s]?)?[0-9]{10}$/, {
+        message: "Please enter a valid 10-digit phone number",
+      })
+      .min(10, { message: "Phone number must be 10 digits" }),
+
+    panNumber: z
+      .string()
+      .regex(/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/, {
+        message: "Invalid PAN format. Use format: ABCDE1234F",
+      })
+      .length(10, { message: "PAN must be exactly 10 characters" }),
+
+    isOrganisation: z.boolean(),
+
+    organisationName: z.string().optional(),
+
+    termsAccepted: z.boolean().refine((val) => val === true, {
+      message: "You must accept the terms and conditions",
+    }),
+
+    donationAmount: z
+      .number()
+      .min(1, { message: "Please select or enter a donation amount" })
+      .positive({ message: "Donation amount must be positive" }),
+
+    donationType: z.enum(["one-time", "monthly", "yearly"]),
+  })
+  .refine(
+    (data) => {
+      // If organisation is checked, organisation name is required
+      if (
+        data.isOrganisation &&
+        (!data.organisationName || data.organisationName.trim() === "")
+      ) {
+        return false;
+      }
+      return true;
+    },
+    {
+      message: "Organisation name is required when paying as an organisation",
+      path: ["organisationName"],
+    }
+  );
+
+type DonationFormData = z.infer<typeof donationFormSchema>;
 
 export default function DonationForm() {
-  const [mounted, setMounted] = useState(false)
-  const [donationType, setDonationType] = useState<DonationType>('one-time')
-  const [selectedAmount, setSelectedAmount] = useState<string>('')
-  const [customAmount, setCustomAmount] = useState<string>('')
+  const [mounted, setMounted] = useState(false);
+  const [donationType, setDonationType] = useState<DonationType>("one-time");
+  const [selectedAmount, setSelectedAmount] = useState<string>("");
+  const [customAmount, setCustomAmount] = useState<string>("");
 
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
     watch,
-    setValue
+    setValue,
   } = useForm<DonationFormData>({
     resolver: zodResolver(donationFormSchema),
-    mode: 'onChange',
+    mode: "onChange",
     defaultValues: {
-      name: '',
-      email: '',
-      phone: '',
-      panNumber: '',
+      name: "",
+      email: "",
+      phone: "",
+      panNumber: "",
       isOrganisation: false,
-      organisationName: '',
+      organisationName: "",
       termsAccepted: false,
       donationAmount: 0,
-      donationType: 'one-time'
-    }
-  })
+      donationType: "one-time",
+    },
+  });
 
   // Get donation amounts based on donation type
   const getDonationAmounts = (type: DonationType) => {
     switch (type) {
-      case 'monthly':
+      case "monthly":
         return [
-          { id: 'amount-10000', label: '₹10,000', amount: 10000 },
-          { id: 'amount-25000', label: '₹25,000', amount: 25000 },
-          { id: 'amount-50000', label: '₹50,000', amount: 50000 },
-          { id: 'amount-100000', label: '₹1,00,000', amount: 100000 },
-          { id: 'amount-custom', label: 'Custom Amount', isCustom: true }
-        ]
-      case 'yearly':
+          { id: "amount-10000", label: "₹10,000", amount: 10000 },
+          { id: "amount-25000", label: "₹25,000", amount: 25000 },
+          { id: "amount-50000", label: "₹50,000", amount: 50000 },
+          { id: "amount-100000", label: "₹1,00,000", amount: 100000 },
+          { id: "amount-custom", label: "Custom Amount", isCustom: true },
+        ];
+      case "yearly":
         return [
-          { id: 'amount-100000', label: '₹1,00,000', amount: 100000 },
-          { id: 'amount-500000', label: '₹5,00,000', amount: 500000 },
-          { id: 'amount-1000000', label: '₹10,00,000', amount: 1000000 },
-          { id: 'amount-2500000', label: '₹25,00,000', amount: 2500000 },
-          { id: 'amount-custom', label: 'Custom Amount', isCustom: true }
-        ]
-      case 'one-time':
+          { id: "amount-100000", label: "₹1,00,000", amount: 100000 },
+          { id: "amount-500000", label: "₹5,00,000", amount: 500000 },
+          { id: "amount-1000000", label: "₹10,00,000", amount: 1000000 },
+          { id: "amount-2500000", label: "₹25,00,000", amount: 2500000 },
+          { id: "amount-custom", label: "Custom Amount", isCustom: true },
+        ];
+      case "one-time":
       default:
         return [
-          { id: 'amount-50000', label: '₹50,000', amount: 50000 },
-          { id: 'amount-100000', label: '₹1,00,000', amount: 100000 },
-          { id: 'amount-500000', label: '₹5,00,000', amount: 500000 },
-          { id: 'amount-1000000', label: '₹10,00,000', amount: 1000000 },
-          { id: 'amount-custom', label: 'Custom Amount', isCustom: true }
-        ]
+          { id: "amount-50000", label: "₹50,000", amount: 50000 },
+          { id: "amount-100000", label: "₹1,00,000", amount: 100000 },
+          { id: "amount-500000", label: "₹5,00,000", amount: 500000 },
+          { id: "amount-1000000", label: "₹10,00,000", amount: 1000000 },
+          { id: "amount-custom", label: "Custom Amount", isCustom: true },
+        ];
     }
-  }
+  };
 
-  const donationAmounts = getDonationAmounts(donationType)
+  const donationAmounts = getDonationAmounts(donationType);
 
-  const isOrganisation = watch('isOrganisation')
-  const totalAmount = watch('donationAmount') || 0
+  const isOrganisation = watch("isOrganisation");
+  const totalAmount = watch("donationAmount") || 0;
 
   // Handle client-side hydration
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   // Reset amount selection when donation type changes
   useEffect(() => {
-    setSelectedAmount('')
-    setCustomAmount('')
-    setValue('donationAmount', 0, { shouldValidate: true })
-    setValue('donationType', donationType, { shouldValidate: true })
-  }, [donationType, setValue])
+    setSelectedAmount("");
+    setCustomAmount("");
+    setValue("donationAmount", 0, { shouldValidate: true });
+    setValue("donationType", donationType, { shouldValidate: true });
+  }, [donationType, setValue]);
 
   const handleAmountChange = (optionId: string, amount?: number) => {
     setSelectedAmount(optionId);
     if (amount) {
-      setValue('donationAmount', amount, { shouldValidate: true })
-      setCustomAmount('')
+      setValue("donationAmount", amount, { shouldValidate: true });
+      setCustomAmount("");
     }
   };
 
   const handleCustomAmountChange = (value: string) => {
-    setCustomAmount(value)
-    const numValue = parseFloat(value) || 0
-    setValue('donationAmount', numValue, { shouldValidate: true })
-  }
+    setCustomAmount(value);
+    const numValue = parseFloat(value) || 0;
+    setValue("donationAmount", numValue, { shouldValidate: true });
+  };
 
   const onSubmit = async (data: DonationFormData) => {
     try {
-      toast.loading('Processing your donation...', { id: 'donation-loading' });
-      
+      toast.loading("Processing your donation...", { id: "donation-loading" });
+
       await submitDonationForm({
         amount: data.donationAmount,
         name: data.name,
@@ -164,15 +180,15 @@ export default function DonationForm() {
         pan: data.panNumber,
         donationType: data.donationType,
         isOrganisation: data.isOrganisation,
-        organisationName: data.organisationName
+        organisationName: data.organisationName,
       });
-      
-      toast.dismiss('donation-loading');
+
+      toast.dismiss("donation-loading");
     } catch (error) {
-      toast.dismiss('donation-loading');
-      console.error('Donation submission error:', error);
+      toast.dismiss("donation-loading");
+      console.error("Donation submission error:", error);
     }
-  }
+  };
 
   const renderDonationForm = (tabType: string) => (
     <TabsContent value={tabType} className="space-y-8 mt-8">
@@ -193,8 +209,10 @@ export default function DonationForm() {
               id="name"
               type="text"
               placeholder="John Doe"
-              {...register('name')}
-              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${errors.name ? 'border-red-500' : ''}`}
+              {...register("name")}
+              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${
+                errors.name ? "border-red-500" : ""
+              }`}
             />
             {errors.name && (
               <p className="text-xs text-red-500 mt-1">{errors.name.message}</p>
@@ -206,17 +224,24 @@ export default function DonationForm() {
               htmlFor="email"
               className="text-sm font-medium text-mulearn-gray-600"
             >
-              Email Address <span className="text-mulearn-trusty-blue">*</span>
+              Email Address{" "}
+              <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                *
+              </span>
             </Label>
             <Input
               id="email"
               type="email"
               placeholder="john.doe@example.com"
-              {...register('email')}
-              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${errors.email ? 'border-red-500' : ''}`}
+              {...register("email")}
+              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${
+                errors.email ? "border-red-500" : ""
+              }`}
             />
             {errors.email && (
-              <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>
+              <p className="text-xs text-red-500 mt-1">
+                {errors.email.message}
+              </p>
             )}
           </div>
 
@@ -225,17 +250,24 @@ export default function DonationForm() {
               htmlFor="phone"
               className="text-sm font-medium text-mulearn-gray-600"
             >
-              Phone Number <span className="text-mulearn-trusty-blue">*</span>
+              Phone Number{" "}
+              <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                *
+              </span>
             </Label>
             <Input
               id="phone"
               type="tel"
               placeholder="+91 98765 43210"
-              {...register('phone')}
-              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${errors.phone ? 'border-red-500' : ''}`}
+              {...register("phone")}
+              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${
+                errors.phone ? "border-red-500" : ""
+              }`}
             />
             {errors.phone && (
-              <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>
+              <p className="text-xs text-red-500 mt-1">
+                {errors.phone.message}
+              </p>
             )}
           </div>
 
@@ -244,22 +276,29 @@ export default function DonationForm() {
               htmlFor="pan"
               className="text-sm font-medium text-mulearn-gray-600"
             >
-              PAN Number <span className="text-mulearn-trusty-blue">*</span>
+              PAN Number{" "}
+              <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                *
+              </span>
             </Label>
             <Input
               id="pan"
               type="text"
               placeholder="ABCDE1234F"
-              {...register('panNumber', {
+              {...register("panNumber", {
                 onChange: (e) => {
-                  e.target.value = e.target.value.toUpperCase()
-                }
+                  e.target.value = e.target.value.toUpperCase();
+                },
               })}
               maxLength={10}
-              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${errors.panNumber ? 'border-red-500' : ''}`}
+              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${
+                errors.panNumber ? "border-red-500" : ""
+              }`}
             />
             {errors.panNumber && (
-              <p className="text-xs text-red-500 mt-1">{errors.panNumber.message}</p>
+              <p className="text-xs text-red-500 mt-1">
+                {errors.panNumber.message}
+              </p>
             )}
           </div>
         </div>
@@ -268,7 +307,7 @@ export default function DonationForm() {
           <input
             type="checkbox"
             id="isOrganisation"
-            {...register('isOrganisation')}
+            {...register("isOrganisation")}
             className="w-4 h-4 text-[var(--mulearn-trusty-blue)] border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-[var(--mulearn-trusty-blue)] focus:ring-offset-0 transition-all cursor-pointer"
           />
           <Label
@@ -287,17 +326,23 @@ export default function DonationForm() {
               className="text-sm font-medium text-mulearn-gray-600"
             >
               Organisation Name{" "}
-              <span className="text-mulearn-trusty-blue">*</span>
+              <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                *
+              </span>
             </Label>
             <Input
               id="organisationName"
               type="text"
               placeholder="Enter organisation name"
-              {...register('organisationName')}
-              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${errors.organisationName ? 'border-red-500' : ''}`}
+              {...register("organisationName")}
+              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${
+                errors.organisationName ? "border-red-500" : ""
+              }`}
             />
             {errors.organisationName && (
-              <p className="text-xs text-red-500 mt-1">{errors.organisationName.message}</p>
+              <p className="text-xs text-red-500 mt-1">
+                {errors.organisationName.message}
+              </p>
             )}
           </div>
         )}
@@ -308,17 +353,22 @@ export default function DonationForm() {
           Select Amount
         </h3>
 
-        <RadioGroup value={selectedAmount} onValueChange={(v) => {
-          const option = donationAmounts.find(o => o.id === v)
-          if (option?.isCustom) {
-            setSelectedAmount(v)
-            if (customAmount) {
-              setValue('donationAmount', parseFloat(customAmount) || 0, { shouldValidate: true })
+        <RadioGroup
+          value={selectedAmount}
+          onValueChange={(v) => {
+            const option = donationAmounts.find((o) => o.id === v);
+            if (option?.isCustom) {
+              setSelectedAmount(v);
+              if (customAmount) {
+                setValue("donationAmount", parseFloat(customAmount) || 0, {
+                  shouldValidate: true,
+                });
+              }
+            } else {
+              handleAmountChange(v, option?.amount);
             }
-          } else {
-            handleAmountChange(v, option?.amount)
-          }
-        }}>
+          }}
+        >
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {donationAmounts.slice(0, 4).map((option) => (
               <Label
@@ -326,7 +376,7 @@ export default function DonationForm() {
                 htmlFor={option.id}
                 className={`flex items-center justify-center p-4 rounded-lg border cursor-pointer transition-all ${
                   selectedAmount === option.id
-                    ? "border-mulearn-trusty-blue bg-mulearn-trusty-blue/5 ring-2 ring-mulearn-trusty-blue/20"
+                    ? "border-mulearn-trusty-blue bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple/5 ring-2 ring-mulearn-trusty-blue/20"
                     : "border-mulearn-gray-600/20 bg-mulearn-whitish hover:border-mulearn-trusty-blue/50"
                 }`}
               >
@@ -338,7 +388,7 @@ export default function DonationForm() {
                 <span
                   className={`font-semibold text-base ${
                     selectedAmount === option.id
-                      ? "text-mulearn-trusty-blue"
+                      ? "bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent"
                       : "text-mulearn-blackish"
                   }`}
                 >
@@ -353,7 +403,7 @@ export default function DonationForm() {
               htmlFor={donationAmounts[4].id}
               className={`flex items-center gap-3 p-4 rounded-lg border cursor-pointer transition-all ${
                 selectedAmount === donationAmounts[4].id
-                  ? "border-mulearn-trusty-blue bg-mulearn-trusty-blue/5 ring-2 ring-mulearn-trusty-blue/20"
+                  ? "border-mulearn-trusty-blue bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple/5 ring-2 ring-mulearn-trusty-blue/20"
                   : "border-mulearn-gray-600/20 bg-mulearn-whitish hover:border-mulearn-trusty-blue/50"
               }`}
             >
@@ -383,7 +433,7 @@ export default function DonationForm() {
         </RadioGroup>
       </div>
     </TabsContent>
-  )
+  );
 
   // Prevent hydration mismatch by only rendering after mount
   if (!mounted) {
@@ -403,7 +453,7 @@ export default function DonationForm() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -458,46 +508,67 @@ export default function DonationForm() {
               <input
                 type="checkbox"
                 id="termsAccepted"
-                {...register('termsAccepted')}
+                {...register("termsAccepted")}
                 className="w-4 h-4 mt-0.5 text-[var(--mulearn-trusty-blue)] border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-[var(--mulearn-trusty-blue)] focus:ring-offset-0 transition-all cursor-pointer"
               />
               <div className="flex-1">
-                <Label htmlFor="termsAccepted" className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 cursor-pointer leading-relaxed">
-                  I agree to the{' '}
-                  <a href="/termsandconditions" target="_blank" className="text-[var(--mulearn-trusty-blue)] hover:underline">
+                <Label
+                  htmlFor="termsAccepted"
+                  className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 cursor-pointer leading-relaxed"
+                >
+                  I agree to the{" "}
+                  <a
+                    href="/termsandconditions"
+                    target="_blank"
+                    className="text-[var(--mulearn-trusty-blue)] hover:underline"
+                  >
                     Terms and Conditions
                   </a>
-                  ,{' '}
-                  <a href="/privacypolicy" target="_blank" className="text-[var(--mulearn-trusty-blue)] hover:underline">
+                  ,{" "}
+                  <a
+                    href="/privacypolicy"
+                    target="_blank"
+                    className="text-[var(--mulearn-trusty-blue)] hover:underline"
+                  >
                     Privacy Policy
-                  </a>
-                  {' '}and{' '}
-                  <a href="/refundpolicy" target="_blank" className="text-[var(--mulearn-trusty-blue)] hover:underline">
+                  </a>{" "}
+                  and{" "}
+                  <a
+                    href="/refundpolicy"
+                    target="_blank"
+                    className="text-[var(--mulearn-trusty-blue)] hover:underline"
+                  >
                     Refund Policy
                   </a>
                 </Label>
                 {errors.termsAccepted && (
-                  <p className="text-xs text-red-500 mt-1">{errors.termsAccepted.message}</p>
+                  <p className="text-xs text-red-500 mt-1">
+                    {errors.termsAccepted.message}
+                  </p>
                 )}
               </div>
             </div>
 
             {/* Donation Amount Error */}
             {errors.donationAmount && (
-              <p className="text-xs text-red-500">{errors.donationAmount.message}</p>
+              <p className="text-xs text-red-500">
+                {errors.donationAmount.message}
+              </p>
             )}
 
             {/* Total and Continue */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
               <div>
-                <p className="text-xs text-gray-500 dark:text-gray-500 mb-1">Donation Amount</p>
+                <p className="text-xs text-gray-500 dark:text-gray-500 mb-1">
+                  Donation Amount
+                </p>
                 <p className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-gray-50 tracking-tight">
-                  ₹{totalAmount.toLocaleString('en-IN')}
+                  ₹{totalAmount.toLocaleString("en-IN")}
                 </p>
               </div>
-              <Button 
+              <Button
                 type="submit"
-                variant="mulearn" 
+                variant="mulearn"
                 className="sm:w-auto h-12 px-8 font-medium text-base shadow-sm hover:shadow transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={!isValid || totalAmount === 0}
               >

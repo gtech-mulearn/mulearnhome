@@ -1,4 +1,4 @@
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import Link from "next/link";
 import { cdnUrl } from "@services/cdn";
 
@@ -25,7 +25,7 @@ export default function NotFoundPage() {
         </div>
         <div className="flex flex-row items-center gap-1 font-bold text-[#a1a1a1] -mt-4 text-5xl sm:text-6xl md:text-8xl">
           <div className="animate-l">l</div>
-          <Image
+          <MuImage
             src={stone}
             alt="stone"
             width={80}
@@ -40,7 +40,7 @@ export default function NotFoundPage() {
           <div className="-rotate-[2deg] animate-space">space</div>
         </div>
       </div>
-      <Image
+      <MuImage
         src={ufo}
         alt="UFO"
         width={400}
@@ -49,7 +49,7 @@ export default function NotFoundPage() {
                    w-40 sm:w-60 md:w-80"
       />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-[1]">
-        <Image
+        <MuImage
           src={fourNotFour}
           alt="404"
           width={480}
@@ -58,19 +58,19 @@ export default function NotFoundPage() {
         />
         <Link
           href="/"
-          className="mt-6 px-6 py-3 bg-mulearn-trusty-blue text-mulearn-whitish font-semibold rounded-2xl shadow-lg hover:bg-mulearn-duke-purple transition-all duration-300"
+          className="mt-6 px-6 py-3 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple text-mulearn-whitish font-semibold rounded-2xl shadow-lg hover:bg-mulearn-duke-purple transition-all duration-300"
         >
           Back to Home
         </Link>
       </div>
-      <Image
+      <MuImage
         src={smallRocks}
         alt="Small Rocks"
         width={1920}
         height={600}
         className="absolute w-full bottom-20 z-0 animate-rocks"
       />
-      <Image
+      <MuImage
         src={marsSurface}
         alt="Mars Surface"
         width={1920}

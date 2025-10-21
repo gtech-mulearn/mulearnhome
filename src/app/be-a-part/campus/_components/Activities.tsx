@@ -13,7 +13,11 @@ export default function Activities() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="mb-6 text-center text-4xl font-bold text-mulearn-blackish lg:text-5xl">
-          What Chapters <span className="text-mulearn-trusty-blue">Do</span>?
+          What Chapters{" "}
+          <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+            Do
+          </span>
+          ?
         </h2>
         <p className="mx-auto mb-16 max-w-2xl text-center text-lg text-mulearn-gray-600">
           Regular activities that build skills and community

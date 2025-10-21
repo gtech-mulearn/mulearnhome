@@ -15,13 +15,17 @@ export default function Hero() {
             className="text-center lg:text-left"
           >
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6 sm:mb-8 tracking-wide text-mulearn-blackish">
-              <span className="text-mulearn-trusty-blue">µLearn</span> Campus
-              Chapter
+              <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                µLearn
+              </span>{" "}
+              Campus Chapter
             </h2>
 
             <h3 className="text-3xl sm:text-3xl lg:text-5xl font-semibold mb-4 sm:mb-6 leading-tight tracking-tight text-mulearn-blackish">
               Ignite Your{" "}
-              <span className="text-mulearn-trusty-blue">Community</span>
+              <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                Community
+              </span>
             </h3>
 
             <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-mulearn-gray-600 mb-8 sm:mb-10">

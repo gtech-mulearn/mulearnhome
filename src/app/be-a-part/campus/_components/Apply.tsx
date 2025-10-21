@@ -13,7 +13,7 @@ export default function Apply() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="rounded-3xl bg-mulearn-trusty-blue p-12 text-center shadow-xl lg:p-16"
+        className="rounded-3xl bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple p-12 text-center shadow-xl lg:p-16"
       >
         <h2 className="mb-4 font-serif text-4xl font-bold text-primary-foreground lg:text-5xl">
           Ready to Start?
@@ -27,8 +27,8 @@ export default function Apply() {
           rel="noopener noreferrer"
         >
           <Button
-            variant="mulearn-blue"
-            className="bg-mulearn-whitish text-mulearn-trusty-blue hover:text-mulearn-whitish group inline-flex items-center text-center justify-center gap-2 px-6 py-3 text-base font-semibold sm:px-8 sm:py-4 sm:text-lg w-full sm:w-auto"
+            variant="mulearn"
+            className="bg-mulearn-whitish text-mulearn-trusty-blue group inline-flex items-center text-center justify-center gap-2 px-6 py-3 text-base font-semibold sm:px-8 sm:py-4 sm:text-lg w-full sm:w-auto"
           >
             Apply to Start a Chapter
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />

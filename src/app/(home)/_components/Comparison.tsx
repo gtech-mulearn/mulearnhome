@@ -46,7 +46,7 @@ export default function Comparison() {
                       <td className="py-8 px-4 text-right pr-8">{problem}</td>
                       <td className="py-8 px-4 text-left pl-8 border-l border-mulearn-greyish">
                         {before}
-                        <span className="text-mulearn-trusty-blue font-bold">
+                        <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent font-bold">
                           {highlight}
                         </span>
                         {after}

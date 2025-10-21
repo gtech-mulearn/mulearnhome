@@ -36,7 +36,7 @@ export default function Report() {
   return (
     <div className="min-h-screen bg-mulearn-whitish">
       <ReportHero />
-      
+
       <section className="py-16 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -47,12 +47,16 @@ export default function Report() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-mulearn-blackish mb-4">
-              Our <span className="text-mulearn-trusty-blue">Annual Reports</span>
+              Our{" "}
+              <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                Annual Reports
+              </span>
             </h2>
             <p className="text-lg md:text-xl text-mulearn-gray-600 max-w-3xl mx-auto">
-              Explore our journey of growth, impact, and community building through our comprehensive annual reports.
+              Explore our journey of growth, impact, and community building
+              through our comprehensive annual reports.
             </p>
-            <div className="w-20 h-1 bg-mulearn-trusty-blue mx-auto rounded-full mt-6" />
+            <div className="w-20 h-1 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple mx-auto rounded-full mt-6" />
           </motion.div>
 
           <motion.div

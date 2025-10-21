@@ -40,8 +40,10 @@ export interface RolesContent {
 export interface Event {
   title: string;
   description: string;
+  image?: string;
+  isLive?: boolean;
+  date?: string;
   link?: string;
-  date: string;
 }
 
 interface OrgTypeCount {

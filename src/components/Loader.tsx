@@ -8,8 +8,7 @@ export default function MuLoader() {
         alt="Loader"
         height={400}
         width={400}
-        unoptimized={true}
-        priority
+        unoptimized
       />
     </div>
   );

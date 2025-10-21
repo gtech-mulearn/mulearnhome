@@ -35,7 +35,7 @@ export default function WhoIsEnabler() {
           >
             Who is an{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-mulearn-trusty-blue">
+              <span className="relative z-10 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                 Enabler
               </span>
               <svg

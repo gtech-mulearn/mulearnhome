@@ -47,7 +47,9 @@ export default function Careers() {
           <div className="text-center lg:text-left">
             <h2 className="text-5xl sm:text-5xl lg:text-7xl font-semibold mb-5 sm:mb-12 text-mulearn-blackish">
               µLearn{" "}
-              <span className="text-mulearn-trusty-blue">Career Labs</span>
+              <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                Career Labs
+              </span>
             </h2>
 
             <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-mulearn-gray-600 mb-6 sm:mb-8">
@@ -57,19 +59,19 @@ export default function Careers() {
 
             <div className="mt-4 sm:mt-6 flex flex-wrap justify-center lg:justify-start gap-6">
               <div className="flex flex-col items-center lg:items-start">
-                <span className="text-[1.6rem] md:text-[2rem] font-semibold text-mulearn-trusty-blue">
+                <span className="text-[1.6rem] md:text-[2rem] font-semibold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                   600+
                 </span>
                 <span className="text-base">Hired Candidates</span>
               </div>
               <div className="flex flex-col items-center lg:items-start">
-                <span className="text-[1.6rem] md:text-[2rem] font-semibold text-mulearn-trusty-blue">
+                <span className="text-[1.6rem] md:text-[2rem] font-semibold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                   100+
                 </span>
                 <span className="text-base">Companies</span>
               </div>
               <div className="flex flex-col items-center lg:items-start">
-                <span className="text-[1.6rem] md:text-[2rem] font-semibold text-mulearn-trusty-blue">
+                <span className="text-[1.6rem] md:text-[2rem] font-semibold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                   60+
                 </span>
                 <span className="text-base">Hiring Calls</span>
@@ -113,7 +115,7 @@ export default function Careers() {
       {newHiring && newHiring.length > 0 && (
         <div className="mx-auto mt-30 block max-w-[1300px]">
           <div className="m-8">
-            <h2 className="mt-8 text-center text-4xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold text-mulearn-trusty-blue">
+            <h2 className="mt-8 text-center text-4xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
               New Hiring Calls
             </h2>
             <p className="mx-auto mb-4 block max-w-[40rem] text-center text-base">
@@ -146,7 +148,7 @@ export default function Careers() {
 
       <div className="mx-auto mt-30 block max-w-[1300px]">
         <div className="m-8">
-          <h2 className="mt-8 text-center text-4xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold text-mulearn-trusty-blue">
+          <h2 className="mt-8 text-center text-4xl sm:text-4xl md:text-4xl lg:text-5xl font-semibold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
             Previous Hiring Calls
           </h2>
           <p className="mx-auto mb-4 block max-w-[40rem] text-center text-base">

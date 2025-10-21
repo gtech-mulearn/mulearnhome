@@ -25,7 +25,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
         />
         <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-0 transition-transform duration-300 ease-in-out">
           <Button
-            variant={"mulearn-blue"}
+            variant={"mulearn"}
             className="border-none py-3 px-8 text-base font-medium ease-in-out flex items-center justify-center w-full hover:shadow-[0_6px_20px_rgba(0,123,255,0.4)]"
             onClick={() => setIsOpen(true)}
           >
@@ -53,7 +53,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
                   className="absolute top-3 right-3 w-5 h-5 text-mulearn-whitish cursor-pointer p-1 rounded-full transition-colors duration-200 hover:bg-mulearn-whitish/20"
                   onClick={() => setIsOpen(false)}
                 >
-                  <FiX className="w-5 h-5 text-mulearn-trusty-blue" />
+                  <FiX className="w-5 h-5 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent" />
                 </div>
               </div>
 
@@ -75,7 +75,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
                     )}
                     {specialevent.time && (
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-mulearn-whitish text-mulearn-trusty-blue]">
+                        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-mulearn-whitish bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent]">
                           <FiClock className="w-5 h-5" />
                         </div>
                         <p className="text-base">{specialevent.time}</p>
@@ -95,7 +95,7 @@ const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
 
               <div className="bg-mulearn-whitish pt-2 pb-6 px-6">
                 <Button
-                  variant={"mulearn-blue"}
+                  variant={"mulearn"}
                   className="font-semibold rounded-md py-3 px-6 h-[50px] w-full border-none cursor-pointer"
                   onClick={() => window.open(specialevent.link, "_blank")}
                 >

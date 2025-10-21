@@ -1,21 +1,21 @@
 "use client";
 
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { learningCircleData } from "@/data/data";
 export default function LearningCirclePage() {
-  const { 
-    subtitle, 
-    description, 
-    image, 
-    ctaText, 
-    ctaLink, 
-    introduction, 
+  const {
+    subtitle,
+    description,
+    image,
+    ctaText,
+    ctaLink,
+    introduction,
     ctaSection,
     learningDomains,
     howItWorks,
-    benefits
+    benefits,
   } = learningCircleData;
 
   return (
@@ -29,18 +29,18 @@ export default function LearningCirclePage() {
           transition={{ duration: 0.7 }}
           className="flex-1 text-center md:text-left"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-mulearn-blackish mb-4 font-display">
+          <h1 className="text-4xl md:text-5xl font-bold text-mulearn-blackish mb-4 ">
             Join a{" "}
-            <span className="text-mulearn-trusty-blue">
+            <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
               Learning Circle
             </span>
           </h1>
           {subtitle && (
-            <h2 className="text-xl md:text-2xl text-mulearn-blackish font-medium mb-4 font-display">
+            <h2 className="text-xl md:text-2xl text-mulearn-blackish font-medium mb-4 ">
               {subtitle}
             </h2>
           )}
-          <p className="leading-relaxed mb-8 font-sans">{description}</p>
+          <p className="leading-relaxed mb-8 ">{description}</p>
 
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -51,7 +51,7 @@ export default function LearningCirclePage() {
               href={ctaLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-mulearn-trusty-blue text-mulearn-whitish px-8 py-3 rounded-xl font-semibold shadow-md hover:bg-mulearn-duke-purple transition-colors"
+              className="inline-block bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple text-mulearn-whitish px-8 py-3 rounded-xl font-semibold shadow-md hover:bg-mulearn-duke-purple transition-colors"
             >
               {ctaText}
             </Link>
@@ -66,7 +66,7 @@ export default function LearningCirclePage() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex-1 flex justify-center"
         >
-          <Image
+          <MuImage
             src={image}
             alt="Learning Circle illustration"
             width={500}
@@ -85,10 +85,10 @@ export default function LearningCirclePage() {
           viewport={{ once: true }}
           transition={{ duration: 0.2 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-mulearn-blackish mb-4 font-display">
+          <h2 className="text-3xl md:text-4xl font-bold text-mulearn-blackish mb-4 ">
             {introduction.title}
           </h2>
-          <p className="max-w-3xl mx-auto leading-relaxed mb-12 font-sans whitespace-pre-line">
+          <p className="max-w-3xl mx-auto leading-relaxed mb-12  whitespace-pre-line">
             {introduction.description}
           </p>
         </motion.div>
@@ -108,11 +108,11 @@ export default function LearningCirclePage() {
               }}
               className="bg-mulearn-whitish text-mulearn-blackish p-8 rounded-2xl shadow-lg border border-mulearn-greyish/20 flex flex-col items-center"
             >
-              <feature.icon className="w-12 h-12 text-mulearn-trusty-blue mb-4" />
-              <h3 className="text-xl font-bold text-mulearn-blackish mb-3 font-display h-14 flex items-center">
+              <feature.icon className="w-12 h-12 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent mb-4" />
+              <h3 className="text-xl font-bold text-mulearn-blackish mb-3  h-14 flex items-center">
                 {feature.title}
               </h3>
-              <p className="font-sans">{feature.description}</p>
+              <p className="">{feature.description}</p>
             </motion.div>
           ))}
         </div>
@@ -127,10 +127,10 @@ export default function LearningCirclePage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-mulearn-blackish mb-4 font-display">
+          <h2 className="text-3xl md:text-4xl font-bold text-mulearn-blackish mb-4 ">
             {learningDomains.title}
           </h2>
-          <p className="text-lg text-mulearn-blackish/70 font-sans max-w-2xl mx-auto">
+          <p className="text-lg text-mulearn-blackish/70  max-w-2xl mx-auto">
             {learningDomains.subtitle}
           </p>
         </motion.div>
@@ -143,17 +143,18 @@ export default function LearningCirclePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ 
+              whileHover={{
                 y: -8,
-                boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
+                boxShadow:
+                  "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
               }}
               className="bg-mulearn-whitish p-6 rounded-2xl shadow-lg border border-mulearn-greyish/20 hover:border-mulearn-trusty-blue/30 transition-all duration-300"
             >
               <domain.icon className={`w-10 h-10 ${domain.color} mb-4`} />
-              <h3 className="text-xl font-bold text-mulearn-blackish mb-3 font-display">
+              <h3 className="text-xl font-bold text-mulearn-blackish mb-3 ">
                 {domain.title}
               </h3>
-              <p className="text-mulearn-blackish/70 font-sans text-sm">
+              <p className="text-mulearn-blackish/70  text-sm">
                 {domain.description}
               </p>
             </motion.div>
@@ -170,10 +171,10 @@ export default function LearningCirclePage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-mulearn-blackish mb-4 font-display">
+          <h2 className="text-3xl md:text-4xl font-bold text-mulearn-blackish mb-4 ">
             {howItWorks.title}
           </h2>
-          <p className="text-lg text-mulearn-blackish/70 font-sans max-w-2xl mx-auto">
+          <p className="text-lg text-mulearn-blackish/70  max-w-2xl mx-auto">
             {howItWorks.subtitle}
           </p>
         </motion.div>
@@ -186,16 +187,18 @@ export default function LearningCirclePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative text-center ${index === 4 ? 'md:col-start-2' : ''} ${index === 5 ? 'md:col-start-3' : ''}`} // centering steps 5 and 6
+              className={`relative text-center ${
+                index === 4 ? "md:col-start-2" : ""
+              } ${index === 5 ? "md:col-start-3" : ""}`} // centering steps 5 and 6
             >
-              <div className="bg-mulearn-trusty-blue text-mulearn-whitish w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 font-display">
+              <div className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple text-mulearn-whitish w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 ">
                 {step.step}
               </div>
-              <step.icon className="w-8 h-8 text-mulearn-trusty-blue mx-auto mb-4" />
-              <h3 className="text-lg font-bold text-mulearn-blackish mb-3 font-display">
+              <step.icon className="w-8 h-8 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent mx-auto mb-4" />
+              <h3 className="text-lg font-bold text-mulearn-blackish mb-3 ">
                 {step.title}
               </h3>
-              <p className="text-mulearn-blackish/70 font-sans text-sm">
+              <p className="text-mulearn-blackish/70  text-sm">
                 {step.description}
               </p>
             </motion.div>
@@ -212,10 +215,10 @@ export default function LearningCirclePage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-mulearn-blackish mb-4 font-display">
+          <h2 className="text-3xl md:text-4xl font-bold text-mulearn-blackish mb-4 ">
             {benefits.title}
           </h2>
-          <p className="text-lg text-mulearn-blackish/70 font-sans max-w-2xl mx-auto">
+          <p className="text-lg text-mulearn-blackish/70  max-w-2xl mx-auto">
             {benefits.subtitle}
           </p>
         </motion.div>
@@ -228,20 +231,21 @@ export default function LearningCirclePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ 
+              whileHover={{
                 y: -5,
-                boxShadow: "0 15px 20px -5px rgb(0 0 0 / 0.1), 0 6px 8px -6px rgb(0 0 0 / 0.1)"
+                boxShadow:
+                  "0 15px 20px -5px rgb(0 0 0 / 0.1), 0 6px 8px -6px rgb(0 0 0 / 0.1)",
               }}
               className="bg-mulearn-whitish p-6 rounded-2xl shadow-lg border border-mulearn-greyish/20 flex items-start gap-4"
             >
-              <div className="bg-mulearn-trusty-blue/10 p-3 rounded-xl">
-                <benefit.icon className="w-6 h-6 text-mulearn-trusty-blue" />
+              <div className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple/10 p-3 rounded-xl">
+                <benefit.icon className="w-6 h-6 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-mulearn-blackish mb-2 font-display">
+                <h3 className="text-lg font-bold text-mulearn-blackish mb-2 ">
                   {benefit.title}
                 </h3>
-                <p className="text-mulearn-blackish/70 font-sans text-sm">
+                <p className="text-mulearn-blackish/70  text-sm">
                   {benefit.description}
                 </p>
               </div>
@@ -256,12 +260,12 @@ export default function LearningCirclePage() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="w-full mt-16 bg-mulearn-trusty-blue text-mulearn-whitish p-10 text-center rounded-3xl max-w-6xl mx-auto shadow-lg border border-mulearn-greyish/20"
+        className="w-full mt-16 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple text-mulearn-whitish p-10 text-center rounded-3xl max-w-6xl mx-auto shadow-lg border border-mulearn-greyish/20"
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 ">
           {ctaSection.title}
         </h2>
-        <p className="text-lg mb-8 text-mulearn-whitish font-sans max-w-2xl mx-auto">
+        <p className="text-lg mb-8 text-mulearn-whitish  max-w-2xl mx-auto">
           {ctaSection.description}
         </p>
         <motion.div
@@ -273,7 +277,7 @@ export default function LearningCirclePage() {
             href={ctaSection.buttonLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-mulearn-whitish text-mulearn-trusty-blue px-8 py-3 rounded-xl font-semibold shadow-md hover:bg-mulearn-whitish/90 transition-colors duration-200"
+            className="inline-block bg-mulearn-whitish bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent px-8 py-3 rounded-xl font-semibold shadow-md hover:bg-mulearn-whitish/90 transition-colors duration-200"
           >
             {ctaSection.buttonText}
           </a>

@@ -48,8 +48,12 @@ export default function Features() {
         viewport={{ once: true }}
       >
         <div className="pt-10 sm:pt-12">
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl text-left max-w-[35rem] font-extrabold leading-snug">
-            What <span className="text-mulearn-trusty-blue">µLearn</span> offers
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl text-left max-w-140 font-extrabold leading-snug">
+            What{" "}
+            <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+              µLearn
+            </span>{" "}
+            offers
           </h1>
         </div>
         <h6 className="font-normal max-w-[800px] text-center text-base sm:text-lg md:text-xl text-mulearn-gray-600 px-2">
@@ -79,7 +83,7 @@ export default function Features() {
               }}
               className={`flex flex-col items-center justify-between p-5 sm:p-6 border border-mulearn-gray-600/20 transition-all duration-300
                 rounded-xl
-                flex-grow
+                grow
                 min-w-[200px]
                 sm:min-w-[240px]
                 md:min-w-[250px]
@@ -149,7 +153,7 @@ export default function Features() {
                 rel="noopener noreferrer"
               >
                 <Button
-                  variant="mulearn-blue"
+                  variant="mulearn"
                   className="mt-auto px-4 py-2 font-semibold w-full sm:w-auto"
                 >
                   {feature.cta}

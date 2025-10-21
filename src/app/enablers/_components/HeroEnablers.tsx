@@ -24,7 +24,7 @@ export default function Hero() {
               </span>{" "}
               through{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 text-mulearn-trusty-blue">
+                <span className="relative z-10 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                   µLearn
                 </span>
               </span>

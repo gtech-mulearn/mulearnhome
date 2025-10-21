@@ -8,8 +8,26 @@ import {
   ImpactStat,
   AnnualReport,
 } from "@/lib/types";
-import { Calendar, Clock, PartyPopper, Sparkle, Target, Trophy, Users, Zap, BookOpen, Code, Palette, Database, Smartphone, Globe, Award, MessageCircle, TrendingUp, CheckCircle} from "lucide-react";
-
+import {
+  Calendar,
+  Clock,
+  PartyPopper,
+  Sparkle,
+  Target,
+  Trophy,
+  Users,
+  Zap,
+  BookOpen,
+  Code,
+  Palette,
+  Database,
+  Smartphone,
+  Globe,
+  Award,
+  MessageCircle,
+  TrendingUp,
+  CheckCircle,
+} from "lucide-react";
 
 export const navItems = [
   {
@@ -155,86 +173,86 @@ export const features = [
 ];
 
 export const interestGroups = [
-    {
-        name: "UI/UX",
-        link: "https://app.mulearn.org/dashboard/interestgroups/46fe1fb7-7b04-4ebe-837d-120bc16d0e0a",
-        tagline: "Design beautiful, user-friendly experiences",
-        image: "/assets/InterestGroups/design.svg",
-        description:
-            "Master the art of user interface and user experience design. Share portfolios, get feedback, and learn the latest design trends."
-    },
-    {
-        name: "Web Development",
-        link: "https://app.mulearn.org/dashboard/interestgroups/9b8aaf7f-16a0-4a66-ae53-79b8c25e5faa",
-        tagline: "Build the web, shape the world",
-        image: "/assets/InterestGroups/webdev.svg",
-        description:
-            "Explore frontend, backend, and full-stack development. Collaborate on real-world web projects and learn modern frameworks."
-    },
-    {
-        name: "Cybersecurity",
-        link: "https://app.mulearn.org/dashboard/interestgroups/3a74725e-a05a-418b-a275-39d68ad9a416",
-        tagline: "Secure the digital frontier",
-        image: "/assets/InterestGroups/cyber.svg",
-        description:
-            "Learn how to protect systems and data. Participate in CTFs, workshops, and security challenges."
-    },
-    {
-        name: "Game Development",
-        link: "https://app.mulearn.org/dashboard/interestgroups/1be43a3a-bcfb-4ef1-b77a-959b01bcb782",
-        tagline: "Create immersive gaming experiences",
-        image: "/assets/InterestGroups/game.svg",
-        description:
-            "Dive into game design, development, and storytelling. Collaborate on projects and learn from industry experts."
-    },
-    {
-        name: "Internet Of Things (IOT) And Robotics",
-        link: "https://app.mulearn.org/dashboard/interestgroups/d379d82b-e116-4b67-8128-670916e6bb42",
-        tagline: "Connect the world, automate the future",
-        image: "/assets/InterestGroups/iot.svg",
-        description:
-            "Explore IoT devices, robotics, and automation. Build smart systems and learn about hardware integration."
-    },
-    {
-        name: "Digital Marketing",
-        link: "https://app.mulearn.org/dashboard/interestgroups/5bf2bdfe-5c22-48ab-9572-9e9836c70e79",
-        tagline: "Grow brands in the digital age",
-        image: "/assets/InterestGroups/marketing.svg",
-        description:
-            "Master SEO, social media, and online campaigns. Learn strategies to boost engagement and reach."
-    },
-    {
-        name: "Cloud and DevOps",
-        link: "https://app.mulearn.org/dashboard/interestgroups/1719d19a-0206-4161-9c6f-0a7dba44d4e5",
-        tagline: "Deploy, scale, and automate",
-        image: "/assets/InterestGroups/cloud.svg",
-        description:
-            "Learn cloud platforms, CI/CD, and infrastructure automation. Collaborate on scalable solutions."
-    },
-    {
-        name: "Product Management",
-        link: "https://app.mulearn.org/dashboard/interestgroups/04d29c15-4de4-4b43-ad63-0f4760c62919",
-        tagline: "Build products people love",
-        image: "/assets/InterestGroups/product.svg",
-        description:
-            "Discover the art of product strategy, development, and launch. Work with teams to deliver impactful solutions."
-    },
-    {
-        name: "Entrepreneurship",
-        link: "https://app.mulearn.org/dashboard/interestgroups/243a1bda-893c-4de3-b457-51e7cb517d83",
-        tagline: "Turn ideas into reality",
-        image: "/assets/InterestGroups/entrepreneurship.svg",
-        description:
-            "Learn how to start, grow, and scale ventures. Connect with founders and innovators."
-    },
-    {
-        name: "AR/VR",
-        link: "https://app.mulearn.org/dashboard/interestgroups/2de0ee0c-ddc3-4f02-bf93-b6bd2d0625c3",
-        tagline: "Experience the future in 3D",
-        image: "/assets/InterestGroups/arvr.svg",
-        description:
-            "Explore augmented and virtual reality. Build immersive applications and learn cutting-edge tech."
-    }
+  {
+    name: "UI/UX",
+    link: "https://app.mulearn.org/dashboard/interestgroups/46fe1fb7-7b04-4ebe-837d-120bc16d0e0a",
+    tagline: "Design beautiful, user-friendly experiences",
+    image: "/assets/InterestGroups/design.svg",
+    description:
+      "Master the art of user interface and user experience design. Share portfolios, get feedback, and learn the latest design trends.",
+  },
+  {
+    name: "Web Development",
+    link: "https://app.mulearn.org/dashboard/interestgroups/9b8aaf7f-16a0-4a66-ae53-79b8c25e5faa",
+    tagline: "Build the web, shape the world",
+    image: "/assets/InterestGroups/webdev.svg",
+    description:
+      "Explore frontend, backend, and full-stack development. Collaborate on real-world web projects and learn modern frameworks.",
+  },
+  {
+    name: "Cybersecurity",
+    link: "https://app.mulearn.org/dashboard/interestgroups/3a74725e-a05a-418b-a275-39d68ad9a416",
+    tagline: "Secure the digital frontier",
+    image: "/assets/InterestGroups/cyber.svg",
+    description:
+      "Learn how to protect systems and data. Participate in CTFs, workshops, and security challenges.",
+  },
+  {
+    name: "Game Development",
+    link: "https://app.mulearn.org/dashboard/interestgroups/1be43a3a-bcfb-4ef1-b77a-959b01bcb782",
+    tagline: "Create immersive gaming experiences",
+    image: "/assets/InterestGroups/game.svg",
+    description:
+      "Dive into game design, development, and storytelling. Collaborate on projects and learn from industry experts.",
+  },
+  {
+    name: "Internet Of Things (IOT) And Robotics",
+    link: "https://app.mulearn.org/dashboard/interestgroups/d379d82b-e116-4b67-8128-670916e6bb42",
+    tagline: "Connect the world, automate the future",
+    image: "/assets/InterestGroups/iot.svg",
+    description:
+      "Explore IoT devices, robotics, and automation. Build smart systems and learn about hardware integration.",
+  },
+  {
+    name: "Digital Marketing",
+    link: "https://app.mulearn.org/dashboard/interestgroups/5bf2bdfe-5c22-48ab-9572-9e9836c70e79",
+    tagline: "Grow brands in the digital age",
+    image: "/assets/InterestGroups/marketing.svg",
+    description:
+      "Master SEO, social media, and online campaigns. Learn strategies to boost engagement and reach.",
+  },
+  {
+    name: "Cloud and DevOps",
+    link: "https://app.mulearn.org/dashboard/interestgroups/1719d19a-0206-4161-9c6f-0a7dba44d4e5",
+    tagline: "Deploy, scale, and automate",
+    image: "/assets/InterestGroups/cloud.svg",
+    description:
+      "Learn cloud platforms, CI/CD, and infrastructure automation. Collaborate on scalable solutions.",
+  },
+  {
+    name: "Product Management",
+    link: "https://app.mulearn.org/dashboard/interestgroups/04d29c15-4de4-4b43-ad63-0f4760c62919",
+    tagline: "Build products people love",
+    image: "/assets/InterestGroups/product.svg",
+    description:
+      "Discover the art of product strategy, development, and launch. Work with teams to deliver impactful solutions.",
+  },
+  {
+    name: "Entrepreneurship",
+    link: "https://app.mulearn.org/dashboard/interestgroups/243a1bda-893c-4de3-b457-51e7cb517d83",
+    tagline: "Turn ideas into reality",
+    image: "/assets/InterestGroups/entrepreneurship.svg",
+    description:
+      "Learn how to start, grow, and scale ventures. Connect with founders and innovators.",
+  },
+  {
+    name: "AR/VR",
+    link: "https://app.mulearn.org/dashboard/interestgroups/2de0ee0c-ddc3-4f02-bf93-b6bd2d0625c3",
+    tagline: "Experience the future in 3D",
+    image: "/assets/InterestGroups/arvr.svg",
+    description:
+      "Explore augmented and virtual reality. Build immersive applications and learn cutting-edge tech.",
+  },
 ];
 
 export const specialevents = [
@@ -552,10 +570,8 @@ export const footer = [
       { title: "Blog", url: "https://gtechmulearn.medium.com/" },
       { title: "Team", url: "/team" },
       { title: "Career Labs", url: "/careers" },
-      {
-        title: "Interest Groups",
-        url: "/interest-groups",
-      },
+      { title: "Interest Groups", url: "/interest-groups" },
+      { title: "Contact Us", url: "/contact" },
       { title: "Donate", url: "/donate" },
     ],
   },
@@ -582,16 +598,6 @@ export const footer = [
       { title: "Refund Policy", url: "/refundpolicy" },
     ],
   },
-
-  {
-  title: "Be Part of Us",
-  links: [
-    { title: "Campus", url: "be-a-part/campus" },
-    { title: "Companies", url: "be-a-part/company" },
-    { title: "Students", url: "/students" },
-    { title: "Mentors", url: "/mentors" }
-  ]
-},
 ];
 
 export const socials = [
@@ -1035,7 +1041,64 @@ export const events: {
     },
   ],
   recurringEvents: {
-    flagship: [],
+    flagship: [
+      {
+        title: "Top 100 Coders",
+        description:
+          "Welcome to the Top 100 Coders initiative Recognised by Kerala Govt. We're on a mission to recognize and empower the best coders in India. If you're passionate about coding and want to make a significant impact in the tech community, you're in the right place.",
+        link: "https://top100coders.com/",
+        image: cdnUrl("src/modules/Public/Home/assets/top-100.webp"),
+        isLive: true,
+      },
+      {
+        title: "Launchpad",
+        description:
+          "Launchpad Kerala is a premier job fair that brings together talented individuals and innovative companies in the technical and engineering fields. With its skills-first approach, flexible interviews, and a wide talent pool, Launchpad Kerala offers unmatched opportunities for both candidates and employers.",
+        link: "https://launchpad.mulearn.org/",
+        image: cdnUrl("src/modules/Public/Home/assets/launchpad.webp"),
+        isLive: false,
+      },
+      {
+        title: "Permute 2025",
+        description:
+          "Perµte is the annual flagship celebration of the µLearn Foundation—an electrifying gathering that honors excellence, sparks bold ideas through thought-provoking panels, unveils visionary roadmaps, and ignites connections across a vibrant tapestry of talent and innovation.",
+        link: "https://permute.mulearn.org/",
+        // image: cdnUrl("src/modules/Public/Home/assets/permute-2025.webp"),
+        isLive: false,
+      },
+      {
+        title: "Mutate",
+        description:
+          "Mutate is a prestigious, invite-only convergence that brought together 125 campus leads and enablers from the μLearn foundation. This exclusive event, held at the Gokulam Grand in Kazhakoottam, was designed to foster collaboration, ignite creative discussions, and drive impactful change for future campus initiatives. It served as a strategic platform for networking and planning, uniting the community's brightest minds to shape the future of student-led innovation.",
+        link: "https://mulearn.org/",
+        // image: cdnUrl("src/modules/Public/Home/assets/mutate-2025.webp"),
+        isLive: false,
+      },
+      {
+        title: "Top 100 Designers",
+        description:
+          "Discover the forefront of design innovation with Top 100 Designers, an initiative dedicated to recognizing and celebrating India's most talented and influential designers. This platform brings together creative minds from various design disciplines - from UI/UX and graphic design to product and motion design. Join us in spotlighting exceptional design talent and shaping the future of India's creative landscape.",
+        link: "https://designers.top100series.com/",
+        // image: cdnUrl("src/modules/Public/Home/assets/top-100-designers.webp"),
+        isLive: true,
+      },
+      {
+        title: "Top 100 Makers",
+        description:
+          "Welcome to Top 100 Makers - an initiative celebrating India's most innovative creators, builders, and hardware enthusiasts. We're dedicated to recognizing brilliant minds who turn ideas into tangible prototypes, electronic innovations, and real-world solutions. From IoT devices and robotics to DIY projects and smart gadgets, join us in empowering the maker community and shaping the future of hands-on innovation in India.",
+        link: "https://makers.top100series.com/",
+        // image: cdnUrl("src/modules/Public/Home/assets/top-100-makers.webp"),
+        isLive: true,
+      },
+      {
+        title: "CareHack 2025",
+        description:
+          "CareHack is a dynamic two-phase hackathon presented by CareRevenue in collaboration with the μLearn Foundation, scheduled for August 2nd & 3rd, 2025. This competitive event is designed to identify and recruit exceptional full-stack developers and UI/UX designers through intense, collaborative innovation. Beyond talent acquisition, CareHack aims to amplify CareRevenue's brand presence within the tech ecosystem while evaluating participants on technical expertise, teamwork, communication, and problem-solving abilities.",
+        link: "https://carehack.tech/",
+        // image: cdnUrl("src/modules/Public/Home/assets/carehack-2025.webp"),
+        isLive: false,
+      },
+    ],
     weekly: [
       {
         title: "Inspiration Station Radio",
@@ -1084,6 +1147,8 @@ export const enablers = {
           text: "TA's and presenters can be moved to the front of the class.",
         },
       ],
+      bgColor: "bg-mulearn-blackish",
+      textColor: "text-mulearn-whitish",
     },
     {
       title: "Up-Skill Programs",
@@ -1099,6 +1164,8 @@ export const enablers = {
           text: "Workshops focused on technology, no-code solutions, Git, GitHub, and open-source programs.",
         },
       ],
+      bgColor: "bg-blue-500",
+      textColor: "text-mulearn-whitish",
     },
     {
       title: "Meet-ups",
@@ -1114,6 +1181,8 @@ export const enablers = {
           text: "Zonal Meetups: Organized offline events by zonal heads once every 3 months.",
         },
       ],
+      bgColor: "bg-blue-100",
+      textColor: "text-mulearn-blackish",
     },
   ],
 
@@ -1166,7 +1235,6 @@ export const enablers = {
     },
   ],
 };
-
 
 export const yip = [
   {
@@ -1229,7 +1297,9 @@ export const yip = [
   },
   {
     type: "type1",
-    icon: cdnUrl("src/modules/Public/yip/assets/procedure/winner%20annoucement.webp"),
+    icon: cdnUrl(
+      "src/modules/Public/yip/assets/procedure/winner%20annoucement.webp"
+    ),
     phaseLabel: "Winner\nAnnouncement",
     title: "Step Eight",
     description:
@@ -6112,67 +6182,78 @@ export const CompanyPartner = [
     name: "Google",
     logo: "/src/modules/Public/CompanyPartners/assets/companies/Google-logo.webp",
     website: "https://about.google/",
-    descritpion: "A global technology leader offering internet services, cloud computing, and digital innovations."
+    descritpion:
+      "A global technology leader offering internet services, cloud computing, and digital innovations.",
   },
   {
     name: "SunTec Business Solutions Pvt. Ltd",
     logo: "/src/modules/Public/CompanyPartners/assets/companies/SunTec.webp",
     website: "https://www.suntecgroup.com/",
-    descritpion: "A Kerala-based company providing revenue management and billing solutions for banks and telecoms."
+    descritpion:
+      "A Kerala-based company providing revenue management and billing solutions for banks and telecoms.",
   },
   {
     name: "Zerone Consulting Pvt. Ltd",
     logo: "/src/modules/Public/CompanyPartners/assets/companies/Zerone.webp",
     website: "https://www.zerone-consulting.com/",
-    descritpion: "A software engineering firm delivering custom cloud and AI-driven solutions."
+    descritpion:
+      "A software engineering firm delivering custom cloud and AI-driven solutions.",
   },
   {
     name: "Travancore Analytics",
     logo: "/src/modules/Public/CompanyPartners/assets/companies/Travancore.webp",
     website: "https://www.travancoreanalytics.com/",
-    descritpion: "A digital product development company specializing in AR/VR, IoT, and enterprise software."
+    descritpion:
+      "A digital product development company specializing in AR/VR, IoT, and enterprise software.",
   },
   {
     name: "ECESIS GROUP",
     logo: "/src/modules/Public/CompanyPartners/assets/companies/Ecesis.webp",
     website: "https://www.ecesistech.com/",
-    descritpion: "A technology and business solutions company offering IT, BPO, and consulting services."
+    descritpion:
+      "A technology and business solutions company offering IT, BPO, and consulting services.",
   },
   {
     name: "PIT Solutions",
     logo: "/src/modules/Public/CompanyPartners/assets/companies/Google-logo.webp",
     website: "https://www.pitsolutions.com/",
-    descritpion: "A global IT services company providing web, mobile, and enterprise software solutions."
+    descritpion:
+      "A global IT services company providing web, mobile, and enterprise software solutions.",
   },
   {
     name: "Softnotions",
     logo: "/src/modules/Public/CompanyPartners/assets/companies/Softnotions.webp",
     website: "https://softnotions.com/",
-    descritpion: "An IT consulting and software development firm focused on digital transformation and innovation."
+    descritpion:
+      "An IT consulting and software development firm focused on digital transformation and innovation.",
   },
   {
     name: "Triassic Solutions",
     logo: "/src/modules/Public/CompanyPartners/assets/companies/Triassic.webp",
     website: "https://triassicsolutions.com/",
-    descritpion: "A software development and consulting company delivering enterprise technology solutions."
+    descritpion:
+      "A software development and consulting company delivering enterprise technology solutions.",
   },
   {
     name: "Experion",
     logo: "/src/modules/Public/CompanyPartners/assets/companies/Experion.webp",
     website: "https://www.experionglobal.com/",
-    descritpion: "A global digital transformation company building software products and data-driven solutions."
+    descritpion:
+      "A global digital transformation company building software products and data-driven solutions.",
   },
   {
     name: "TRAVANLEO",
     logo: "/src/modules/Public/CompanyPartners/assets/companies/Travenleo.webp",
     website: "https://travanleo.com/",
-    description: "A technology firm helping enterprises with SAP, cloud, and custom software services."
+    description:
+      "A technology firm helping enterprises with SAP, cloud, and custom software services.",
   },
   {
     name: "THINKPALM TECHNOLOGIES",
     logo: "/src/modules/Public/CompanyPartners/assets/companies/Thinkpalm.webp",
     website: "https://thinkpalm.com/",
-    description: "A product engineering and IT services company specializing in embedded and digital solutions."
+    description:
+      "A product engineering and IT services company specializing in embedded and digital solutions.",
   },
 ];
 export const campusChapter = {
@@ -6320,14 +6401,15 @@ export const galleryData: GalleryItem[] = [
   {
     id: "1",
     title: "Launchpad 2024",
-    description: "Our biggest hiring fest with 5000+ participants from 200+ campuses",
+    description:
+      "Our biggest hiring fest with 5000+ participants from 200+ campuses",
     image: "/images/impact/launchpad-2024.jpg",
     category: "events",
     type: "image",
     stats: {
       participants: 5000,
-      campuses: 200
-    }
+      campuses: 200,
+    },
   },
   {
     id: "2",
@@ -6337,27 +6419,29 @@ export const galleryData: GalleryItem[] = [
     category: "students",
     type: "image",
     stats: {
-      participants: 100
-    }
+      participants: 100,
+    },
   },
   {
     id: "3",
     title: "Company Partnership Summit",
-    description: "Connecting students with top tech companies for career opportunities",
+    description:
+      "Connecting students with top tech companies for career opportunities",
     image: "/images/impact/company-summit.jpg",
     category: "companies",
     type: "image",
     stats: {
-      companies: 50
-    }
+      companies: 50,
+    },
   },
   {
     id: "4",
     title: "Mentor Meetup",
-    description: "Our dedicated mentors guiding the next generation of innovators",
+    description:
+      "Our dedicated mentors guiding the next generation of innovators",
     image: "/images/impact/mentor-meetup.jpg",
     category: "mentors",
-    type: "image"
+    type: "image",
   },
   {
     id: "5",
@@ -6365,7 +6449,7 @@ export const galleryData: GalleryItem[] = [
     description: "How μLearn helped Sarah land her dream job at Google",
     image: "/images/impact/success-story-1.jpg",
     category: "impact-stories",
-    type: "image"
+    type: "image",
   },
   {
     id: "6",
@@ -6375,8 +6459,8 @@ export const galleryData: GalleryItem[] = [
     category: "events",
     type: "image",
     stats: {
-      participants: 1200
-    }
+      participants: 1200,
+    },
   },
   {
     id: "7",
@@ -6386,16 +6470,17 @@ export const galleryData: GalleryItem[] = [
     category: "students",
     type: "image",
     stats: {
-      campuses: 150
-    }
+      campuses: 150,
+    },
   },
   {
     id: "8",
     title: "Industry Collaboration",
-    description: "Working with industry leaders to shape future-ready curriculum",
+    description:
+      "Working with industry leaders to shape future-ready curriculum",
     image: "/images/impact/industry-collab.jpg",
     category: "companies",
-    type: "image"
+    type: "image",
   },
   {
     id: "9",
@@ -6403,7 +6488,7 @@ export const galleryData: GalleryItem[] = [
     description: "Empowering experienced professionals to guide young talents",
     image: "/images/impact/mentor-training.jpg",
     category: "mentors",
-    type: "image"
+    type: "image",
   },
   {
     id: "10",
@@ -6411,7 +6496,7 @@ export const galleryData: GalleryItem[] = [
     description: "Bringing digital literacy to rural communities across Kerala",
     image: "/images/impact/rural-tech.jpg",
     category: "impact-stories",
-    type: "image"
+    type: "image",
   },
   {
     id: "11",
@@ -6421,26 +6506,48 @@ export const galleryData: GalleryItem[] = [
     category: "events",
     type: "image",
     stats: {
-      participants: 800
-    }
+      participants: 800,
+    },
   },
   {
     id: "12",
     title: "Student Innovation Showcase",
-    description: "Showcasing groundbreaking projects from our student community",
+    description:
+      "Showcasing groundbreaking projects from our student community",
     image: "/images/impact/innovation-showcase.jpg",
     category: "students",
-    type: "image"
-  }
+    type: "image",
+  },
 ];
 
 export const galleryCategories = [
   { id: "all", label: "All", count: galleryData.length },
-  { id: "events", label: "Events", count: galleryData.filter(item => item.category === "events").length },
-  { id: "students", label: "Students", count: galleryData.filter(item => item.category === "students").length },
-  { id: "companies", label: "Companies", count: galleryData.filter(item => item.category === "companies").length },
-  { id: "mentors", label: "Mentors", count: galleryData.filter(item => item.category === "mentors").length },
-  { id: "impact-stories", label: "Impact Stories", count: galleryData.filter(item => item.category === "impact-stories").length },
+  {
+    id: "events",
+    label: "Events",
+    count: galleryData.filter((item) => item.category === "events").length,
+  },
+  {
+    id: "students",
+    label: "Students",
+    count: galleryData.filter((item) => item.category === "students").length,
+  },
+  {
+    id: "companies",
+    label: "Companies",
+    count: galleryData.filter((item) => item.category === "companies").length,
+  },
+  {
+    id: "mentors",
+    label: "Mentors",
+    count: galleryData.filter((item) => item.category === "mentors").length,
+  },
+  {
+    id: "impact-stories",
+    label: "Impact Stories",
+    count: galleryData.filter((item) => item.category === "impact-stories")
+      .length,
+  },
 ];
 
 export const impactStats: ImpactStat[] = [
@@ -6451,7 +6558,6 @@ export const impactStats: ImpactStat[] = [
   { number: "1,000+", label: "Mentors", icon: "GraduationCap" },
   { number: "100+", label: "Success Stories", icon: "TrendingUp" },
 ];
-
 
 export const learningCircleData = {
   subtitle: "Learn, Collaborate & Grow Together",
@@ -6468,12 +6574,14 @@ export const learningCircleData = {
       {
         icon: Users,
         title: "Collaborate on Projects",
-        description: "Work with peers on real-world projects, build your portfolio, and gain hands-on experience.",
+        description:
+          "Work with peers on real-world projects, build your portfolio, and gain hands-on experience.",
       },
       {
         icon: Sparkle,
         title: "Learn from Peers",
-        description: "Share knowledge, ask questions, and learn from the collective experience of the community.",
+        description:
+          "Share knowledge, ask questions, and learn from the collective experience of the community.",
       },
       {
         icon: Trophy,
@@ -6493,45 +6601,49 @@ export const learningCircleData = {
 
   learningDomains: {
     title: "Explore Learning Domains",
-    subtitle: "Choose from a wide range of specialized learning areas and find your perfect circle",
+    subtitle:
+      "Choose from a wide range of specialized learning areas and find your perfect circle",
     domains: [
-      { 
-        icon: Code, 
-        title: "Web Development", 
-        description: "Frontend, Backend, Full-stack development with modern technologies",
-        color: "text-mulearn-trusty-blue"
+      {
+        icon: Code,
+        title: "Web Development",
+        description:
+          "Frontend, Backend, Full-stack development with modern technologies",
+        color:
+          "bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent",
       },
-      { 
-        icon: Smartphone, 
-        title: "Mobile Development", 
+      {
+        icon: Smartphone,
+        title: "Mobile Development",
         description: "iOS, Android, and cross-platform mobile app development",
-        color: "text-chart-1"
+        color: "text-chart-1",
       },
-      { 
-        icon: Palette, 
-        title: "UI/UX Design", 
-        description: "User interface design, user experience, and design thinking",
-        color: "text-mulearn-duke-purple"
+      {
+        icon: Palette,
+        title: "UI/UX Design",
+        description:
+          "User interface design, user experience, and design thinking",
+        color: "text-mulearn-duke-purple",
       },
-      { 
-        icon: Database, 
-        title: "Data Science", 
+      {
+        icon: Database,
+        title: "Data Science",
         description: "Machine learning, AI, data analysis, and visualization",
-        color: "text-chart-3"
+        color: "text-chart-3",
       },
-      { 
-        icon: Globe, 
-        title: "DevOps & Cloud", 
+      {
+        icon: Globe,
+        title: "DevOps & Cloud",
         description: "Cloud platforms, CI/CD, infrastructure, and deployment",
-        color: "text-chart-5"
+        color: "text-chart-5",
       },
-      { 
-        icon: Zap, 
-        title: "Emerging Tech", 
+      {
+        icon: Zap,
+        title: "Emerging Tech",
         description: "Blockchain, IoT, AR/VR, and cutting-edge technologies",
-        color: "text-chart-2"
-      }
-    ]
+        color: "text-chart-2",
+      },
+    ],
   },
   howItWorks: {
     title: "How to Create a Learning Circle",
@@ -6541,84 +6653,92 @@ export const learningCircleData = {
         step: "01",
         icon: BookOpen,
         title: "Add Title",
-        description: "Name your circle clearly (e.g., AI for Beginners)."
+        description: "Name your circle clearly (e.g., AI for Beginners).",
       },
       {
         step: "02",
         icon: MessageCircle,
         title: "Write Description",
-        description: "Explain what members will learn in brief."
+        description: "Explain what members will learn in brief.",
       },
       {
         step: "03",
         icon: Target,
         title: "Select Interest Group",
-        description: "Choose the closest category to your topic."
+        description: "Choose the closest category to your topic.",
       },
       {
         step: "04",
         icon: Calendar,
         title: "Choose Meeting Type",
-        description: "Pick Online or Offline."
+        description: "Pick Online or Offline.",
       },
       {
         step: "05",
         icon: Clock,
         title: "Set Time & Place",
-        description: "Add date/time and venue or meeting link."
+        description: "Add date/time and venue or meeting link.",
       },
       {
         step: "06",
         icon: CheckCircle,
         title: "Create Learning Circle",
-        description: "Publish and share the join code."
-      }
-    ]
+        description: "Publish and share the join code.",
+      },
+    ],
   },
 
   benefits: {
     title: "The Benefits?",
-    subtitle: "Discover the unique advantages of collaborative learning at µLearn",
+    subtitle:
+      "Discover the unique advantages of collaborative learning at µLearn",
     benefits: [
       {
         icon: MessageCircle,
         title: "Peer Learning",
-        description: "Learn from diverse perspectives and experiences of your fellow learners"
+        description:
+          "Learn from diverse perspectives and experiences of your fellow learners",
       },
       {
         icon: CheckCircle,
         title: "Structured Learning",
-        description: "Follow curated learning paths with clear milestones and progress tracking"
+        description:
+          "Follow curated learning paths with clear milestones and progress tracking",
       },
       {
         icon: Calendar,
         title: "Flexible Schedule",
-        description: "Learn at your own pace with flexible meeting times and asynchronous activities"
+        description:
+          "Learn at your own pace with flexible meeting times and asynchronous activities",
       },
       {
         icon: Award,
         title: "Portfolio Building",
-        description: "Work on real-world projects that enhance your professional portfolio"
+        description:
+          "Work on real-world projects that enhance your professional portfolio",
       },
       {
         icon: Users,
         title: "Networking",
-        description: "Build meaningful connections with industry professionals and like-minded peers"
+        description:
+          "Build meaningful connections with industry professionals and like-minded peers",
       },
       {
         icon: TrendingUp,
         title: "Career Growth",
-        description: "Accelerate your career with industry-relevant skills and practical experience"
-      }
-    ]
-  }
+        description:
+          "Accelerate your career with industry-relevant skills and practical experience",
+      },
+    ],
+  },
 };
 export const annualReports: AnnualReport[] = [
   {
     id: "2024",
     year: "2024",
     title: "2024 Annual Report",
-    summary: "A year of unprecedented growth and community impact. We expanded to 1,900+ institutions, hosted 500+ events, and empowered 59,000+ learners across India.",
+    summary:
+      "A year of unprecedented growth and community impact. We expanded to 1,900+ institutions, hosted 500+ events, and empowered 59,000+ learners across India.",
     pdfUrl: "/assets/report/2024-annual-report.pdf",
     imageUrl: "/assets/report/2024-report-cover.jpg",
     highlights: [
@@ -6626,15 +6746,16 @@ export const annualReports: AnnualReport[] = [
       "1,900+ educational institutions partnered",
       "500+ events and workshops conducted",
       "50+ company partnerships established",
-      "1,000+ mentors actively engaged"
+      "1,000+ mentors actively engaged",
     ],
-    publishedDate: "2025-01-15"
+    publishedDate: "2025-01-15",
   },
   {
     id: "2023",
     year: "2023",
     title: "2023 Annual Report",
-    summary: "Building the foundation for peer-led learning. We established our core programs, launched key partnerships, and created the framework for sustainable community growth.",
+    summary:
+      "Building the foundation for peer-led learning. We established our core programs, launched key partnerships, and created the framework for sustainable community growth.",
     pdfUrl: "/assets/report/2023-annual-report.pdf",
     imageUrl: "/assets/report/2023-report-cover.jpg",
     highlights: [
@@ -6642,15 +6763,16 @@ export const annualReports: AnnualReport[] = [
       "500+ institutions joined our network",
       "200+ events organized",
       "20+ strategic partnerships formed",
-      "500+ mentors recruited"
+      "500+ mentors recruited",
     ],
-    publishedDate: "2024-01-10"
+    publishedDate: "2024-01-10",
   },
   {
     id: "2022",
     year: "2022",
     title: "2022 Annual Report",
-    summary: "The year we began our journey. From a small community of passionate learners to establishing µLearn as a recognized platform for peer-led education.",
+    summary:
+      "The year we began our journey. From a small community of passionate learners to establishing µLearn as a recognized platform for peer-led education.",
     pdfUrl: "/assets/report/2022-annual-report.pdf",
     imageUrl: "/assets/report/2022-report-cover.jpg",
     highlights: [
@@ -6658,8 +6780,8 @@ export const annualReports: AnnualReport[] = [
       "100+ institutions piloted our programs",
       "50+ initial events conducted",
       "10+ founding partnerships",
-      "100+ pioneer mentors"
+      "100+ pioneer mentors",
     ],
-    publishedDate: "2023-01-05"
-  }
+    publishedDate: "2023-01-05",
+  },
 ];

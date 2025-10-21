@@ -25,7 +25,7 @@ export default function YipPage() {
               newResult.push(
                 <strong
                   key={`${phrase}-${idx}`}
-                  className="text-mulearn-trusty-blue"
+                  className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent"
                 >
                   {phrase}
                 </strong>
@@ -53,7 +53,7 @@ export default function YipPage() {
         <>
           {parts[0]}
           <Link href={link} target="_blank" rel="noopener noreferrer">
-            <span className="hover:text-chart-5 transition-colors text-mulearn-trusty-blue">
+            <span className="hover:text-chart-5 transition-colors bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
               <strong>Click Here</strong>
             </span>
           </Link>
@@ -69,7 +69,7 @@ export default function YipPage() {
         <>
           {parts[0]}
           <Link href={link} target="_blank" rel="noopener noreferrer">
-            <span className="hover:text-mulearn-duke-purple text-mulearn-trusty-blue transition-colors">
+            <span className="hover:text-mulearn-duke-purple bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent transition-colors">
               <strong>Click Here to Login</strong>
             </span>
           </Link>
@@ -128,25 +128,29 @@ export default function YipPage() {
       case "type1":
         return {
           iconBg: "bg-transparent",
-          labelBg: "bg-mulearn-trusty-blue",
+          labelBg:
+            "bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple",
           textColor: "text-mulearn-blackish",
         };
       case "type2":
         return {
           iconBg: "bg-transparent",
-          labelBg: "bg-mulearn-trusty-blue",
+          labelBg:
+            "bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple",
           textColor: "text-mulearn-blackish",
         };
       case "type3":
         return {
           iconBg: "bg-transparent",
-          labelBg: "bg-mulearn-trusty-blue",
+          labelBg:
+            "bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple",
           textColor: "text-mulearn-blackish",
         };
       default:
         return {
           iconBg: "bg-transparent",
-          labelBg: "bg-mulearn-trusty-blue",
+          labelBg:
+            "bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple",
           textColor: "text-mulearn-blackish",
         };
     }
@@ -161,7 +165,7 @@ export default function YipPage() {
               <div className="p-8">
                 <h2 className="text-[2.5rem] leading-[47px] max-w-[28rem] tracking-[0.02em] capitalize text-mulearn-blackish">
                   Kerala&apos;s Biggest{" "}
-                  <strong className="font-bold text-mulearn-trusty-blue">
+                  <strong className="font-bold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                     Innovation Celebration is here!
                   </strong>
                 </h2>
@@ -173,7 +177,7 @@ export default function YipPage() {
                   height={30}
                   className="mt-[-3rem] max-w-[15rem] h-auto"
                 />
-                <p className="mt-[-2rem] mb-8 font-medium text-[1.5rem] max-w-[20rem] leading-[33px] capitalize text-mulearn-trusty-blue">
+                <p className="mt-[-2rem] mb-8 font-medium text-[1.5rem] max-w-[20rem] leading-[33px] capitalize bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                   Young Innovators Programme 5.0
                 </p>
               </div>
@@ -191,7 +195,7 @@ export default function YipPage() {
               rel="noopener noreferrer"
             >
               <Button
-                variant={"mulearn-blue"}
+                variant={"mulearn"}
                 className="absolute mt-[-2rem] mr-12 right-0 z-10 shadow-[0px_17px_31px_rgba(0,0,0,0.12)] rounded-xl font-semibold text-[1.25rem] px-[4.5rem] py-3 leading-[33px] capitalize"
               >
                 Apply Now
@@ -200,7 +204,7 @@ export default function YipPage() {
             <div className="mt-8 p-8 text-[1.35rem] leading-[30px]">
               <p>
                 YIP 5.0 is here and{" "}
-                <strong className="font-bold text-mulearn-trusty-blue">
+                <strong className="font-bold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                   it&apos;s bigger and more impactful than ever before!
                 </strong>{" "}
                 Backed by the Kerala government.
@@ -208,11 +212,11 @@ export default function YipPage() {
                 <br />
                 This year&apos;s initiative provides an incredible opportunity
                 for{" "}
-                <strong className="font-bold text-mulearn-trusty-blue">
+                <strong className="font-bold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                   college and university students
                 </strong>{" "}
                 to showcase their innovation skills and create{" "}
-                <strong className="font-bold text-mulearn-trusty-blue">
+                <strong className="font-bold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                   real-world impact
                 </strong>
                 .
@@ -266,7 +270,7 @@ export default function YipPage() {
             </div>
           </div>
 
-          <div className="flex flex-row justify-between items-center flex-wrap bg-mulearn-trusty-blue p-8 m-4 w-full rounded-[25px]">
+          <div className="flex flex-row justify-between items-center flex-wrap bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple p-8 m-4 w-full rounded-[25px]">
             <div className="font-light text-[1.75rem] leading-[36px] max-w-[38rem] text-mulearn-whitish max-[768px]:text-[1.35rem] max-[768px]:leading-[24px]">
               Pitch your{" "}
               <strong className="font-bold">

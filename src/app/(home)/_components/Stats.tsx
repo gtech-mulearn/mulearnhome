@@ -61,7 +61,9 @@ export default function Stats() {
           <div className="flex-1">
             <h1 className="text-4xl sm:text-5xl lg:text-[3.2rem] text-center font-extrabold leading-normal min-w-0 sm:min-w-[400px]">
               The Impact of{" "}
-              <span className="text-mulearn-trusty-blue">μLearn</span>
+              <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                μLearn
+              </span>
             </h1>
           </div>
           <div className="flex-1">
@@ -131,7 +133,7 @@ function StatCard({
 }) {
   return (
     <div className="flex flex-col justify-center items-center p-4">
-      <p className="font-semibold text-mulearn-trusty-blue text-2xl sm:text-3xl lg:text-[2rem]">
+      <p className="font-semibold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent text-2xl sm:text-3xl lg:text-[2rem]">
         {isString ? (
           value
         ) : (

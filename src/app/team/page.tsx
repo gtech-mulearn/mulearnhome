@@ -61,7 +61,7 @@ export default function Team() {
         viewport={{ once: true }}
       >
         <div className="mb-24 w-full">
-          <h2 className="text-5xl font-semibold mb-2 text-mulearn-trusty-blue text-center">
+          <h2 className="text-5xl font-semibold mb-2 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent text-center">
             {team.type}
           </h2>
           {team.description && (
@@ -137,7 +137,7 @@ export default function Team() {
           >
             <h2 className="text-5xl md:text-[4.2rem] font-bold text-mulearn-blackish leading-tight">
               The{" "}
-              <span className="font-semibold text-mulearn-trusty-blue">
+              <span className="font-semibold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                 Gears
               </span>{" "}
               Behind The Machine.
@@ -179,7 +179,7 @@ export default function Team() {
             value={activeYear}
             onValueChange={(value) => setActiveYear(value as YearType)}
           >
-            <SelectTrigger className="w-[200px] border-mulearn-trusty-blue shadow-[0_4px_16px_rgba(60,130,246,0.18)] text-mulearn-trusty-blue">
+            <SelectTrigger className="w-[200px] border-mulearn-trusty-blue shadow-[0_4px_16px_rgba(60,130,246,0.18)] bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
               <SelectValue placeholder="Select year" />
             </SelectTrigger>
             <SelectContent>

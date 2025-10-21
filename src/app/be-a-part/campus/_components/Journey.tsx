@@ -15,14 +15,16 @@ export default function Journey() {
         >
           <h2 className="mb-6 text-center text-4xl font-bold text-mulearn-blackish lg:text-5xl">
             Your Chapter{" "}
-            <span className="text-mulearn-trusty-blue">Journey</span>
+            <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+              Journey
+            </span>
           </h2>
           <p className="mx-auto mb-16 max-w-2xl text-center text-lg text-mulearn-gray-600">
             Seven steps from interest to impact
           </p>
 
           <div className="hidden md:block relative">
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-mulearn-trusty-blue transform -translate-x-1/2" />
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple transform -translate-x-1/2" />
 
             {campusChapter.journey.map((step, index) => {
               const stepNumber = index + 1;
@@ -70,7 +72,7 @@ export default function Journey() {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
-                      className="w-12 h-12 bg-mulearn-trusty-blue rounded-full flex items-center justify-center shadow-lg"
+                      className="w-12 h-12 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple rounded-full flex items-center justify-center shadow-lg"
                     >
                       <span className="text-mulearn-whitish font-bold text-lg">
                         {stepNumber}
@@ -96,11 +98,11 @@ export default function Journey() {
                   className="relative pl-12"
                 >
                   {index < campusChapter.journey.length - 1 && (
-                    <div className="absolute left-5 top-12 bottom-0 w-0.5 bg-mulearn-trusty-blue transform -translate-x-1/2" />
+                    <div className="absolute left-5 top-12 bottom-0 w-0.5 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple transform -translate-x-1/2" />
                   )}
 
                   <div className="absolute left-0 top-0">
-                    <div className="w-10 h-10 bg-mulearn-trusty-blue rounded-full flex items-center justify-center shadow-md text-mulearn-whitish font-bold">
+                    <div className="w-10 h-10 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple rounded-full flex items-center justify-center shadow-md text-mulearn-whitish font-bold">
                       {stepNumber}
                     </div>
                   </div>

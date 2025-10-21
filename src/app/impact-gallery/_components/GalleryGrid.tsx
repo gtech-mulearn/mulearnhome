@@ -10,24 +10,28 @@ interface GalleryGridProps {
   onItemClick: (item: GalleryItem) => void;
 }
 
-export default function GalleryGrid({ activeFilter, onItemClick }: GalleryGridProps) {
-  const filteredItems = activeFilter === "all" 
-    ? galleryData 
-    : galleryData.filter(item => item.category === activeFilter);
+export default function GalleryGrid({
+  activeFilter,
+  onItemClick,
+}: GalleryGridProps) {
+  const filteredItems =
+    activeFilter === "all"
+      ? galleryData
+      : galleryData.filter((item) => item.category === activeFilter);
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1 }
+    visible: { opacity: 1, scale: 1 },
   };
 
   return (
@@ -55,7 +59,9 @@ export default function GalleryGrid({ activeFilter, onItemClick }: GalleryGridPr
 
       {filteredItems.length === 0 && (
         <div className="col-span-full text-center py-12">
-          <p className="text-mulearn-gray-600 text-lg font-sans">No items found for this category.</p>
+          <p className="text-mulearn-gray-600 text-lg ">
+            No items found for this category.
+          </p>
         </div>
       )}
     </motion.div>

@@ -8,7 +8,7 @@ const formatText = (text: string) =>
     .replace(/\*(.*?)\*/g, "<em>$1</em>")
     .replace(
       /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g,
-      '<a href="mailto:$1" class="font-medium text-mulearn-trusty-blue underline underline-offset-4 hover:text-mulearn-duke-purple">$1</a>'
+      '<a href="mailto:$1" class="font-medium bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent underline underline-offset-4 hover:text-mulearn-duke-purple">$1</a>'
     );
 
 const Paragraph = ({ text }: { text: string }) => (

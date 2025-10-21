@@ -20,7 +20,7 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         mulearn:
-          "bg-gradient-to-r from-[#6366f1] to-[#2E85FE] text-[#fefefe] hover:from-[#5856eb] hover:to-[#1d4ed8] shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300",
+          "bg-gradient-to-r from-[#6366f1] to-[#2E85FE] text-[#fefefe] hover:from-[#5856eb] hover:to-[#1d4ed8] shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-full cursor-pointer",
         "mulearn-outline":
           "border-2 border-[#2E85FE] text-[#2E85FE] hover:bg-gradient-to-r hover:from-[#6366f1] hover:to-[#2E85FE] hover:text-[#fefefe] transition-all duration-300",
         "mulearn-ghost":

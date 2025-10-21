@@ -31,7 +31,7 @@ export default function Programs() {
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             Enabler{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-mulearn-trusty-blue">
+              <span className="relative z-10 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                 Programs
               </span>
             </span>{" "}
@@ -81,7 +81,7 @@ export default function Programs() {
                     className="w-full"
                   >
                     <Button
-                      variant={"mulearn-blue"}
+                      variant={"mulearn"}
                       className="w-full flex items-center justify-center gap-3 text-mulearn-whitish rounded-xl
                       px-5 py-3 font-semibold text-sm shadow-sm
                       hover:shadow-md transition-all duration-300 cursor-pointer"

@@ -18,7 +18,7 @@ export default function Calendar() {
           variants={fadeInUp}
           className="text-center my-8"
         >
-          <h2 className="text-[2.5rem] sm:text-[3rem] md:text-[3.75rem] lg:text-[4.5rem] font-semibold text-mulearn-trusty-blue">
+          <h2 className="text-[2.5rem] sm:text-[3rem] md:text-[3.75rem] lg:text-[4.5rem] font-semibold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
             µLearn <span className="text-mulearn-blackish">Calendar</span>
           </h2>
           <p className="mt-2 text-base md:text-lg text-mulearn-gray-600 leading-relaxed">

@@ -13,7 +13,7 @@ const ClosedCareersCard = ({
     <div className="m-4 flex w-[350px] items-center justify-between rounded-lg p-4 text-center shadow-md">
       <div className="flex-1">
         {title && (
-          <p className="mb-2.5 text-center  text-2xl font-semibold text-mulearn-trusty-blue">
+          <p className="mb-2.5 text-center  text-2xl font-semibold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
             {title}
           </p>
         )}

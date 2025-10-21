@@ -20,7 +20,7 @@ export default function Benefits() {
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             <span className="relative inline-block">
-              <span className="relative z-10 text-mulearn-trusty-blue">
+              <span className="relative z-10 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                 Benefits
               </span>
             </span>{" "}
@@ -56,7 +56,7 @@ export default function Benefits() {
                 {benefit.items.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start">
                     <div className="w-9 h-9 rounded-lg flex items-center justify-center">
-                      <BiSolidRightArrow className="w-5 h-5 text-mulearn-trusty-blue" />
+                      <BiSolidRightArrow className="w-5 h-5 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent" />
                     </div>
                     <p className="text-base text-mulearn-gray-600 leading-relaxed">
                       {item.text}

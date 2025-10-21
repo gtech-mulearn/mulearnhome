@@ -30,23 +30,23 @@ const values = [
   {
     icon: FileText,
     title: "Transparency",
-    description: "Open reporting of our progress and impact"
+    description: "Open reporting of our progress and impact",
   },
   {
     icon: Users,
     title: "Community",
-    description: "Celebrating our growing learner community"
+    description: "Celebrating our growing learner community",
   },
   {
     icon: TrendingUp,
     title: "Growth",
-    description: "Documenting our journey of expansion"
+    description: "Documenting our journey of expansion",
   },
   {
     icon: Target,
     title: "Impact",
-    description: "Measuring our educational transformation"
-  }
+    description: "Measuring our educational transformation",
+  },
 ];
 
 export default function ReportHero() {
@@ -59,7 +59,7 @@ export default function ReportHero() {
       viewport={{ once: true, amount: 0.3 }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-mulearn-trusty-blue/5 to-mulearn-duke-purple/5" />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28">
         <div className="text-center mb-16">
           <motion.h1
@@ -70,9 +70,12 @@ export default function ReportHero() {
             viewport={{ once: true }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-mulearn-blackish mb-6 leading-tight"
           >
-            Annual <span className="text-mulearn-trusty-blue">Reports</span>
+            Annual{" "}
+            <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+              Reports
+            </span>
           </motion.h1>
-          
+
           <motion.p
             custom={2}
             variants={textVariant}
@@ -81,10 +84,11 @@ export default function ReportHero() {
             viewport={{ once: true }}
             className="text-lg md:text-xl text-mulearn-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed"
           >
-            Discover our journey of growth, impact, and community building through comprehensive annual reports. 
-            We believe in transparency and accountability to our community.
+            Discover our journey of growth, impact, and community building
+            through comprehensive annual reports. We believe in transparency and
+            accountability to our community.
           </motion.p>
-          
+
           <motion.p
             custom={3}
             variants={textVariant}
@@ -93,7 +97,8 @@ export default function ReportHero() {
             viewport={{ once: true }}
             className="text-base md:text-lg text-mulearn-gray-600 max-w-2xl mx-auto font-medium"
           >
-            µLearn is committed to open and transparent reporting of our progress, milestones, and community impact.
+            µLearn is committed to open and transparent reporting of our
+            progress, milestones, and community impact.
           </motion.p>
         </div>
 
@@ -115,7 +120,10 @@ export default function ReportHero() {
               viewport={{ once: true }}
               className="text-center group"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: '#2E85FE' }}>
+              <div
+                className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 group-hover:scale-110 transition-transform duration-300"
+                style={{ backgroundColor: "#2E85FE" }}
+              >
                 <value.icon className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-semibold text-mulearn-blackish mb-2">

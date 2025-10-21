@@ -21,7 +21,7 @@ export default function Onboarding() {
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             <span className="relative inline-block">
-              <span className="relative z-10 text-mulearn-trusty-blue">
+              <span className="relative z-10 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                 Onboarding
               </span>
             </span>{" "}
@@ -45,7 +45,7 @@ export default function Onboarding() {
                 <CardContent className="p-8">
                   <div className="grid gap-6 md:grid-cols-[auto_1fr] items-start">
                     <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
-                      <div className="text-7xl font-bold text-mulearn-trusty-blue/10 select-none">
+                      <div className="text-7xl font-bold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent/10 select-none">
                         {step.number}
                       </div>
                       <MuImage
@@ -64,7 +64,7 @@ export default function Onboarding() {
                           href={step.link}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-sm font-light text-mulearn-trusty-blue hover:underline inline-flex items-center gap-1"
+                          className="text-sm font-light bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent hover:underline inline-flex items-center gap-1"
                         >
                           {step.linkText}
                           <svg
@@ -78,7 +78,7 @@ export default function Onboarding() {
                               strokeLinejoin="round"
                               strokeWidth={2}
                               d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                              className="text-mulearn-trusty-blue"
+                              className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent"
                             />
                           </svg>
                         </Link>

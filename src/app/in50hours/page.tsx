@@ -23,7 +23,11 @@ export default function In50Hours() {
           className="flex-1 w-full text-center md:text-left px-2 sm:px-0"
         >
           <h1 className="text-[2.5rem] sm:text-[3rem] md:text-[3.75rem] lg:text-[4.5rem] font-semibold leading-tight break-words">
-            IN<span className="text-mulearn-trusty-blue">50</span>HOURS
+            IN
+            <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+              50
+            </span>
+            HOURS
           </h1>
           <p className=" text-mulearn-gray-600 text-sm sm:text-base font-normal -mt-2 sm:-mt-4 max-w-full sm:max-w-[30rem] mx-auto md:mx-0">
             Get ready to hack your way to success in just 50 hours at In50Hr!
@@ -51,7 +55,7 @@ export default function In50Hours() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-mulearn-trusty-blue text-mulearn-whitish mt-2 sm:mt-4 px-4 sm:px-6 py-2 rounded-lg font-semibold hover:bg-mulearn-duke-purple transition-colors duration-300 text-sm sm:text-base"
+                className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple text-mulearn-whitish mt-2 sm:mt-4 px-4 sm:px-6 py-2 rounded-lg font-semibold hover:bg-mulearn-duke-purple transition-colors duration-300 text-sm sm:text-base"
               >
                 Register Now
               </motion.button>
@@ -88,7 +92,7 @@ export default function In50Hours() {
             <h3 className="text-lg sm:text-[1.25rem] md:text-[1.5rem] font-semibold text-center sm:text-left mt-4 break-words">
               {feature.titleSpan === "GET" ? (
                 <>
-                  <span className="text-mulearn-trusty-blue">
+                  <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                     {feature.titleSpan}
                   </span>{" "}
                   FUNDED
@@ -96,7 +100,7 @@ export default function In50Hours() {
               ) : feature.titleSpan === "IT" ? (
                 <>
                   P
-                  <span className="text-mulearn-trusty-blue">
+                  <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                     {feature.titleSpan}
                   </span>
                   CH
@@ -104,7 +108,7 @@ export default function In50Hours() {
               ) : (
                 <>
                   PRO
-                  <span className="text-mulearn-trusty-blue">
+                  <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                     {feature.titleSpan}
                   </span>
                   TYPE
@@ -127,7 +131,11 @@ export default function In50Hours() {
           className="flex-1 w-full text-center md:text-left px-2"
         >
           <h2 className="text-[2rem] sm:text-[2.5rem] md:text-[3.25rem] font-bold break-words">
-            HOW <span className="text-mulearn-trusty-blue">TO</span> JOIN
+            HOW{" "}
+            <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+              TO
+            </span>{" "}
+            JOIN
           </h2>
           <p className="text-sm sm:text-base font-normal mb-4 max-w-full mx-auto md:mx-0">
             If you are already into level 5, you can participate in the event
@@ -177,7 +185,9 @@ export default function In50Hours() {
           >
             <h3 className="text-lg sm:text-[1.25rem] md:text-[1.5rem] font-semibold text-center sm:text-left mt-4 break-words">
               STEP{" "}
-              <span className="text-mulearn-trusty-blue">{step.stepSpan}</span>
+              <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                {step.stepSpan}
+              </span>
             </h3>
             <p className="text-sm sm:text-base font-normal text-center sm:text-left mt-2 mb-4 break-words">
               {step.description}

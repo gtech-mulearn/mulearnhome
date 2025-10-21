@@ -1,13 +1,13 @@
 "use client"
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import { CompanyPartner } from "@/data/data";
 import CompanyCard from "@/app/company-partners/_components/CompanyCard";
 import { cdnUrl } from "@/services/cdn";
 
 
-export default function CompanyPartnersPage() {
+export default function CompanyPartners() {
   const companies = CompanyPartner;
   const Connecting_teams= cdnUrl("/src/modules/Public/CompanyPartners/assets/Connecting teams.gif");
   return (
@@ -15,14 +15,16 @@ export default function CompanyPartnersPage() {
       <section className="px-4 sm:px-8 py-1 sm:py-1 lg:py-1">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-            <motion.div 
+            <motion.div
               className="flex-1 text-center lg:text-left"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold text-[var(--color-mulearn-blackish)] leading-tight mb-4">
-                <span className="text-[var(--color-mulearn-trusty-blue)]">µLearn Partnered</span>
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold text-color-mulearn-blackish leading-tight mb-4">
+                <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                  µLearn Partnered
+                </span>
                 <br />
                 Companies
               </h1>
@@ -33,14 +35,14 @@ export default function CompanyPartnersPage() {
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="flex-1 flex justify-center lg:justify-end"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[35rem] lg:h-[35rem]">
-                <Image
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-140 lg:h-140">
+                <MuImage
                   src={Connecting_teams}
                   alt="Connecting teams"
                   fill
@@ -53,17 +55,20 @@ export default function CompanyPartnersPage() {
         </div>
       </section>
 
-      <section className="px-4 sm:px-8 py-12 sm:py-16 bg-[var(--color-mulearn-whitish)]">
+      <section className="px-4 sm:px-8 py-12 sm:py-16 bg-mulearn-whitish">
         <div className="max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             className="mb-8 sm:mb-12 lg:mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-mulearn-blackish)] text-center lg:text-left mb-3 sm:mb-4">
-              Company <span className="text-[var(--color-mulearn-trusty-blue)]">Onboardings</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-mulearn-blackish)] text-center lg:text-left mb-3 sm:mb-4">
+              Company{" "}
+              <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                Onboardings
+              </span>
             </h2>
             <p className="text-sm sm:text-base lg:text-lg text-gray-700 text-center lg:text-left max-w-3xl">
               µLearn has partnered with multiple Companies to provide the

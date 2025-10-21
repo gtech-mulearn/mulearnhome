@@ -35,7 +35,7 @@ export default function CommmunityPartners() {
             className="text-center md:text-left md:w-1/3 mx-4 md:mx-0"
           >
             <h1 className="text-5xl font-semibold text-mulearn-blackish md:text-7xl inline-block xl:inline-block lg:inline-block md:hidden md:w-[50%] md:leading-tight">
-              <span className="font-semibold text-mulearn-trusty-blue">
+              <span className="font-semibold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
                 µLearn Community
               </span>{" "}
               Partners
@@ -62,7 +62,7 @@ export default function CommmunityPartners() {
               width={0}
               height={0}
               alt="Coding Workshop Animation"
-              className="block mt-6 md:mt-0 w-[90vw] max-w-[36rem] md:w-full md:max-w-[38rem] h-auto md:h-[26rem] object-cover rounded-2xl "
+              className="block mt-6 md:mt-0 w-[90vw] max-w-xl md:w-full md:max-w-152 h-auto md:h-104 object-cover rounded-2xl "
               style={{
                 objectFit: "cover",
                 width: "100%",
@@ -75,7 +75,7 @@ export default function CommmunityPartners() {
           </motion.div>
         </div>
 
-        <div className="max-w-7xl xl:w-7xl sm:mt-[6rem] md:mt-[8rem] lg:mt-[8rem] xl:mt-[0rem] pb-[5rem]">
+        <div className="max-w-7xl xl:w-7xl sm:mt-24 md:mt-32 lg:mt-32 xl:mt-0 pb-20">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -84,11 +84,13 @@ export default function CommmunityPartners() {
             className="lg:w-2/3 flex flex-col text-center md:text-left mx-4 md:mx-0 pt-20 lg:pt-32"
           >
             <h4 className="text-3xl md:text-5xl lg:ml-10 xl:ml-0 font-semibold">
-              <span className="text-mulearn-trusty-blue">Community</span>{" "}
+              <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                Community
+              </span>{" "}
               Partners
             </h4>
 
-            <p className="mt-6 md:mt-8 lg:ml-10 xl:ml-0 text-lg md:text-2xl md:mx-0 xl:w-[44rem] text-mulearn-gray-600">
+            <p className="mt-6 md:mt-8 lg:ml-10 xl:ml-0 text-lg md:text-2xl md:mx-0 xl:w-176 text-mulearn-gray-600">
               µLearn has partnered with multiple communities to provide the
               peers the best resources and events to learn and up-skill
               themselves.
@@ -100,7 +102,7 @@ export default function CommmunityPartners() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-3 mt-[3rem] w-[100%]"
+            className="grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-3 mt-12 w-full"
           >
             {(communityPartners as Partner[]).map((partner) => (
               <CommunityCard

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import { cdnUrl } from "@/services/cdn";
 
 interface CompanyPartner {
@@ -34,7 +34,7 @@ export default function CompanyCard({ company, index }: CompanyCardProps) {
     >
       <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
         <div className="relative w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0 rounded-md overflow-hidden bg-gray-50">
-          <Image
+          <MuImage
             src={cdnUrl(company.logo)}
             alt={`${company.name} logo`}
             fill
