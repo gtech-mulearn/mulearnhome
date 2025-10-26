@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
+import ConditionalLayout from "../components/ConditionalLayout";
 
 export const metadata: Metadata = {
   title: "µLearn",
@@ -34,6 +35,13 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const manjari = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-malayalam",
+  display: "swap",
+});
+
 const circe = localFont({
   src: "../components/fonts/CirceRounded-Bold.otf",
   variable: "--font-display",
@@ -57,16 +65,18 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${plusJakarta.variable} ${circe.variable} ${retro.variable}`}
+      className={`${plusJakarta.variable} ${circe.variable} ${retro.variable} ${manjari.variable}`}
     >
       <head>
         <link rel="preconnect" href={cdnurl} crossOrigin="anonymous" />
         <link rel="dns-prefetch" href={cdnurl} />
+        <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
       </head>
       <body className="font-sans antialiased">
-        <Navbar />
-        <Suspense fallback={<MuLoader />}>{children}</Suspense>
-        <Footer />
+        <ConditionalLayout>
+          <Suspense fallback={<MuLoader />}>{children}</Suspense>
+        </ConditionalLayout>
         <Toaster />
       </body>
     </html>

@@ -63,11 +63,50 @@ h5{
   -webkit-tap-highlight-color: transparent;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
 
 @layer utilities {
+  @keyframes subtle-wave {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+  }
+  
+  @keyframes leaf-float {
+    0%, 100% { 
+      transform: translateY(0px) translateX(0px) rotate(var(--leaf-rotation, 0deg)); 
+    }
+    25% { 
+      transform: translateY(-8px) translateX(3px) rotate(calc(var(--leaf-rotation, 0deg) + 2deg)); 
+    }
+    50% { 
+      transform: translateY(-5px) translateX(-2px) rotate(calc(var(--leaf-rotation, 0deg) - 1deg)); 
+    }
+    75% { 
+      transform: translateY(-12px) translateX(1px) rotate(calc(var(--leaf-rotation, 0deg) + 1deg)); 
+    }
+  }
+
+  @keyframes mango-sway {
+    0%, 100% { 
+      transform: rotate(0deg) translateY(0px); 
+    }
+    25% { 
+      transform: rotate(2deg) translateY(-3px); 
+    }
+    50% { 
+      transform: rotate(-1deg) translateY(-5px); 
+    }
+    75% { 
+      transform: rotate(1deg) translateY(-2px); 
+    }
+  }
+  
   @keyframes floatY {
 
     0%,

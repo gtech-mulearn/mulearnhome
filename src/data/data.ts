@@ -6789,21 +6789,23 @@ export const annualReports: AnnualReport[] = [
 export const artOfTeachingMentors = [
   {
     name: "Dr T M George",
-    designation: "Former Principal at Mar Baselios College of Engineering and Technology",
+    designation:
+      "Former Principal at Mar Baselios College of Engineering and Technology",
     image: "/public/assets/dpm.webp",
-    linkedIn: "https://www.linkedin.com/in/dr-t-m-george-87b86028/?originalSubdomain=in"
+    linkedIn:
+      "https://www.linkedin.com/in/dr-t-m-george-87b86028/?originalSubdomain=in",
   },
   {
     name: "Ann Andrews",
     designation: "Product | Technology & Data Strategy | NYU & Columbia Fellow",
     image: "/public/assets/dpm.webp",
-    linkedIn: "https://www.linkedin.com/in/annandrews/"
+    linkedIn: "https://www.linkedin.com/in/annandrews/",
   },
   {
-    name:"Rajeev J Sebastian",
-    designation:"CEO Alokin Software Private Limited",
-    image:"/public/assets/dpm.webp",
-    linkedIn:"https://www.linkedin.com/in/rajeevjs",
+    name: "Rajeev J Sebastian",
+    designation: "CEO Alokin Software Private Limited",
+    image: "/public/assets/dpm.webp",
+    linkedIn: "https://www.linkedin.com/in/rajeevjs",
   },
 ];
 
@@ -6813,112 +6815,263 @@ export const artOfTeachingUrls = {
   archives: [
     "https://www.youtube.com/embed/Wmo0StqW9Kc?si=lM3hb1r6OrGUHX7C",
     "https://www.youtube.com/embed/TEylubYDzhQ?si=zm5EA_Or7YOcI73E",
-    "https://www.youtube.com/embed/jRcseEVk2sk?si=eSXHqiAWmw_vOwcv"
+    "https://www.youtube.com/embed/jRcseEVk2sk?si=eSXHqiAWmw_vOwcv",
   ],
   registerNow: "https://airtable.com/appopz4GXqkTszuJ7/pagmodllXiRWsjhXi/form",
 };
 export const CompanyFeatures = [
-    {
+  {
     title: "Access to Talent",
-    description: "Tap into a vibrant pool of learners who prove their skills through real projects, not empty promises.",
+    description:
+      "Tap into a vibrant pool of learners who prove their skills through real projects, not empty promises.",
     titleSize: "text-xl",
   },
   {
     title: "Skill Validation",
-    description: "See what candidates can actually do—proof-of-work speaks louder than CV buzzwords.",
+    description:
+      "See what candidates can actually do—proof-of-work speaks louder than CV buzzwords.",
     titleSize: "text-xl",
   },
   {
     title: "Employer Branding",
-    description: "Show the world you're a future-ready company that invests in innovation and people.",
+    description:
+      "Show the world you're a future-ready company that invests in innovation and people.",
     titleSize: "text-xl",
   },
   {
     title: "Community Impact",
-    description: "Bridge the gap between education and employment by fueling the next generation of talent.",
+    description:
+      "Bridge the gap between education and employment by fueling the next generation of talent.",
     titleSize: "text-xl",
   },
-]
+];
 export const companyDo = [
-   {
+  {
     title: "Post Internships & Job Roles",
-    description: "Connect with skilled learners ready to contribute from day one.",
+    description:
+      "Connect with skilled learners ready to contribute from day one.",
   },
   {
     title: "Collaborate on Programs & Events",
-    description: "Co-create hackathons, workshops, and learning tracks that inspire talent.",
+    description:
+      "Co-create hackathons, workshops, and learning tracks that inspire talent.",
   },
   {
     title: "Track Engagement & Impact",
-    description: "Measure applications, participation, and outcomes with clear analytics.",
+    description:
+      "Measure applications, participation, and outcomes with clear analytics.",
   },
   {
     title: "Launch Proof-of-Work Challenges",
-    description: "Connect with skilled learners ready to contribute from day one.",
-  }, 
-]
+    description:
+      "Connect with skilled learners ready to contribute from day one.",
+  },
+];
 
 export const companySteps = [
   {
-		number: "01",
-		title: "Sign Up",
-		description: "Fill out the company registration form.",
-		align: "left",
-	},
-	{
-		number: "02",
-		title: "Verification",
-		description: "Our team reviews and approves your profile.",
-		align: "right",
-	},
-	{
-		number: "03",
-		title: "Create Profile",
-		description: "Add your company details, logo, and team.",
-		align: "left",
-	},
-	{
-		number: "04",
-		title: "Post Opportunities",
-		description: "Share internships, gigs, or Proof-of-Work challenges.",
-		align: "right",
-	},
-	{
-		number: "05",
-		title: "Explore Talent",
-		description: "Discover learners by skills, badges, and engagement scores.",
-		align: "left",
-	},
-	{
-		number: "06",
-		title: "Track Impact",
-		description: "Monitor applications, participation, and analytics in real time.",
-		align: "right",
-	},
-]
+    number: "01",
+    title: "Sign Up",
+    description: "Fill out the company registration form.",
+    align: "left",
+  },
+  {
+    number: "02",
+    title: "Verification",
+    description: "Our team reviews and approves your profile.",
+    align: "right",
+  },
+  {
+    number: "03",
+    title: "Create Profile",
+    description: "Add your company details, logo, and team.",
+    align: "left",
+  },
+  {
+    number: "04",
+    title: "Post Opportunities",
+    description: "Share internships, gigs, or Proof-of-Work challenges.",
+    align: "right",
+  },
+  {
+    number: "05",
+    title: "Explore Talent",
+    description: "Discover learners by skills, badges, and engagement scores.",
+    align: "left",
+  },
+  {
+    number: "06",
+    title: "Track Impact",
+    description:
+      "Monitor applications, participation, and analytics in real time.",
+    align: "right",
+  },
+];
 export const companyImages = {
   hero: "/assets/company/stud.svg",
   note: "/assets/company/note.svg",
   handshake: "/assets/company/handshake.svg",
   studLap: "/assets/company/studLap.svg",
-} 
+};
 export const contactPage = {
   hero: {
     badge: "Connect With Us",
     title: {
       line1: "Let's Build",
-      line2: "Together"
+      line2: "Together",
     },
-    description: "Join our growing community of learners, innovators, and partners. Whether you're starting your journey or looking to collaborate, we're here to support your growth every step of the way.",
+    description:
+      "Join our growing community of learners, innovators, and partners. Whether you're starting your journey or looking to collaborate, we're here to support your growth every step of the way.",
     stats: [
       { value: "60K+", label: "Learners" },
       { value: "400+", label: "Partners" },
-      { value: "48h", label: "Response" }
-    ]
+      { value: "48h", label: "Response" },
+    ],
   },
   getInTouch: {
     title: "Get in Touch",
-    description: "Have questions or feedback? We'd love to hear from you. Reach out and we'll get back to you as soon as possible."
-  }
+    description:
+      "Have questions or feedback? We'd love to hear from you. Reach out and we'll get back to you as soon as possible.",
+  },
 };
 
+export const saltMangoTree = {
+  title: "Salt Mango Tree",
+  description:
+    "English! English! English! I avoid I don't like it, but English likes me, I can't avoid! Well since avoiding English isn't an option, let's try to work towards improving our knowledge of English, by practicing, together.",
+  episodes: [
+    {
+      title: "Episode 1",
+      description: "Episode 1 description",
+    },
+  ],
+  upcomingEpisodes: [
+    {
+      id: 1,
+      title: "The Future of Malayalam Cinema",
+      guest: "Mammootty",
+      guestTitle: "Actor & Producer",
+      description:
+        "Exploring the evolution of Malayalam cinema and its global impact.",
+      image:
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop&crop=face",
+      tags: ["Culture", "Entertainment"],
+      airDate: "2024-02-15",
+      duration: "45 min",
+      isUpcoming: true,
+    },
+    {
+      id: 2,
+      title: "Tech Innovation in Kerala",
+      guest: "Dr. Rajeev Ravi",
+      guestTitle: "CTO, Technopark",
+      description: "How Kerala is becoming India's next Silicon Valley.",
+      image:
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&fit=crop",
+      tags: ["Tech from Kerala", "Innovation"],
+      airDate: "2024-02-22",
+      duration: "38 min",
+      isUpcoming: true,
+    },
+    {
+      id: 3,
+      title: "Sustainable Tourism in Kerala",
+      guest: "Priya Nair",
+      guestTitle: "Eco-Tourism Expert",
+      description: "Balancing tourism growth with environmental conservation.",
+      image:
+        "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=400&fit=crop",
+      tags: ["Culture", "Environment"],
+      airDate: "2024-03-01",
+      duration: "42 min",
+      isUpcoming: true,
+    },
+  ],
+
+  previousEpisodes: [
+    {
+      id: 4,
+      title: "The Art of Kathakali in the Digital Age",
+      guest: "Ananya Menon",
+      guestTitle: "Cultural Researcher",
+      description: "Exploring ancient traditions through modern lenses.",
+      image:
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop&crop=face",
+      tags: ["Culture"],
+      airDate: "2024-01-15",
+      duration: "35 min",
+      audioUrl: "#",
+      isUpcoming: false,
+    },
+    {
+      id: 5,
+      title: "Kerala's Startup Ecosystem",
+      guest: "Rohan Pillai",
+      guestTitle: "Startup Founder",
+      description: "The rise of a new tech hub in Southern India.",
+      image:
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&fit=crop",
+      tags: ["Tech from Kerala", "Career Talks"],
+      airDate: "2024-01-08",
+      duration: "40 min",
+      audioUrl: "#",
+      isUpcoming: false,
+    },
+    {
+      id: 6,
+      title: "A Culinary Journey Through Kerala",
+      guest: "Chef Suresh Kumar",
+      guestTitle: "Master Chef",
+      description: "From coastal delicacies to mountain spices.",
+      image:
+        "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=400&fit=crop",
+      tags: ["Culture", "Life Stories"],
+      airDate: "2024-01-01",
+      duration: "33 min",
+      audioUrl: "#",
+      isUpcoming: false,
+    },
+    {
+      id: 7,
+      title: "Building a Global Career from Kerala",
+      guest: "Fatima Ahmed",
+      guestTitle: "Tech Executive",
+      description: "How to leverage local talent for international success.",
+      image:
+        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+      tags: ["Career Talks"],
+      airDate: "2023-12-25",
+      duration: "37 min",
+      audioUrl: "#",
+      isUpcoming: false,
+    },
+    {
+      id: 8,
+      title: "Music of the Backwaters",
+      guest: "Karthik Nair",
+      guestTitle: "Musician & Composer",
+      description: "The melodies that define a region's soul.",
+      image:
+        "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=400&fit=crop",
+      tags: ["Culture", "Life Stories"],
+      airDate: "2023-12-18",
+      duration: "29 min",
+      audioUrl: "#",
+      isUpcoming: false,
+    },
+    {
+      id: 9,
+      title: "Innovating with Tradition",
+      guest: "Priya Varma",
+      guestTitle: "Artisan & Entrepreneur",
+      description: "How local artisans are embracing new technologies.",
+      image:
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop",
+      tags: ["Tech from Kerala", "Culture"],
+      airDate: "2023-12-11",
+      duration: "31 min",
+      audioUrl: "#",
+      isUpcoming: false,
+    },
+  ],
+};
