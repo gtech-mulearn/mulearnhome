@@ -56,17 +56,31 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Icons Section */}
+            {/* Fixed Icons Section */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative grid grid-cols-2 gap-8 p-8">
-                <div className="w-32 h-32 bg-gradient-to-br from-mulearn-trusty-blue/20 to-mulearn-duke-purple/20 rounded-2xl flex items-center justify-center">
-                  <MessageCircle className="w-12 h-12 text-mulearn-trusty-blue" />
+              <div className="relative w-full max-w-md">
+                <div className="hidden lg:grid lg:grid-cols-2 gap-8 p-8">
+                  <div className="w-32 h-32 bg-gradient-to-br from-mulearn-trusty-blue/20 to-mulearn-duke-purple/20 rounded-2xl flex items-center justify-center">
+                    <MessageCircle className="w-12 h-12 text-mulearn-trusty-blue" />
+                  </div>
+                  <div className="w-32 h-32 bg-gradient-to-br from-mulearn-duke-purple/20 to-mulearn-trusty-blue/20 rounded-2xl flex items-center justify-center mt-16">
+                    <Users className="w-12 h-12 text-mulearn-duke-purple" />
+                  </div>
+                  <div className="w-32 h-32 bg-gradient-to-br from-mulearn-trusty-blue/20 to-mulearn-duke-purple/20 rounded-2xl flex items-center justify-center -translate-y-8">
+                    <Building className="w-12 h-12 text-mulearn-trusty-blue" />
+                  </div>
                 </div>
-                <div className="w-32 h-32 bg-gradient-to-br from-mulearn-duke-purple/20 to-mulearn-trusty-blue/20 rounded-2xl flex items-center justify-center mt-16">
-                  <Users className="w-12 h-12 text-mulearn-duke-purple" />
-                </div>
-                <div className="w-32 h-32 bg-gradient-to-br from-mulearn-trusty-blue/20 to-mulearn-duke-purple/20 rounded-2xl flex items-center justify-center -translate-y-8">
-                  <Building className="w-12 h-12 text-mulearn-trusty-blue" />
+
+                <div className="lg:hidden flex justify-center items-center gap-6 py-8">
+                  <div className="w-24 h-24 bg-gradient-to-br from-mulearn-trusty-blue/20 to-mulearn-duke-purple/20 rounded-2xl flex items-center justify-center">
+                    <MessageCircle className="w-10 h-10 text-mulearn-trusty-blue" />
+                  </div>
+                  <div className="w-24 h-24 bg-gradient-to-br from-mulearn-duke-purple/20 to-mulearn-trusty-blue/20 rounded-2xl flex items-center justify-center">
+                    <Users className="w-10 h-10 text-mulearn-duke-purple" />
+                  </div>
+                  <div className="w-24 h-24 bg-gradient-to-br from-mulearn-trusty-blue/20 to-mulearn-duke-purple/20 rounded-2xl flex items-center justify-center">
+                    <Building className="w-10 h-10 text-mulearn-trusty-blue" />
+                  </div>
                 </div>
               </div>
             </div>
