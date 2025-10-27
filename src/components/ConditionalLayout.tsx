@@ -11,8 +11,9 @@ interface ConditionalLayoutProps {
 export default function ConditionalLayout({ children }: ConditionalLayoutProps) {
   const pathname = usePathname();
   
-  // Hide navbar and footer for radio routes
-  const isRadioRoute = pathname.startsWith('/radio');
+  // Hide navbar and footer for specific  routes
+  // const isRadioRoute = pathname.startsWith('/radio');
+  const isRadioRoute = false;
   
   return (
     <>

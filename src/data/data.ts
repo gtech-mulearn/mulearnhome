@@ -7073,5 +7073,19 @@ export const saltMangoTree = {
       audioUrl: "#",
       isUpcoming: false,
     },
+    {
+      id: 10,
+      title: "Innovating with Tradition",
+      guest: "Priya Varma",
+      guestTitle: "Artisan & Entrepreneur",
+      description: "How local artisans are embracing new technologies.",
+      image:
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop",
+      tags: ["Tech from Kerala", "Culture"],
+      airDate: "2023-12-11",
+      duration: "31 min",
+      audioUrl: "#",
+      isUpcoming: false,
+    },
   ],
 };
