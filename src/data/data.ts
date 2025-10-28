@@ -7071,7 +7071,7 @@ export const openMicData = {
     }
   ]
 };
-} 
+ 
 export const contactPage = {
   hero: {
     badge: "Connect With Us",
@@ -7096,14 +7096,20 @@ export const contactPage = {
 
 export const saltMangoTree = {
   title: "Salt Mango Tree",
-  description:
-    "English! English! English! I avoid I don't like it, but English likes me, I can't avoid! Well since avoiding English isn't an option, let's try to work towards improving our knowledge of English, by practicing, together.",
-  episodes: [
-    {
-      title: "Episode 1",
-      description: "Episode 1 description",
-    },
+  tags: [
+    "All",
+    "Culture",
+    "Career Talks",
+    "Tech from Kerala",
+    "Life Stories",
+    "Innovation",
+    "Entertainment",
+    "Environment",
   ],
+  latestAudioUrl: "https://www.youtube.com/watch?v=ehdSEL_s050",
+  tagLine: "From local tales to modern dreams, Salt Mango Tree connects hearts through the shared rhythm of Malayalam.",
+  description:
+    "A Malayalam storytelling space by µLearn — celebrating our roots, voices, and ideas through the warmth of our language and the pride of our land.",
   upcomingEpisodes: [
     {
       id: 1,
@@ -7159,7 +7165,7 @@ export const saltMangoTree = {
       tags: ["Culture"],
       airDate: "2024-01-15",
       duration: "35 min",
-      audioUrl: "#",
+      audioUrl: "https://www.youtube.com/watch?v=ehdSEL_s050",
       isUpcoming: false,
     },
     {
@@ -7173,7 +7179,7 @@ export const saltMangoTree = {
       tags: ["Tech from Kerala", "Career Talks"],
       airDate: "2024-01-08",
       duration: "40 min",
-      audioUrl: "#",
+      audioUrl: "",
       isUpcoming: false,
     },
     {
@@ -7187,7 +7193,7 @@ export const saltMangoTree = {
       tags: ["Culture", "Life Stories"],
       airDate: "2024-01-01",
       duration: "33 min",
-      audioUrl: "#",
+      audioUrl: "",
       isUpcoming: false,
     },
     {
@@ -7201,7 +7207,7 @@ export const saltMangoTree = {
       tags: ["Career Talks"],
       airDate: "2023-12-25",
       duration: "37 min",
-      audioUrl: "#",
+      audioUrl: "",
       isUpcoming: false,
     },
     {
@@ -7215,7 +7221,7 @@ export const saltMangoTree = {
       tags: ["Culture", "Life Stories"],
       airDate: "2023-12-18",
       duration: "29 min",
-      audioUrl: "#",
+      audioUrl: "",
       isUpcoming: false,
     },
     {
@@ -7229,7 +7235,7 @@ export const saltMangoTree = {
       tags: ["Tech from Kerala", "Culture"],
       airDate: "2023-12-11",
       duration: "31 min",
-      audioUrl: "#",
+      audioUrl: "",
       isUpcoming: false,
     },
     {
@@ -7243,8 +7249,12 @@ export const saltMangoTree = {
       tags: ["Tech from Kerala", "Culture"],
       airDate: "2023-12-11",
       duration: "31 min",
-      audioUrl: "#",
+      audioUrl: "",
       isUpcoming: false,
+    },
+  ],
+};
+
 export const kkem = {
   pastEventCardData: [
     {

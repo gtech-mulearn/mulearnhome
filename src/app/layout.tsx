@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import React, { Suspense } from "react";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Manjari } from "next/font/google";
 import localFont from "next/font/local";
 import MuLoader from "@components/Loader";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
-import ConditionalLayout from "../components/ConditionalLayout";
 
 export const metadata: Metadata = {
   title: "µLearn",
@@ -35,7 +34,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const manjari = Plus_Jakarta_Sans({
+const manjari = Manjari({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-malayalam",
@@ -70,13 +69,16 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href={cdnurl} crossOrigin="anonymous" />
         <link rel="dns-prefetch" href={cdnurl} />
-        <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+        
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+          rel="stylesheet"
+        />
       </head>
       <body className="font-sans antialiased">
-        <ConditionalLayout>
-          <Suspense fallback={<MuLoader />}>{children}</Suspense>
-        </ConditionalLayout>
+        <Navbar />
+        <Suspense fallback={<MuLoader />}>{children}</Suspense>
+        <Footer />
         <Toaster />
       </body>
     </html>
