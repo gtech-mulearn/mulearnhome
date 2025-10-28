@@ -1,14 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, Variants, easeOut } from "framer-motion";
 import { cdnUrl } from "@services/cdn";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
-
-interface HeroProps {
-  refreshToken?: string | null;
-  redirect: (path: string) => void;
-}
+import { useRedirectToApp } from "@/lib/utils";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -26,7 +23,13 @@ const textVariant: Variants = {
 
 const illustration = cdnUrl("src/modules/Public/Home/assets/illustration.webp");
 
-export default function Hero({ refreshToken, redirect }: HeroProps) {
+export default function Hero() {
+  const redirect = useRedirectToApp();
+  const [refreshToken, setRefreshToken] = useState<string | null>(null);
+
+  useEffect(() => {
+    setRefreshToken(localStorage.getItem("refreshToken"));
+  }, []);
   return (
     <motion.header
       id="#home"

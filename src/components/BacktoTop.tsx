@@ -26,10 +26,10 @@ export default function BackToTop() {
   if (!showButton) return null;
   return (
     <Link
-      className="p-2.5 flex justify-center bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple rounded-[140px] fixed bottom-3 right-6 md:bottom-10 md:right-10  cursor-pointer"
+      className="p-2.5 flex justify-center bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple rounded-[140px] fixed bottom-3 right-6 md:bottom-20 md:right-10  cursor-pointer"
       href="#home"
     >
-      <MoveUp className="w-10 h-9 text-mulearn-whitish" />
+      <MoveUp className="w-6 h-6 md:w-8 md:h-8 text-mulearn-whitish" />
     </Link>
   );
 }

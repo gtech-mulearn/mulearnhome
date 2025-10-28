@@ -37,7 +37,10 @@ export const navItems = [
         { label: "MANIFESTO", href: "/manifesto" },
         { label: "TEAM", href: "/team" },
         { label: "ENABLERS", href: "/enablers" },
-        { label: "ANNUAL REPORTS", href: "/report" },
+        {
+          label: "IMPACT GALLERY",
+          href: "/impact-gallery",
+        },
         // { label: "ANNOUNCEMENTS", href: "/events/announcements" },
         { label: "EVENTS", href: "/events" },
       ],
@@ -58,9 +61,10 @@ export const navItems = [
           href: "https://online.fliphtml5.com/slydm/yljq/",
         },
         { label: "GLOBAL CALENDAR", href: "/events/calendar" },
+        { label: "ANNUAL REPORTS", href: "/report" },
         {
-          label: "IMPACT GALLERY",
-          href: "/impact-gallery",
+          label: "CONTACT US",
+          href: "/contact",
         },
       ],
     },
@@ -1113,13 +1117,6 @@ export const events: {
           "Already too exhausted by your weekly chores? Insert Open Mic 🎤 into the equation and your week becomes much more fun! The event aims to provide members an open stage to exhibit their skills and talents to the community.",
         link: "/events/openmic",
         date: "Every Thursday",
-      },
-      {
-        title: "µLearn Mentor Connect",
-        description:
-          "GTech μLearn presents Mentor Connect 👨🏽‍🏫, an original initiative as part of Weekly Twitch. This initiative will give members an opportunity to interact, learn, and explore their interests with mentors from the Industry.",
-        link: "/events/mentorconnect",
-        date: "Every Friday",
       },
       {
         title: "Salt Mango Tree",
@@ -6341,59 +6338,59 @@ export const campusChapter = {
 export const companies = [
   {
     alt: "CAFIT",
-    src: "/assets/careers/companies/cafit.webp",
+    src: "/public/assets/careers/companies/cafit.webp",
   },
   {
     alt: "Carestack",
-    src: "/assets/careers/companies/carestack.webp",
+    src: "/public/assets/careers/companies/carestack.webp",
   },
   {
     alt: "cdf",
-    src: "/assets/careers/companies/cdf.webp",
+    src: "/public/assets/careers/companies/cdf.webp",
   },
   {
     alt: "Ecesis",
-    src: "/assets/careers/companies/ecesis.webp",
+    src: "/public/assets/careers/companies/ecesis.webp",
   },
   {
     alt: "Experion",
-    src: "/assets/careers/companies/experion.webp",
+    src: "/public/assets/careers/companies/experion.webp",
   },
   {
     alt: "EY",
-    src: "/assets/careers/companies/ey.webp",
+    src: "/public/assets/careers/companies/ey.webp",
   },
   {
     alt: "Nucore",
-    src: "/assets/careers/companies/nucore.webp",
+    src: "/public/assets/careers/companies/nucore.webp",
   },
   {
     alt: "Softnotion",
-    src: "/assets/careers/companies/softnotions.webp",
+    src: "/public/assets/careers/companies/softnotions.webp",
   },
   {
     alt: "SunTec",
-    src: "/assets/careers/companies/suntec.webp",
+    src: "/public/assets/careers/companies/suntec.webp",
   },
   {
     alt: "Tata Elexis",
-    src: "/assets/careers/companies/tata.webp",
+    src: "/public/assets/careers/companies/tata.webp",
   },
   {
     alt: "Techfunic",
-    src: "/assets/careers/companies/techfunic.webp",
+    src: "/public/assets/careers/companies/techfunic.webp",
   },
   {
     alt: "Thinkpalm",
-    src: "/assets/careers/companies/thinkpalm.webp",
+    src: "/public/assets/careers/companies/thinkpalm.webp",
   },
   {
     alt: "Undaku",
-    src: "/assets/careers/companies/undaku.webp",
+    src: "/public/assets/careers/companies/undaku.webp",
   },
   {
     alt: "YIP",
-    src: "/assets/careers/companies/yip.webp",
+    src: "/public/assets/careers/companies/yip.webp",
   },
 ];
 
@@ -6913,6 +6910,168 @@ export const companyImages = {
   handshake: "/assets/company/handshake.svg",
   studLap: "/assets/company/studLap.svg",
 };
+
+
+// Learners Page data
+export interface OnboardingStep { 
+  step: number;
+  title: string;
+  description: string;
+  iconUrl: string; 
+}
+
+export interface LearnerRoleTag { 
+  label: string;
+  id: string;
+}
+
+export interface TopLearner { 
+  name: string;
+  kp: number; 
+  imageUrl: string;
+  designation?: string;
+}
+
+export interface Testimonial {  
+  name: string;
+  designation: string; 
+  quote: string;
+  imageUrl: string;
+}
+
+export const learnerIdentityTags: LearnerRoleTag[] = [
+  { label: "The Ambitious Student", id: "ambitious" },
+  { label: "The Career Launcher", id: "launcher" },
+  { label: "The Skill Upgrader", id: "upgrader" },
+  { label: "The Career Pivoter", id: "pivoter" },
+  { label: "The Aspiring Entrepreneur", id: "entrepreneur" },
+  { label: "The Passionate Hobbyist", id: "hobbyist" },
+];
+
+export const onboardingSteps: OnboardingStep[] = [
+  {
+    step: 1,
+    title: "Create μLearn Profile",
+    description: "Enablers should create a profile via app.mulearn.org, and they should ensure to register as a faculty member by choosing the option 'I'm teaching in an Institute. Once you get a profile, go to 'Connect Discord' and join our Discord server.",
+    iconUrl: "/assets/learners/icons/mu-icon.svg", 
+  },
+  {
+    step: 2,
+    title: "Connect Discord",
+    description: "Once you join the server, our bot Aaronchetan will send you a DM asking you to connect your u-ID, which is provided in the learn profile. Once it's connected, you can start your onboarding process.",
+    iconUrl: "/assets/learners/icons/discord-icon.svg", 
+  },
+  {
+    step: 3,
+    title: "Start Leveling Up",
+    description: "Now you will have access to the #lvl-info channel, and as you do the tasks, you will progress through the levels. Once you reach level 4, you will have the option to edit Interest Groups on your learn profile page.",
+    iconUrl: "/assets/learners/icons/bulb-icon.svg", 
+  },
+];
+
+export const topLearnersData: TopLearner[] = [
+  {
+    name: "Greg George",
+    kp: 37500,
+    imageUrl: "/assets/learners/images/greg.png",
+  },
+  {
+    name: "Erica Jackson",
+    kp: 24500,
+    imageUrl: "/assets/learners/images/erica.png",
+  },
+  {
+    name: "Vishnu Das",
+    kp: 20300,
+    imageUrl: "/assets/learners/images/vishnu.png",
+  },
+  { name: "John", kp: 20000, imageUrl: "/assets/learners/images/generic1.jpg" },
+  { name: "Jane", kp: 19900, imageUrl: "/assets/learners/images/generic2.jpg" },
+  { name: "Alice", kp: 19800, imageUrl: "/assets/learners/images/generic3.jpg" },
+  { name: "Doe", kp: 19700, imageUrl: "/assets/learners/images/generic4.jpg" },
+  { name: "Smith", kp: 19600, imageUrl: "/assets/learners/images/generic5.jpg" },
+  { name: "Lenita", kp: 19500, imageUrl: "/assets/learners/images/generic6.jpg" },
+  { name: "Grace", kp: 19400, imageUrl: "/assets/learners/images/generic7.jpg" },
+  { name: "Rodrigues", kp: 19300, imageUrl: "/assets/learners/images/generic8.jpg" },
+];
+
+
+export const testimonialsData: Testimonial[] = [
+  {
+    name: "Soorya",
+    designation: "SWE",
+    quote: "In a world that never stops changing, standing still isn't an option. Learning is how you keep up and get ahead. It's the key that unlocks new hobbies, better careers, and deeper connections.",
+    imageUrl: "/assets/learners/testimonials/soorya.jpg",
+  },
+  {
+    name: "Alex",
+    designation: "Product Designer",
+    quote: "μLearn provided the real-world projects and mentorship I needed to switch careers. The focus on Karma Points kept me motivated to consistently build my portfolio.",
+    imageUrl: "/assets/learners/testimonials/alex.jpg",
+  },
+  {
+    name: "Arya",
+    designation: "SWE",
+    quote: "In a world that never stops changing, standing still isn't an option. Learning is how you keep up and get ahead. It's the key that unlocks new hobbies, better careers, and deeper connections.",
+    imageUrl: "/assets/learners/testimonials/arya.jpg",
+  },
+  {
+    name: "Riya",
+    designation: "Product Designer",
+    quote: "μLearn provided the real-world projects and mentorship I needed to switch careers. The focus on Karma Points kept me motivated to consistently build my portfolio.",
+    imageUrl: "/assets/learners/testimonials/riya.jpg",
+  },
+  {
+    name: "Manu",
+    designation: "SWE",
+    quote: "In a world that never stops changing, standing still isn't an option. Learning is how you keep up and get ahead. It's the key that unlocks new hobbies, better careers, and deeper connections.",
+    imageUrl: "/assets/learners/testimonials/manu.jpg",
+  },
+  // Add more testimonials if needed
+];
+
+
+export const slideImages = [
+  { imageUrl: "/assets/learners/slide1.png", alt: "Slide 1" },
+  { imageUrl: "/assets/learners/slide2.png", alt: "Slide 2" },
+  { imageUrl: "/assets/learners/slide3.png", alt: "Slide 3" },
+  // Add more images if needed
+];
+export const openMicData = {
+  events: [
+    {
+      id: 1,
+      title: "Open Mic #1 ft. @s.o.d.666 & sabareesh__k",
+      performer: "George Ben Chirby & Sabareesh K",
+      description: "This time we house with us George Ben Chirby & Sabareesh k. John is live on Instagram at 8pm on the 18th of December and witness the magic of music.",
+      date: "15/12/2022",
+      tags: ["Music", "Performance"],
+      thumbnail: "/assets/openmic/dummy_img.png",
+      isUpcoming: false
+    },
+    {
+      id: 2,
+      title: "Open Mic #2 ft. Ramakrishnan",
+      performer: "Ramakrishnan Haraden",
+      description: "This time we have with us Ramakrishnan Haraden, a ship near Engineering Student at MBECT. Ramakrishnan is a music composer and loves to experiment with music.",
+      date: "08/12/2022",
+      tags: ["Music", "Composition"],
+      thumbnail: "/assets/openmic/dummy_img.png",
+      isUpcoming: false
+    },
+    {
+      id: 3,
+      title: "Open Mic #3 ft. Arjun",
+      performer: "Arjun",
+      description: "Wouldn't a little music make your day better? Join the Open Mic at 8:00 PM today on our Instagram Hands. This edition of Open Mic we have...",
+      date: "01/12/2022",
+      tags: ["Music", "Singing"],
+      thumbnail: "/assets/openmic/dummy_img.png",
+      isUpcoming: false
+    }
+  ]
+};
+} 
 export const contactPage = {
   hero: {
     badge: "Connect With Us",
@@ -7086,6 +7245,110 @@ export const saltMangoTree = {
       duration: "31 min",
       audioUrl: "#",
       isUpcoming: false,
+export const kkem = {
+  pastEventCardData: [
+    {
+      name: "GTA: SandShores",
+      code: "gtas",
+      description:
+        "After Codestorm get ready for an exhilarating journey with GTA: SandShore Hackathon💫",
+      image: cdnUrl("src/modules/Public/KKEM/assets/past_events/gtas.webp"),
+      link: "https://gta.mulearn.org",
+      date: "14th and 15th October",
+    },
+    {
+      name: "Learning Fest",
+      code: "lf",
+      description:
+        "Learning Fest — a series of bootcamps to upskill in various domains and earn karma & opportunities.",
+      image: cdnUrl("src/modules/Public/KKEM/assets/past_events/lf.webp"),
+      link: "https://mulearn.org/keralatechfest",
+      date: "7th August 2023",
+    },
+    {
+      name: "GTA:CodeStorm",
+      code: "gtac",
+      description:
+        "Gear up for CodeStorm — the first hackathon of the Grand Tech Adventure Series. 🚀",
+      image: cdnUrl("src/modules/Public/KKEM/assets/past_events/gtac.webp"),
+      link: "https://gta.mulearn.org/codestorm",
+      date: "19th and 20th August",
+    },
+    {
+      name: "Beyond Us Hackathon",
+      code: "buh",
+      description:
+        "Create impressive projects from scratch and explore the limitless universe — Beyond Us ✨",
+      image: cdnUrl("src/modules/Public/KKEM/assets/past_events/buh.webp"),
+      link: "https://mulearn.org/events/beyondus",
+      date: "8th and 9th July 2023",
+    },
+    {
+      name: "Karma Fest",
+      code: "kf",
+      description:
+        "Earn valuable karma points by completing learning tracks, tasks, and participating in themed mini-hackathons.",
+      image: cdnUrl("src/modules/Public/KKEM/assets/past_events/kf.webp"),
+      link: "",
+      date: "May 2023",
+    },
+  ],
+  winnersDesign: [
+    {
+      name: "Team DT12",
+      description:
+        "Adarsh has managed to create a user interface for an app that helps you schedule your day. The app is designed to be simple and easy to use.",
+      image: cdnUrl(
+        "src/modules/Public/KKEM/assets/past_events/beyondus/d1.jpg"
+      ),
+      link: "https://www.figma.com/file/zG7oCsCIlxuvK1uiV5g0TO/Beyond-Us-24-Hour-%7C-Scheduler-App-DT12-(Individual)?type=design&node-id=6-24&mode=design&t=38JirqJdGQl19Szp-0",
+    },
+    {
+      name: "Team DT05",
+      description:
+        "This platform should provide a space for like-minded students to network, work together on projects, share achievements, and foster a sense of community.",
+      image: cdnUrl(
+        "src/modules/Public/KKEM/assets/past_events/beyondus/d2.jpg"
+      ),
+      link: "https://www.figma.com/file/zG7oCsCIlxuvK1uiV5g0TO/Beyond-Us-24-Hour-%7C-Scheduler-App-DT12-(Individual)?type=design&node-id=6-24&mode=design&t=38JirqJdGQl19Szp-0",
+    },
+    {
+      name: "Team DT08",
+      description:
+        "Mobile Application: We have designed a mobile application that allows users to easily record attendance. The app will have an intuitive interface with options to input the name of the attendee and their entry time.",
+      image: cdnUrl(
+        "src/modules/Public/KKEM/assets/past_events/beyondus/d3.jpg"
+      ),
+      link: "https://www.figma.com/file/gBHFXhyYJNloANQlTbFlN5/Beyond-Us-Hackathon?type=design&node-id=0-1&mode=design&t=InTgCXHZn2TR2WHe-0",
+    },
+  ],
+  winnersSoftware: [
+    {
+      name: "Team ST03",
+      description:
+        "Introducing CV Wizard from Beyond-Us: the game-changing automated CV parsing tool. With the powerful PyRes Parser, CV Wizard extracts and organizes resume data with precision, saving time for employers.",
+      image: cdnUrl(
+        "src/modules/Public/KKEM/assets/past_events/beyondus/s1.jpg"
+      ),
+      link: "https://github.com/shihabsaleem/CV-BeyondUs",
+    },
+    {
+      name: "Team ST10",
+      description:
+        "This platform should provide a space for like-minded students to network, work together on projects, share achievements, and foster a sense of community.",
+      image: cdnUrl(
+        "src/modules/Public/KKEM/assets/past_events/beyondus/s2.jpg"
+      ),
+      link: "#",
+    },
+    {
+      name: "Team ST13",
+      description:
+        "Ekipa is a comprehensive team management and task allocation platform designed to streamline collaboration and enhance productivity within teams.",
+      image: cdnUrl(
+        "src/modules/Public/KKEM/assets/past_events/beyondus/s3.jpg"
+      ),
+      link: "https://github.com/suryan-s/Ekipa",
     },
   ],
 };

@@ -102,7 +102,7 @@ export default function Careers() {
           }))}
           speed={30}
           direction="left"
-          logoHeight={20}
+          logoHeight={30}
           gap={40}
           pauseOnHover
           scaleOnHover

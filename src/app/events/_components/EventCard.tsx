@@ -106,7 +106,7 @@ export default function EventCard({ event }: Props) {
                   variant="mulearn"
                   className="w-full flex items-center justify-center gap-3 text-mulearn-whitish rounded-xl px-5 py-3 font-semibold text-sm shadow-sm hover:shadow-md"
                 >
-                  <Link href={event.link} target="_blank noreferrer">
+                  <Link href={event.link}>
                     Go to Event
                   </Link>
                 </Button>

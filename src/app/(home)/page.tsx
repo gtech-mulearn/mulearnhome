@@ -1,7 +1,3 @@
-"use client";
-
-import React from "react";
-import { useRouter } from "next/navigation";
 import Hero from "@/app/(home)/_components/Hero";
 import Features from "@/app/(home)/_components/Features";
 import Story from "@/app/(home)/_components/Story";
@@ -15,15 +11,9 @@ import Newsletter from "@/app/(home)/_components/Newsletter";
 import BackToTop from "@/components/BacktoTop";
 
 const Home = () => {
-  const router = useRouter();
-
-  const handleRedirect = (path: string) => {
-    router.push(path);
-  };
-
   return (
     <div className="min-h-screen">
-      <Hero redirect={handleRedirect} />
+      <Hero />
       <Features />
       <Story />
       <SpecialEvents />
