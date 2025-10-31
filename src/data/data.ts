@@ -1569,6 +1569,17 @@ export const team = [
             team: "Campus Management",
             lead: "",
           },
+			{
+		  name: "Hena Suvarnan",
+		  image: "",
+		  muid: "henasuvarnan@mulearn",
+		  linkedin: "https://www.linkedin.com/in/hena-suvarnan-7b4936328/",
+		  x: "",
+		  github: "https://github.com/Henry4501",
+		  team: "Development",
+		  lead: "",
+		},
+
         ],
       },
       {
