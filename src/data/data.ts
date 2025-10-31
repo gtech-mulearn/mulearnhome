@@ -1356,7 +1356,7 @@ export const team = [
             id: 5,
             name: "Rejah Rahim",
             team: "Founder Beagle Security",
-            image: "public/assets/team/muteam/execom/Rejah Rehim.webp",
+            image: "public/assets/team/muteam/execom/Rejah Rahim.webp",
             linkedin: "https://linkedin.com/in/rejah/",
           },
           {
