@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, Building, School, Users, Calendar,FileText, HelpCircle } from "lucide-react";
+import { Send, Building, School, Users, Calendar,FileText, HelpCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { contactInfo } from "@/data/data";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -515,7 +514,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 max-w-4xl mx-auto">
+    <div className="bg-white rounded-xl shadow-lg p-6">
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Primary Intent Dropdown */}
         <div className="space-y-2">
@@ -656,36 +655,6 @@ export default function ContactForm() {
           Send Message
         </Button>
       </form>
-
-      {/* Contact Information */}
-      <div className="mt-8 pt-6 border-t border-gray-200">
-        <h3 className="text-base font-semibold text-mulearn-blackish mb-4 text-center">
-          Other Ways to Connect
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="text-center">
-            <div className="w-10 h-10 bg-mulearn-trusty-blue rounded-full flex items-center justify-center mx-auto mb-2">
-              <Mail className="w-4 h-4 text-white" />
-            </div>
-            <h4 className="font-medium text-mulearn-gray-900 text-sm mb-1">Email</h4>
-            <p className="text-xs text-mulearn-gray-600">{contactInfo.email}</p>
-          </div>
-          <div className="text-center">
-            <div className="w-10 h-10 bg-mulearn-duke-purple rounded-full flex items-center justify-center mx-auto mb-2">
-              <Phone className="w-4 h-4 text-white" />
-            </div>
-            <h4 className="font-medium text-mulearn-gray-900 text-sm mb-1">Phone</h4>
-            <p className="text-xs text-mulearn-gray-600">{contactInfo.phone}</p>
-          </div>
-          <div className="text-center">
-            <div className="w-10 h-10 bg-mulearn-trusty-blue rounded-full flex items-center justify-center mx-auto mb-2">
-              <MapPin className="w-4 h-4 text-white" />
-            </div>
-            <h4 className="font-medium text-mulearn-gray-900 text-sm mb-1">Location</h4>
-            <p className="text-xs text-mulearn-gray-600">{contactInfo.address}</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

@@ -1,0 +1,40 @@
+name: Update Contributor Leaderboard
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  update-leaderboard:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run leaderboard script
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npm run generate
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push changes
+        run: |
+          git add src/data/leaderboard.json
+          git commit -m "Update leaderboard.json with new data" || echo "No changes to commit"
+          git push
+

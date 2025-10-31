@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
 import MuImage from "@/components/MuImage";
@@ -21,7 +22,7 @@ export default function Footer() {
       whileInView="visible"
       viewport={{ once: true }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-full mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
           <div className="lg:col-span-2">
             <div className="flex flex-col md:items-start items-center justify-center space-y-4">

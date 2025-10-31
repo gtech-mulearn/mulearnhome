@@ -1,6 +1,6 @@
 "use client";
 // Removed cdnUrl usage
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Search,
@@ -12,7 +12,9 @@ import {
   TrendingUp,
 } from "lucide-react";
 import MuImage from "@/components/MuImage";
+import { Button } from "@/components/ui/button";
 import { interestGroups } from "@/data/data";
+import Link from "next/link";
 
 const workflowSteps = [
   {
@@ -408,16 +410,18 @@ export default function InterestGroups() {
             Join thousands of learners who are building skills, making
             connections, and preparing for the careers of tomorrow.
           </p>
-          <motion.a
+          <Link
             href="https://app.mulearn.org/dashboard/profile"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-mulearn-duke-purple hover:text-mulearn-whitish transition-all duration-300"
           >
-            Join an Interest Group <ArrowRight className="w-5 h-5" />
-          </motion.a>
+            <Button
+              variant={"mulearn"}
+              className="inline-flex items-center gap-2 px-8 py-4  bg-mulearn-whitish text-mulearn-duke-purple font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-mulearn-duke-purple hover:text-mulearn-whitish transition-all duration-300"
+            >
+              Join an Interest Group <ArrowRight className="w-5 h-5" />
+            </Button>
+          </Link>
         </motion.div>
       </section>
     </div>

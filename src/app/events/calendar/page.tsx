@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion, Variants, easeOut } from "framer-motion";
 
 const fadeInUp: Variants = {

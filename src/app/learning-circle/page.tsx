@@ -4,6 +4,8 @@ import MuImage from "@/components/MuImage";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { learningCircleData } from "@/data/data";
+import { Button } from "@/components/ui/button";
+
 export default function LearningCirclePage() {
   const {
     subtitle,
@@ -20,9 +22,7 @@ export default function LearningCirclePage() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-6 py-16 bg-mulearn-whitish text-mulearn-blackish gap-16 md:gap-24">
-      {/* Hero Section */}
       <section className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-10">
-        {/* Text Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,7 +58,6 @@ export default function LearningCirclePage() {
           </motion.div>
         </motion.div>
 
-        {/* Illustration Section */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -77,7 +76,6 @@ export default function LearningCirclePage() {
         </motion.div>
       </section>
 
-      {/* Introduction Section */}
       <section className="max-w-6xl w-full text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -273,14 +271,18 @@ export default function LearningCirclePage() {
           whileTap={{ scale: 0.95 }}
           className="inline-block"
         >
-          <a
+          <Link
             href={ctaSection.buttonLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-mulearn-whitish bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent px-8 py-3 rounded-xl font-semibold shadow-md hover:bg-mulearn-whitish/90 transition-colors duration-200"
           >
-            {ctaSection.buttonText}
-          </a>
+            <Button
+              variant={"mulearn"}
+              className="inline-block bg-mulearn-whitish text-mulearn-duke-purple rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-mulearn-duke-purple hover:text-mulearn-whitish px-8 py-3 font-semiboldhover:bg-mulearn-whitish/90"
+            >
+              {ctaSection.buttonText}
+            </Button>
+          </Link>
         </motion.div>
       </motion.section>
     </main>

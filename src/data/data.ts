@@ -7,6 +7,9 @@ import {
   GalleryItem,
   ImpactStat,
   AnnualReport,
+  VideoTestimonial,
+  TextTestimonial,
+  OMEvent
 } from "@/lib/types";
 import {
   Calendar,
@@ -66,6 +69,10 @@ export const navItems = [
           label: "CONTACT US",
           href: "/contact",
         },
+        {
+          label:"TESTIMONIALS",
+          href:"/testimonials"
+        }
       ],
     },
   },
@@ -99,6 +106,10 @@ export const navItems = [
     href: "/learning-circle",
     submenu: {
       Explore: [
+              {
+          label: "Level Structure",
+          href: "/levelstructure",
+        },
         {
           label: "Interest Groups",
           href: "/interest-groups",
@@ -1108,7 +1119,7 @@ export const events: {
         title: "Inspiration Station Radio",
         description:
           "Everyone has a story to tell, the story about finding their passion, the story of learning new things and much more. Often times these stories are filled with fun and inspirations which fuel others to start their own journey.",
-        link: "/isr",
+        link: "/events/inspiration-station",
         date: "Every Tuesday",
       },
       {
@@ -6911,6 +6922,140 @@ export const companyImages = {
   studLap: "/assets/company/studLap.svg",
 };
 
+}
+export const videoTestimonials: VideoTestimonial[] = [
+  {
+    id: '1',
+    name: 'Michael Rodriguez',
+    role: 'Senior Engineering Manager',
+    company: 'Google',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    thumbnailUrl: 'https://placehold.co/600x400/2E85FE/ffffff.png?text=Mentor+Story',
+    profileImage: 'https://placehold.co/600x600/2E85FE/ffffff.png?text=MR',
+    type: 'mentor',
+    quote: 'Mentoring through µLearn has been incredibly rewarding. Seeing learners grow from beginners to confident professionals reminds me why I love this industry.'
+  },
+  {
+    id: '2',
+    name: 'Priya Sharma',
+    role: 'Computer Science Student',
+    company: 'KTU University',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    thumbnailUrl: 'https://placehold.co/600x400/AF2EE6/ffffff.png?text=Learner+Story',
+    profileImage: 'https://placehold.co/600x600/AF2EE6/ffffff.png?text=PS',
+    type: 'learner',
+    quote: 'µLearn transformed my learning journey with hands-on projects and an amazing community. The peer learning approach helped me land my dream job.'
+  },
+  {
+    id: '3',
+    name: 'Sarah Chen',
+    role: 'HR Director',
+    company: 'Innovate Solutions',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+    thumbnailUrl: 'https://placehold.co/600x400/666771/ffffff.png?text=Partner+Story',
+    profileImage: 'https://placehold.co/600x600/666771/ffffff.png?text=SC',
+    type: 'partner',
+    quote: 'We found exceptional talent through µLearn. The students are industry-ready and bring fresh perspectives to our engineering teams.'
+  },
+  {
+    id: '4',
+    name: 'Rahul Kumar',
+    role: 'Community Lead',
+    company: 'Google Developer Groups',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+    thumbnailUrl: 'https://placehold.co/600x400/2E85FE/ffffff.png?text=Community+Story',
+    profileImage: 'https://placehold.co/600x600/2E85FE/ffffff.png?text=RK',
+    type: 'community-leader',
+    quote: 'µLearn has created a vibrant learning ecosystem that complements formal education perfectly. The community-driven approach is revolutionary.'
+  },
+  {
+    id: '5',
+    name: 'Dr. Ananya Patel',
+    role: 'AI Research Scientist',
+    company: 'Tech Research Labs',
+    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+    thumbnailUrl: 'https://placehold.co/600x400/AF2EE6/ffffff.png?text=Research+Story',
+    profileImage: 'https://placehold.co/600x600/AF2EE6/ffffff.png?text=AP',
+    type: 'mentor',
+    quote: 'The collaborative environment at µLearn fosters innovation. I have seen students develop cutting-edge projects that rival professional work.'
+  }
+];
+
+export const textTestimonials: TextTestimonial[] = [
+  {
+    id: 't1',
+    name: 'Anjali Nair',
+    role: 'Software Developer',
+    company: 'Tech Solutions Inc.',
+    profileImage: 'https://placehold.co/600x600/AF2EE6/ffffff.png?text=AN',
+    quote: 'The peer learning sessions at µLearn helped me transition from a beginner to a confident full-stack developer. The community support is incredible!',
+    type: 'learner',
+    rating: 5,
+    date: '2024-01-15',
+    socialProof: 'Posted on LinkedIn'
+  },
+  {
+    id: 't2',
+    name: 'Dr. Rajesh Kumar',
+    role: 'Professor',
+    company: 'State University',
+    profileImage: 'https://placehold.co/600x600/666771/ffffff.png?text=RK',
+    quote: 'As an educator, I am impressed by how µLearn complements formal education. The hands-on projects give students real-world experience that classrooms cannot provide.',
+    type: 'mentor',
+    rating: 5,
+    date: '2024-01-10',
+    socialProof: 'Shared on Twitter'
+  },
+  {
+    id: 't3',
+    name: 'Priya Sharma',
+    role: 'Product Manager',
+    company: 'StartUp Ventures',
+    profileImage: 'https://placehold.co/600x600/2E85FE/ffffff.png?text=PS',
+    quote: 'We hired three developers from µLearn and they have been exceptional. The platform truly prepares students for industry challenges.',
+    type: 'partner',
+    rating: 5,
+    date: '2024-01-08'
+  },
+  {
+    id: 't4',
+    name: 'Karthik Menon',
+    role: 'AI Enthusiast',
+    profileImage: 'https://placehold.co/600x600/AF2EE6/ffffff.png?text=KM',
+    quote: 'The learning circles at µLearn helped me build my first ML project. The collaborative environment makes complex topics approachable.',
+    type: 'learner',
+    rating: 5,
+    date: '2024-01-05',
+    socialProof: 'Posted in Community'
+  },
+  {
+    id: 't5',
+    name: 'Sarah Johnson',
+    role: 'HR Director',
+    company: 'Global Tech Corp',
+    profileImage: 'https://placehold.co/600x600/666771/ffffff.png?text=SJ',
+    quote: 'µLearn graduates bring fresh perspectives and strong fundamentals. They are our go-to talent pool for junior developer roles.',
+    type: 'partner',
+    rating: 5,
+    date: '2024-01-03'
+  },
+  {
+    id: 't6',
+    name: 'Arun Patel',
+    role: 'Community Lead',
+    company: 'Developer Groups',
+    profileImage: 'https://placehold.co/600x600/2E85FE/ffffff.png?text=AP',
+    quote: 'The energy and enthusiasm in µLearn communities is contagious. It is amazing to see learners supporting each other grow.',
+    type: 'community-leader',
+    rating: 5,
+    date: '2024-01-01'
+  }
+];
+
+export const testimonials = {
+  video: videoTestimonials,
+  text: textTestimonials
+};
 
 // Learners Page data
 export interface OnboardingStep { 
@@ -6985,14 +7130,14 @@ export const topLearnersData: TopLearner[] = [
     kp: 20300,
     imageUrl: "/assets/learners/images/vishnu.png",
   },
-  { name: "John", kp: 20000, imageUrl: "/assets/learners/images/generic1.jpg" },
-  { name: "Jane", kp: 19900, imageUrl: "/assets/learners/images/generic2.jpg" },
-  { name: "Alice", kp: 19800, imageUrl: "/assets/learners/images/generic3.jpg" },
-  { name: "Doe", kp: 19700, imageUrl: "/assets/learners/images/generic4.jpg" },
-  { name: "Smith", kp: 19600, imageUrl: "/assets/learners/images/generic5.jpg" },
-  { name: "Lenita", kp: 19500, imageUrl: "/assets/learners/images/generic6.jpg" },
-  { name: "Grace", kp: 19400, imageUrl: "/assets/learners/images/generic7.jpg" },
-  { name: "Rodrigues", kp: 19300, imageUrl: "/assets/learners/images/generic8.jpg" },
+  { name: "John", kp: 20000, imageUrl: "" },
+  { name: "Jane", kp: 19900, imageUrl: "" },
+  { name: "Alice", kp: 19800, imageUrl: "" },
+  { name: "Doe", kp: 19700, imageUrl: "" },
+  { name: "Smith", kp: 19600, imageUrl: "" },
+  { name: "Lenita", kp: 19500, imageUrl: "" },
+  { name: "Grace", kp: 19400, imageUrl: "" },
+  { name: "Rodrigues", kp: 19300, imageUrl: "" },
 ];
 
 
@@ -7001,31 +7146,31 @@ export const testimonialsData: Testimonial[] = [
     name: "Soorya",
     designation: "SWE",
     quote: "In a world that never stops changing, standing still isn't an option. Learning is how you keep up and get ahead. It's the key that unlocks new hobbies, better careers, and deeper connections.",
-    imageUrl: "/assets/learners/testimonials/soorya.jpg",
+    imageUrl: "",
   },
   {
     name: "Alex",
     designation: "Product Designer",
     quote: "μLearn provided the real-world projects and mentorship I needed to switch careers. The focus on Karma Points kept me motivated to consistently build my portfolio.",
-    imageUrl: "/assets/learners/testimonials/alex.jpg",
+    imageUrl: "",
   },
   {
     name: "Arya",
     designation: "SWE",
     quote: "In a world that never stops changing, standing still isn't an option. Learning is how you keep up and get ahead. It's the key that unlocks new hobbies, better careers, and deeper connections.",
-    imageUrl: "/assets/learners/testimonials/arya.jpg",
+    imageUrl: "",
   },
   {
     name: "Riya",
     designation: "Product Designer",
     quote: "μLearn provided the real-world projects and mentorship I needed to switch careers. The focus on Karma Points kept me motivated to consistently build my portfolio.",
-    imageUrl: "/assets/learners/testimonials/riya.jpg",
+    imageUrl: "",
   },
   {
     name: "Manu",
     designation: "SWE",
     quote: "In a world that never stops changing, standing still isn't an option. Learning is how you keep up and get ahead. It's the key that unlocks new hobbies, better careers, and deeper connections.",
-    imageUrl: "/assets/learners/testimonials/manu.jpg",
+    imageUrl: "",
   },
   // Add more testimonials if needed
 ];
@@ -7037,41 +7182,50 @@ export const slideImages = [
   { imageUrl: "/assets/learners/slide3.png", alt: "Slide 3" },
   // Add more images if needed
 ];
-export const openMicData = {
+
+export interface OpenMicData {
+  events: OMEvent[];
+}
+
+export const openMicData: OpenMicData = {
   events: [
     {
       id: 1,
       title: "Open Mic #1 ft. @s.o.d.666 & sabareesh__k",
       performer: "George Ben Chirby & Sabareesh K",
-      description: "This time we house with us George Ben Chirby & Sabareesh k. John is live on Instagram at 8pm on the 18th of December and witness the magic of music.",
+      description:
+        "This time we house with us George Ben Chirby & Sabareesh k. John is live on Instagram at 8pm on the 18th of December and witness the magic of music.",
       date: "15/12/2022",
       tags: ["Music", "Performance"],
       thumbnail: "/assets/openmic/dummy_img.png",
-      isUpcoming: false
+      isUpcoming: false,
     },
     {
       id: 2,
       title: "Open Mic #2 ft. Ramakrishnan",
       performer: "Ramakrishnan Haraden",
-      description: "This time we have with us Ramakrishnan Haraden, a ship near Engineering Student at MBECT. Ramakrishnan is a music composer and loves to experiment with music.",
+      description:
+        "This time we have with us Ramakrishnan Haraden, a ship near Engineering Student at MBECT. Ramakrishnan is a music composer and loves to experiment with music.",
       date: "08/12/2022",
       tags: ["Music", "Composition"],
       thumbnail: "/assets/openmic/dummy_img.png",
-      isUpcoming: false
+      isUpcoming: false,
     },
     {
       id: 3,
       title: "Open Mic #3 ft. Arjun",
       performer: "Arjun",
-      description: "Wouldn't a little music make your day better? Join the Open Mic at 8:00 PM today on our Instagram Hands. This edition of Open Mic we have...",
+      description:
+        "Wouldn't a little music make your day better? Join the Open Mic at 8:00 PM today on our Instagram Hands. This edition of Open Mic we have...",
       date: "01/12/2022",
       tags: ["Music", "Singing"],
       thumbnail: "/assets/openmic/dummy_img.png",
-      isUpcoming: false
-    }
-  ]
+      isUpcoming: false,
+    },
+  ],
 };
  
+
 export const contactPage = {
   hero: {
     badge: "Connect With Us",
@@ -7361,4 +7515,69 @@ export const kkem = {
       link: "https://github.com/suryan-s/Ekipa",
     },
   ],
+};
+
+export const inspirationStationData = {
+  events: [
+    {
+      id: 1,
+      title: "From Failure to Success: My Tech Journey",
+      speaker: "Alex Johnson",
+      description: "Alex shares his inspiring journey from multiple failures to building a successful career in technology, and the lessons he learned along the way.",
+      date: "Next Tuesday",
+      tags: ["Career", "Resilience", "Technology"],
+      thumbnail: "/assets/dummyimg/dummy.png",
+      isUpcoming: true
+    },
+    {
+      id: 2,
+      title: "Women in Leadership: Breaking the Glass Ceiling",
+      speaker: "Maria Garcia",
+      description: "Maria discusses her experiences as a female leader in a male-dominated industry and how she empowers other women to take on leadership roles.",
+      date: "Coming Soon",
+      tags: ["Leadership", "Diversity", "Empowerment"],
+      thumbnail: "/assets/dummyimg/dummy.png",
+      isUpcoming: true
+    },
+    {
+      id: 3,
+      title: "The Art of Public Speaking",
+      speaker: "David Chen",
+      description: "David shares his transformation from a shy introvert to a confident public speaker and how communication skills changed his career trajectory.",
+      date: "December 5th",
+      tags: ["Communication", "Personal Growth", "Confidence"],
+      thumbnail: "/assets/dummyimg/dummy.png",
+      isUpcoming: true
+    },
+    {
+      id: 4,
+      title: "From Engineer to Entrepreneur",
+      speaker: "John Doe",
+      description: "John shares his incredible journey from being a software engineer to building a successful startup, the challenges he faced, and how he overcame them to create impact.",
+      date: "15/11/2023",
+      tags: ["Career", "Entrepreneurship", "Resilience"],
+      thumbnail: "/assets/dummyimg/dummy.png",
+      isUpcoming: false
+    },
+    {
+      id: 5,
+      title: "Breaking Barriers in Tech",
+      speaker: "Sarah Wilson",
+      description: "Sarah discusses her experience as a woman in technology, breaking stereotypes, and creating opportunities for others in the tech industry.",
+      date: "08/11/2023",
+      tags: ["Leadership", "Diversity", "Technology"],
+      thumbnail: "/assets/dummyimg/dummy.png",
+      isUpcoming: false
+    },
+    {
+      id: 6,
+      title: "The Power of Community Learning",
+      speaker: "Mike Johnson",
+      description: "Mike talks about how community-driven learning transformed his career and the importance of peer-to-peer knowledge sharing in personal growth.",
+      date: "01/11/2023",
+      tags: ["Community", "Learning", "Growth"],
+      thumbnail: "/assets/dummyimg/dummy.png",
+      isUpcoming: false
+    }
+  ]
 };

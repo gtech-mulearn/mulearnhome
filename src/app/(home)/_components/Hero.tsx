@@ -32,7 +32,7 @@ export default function Hero() {
   }, []);
   return (
     <motion.header
-      id="#home"
+      id="home"
       className="relative flex flex-col items-center justify-start overflow-hidden"
       style={{
         background:

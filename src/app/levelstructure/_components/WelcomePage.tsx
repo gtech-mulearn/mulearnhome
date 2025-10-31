@@ -9,7 +9,7 @@ import Level4Section from './Level4Section';
 import Level5Section from './Level5Section';
 import Level6Section from './Level6Section';
 import Level7Section from './Level7Section';
-import FloatingSpaceAssets from './FloatingSpaceAssets';
+
 
 export default function WelcomePage() {
   return (
@@ -21,7 +21,7 @@ export default function WelcomePage() {
       style={{ minHeight: '100vh' }}
     >
       {/* Floating Space Assets - Mobile Only */}
-      <FloatingSpaceAssets />
+  
       
       {/* Level 1 Section - Direct Entry */}
       <Level1Section />
