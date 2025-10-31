@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
+import AskMulearn from "@/components/AskMulearn"; // ✅ chatbot import
 
 export const metadata: Metadata = {
   title: "µLearn",
@@ -80,6 +81,9 @@ export default function RootLayout({
         <Suspense fallback={<MuLoader />}>{children}</Suspense>
         <Footer />
         <Toaster />
+
+        {/* ✅ Add chatbot at the very end */}
+        <AskMulearn /> 
       </body>
     </html>
   );
