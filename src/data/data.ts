@@ -6922,7 +6922,7 @@ export const companyImages = {
   studLap: "/assets/company/studLap.svg",
 };
 
-}
+
 export const videoTestimonials: VideoTestimonial[] = [
   {
     id: '1',
