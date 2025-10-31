@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { CheckCircle2, Download, Mail, ArrowLeft } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { CheckCircle2, Download, Mail, ArrowLeft } from "lucide-react";
 
 interface DonationData {
   donationType: string;
@@ -19,37 +19,38 @@ export default function DonateSuccessPage() {
 
   useEffect(() => {
     // Retrieve donation data from localStorage
-    const storedData = localStorage.getItem('donationData');
+    const storedData = localStorage.getItem("donationData");
     if (storedData) {
       try {
         const data = JSON.parse(storedData);
         setDonationData(data);
       } catch (error) {
-        console.error('Failed to parse donation data:', error);
+        console.error("Failed to parse donation data:", error);
         // Redirect to donate page if data is invalid
-        setTimeout(() => router.push('/donate'), 3000);
+        setTimeout(() => router.push("/donate"), 3000);
       }
     } else {
       // Redirect to donate page if no data found
-      setTimeout(() => router.push('/donate'), 3000);
+      setTimeout(() => router.push("/donate"), 3000);
     }
   }, [router]);
 
   const handleDownloadReceipt = () => {
     // Implement receipt download logic here
     // This could generate a PDF or download from the backend
-    console.log('Download receipt clicked', donationData);
+    console.log("Download receipt clicked", donationData);
   };
 
   const formatDonationType = (type: string) => {
-    return type.split('-').map(word => 
-      word.charAt(0).toUpperCase() + word.slice(1)
-    ).join(' ');
+    return type
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
   };
 
   if (!donationData) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-blue-50 via-white to-purple-50">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--mulearn-trusty-blue)] mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading...</p>
@@ -59,7 +60,7 @@ export default function DonateSuccessPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         {/* Success Card */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -85,7 +86,7 @@ export default function DonateSuccessPage() {
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Donation Amount</p>
                   <p className="text-3xl font-bold text-[var(--mulearn-trusty-blue)]">
-                    ₹{donationData.amount.toLocaleString('en-IN')}
+                    ₹{donationData.amount.toLocaleString("en-IN")}
                   </p>
                 </div>
                 <div>
@@ -112,11 +113,12 @@ export default function DonateSuccessPage() {
             {/* Information Message */}
             <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-[var(--mulearn-trusty-blue)] mt-0.5 flex-shrink-0" />
+                <Mail className="w-5 h-5 text-[var(--mulearn-trusty-blue)] mt-0.5 shrink-0" />
                 <div>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    A confirmation email with your donation receipt has been sent to{' '}
-                    <span className="font-semibold">{donationData.email}</span>. 
+                    A confirmation email with your donation receipt has been
+                    sent to{" "}
+                    <span className="font-semibold">{donationData.email}</span>.
                     You can also download your receipt below.
                   </p>
                 </div>
@@ -133,7 +135,7 @@ export default function DonateSuccessPage() {
                 Download Receipt
               </Button>
               <Button
-                onClick={() => router.push('/')}
+                onClick={() => router.push("/")}
                 variant="outline"
                 className="flex-1 h-12 border-2 border-gray-300 hover:bg-gray-50"
               >
@@ -145,12 +147,17 @@ export default function DonateSuccessPage() {
             {/* Thank You Message */}
             <div className="mt-10 text-center">
               <p className="text-gray-600 leading-relaxed">
-                Your generous contribution helps us empower thousands of learners across India. 
-                Together, we&apos;re building a vibrant learning community that breaks barriers and creates opportunities.
+                Your generous contribution helps us empower thousands of
+                learners across India. Together, we&apos;re building a vibrant
+                learning community that breaks barriers and creates
+                opportunities.
               </p>
               <p className="mt-4 text-sm text-gray-500">
-                If you have any questions, please contact us at{' '}
-                <a href="mailto:donate@mulearn.org" className="text-[var(--mulearn-trusty-blue)] hover:underline">
+                If you have any questions, please contact us at{" "}
+                <a
+                  href="mailto:donate@mulearn.org"
+                  className="text-[var(--mulearn-trusty-blue)] hover:underline"
+                >
                   donate@mulearn.org
                 </a>
               </p>

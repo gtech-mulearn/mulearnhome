@@ -320,7 +320,7 @@ export default function YipPage() {
                         }`}
                       >
                         <div
-                          className={`flex-shrink-0 w-32 h-32 flex items-center justify-center ${colors.iconBg}`}
+                          className={`shrink-0 w-32 h-32 flex items-center justify-center ${colors.iconBg}`}
                         >
                           <MuImage
                             src={event.icon}
@@ -331,7 +331,7 @@ export default function YipPage() {
                           />
                         </div>
                         <div
-                          className={`flex-shrink-0 px-8 py-6 rounded-full text-mulearn-whitish font-bold text-lg min-w-[200px] flex items-center justify-center ${colors.labelBg}`}
+                          className={`shrink-0 px-8 py-6 rounded-full text-mulearn-whitish font-bold text-lg min-w-[200px] flex items-center justify-center ${colors.labelBg}`}
                         >
                           <div className="text-center">
                             {event.phaseLabel.split("\n").map((line, i) => (

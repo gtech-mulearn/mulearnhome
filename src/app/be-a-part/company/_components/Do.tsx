@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import MuImage from "@/components/MuImage";
-import {companyDo, companyImages} from "@/data/data";
+import { companyDo, companyImages } from "@/data/data";
 
 export default function WhatYouCanDo() {
   return (
@@ -26,7 +26,7 @@ export default function WhatYouCanDo() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-0 relative">
               <div className="absolute left-0 right-0 top-1/2 h-px bg-black hidden md:block" />
-              
+
               <div className="absolute left-1/2 top-0 bottom-0 w-px bg-black hidden md:block" />
 
               {companyDo.map((action, index) => (
@@ -49,7 +49,7 @@ export default function WhatYouCanDo() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex-shrink-0 w-full max-w-[300px] lg:max-w-[388px]"
+            className="shrink-0 w-full max-w-[300px] lg:max-w-[388px]"
           >
             <MuImage
               src={companyImages.studLap}

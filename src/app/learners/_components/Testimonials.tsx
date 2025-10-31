@@ -33,7 +33,7 @@ const Testimonials: React.FC = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-    useEffect(() => {
+  useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
 
@@ -41,20 +41,21 @@ const Testimonials: React.FC = () => {
     const scrollDelay = 20;
 
     const scrollInterval = setInterval(() => {
-      const scrollContent = container.querySelector(".scroll-content") as HTMLDivElement;
+      const scrollContent = container.querySelector(
+        ".scroll-content"
+      ) as HTMLDivElement;
       if (!scrollContent) return;
 
       const singleSetWidth = scrollContent.scrollWidth / 2;
       if (container.scrollLeft >= singleSetWidth) {
         container.scrollLeft = container.scrollLeft - singleSetWidth;
       }
-      
+
       container.scrollLeft += scrollStep;
     }, scrollDelay);
 
     return () => clearInterval(scrollInterval);
   }, []);
-
 
   return (
     <section className="bg-gray-50 pt-8 md:pt-12 pb-16 md:pb-24">
@@ -119,9 +120,9 @@ const Testimonials: React.FC = () => {
               {testimonialsData.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="mt-4 flex-shrink-0 w-80 relative h-[280px] rounded-[24px] overflow-hidden shadow-[0_10px_40px_-10px_rgba(256,256,256,0.5)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_15px_50px_-10px_rgba(37,99,235,0.6)]"
+                  className="mt-4 shrink-0 w-80 relative h-[280px] rounded-[24px] overflow-hidden shadow-[0_10px_40px_-10px_rgba(256,256,256,0.5)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_15px_50px_-10px_rgba(37,99,235,0.6)]"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#4A7FE8] via-[#5B8FF5] to-[#6BA5FF]" />
+                  <div className="absolute inset-0 bg-linear-to-br from-[#4A7FE8] via-[#5B8FF5] to-[#6BA5FF]" />
                   <div className="absolute inset-0 bg-gradient-radial from-white/10 via-transparent to-transparent" />
                   <div className="relative h-full p-6 flex flex-col justify-between">
                     <p className="text-sm text-white leading-relaxed italic mb-4 drop-shadow-sm">
@@ -130,7 +131,9 @@ const Testimonials: React.FC = () => {
                     <div className="flex items-center space-x-3">
                       <MuImage
                         src={
-                          testimonial.imageUrl ? testimonial.imageUrl : fallbackImage
+                          testimonial.imageUrl
+                            ? testimonial.imageUrl
+                            : fallbackImage
                         }
                         alt={`${testimonial.name}'s profile`}
                         width={100}

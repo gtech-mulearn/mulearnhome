@@ -41,7 +41,7 @@ export default function ReportCard({ report, onDownload }: ReportCardProps) {
         <div className="flex flex-col lg:flex-row">
           {/* Report Cover Image */}
           <div className="lg:w-1/3 relative overflow-hidden">
-            <div className="aspect-[4/3] lg:aspect-square bg-gradient-to-br from-mulearn-trusty-blue/10 to-mulearn-duke-purple/10 flex items-center justify-center">
+            <div className="aspect-[4/3] lg:aspect-square bg-linear-to-br from-mulearn-trusty-blue/10 to-mulearn-duke-purple/10 flex items-center justify-center">
               {report.imageUrl ? (
                 <MuImage
                   src={report.imageUrl}
@@ -98,7 +98,7 @@ export default function ReportCard({ report, onDownload }: ReportCardProps) {
                         key={idx}
                         className="flex items-start gap-2 text-mulearn-gray-600"
                       >
-                        <ChevronRight className="w-4 h-4 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent mt-0.5 flex-shrink-0" />
+                        <ChevronRight className="w-4 h-4 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent mt-0.5 shrink-0" />
                         <span className="text-sm">{highlight}</span>
                       </li>
                     ))}

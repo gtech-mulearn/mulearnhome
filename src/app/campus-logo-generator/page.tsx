@@ -244,7 +244,7 @@ export default function CampusLogoGenerator() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex" style={{ fontFamily: 'var(--font-plus-jakarta)' }}>
+    <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100 flex" style={{ fontFamily: 'var(--font-plus-jakarta)' }}>
       <div className="flex-1 flex flex-col lg:flex-row mr-2 overflow-hidden bg-mulearn-whitish">
         <div className="order-1 lg:order-2 flex-1 bg-mulearn-blackish flex items-center justify-center p-6 lg:p-12 relative min-h-[50vh] lg:min-h-auto">
           <div className="absolute inset-0 opacity-10" style={{

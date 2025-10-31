@@ -52,7 +52,7 @@ const values = [
 export default function ReportHero() {
   return (
     <motion.section
-      className="relative overflow-hidden bg-gradient-to-br from-mulearn-whitish via-blue-50 to-purple-50"
+      className="relative overflow-hidden bg-linear-to-br from-mulearn-whitish via-blue-50 to-purple-50"
       variants={fadeInUp}
       initial="hidden"
       whileInView="visible"

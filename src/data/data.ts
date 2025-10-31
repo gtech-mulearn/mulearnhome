@@ -32,6 +32,22 @@ import {
   CheckCircle,
 } from "lucide-react";
 
+
+// Define a specific interface for Salt Mango Tree episodes based on requirements
+export interface SaltMangoTreeEpisode {
+    title: string;
+    malayalamTitle?: string; // Optional field for full Malayalam title
+    speaker: string;
+    role: string;
+    summary: string;
+    airDate: string;
+    duration: string;
+    image: string; // URL for the episode card image
+    isUpcoming: boolean;
+    tags: string[];
+    link: string; // The URL for the full episode/reminder link
+}
+
 export const navItems = [
   {
     label: "About",
@@ -7231,6 +7247,47 @@ export const contactPage = {
     description: "Have questions or feedback? We'd love to hear from you. Reach out and we'll get back to you as soon as possible."
   }
 };
+
+
+export const saltMangoTreeEpisodes: SaltMangoTreeEpisode[] = [
+    {
+        title: "The Future of Malayalam Cinema",
+        speaker: "Mammootty",
+        role: "Actor & Producer",
+        summary: "Exploring the evolution of Malayalam cinema and its global impact.",
+        airDate: "February 15, 2024",
+        duration: "45 min",
+        image: "assets/saltmangotree/img1.jpg", // Placeholder image URL
+        isUpcoming: true,
+        tags: ["Culture", "Entertainment"],
+        link: "#set-reminder-cinema", // Placeholder for reminder link
+    },
+    {
+        title: "Tech Innovation in Kerala",
+        speaker: "Dr. Rajeev Ravi",
+        role: "CTO, Technopark",
+        summary: "How Kerala is becoming India's next Silicon Valley.",
+        airDate: "February 22, 2024",
+        duration: "38 min",
+        image: "assets/saltmangotree/img2.jpg", // Placeholder image URL
+        isUpcoming: true,
+        tags: ["Tech from Kerala", "Innovation"],
+        link: "#set-reminder-tech", // Placeholder for reminder link
+    },
+    {
+        title: "Sustainable Tourism in Kerala",
+        speaker: "Priya Nair",
+        role: "Eco-Tourism Expert",
+        summary: "Balancing tourism growth with environmental conservation.",
+        airDate: "March 1, 2024",
+        duration: "42 min",
+        image: "assets/saltmangotree/img3.jpg.jpg", // Placeholder image URL
+        isUpcoming: true,
+        tags: ["Culture", "Environment"],
+        link: "#set-reminder-tourism", // Placeholder for reminder link
+    },
+    // Add placeholders for other episodes, previous episodes should have isUpcoming: false
+];
 
 export const kkem = {
   pastEventCardData: [

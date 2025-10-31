@@ -358,7 +358,7 @@ export default function InterestGroups() {
                   <h3 className="text-xl font-bold text-mulearn-blackish mb-2 group-hover:bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent transition-colors duration-300 ">
                     {group.name}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-4 flex-grow">
+                  <p className="text-sm text-gray-600 mb-4 grow">
                     {group.tagline}
                   </p>
 
