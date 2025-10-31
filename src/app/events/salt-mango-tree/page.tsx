@@ -28,7 +28,7 @@ type SaltMangoTree = {
 
 const saltMangoTree = saltMangoTreeData as unknown as SaltMangoTree;
 
-export default function Page(): JSX.Element {
+export default function Page() {
   const [activeFilter, setActiveFilter] = useState<string>("All");
   const [activeTab, setActiveTab] = useState<"upcoming" | "previous">(
     "upcoming"
