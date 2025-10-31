@@ -1,25 +1,52 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { saltMangoTree } from "../../../data/data";
-export default function page() {
-  const [activeFilter, setActiveFilter] = useState("All");
-  const [activeTab, setActiveTab] = useState("upcoming");
-  const [selectedEpisode, setSelectedEpisode] = useState(null);
-  const [episodesToShow, setEpisodesToShow] = useState(6);
+import React, { useEffect, useState } from "react";
+import { saltMangoTree as saltMangoTreeData } from "../../../data/data";
+
+type Episode = {
+  id: string | number;
+  image: string;
+  title: string;
+  guest: string;
+  guestTitle: string;
+  airDate: string; // ISO date string
+  isUpcoming: boolean;
+  duration: string;
+  description: string;
+  tags: string[];
+  audioUrl?: string;
+};
+
+type SaltMangoTree = {
+  title: string;
+  description: string;
+  tagLine: string;
+  latestAudioUrl: string;
+  tags: string[];
+  upcomingEpisodes: Episode[];
+  previousEpisodes: Episode[];
+};
+
+const saltMangoTree = saltMangoTreeData as unknown as SaltMangoTree;
+
+export default function Page(): JSX.Element {
+  const [activeFilter, setActiveFilter] = useState<string>("All");
+  const [activeTab, setActiveTab] = useState<"upcoming" | "previous">(
+    "upcoming"
+  );
+  const [selectedEpisode, setSelectedEpisode] = useState<Episode | null>(null);
+  const [episodesToShow, setEpisodesToShow] = useState<number>(6);
 
   const upcomingEpisodes = saltMangoTree.upcomingEpisodes;
   const previousEpisodes = saltMangoTree.previousEpisodes;
 
-  const allTags = saltMangoTree.tags;
+  const allTags = saltMangoTree.tags as string[];
 
-  const currentEpisodes =
+  const currentEpisodes: Episode[] =
     activeTab === "upcoming" ? upcomingEpisodes : previousEpisodes;
-  const filteredEpisodes =
+  const filteredEpisodes: Episode[] =
     activeFilter === "All"
       ? currentEpisodes
-      : currentEpisodes.filter((episode) =>
-          episode.tags.includes(activeFilter)
-        );
+      : currentEpisodes.filter((episode) => episode.tags.includes(activeFilter));
 
   // Reset episodes to show when filter or tab changes
   useEffect(() => {
@@ -33,11 +60,11 @@ export default function page() {
   const supportsMore = filteredEpisodes.length > episodesToShow;
 
   // Load more episodes handler
-  const handleLoadMore = () => {
+  const handleLoadMore = (): void => {
     setEpisodesToShow((prev) => prev + 6);
   };
 
-  const createGoogleCalendarUrl = (episode) => {
+  const createGoogleCalendarUrl = (episode: Episode): string => {
     const dateStr = episode.airDate.replace(/-/g, "");
     const startTime = `${dateStr}T140000Z`;
     const endTime = `${dateStr}T150000Z`;
@@ -52,7 +79,7 @@ export default function page() {
     return `https://calendar.google.com/calendar/u/0/r/eventedit?${params.toString()}`;
   };
 
-  const handleSetReminder = (episode) => {
+  const handleSetReminder = (episode: Episode): void => {
     const url = createGoogleCalendarUrl(episode);
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -98,7 +125,7 @@ export default function page() {
               backgroundColor: "#1f801f",
               "--leaf-rotation": "15deg",
               animation: "leaf-float 8s ease-in-out infinite",
-            }}
+            } as React.CSSProperties}
           />
         </div>
 
@@ -112,7 +139,7 @@ export default function page() {
               backgroundColor: "#259925",
               "--leaf-rotation": "-25deg",
               animation: "leaf-float 10s ease-in-out infinite 2s",
-            }}
+            } as React.CSSProperties}
           />
         </div>
 
@@ -126,7 +153,7 @@ export default function page() {
               backgroundColor: "#2bb32b",
               "--leaf-rotation": "45deg",
               animation: "leaf-float 12s ease-in-out infinite 4s",
-            }}
+            } as React.CSSProperties}
           />
         </div>
 
@@ -140,7 +167,7 @@ export default function page() {
               backgroundColor: "#32cd32",
               "--leaf-rotation": "-15deg",
               animation: "leaf-float 9s ease-in-out infinite 1s",
-            }}
+            } as React.CSSProperties}
           />
         </div>
 
@@ -154,7 +181,7 @@ export default function page() {
               backgroundColor: "#1f801f",
               "--leaf-rotation": "60deg",
               animation: "leaf-float 11s ease-in-out infinite 3s",
-            }}
+            } as React.CSSProperties}
           />
         </div>
 
@@ -168,7 +195,7 @@ export default function page() {
               backgroundColor: "#259925",
               "--leaf-rotation": "-40deg",
               animation: "leaf-float 7s ease-in-out infinite 5s",
-            }}
+            } as React.CSSProperties}
           />
         </div>
 
@@ -182,7 +209,7 @@ export default function page() {
               backgroundColor: "#2bb32b",
               "--leaf-rotation": "30deg",
               animation: "leaf-float 13s ease-in-out infinite 2.5s",
-            }}
+            } as React.CSSProperties}
           />
         </div>
 
@@ -196,7 +223,7 @@ export default function page() {
               backgroundColor: "#32cd32",
               "--leaf-rotation": "-60deg",
               animation: "leaf-float 8.5s ease-in-out infinite 4.5s",
-            }}
+            } as React.CSSProperties}
           />
         </div>
 
@@ -211,7 +238,7 @@ export default function page() {
               backgroundColor: "#1f801f",
               "--leaf-rotation": "75deg",
               animation: "leaf-float 6s ease-in-out infinite 1.5s",
-            }}
+            } as React.CSSProperties}
           />
         </div>
 
@@ -225,7 +252,7 @@ export default function page() {
               backgroundColor: "#259925",
               "--leaf-rotation": "-35deg",
               animation: "leaf-float 9.5s ease-in-out infinite 3.5s",
-            }}
+            } as React.CSSProperties}
           />
         </div>
 
@@ -239,7 +266,7 @@ export default function page() {
               backgroundColor: "#2bb32b",
               "--leaf-rotation": "50deg",
               animation: "leaf-float 10.5s ease-in-out infinite 0.5s",
-            }}
+            } as React.CSSProperties}
           />
         </div>
 
@@ -435,7 +462,7 @@ export default function page() {
                       backgroundColor: "#1f801f",
                       "--leaf-rotation": "20deg",
                       animation: "leaf-float 9s ease-in-out infinite 2s",
-                    }}
+                    } as React.CSSProperties}
                   />
                 </div>
 
@@ -449,7 +476,7 @@ export default function page() {
                       backgroundColor: "#259925",
                       "--leaf-rotation": "-30deg",
                       animation: "leaf-float 11s ease-in-out infinite 4s",
-                    }}
+                    } as React.CSSProperties}
                   />
                 </div>
 
@@ -463,7 +490,7 @@ export default function page() {
                       backgroundColor: "#2bb32b",
                       "--leaf-rotation": "55deg",
                       animation: "leaf-float 7s ease-in-out infinite 1s",
-                    }}
+                    } as React.CSSProperties}
                   />
                 </div>
 
@@ -477,7 +504,7 @@ export default function page() {
                       backgroundColor: "#32cd32",
                       "--leaf-rotation": "-45deg",
                       animation: "leaf-float 10s ease-in-out infinite 3s",
-                    }}
+                    } as React.CSSProperties}
                   />
                 </div>
 
@@ -491,7 +518,7 @@ export default function page() {
                       backgroundColor: "#1f801f",
                       "--leaf-rotation": "70deg",
                       animation: "leaf-float 8s ease-in-out infinite 5s",
-                    }}
+                    } as React.CSSProperties}
                   />
                 </div>
 
@@ -505,7 +532,7 @@ export default function page() {
                       backgroundColor: "#259925",
                       "--leaf-rotation": "-20deg",
                       animation: "leaf-float 12s ease-in-out infinite 1.5s",
-                    }}
+                    } as React.CSSProperties}
                   />
                 </div>
 
@@ -946,7 +973,9 @@ export default function page() {
                               <button
                                 className="w-full py-3 px-4 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                                 onClick={() => {
-                                  window.open(episode.audioUrl, "_blank");
+                                  if (episode.audioUrl) {
+                                    window.open(episode.audioUrl, "_blank");
+                                  }
                                 }}
                                 disabled={!episode.audioUrl}
                                 style={{
@@ -1202,3 +1231,5 @@ export default function page() {
     </>
   );
 }
+
+
