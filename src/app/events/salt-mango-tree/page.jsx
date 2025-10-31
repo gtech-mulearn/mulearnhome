@@ -84,7 +84,7 @@ export default function page() {
         style={{
           backgroundColor: "#FFFFFF",
           fontFamily: "var(--font-sans)",
-          color: "#333333",
+          color: "#C4C4C4",
         }}
       >
         {/* Decorative Leaves */}
@@ -252,7 +252,12 @@ export default function page() {
                   <div className="flex flex-col gap-4">
                     <h1
                       className="text-4xl font-extrabold leading-tight tracking-tighter md:text-6xl lg:text-7xl"
-                      style={{ color: "#1A1A1A" }}
+                      style={{
+                        background:
+                          "linear-gradient(133.8deg, #2E85FE -8.97%, #AF2EE6 91.41%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
                     >
                       {saltMangoTree.title}{" "}
                       <span style={{ fontFamily: "Manjari, sans-serif" }}>
@@ -276,10 +281,9 @@ export default function page() {
                     <button
                       className="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 text-base font-bold leading-normal tracking-wide transition-transform hover:scale-105 active:scale-95"
                       style={{
-                        backgroundColor: "#FEE03E",
-                        color: "#1A1A1A",
+                        backgroundColor: "#2E85FE",
+                        color: "#FEFEFE",
                       }}
-
                       onClick={() => {
                         window.open(saltMangoTree.latestAudioUrl, "_blank");
                       }}
@@ -297,8 +301,8 @@ export default function page() {
                       disabled={upcomingEpisodes.length === 0}
                       className="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-transparent ring-2 transition-all hover:opacity-70 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                       style={{
-                        color: "#333333",
-                        borderColor: "#FEE03E",
+                        color: "#1A1A1A",
+                        borderColor: "#2E85FE",
                       }}
                     >
                       <span className="truncate font-bold tracking-wide">
@@ -315,16 +319,16 @@ export default function page() {
                   dangerouslySetInnerHTML={{
                     __html: `
                   .gradient-title {
-                    background: linear-gradient(90deg, #1A1A1A, #166534);
+                    background: linear-gradient(90deg, #2E85FE, #AF2EE6);
                     -webkit-background-clip: text;
                     background-clip: text;
                     color: transparent;
                   }
                   .intro-card {
-                    background: radial-gradient(1200px 400px at 50% -100%, rgba(254, 224, 62, 0.15), transparent 50%),
-                                radial-gradient(900px 300px at 110% 20%, rgba(22, 101, 52, 0.08), transparent 40%),
-                                radial-gradient(900px 300px at -10% 80%, rgba(34, 139, 34, 0.08), transparent 40%),
-                                #ffffff;
+                    background: radial-gradient(1200px 400px at 50% -100%, rgba(46, 133, 254, 0.15), transparent 50%),
+                                radial-gradient(900px 300px at 110% 20%, rgba(175, 46, 230, 0.08), transparent 40%),
+                                radial-gradient(900px 300px at -10% 80%, rgba(46, 133, 254, 0.08), transparent 40%),
+                                #FEFEFE;
                     box-shadow: 0 10px 30px rgba(0,0,0,0.06);
                     border: 1px solid rgba(26, 26, 26, 0.06);
                     position: relative;
@@ -334,7 +338,7 @@ export default function page() {
                     content: "";
                     display: inline-block;
                     width: 6px; height: 6px; border-radius: 9999px;
-                    background: #FEE03E; margin: 0 10px;
+                    background: #2E85FE; margin: 0 10px;
                   }
                   @keyframes float-soft { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-6px) } }
                   /* Minimal Kathakali mask motif - geometric, decorative only */
@@ -732,8 +736,10 @@ export default function page() {
                           style={{
                             backgroundColor:
                               activeTab === "upcoming"
-                                ? "#FEE03E"
+                                ? "#2E85FE"
                                 : "transparent",
+                            color:
+                              activeTab === "upcoming" ? "#FEFEFE" : "#333333",
                           }}
                         >
                           Upcoming Episodes
@@ -748,8 +754,10 @@ export default function page() {
                           style={{
                             backgroundColor:
                               activeTab === "previous"
-                                ? "#FEE03E"
+                                ? "#2E85FE"
                                 : "transparent",
+                            color:
+                              activeTab === "previous" ? "#FEFEFE" : "#333333",
                           }}
                         >
                           Previous Episodes
@@ -771,9 +779,10 @@ export default function page() {
                         }`}
                         style={{
                           backgroundColor:
-                            activeFilter === tag ? "#FEE03E" : "transparent",
+                            activeFilter === tag ? "#2E85FE" : "transparent",
                           border:
                             activeFilter === tag ? "none" : "1px solid #e5e7eb",
+                          color: activeFilter === tag ? "#FEFEFE" : "#333333",
                         }}
                       >
                         {tag}
@@ -792,6 +801,7 @@ export default function page() {
                           animationDelay: `${index * 0.08}s`,
                           animationDuration: "1s",
                           animationFillMode: "both",
+                          backgroundColor: "#FEFEFE",
                         }}
                       >
                         {/* Episode Image */}
@@ -807,9 +817,9 @@ export default function page() {
                               className="px-3 py-1 text-xs font-medium rounded-full"
                               style={{
                                 backgroundColor: episode.isUpcoming
-                                  ? "rgba(254, 224, 62, 0.9)"
-                                  : "rgba(51, 51, 51, 0.9)",
-                                color: episode.isUpcoming ? "#000" : "#FFFFFF",
+                                  ? "#2E85FE"
+                                  : "#1A1A1A",
+                                color: "#FEFEFE",
                               }}
                             >
                               {episode.isUpcoming ? "Upcoming" : "Aired"}
@@ -875,8 +885,8 @@ export default function page() {
                                 key={tag}
                                 className="px-3 py-1 text-xs font-medium rounded-full"
                                 style={{
-                                  backgroundColor: "rgba(254, 224, 62, 0.1)",
-                                  color: "#333333",
+                                  backgroundColor: "rgba(46, 133, 254, 0.1)",
+                                  color: "#1A1A1A",
                                 }}
                               >
                                 {tag}
@@ -892,8 +902,8 @@ export default function page() {
                                   onClick={() => handleSetReminder(episode)}
                                   className="flex-1 py-3 px-4 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 cursor-pointer"
                                   style={{
-                                    backgroundColor: "#FEE03E",
-                                    color: "#1A1A1A",
+                                    backgroundColor: "#2E85FE",
+                                    color: "#FEFEFE",
                                   }}
                                 >
                                   <svg
@@ -915,8 +925,8 @@ export default function page() {
                                   className="px-4 py-3 rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105 flex items-center justify-center cursor-pointer"
                                   style={{
                                     backgroundColor: "transparent",
-                                    color: "#333333",
-                                    border: "2px solid #333333",
+                                    color: "#1A1A1A",
+                                    border: "2px solid #1A1A1A",
                                   }}
                                 >
                                   <svg
@@ -941,9 +951,11 @@ export default function page() {
                                 disabled={!episode.audioUrl}
                                 style={{
                                   opacity: episode.audioUrl ? 1 : 0.5,
-                                  cursor: episode.audioUrl ? "pointer" : "not-allowed",
-                                  backgroundColor: "#FEE03E",
-                                  color: "#1A1A1A",
+                                  cursor: episode.audioUrl
+                                    ? "pointer"
+                                    : "not-allowed",
+                                  backgroundColor: "#2E85FE",
+                                  color: "#FEFEFE",
                                 }}
                               >
                                 <svg
@@ -974,8 +986,8 @@ export default function page() {
                         className="px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 cursor-pointer"
                         style={{
                           backgroundColor: "transparent",
-                          color: "#333333",
-                          border: "2px solid #FEE03E",
+                          color: "#1A1A1A",
+                          border: "2px solid #2E85FE",
                         }}
                       >
                         Load More Episodes
@@ -998,6 +1010,7 @@ export default function page() {
             <div
               className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
               onClick={(e) => e.stopPropagation()}
+              style={{ backgroundColor: "#FEFEFE" }}
             >
               {/* Close Button */}
               <button
@@ -1033,9 +1046,9 @@ export default function page() {
                     className="px-4 py-2 text-sm font-medium rounded-full"
                     style={{
                       backgroundColor: selectedEpisode.isUpcoming
-                        ? "rgba(254, 224, 62, 0.9)"
-                        : "rgba(51, 51, 51, 0.9)",
-                      color: selectedEpisode.isUpcoming ? "#000" : "#FFFFFF",
+                        ? "#2E85FE"
+                        : "#1A1A1A",
+                      color: "#FEFEFE",
                     }}
                   >
                     {selectedEpisode.isUpcoming ? "Upcoming" : "Aired"}
@@ -1121,9 +1134,9 @@ export default function page() {
                         key={tag}
                         className="px-4 py-2 text-sm font-medium rounded-full"
                         style={{
-                          backgroundColor: "rgba(254, 224, 62, 0.2)",
-                          color: "#333333",
-                          border: "1px solid rgba(254, 224, 62, 0.3)",
+                          backgroundColor: "rgba(46, 133, 254, 0.2)",
+                          color: "#1A1A1A",
+                          border: "1px solid rgba(46, 133, 254, 0.3)",
                         }}
                       >
                         {tag}
@@ -1140,8 +1153,8 @@ export default function page() {
                         onClick={() => handleSetReminder(selectedEpisode)}
                         className="flex-1 py-4 px-6 rounded-full font-bold text-base transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 cursor-pointer"
                         style={{
-                          backgroundColor: "#FEE03E",
-                          color: "#1A1A1A",
+                          backgroundColor: "#2E85FE",
+                          color: "#FEFEFE",
                         }}
                       >
                         <svg
@@ -1162,8 +1175,8 @@ export default function page() {
                     <button
                       className="w-full py-4 px-6 rounded-full font-bold text-base transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                       style={{
-                        backgroundColor: "#FEE03E",
-                        color: "#1A1A1A",
+                        backgroundColor: "#2E85FE",
+                        color: "#FEFEFE",
                       }}
                     >
                       <svg
