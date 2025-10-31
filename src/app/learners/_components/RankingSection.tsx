@@ -1,74 +1,76 @@
-"use client";
-
-import React from 'react';
+import MuImage from '@/components/MuImage';
 import { TopLearner, Testimonial } from '@/data/data';
+import { cdnUrl } from '@/services/cdn';
 
 interface RankingSectionProps {
   topLearners: TopLearner[];
   testimonials: Testimonial[];
 }
 
-const TopLearnerCard: React.FC<TopLearner & { rank: number }> = ({ name, kp, imageUrl, rank }) => (
+const fallbackImage = cdnUrl("public/assets/team/default.webp");
+
+const TopLearnerCard: React.FC<TopLearner & { rank: number }> = ({
+  name,
+  kp,
+  imageUrl,
+}) => (
   <div className="text-center group relative flex flex-col items-center">
     <div className="relative">
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-blue-400 to-white-300 rounded-xl   " />
-      <img
-        src={imageUrl}
+      <MuImage
+        src={imageUrl ? imageUrl : fallbackImage}
         alt={`${name}'s profile`}
-        className="w-40 h-40 md:w-48 md:h-48 rounded-xl object-cover object-top  mx-auto shadow-lg  relative "
-        onError={(e) => {
-          e.currentTarget.onerror = null;
-          e.currentTarget.src =
-            "https://placehold.co/192x192/E0ECF9/2563EB?text=" + name.charAt(0);
-        }}
+        fill
+        className="object-contain object-top"
       />
     </div>
 
     <div className="mt-4">
       <p className="text-lg font-bold text-gray-900 mb-1">{name}</p>
       <p className="text-xl font-extrabold text-gray-900">
-        {kp.toLocaleString()}<span className="text-blue-600">KP</span>
+        {kp.toLocaleString()}
+        <span className="text-blue-600">KP</span>
       </p>
     </div>
   </div>
 );
 
 
-
-// Small Learner Card (Bottom Section)
-const SmallLearnerCard: React.FC<{ name: string; kp: number; imageUrl: string }> = ({ name, kp, imageUrl }) => (
+const SmallLearnerCard: React.FC<{
+  name: string;
+  kp: number;
+  imageUrl: string;
+}> = ({ name, kp, imageUrl }) => (
   <div className="relative w-44 sm:w-60 h-18 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
     <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700" />
     <div className="absolute inset-0 bg-gradient-radial from-white/10 via-transparent to-transparent" />
     <div className="relative h-full flex items-center px-3 gap-3">
-      
-      <img
-        src={imageUrl}
+      <MuImage
+        src={imageUrl ? (imageUrl) : fallbackImage}
         alt={`${name}'s profile`}
-        className="w-12 h-12 rounded-lg object-cover object-top border-2 border-white/30 shadow-sm flex-shrink-0"
-        onError={(e) => {
-          e.currentTarget.onerror = null;
-          e.currentTarget.src = "https://placehold.co/40x40/E0ECF9/2563EB?text=" + name.charAt(0);
-        }}
+        width={100}
+        height={100}
+        className="object-contain object-top"
       />
-      
+
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-semibold text-white truncate drop-shadow">{name}</p>
+        <p className="text-sm font-semibold text-white truncate drop-shadow">
+          {name}
+        </p>
         <p className="text-xs font-medium text-white/90 drop-shadow">
           {kp.toLocaleString()} <span className="font-bold">KP</span>
         </p>
       </div>
     </div>
-    
+
     <div className="absolute inset-0 rounded-xl border border-white/20 pointer-events-none" />
   </div>
 );
 
 
-const RankingSection: React.FC<RankingSectionProps> = ({ topLearners, testimonials }) => {
+const RankingSection: React.FC<RankingSectionProps> = ({ topLearners }) => {
   const showcaseLearners = topLearners.slice(0, 3);
   
-  // Only show 8 cards (4 + 4)
   const smallLearners = topLearners.slice(3, 11).length >= 8 
     ? topLearners.slice(3, 11) 
     : [...topLearners.slice(3), ...topLearners.slice(0, Math.max(0, 8 - (topLearners.length - 3)))];
@@ -80,7 +82,6 @@ const RankingSection: React.FC<RankingSectionProps> = ({ topLearners, testimonia
       </h2>
 
 
-      {/* Top 3 Learners Showcase */}
       <div className="flex flex-col md:flex-row items-end justify-center gap-8 md:gap-12 mb-16 max-w-5xl mx-auto w-full">
         {showcaseLearners[0] && (
           <div className="order-1 md:order-2 md:mb-16 flex justify-center w-full md:w-auto">

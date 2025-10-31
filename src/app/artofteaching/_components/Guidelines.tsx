@@ -58,7 +58,6 @@ const Guidelines = () => {
 
   return (
     <>
-      {/* Second View - What is Art of Teaching */}
       <div className="px-8 py-8 bg-white lg:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between">
@@ -79,7 +78,6 @@ const Guidelines = () => {
               </p>
             </div>
 
-            {/* Guidelines Card - Desktop */}
             <div className="hidden lg:block lg:w-1/2">
               <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-lg max-w-lg">
                 <h3 className="text-2xl font-semibold text-gray-800 mb-6">
@@ -128,7 +126,6 @@ const Guidelines = () => {
             </div>
           </div>
 
-          {/* Guidelines Card - Mobile */}
           <div className="block lg:hidden mt-12 mb-8">
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-lg">
               <h3 className="text-xl font-semibold text-gray-800 mb-4">
@@ -177,7 +174,6 @@ const Guidelines = () => {
               </div>
             </div>
             
-            {/* Mobile Video */}
             <div className="w-full max-w-md lg:max-w-2xl mt-8">
               <iframe
                 className="w-full h-56 lg:h-70 xl:h-96 rounded-lg"
@@ -192,7 +188,6 @@ const Guidelines = () => {
         </div>
       </div>
 
-      {/* Desktop Video */}
       <div className="hidden lg:flex items-center justify-center h-[500px] mb-4">
         <div className="w-full max-w-md lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl">
           <iframe

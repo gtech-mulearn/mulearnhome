@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { testimonialsData, slideImages } from "@/data/data";
+import MuImage from "@/components/MuImage";
+import { cdnUrl } from "@/services/cdn";
 
 interface SlideImage {
   imageUrl: string;
@@ -13,6 +15,8 @@ const Testimonials: React.FC = () => {
   const slides: SlideImage[] = slideImages;
 
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const fallbackImage = cdnUrl("public/assets/team/default.webp");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -33,7 +37,7 @@ const Testimonials: React.FC = () => {
     const container = scrollRef.current;
     if (!container) return;
 
-    let scrollStep = 1;
+    const scrollStep = 1;
     const scrollDelay = 20;
 
     const scrollInterval = setInterval(() => {
@@ -58,13 +62,15 @@ const Testimonials: React.FC = () => {
         {/* Image Slider Section */}
         <div className="relative mt-10 mx-auto w-full max-w-6xl h-[400px] rounded-[32px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(37,99,235,0.4)]">
           {slides.map((slide, index) => (
-            <img
-              key={index}
+            <MuImage
+              key={slide.alt}
               src={slide.imageUrl}
               alt={slide.alt}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              fill
+              className={`object-cover transition-opacity duration-1000 ${
                 index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
+              priority={index === currentSlide}
             />
           ))}
 
@@ -90,7 +96,9 @@ const Testimonials: React.FC = () => {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  index === currentSlide ? "bg-white w-8" : "bg-white/40 hover:bg-white/60"
+                  index === currentSlide
+                    ? "bg-white w-8"
+                    : "bg-white/40 hover:bg-white/60"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -117,19 +125,17 @@ const Testimonials: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-radial from-white/10 via-transparent to-transparent" />
                   <div className="relative h-full p-6 flex flex-col justify-between">
                     <p className="text-sm text-white leading-relaxed italic mb-4 drop-shadow-sm">
-                      "{testimonial.quote}"
+                      &quot;{testimonial.quote}&quot;
                     </p>
                     <div className="flex items-center space-x-3">
-                      <img
-                        src={testimonial.imageUrl}
+                      <MuImage
+                        src={
+                          testimonial.imageUrl ? testimonial.imageUrl : fallbackImage
+                        }
                         alt={`${testimonial.name}'s profile`}
-                        className="w-14 h-14 rounded-xl object-cover shadow-lg border-2 border-white/30"
-                        onError={(e) => {
-                          e.currentTarget.onerror = null;
-                          e.currentTarget.src =
-                            "" +
-                            testimonial.name;
-                        }}
+                        width={100}
+                        height={100}
+                        className="object-contain rounded-2xl"
                       />
                       <div>
                         <p className="font-bold text-white text-base drop-shadow">

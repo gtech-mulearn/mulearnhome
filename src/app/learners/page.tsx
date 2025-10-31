@@ -1,9 +1,9 @@
 import React from 'react';
-import LearnersHero from '@/components/LearnersPage/_components/LearnersHero';
-import LearnerIntro from '@/components/LearnersPage/_components/LearnerIntro';
-import Testimonials from '@/components/LearnersPage/_components/Testimonials';
-import RankingSection from '@/components/LearnersPage/_components/RankingSection';
-import OnboardingSteps from '@/components/LearnersPage/_components/OnboardingSteps';
+import LearnersHero from '@/app/learners/_components/LearnersHero';
+import LearnerIntro from '@/app/learners/_components/LearnerIntro';
+import Testimonials from '@/app/learners/_components/Testimonials';
+import RankingSection from '@/app/learners/_components/RankingSection';
+import OnboardingSteps from '@/app/learners/_components/OnboardingSteps';
 
 import { learnerIdentityTags, topLearnersData, testimonialsData, onboardingSteps } from '@/data/data';
 

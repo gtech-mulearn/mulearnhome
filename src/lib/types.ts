@@ -216,6 +216,35 @@ export interface AnnualReport {
   highlights?: string[];
   publishedDate: string;
 }
+// Updated VideoTestimonial interface
+export interface VideoTestimonial {
+  id: string;
+  name: string;
+  role: string;
+  company?: string;
+  videoUrl: string;
+  thumbnailUrl: string;
+  profileImage: string;
+  type: 'learner' | 'mentor' | 'partner' | 'community-leader';
+  quote: string;
+}
+
+// Text Testimonial interface for written feedback
+export interface TextTestimonial {
+  id: string;
+  name: string;
+  role: string;
+  company?: string;
+  profileImage: string;
+  quote: string;
+  type: 'learner' | 'mentor' | 'partner' | 'community-leader';
+  rating: number;
+  date: string;
+  socialProof?: string; // e.g., "Posted on LinkedIn", "Shared on Twitter"
+}
+
+// Combined testimonial type
+export type Testimonial = VideoTestimonial | TextTestimonial;
 
 export type cardProps = {
   name: string;
@@ -231,3 +260,35 @@ export type IGSectionProps = {
   heading?: string;
   largeImg?: boolean;
 };
+
+export interface OMEvent {
+  id: number;
+  title: string;
+  description: string;
+  date?: string;
+  performer?: string;
+  tags: string[];
+  thumbnail?: string;
+  isUpcoming: boolean;
+}
+
+export interface Score {
+  username: string;
+  displayname: string;
+  commits: number;
+  prs_opened: number;
+  prs_merged: number;
+  issues_opened: number;
+  issues_closed: number;
+}
+
+export interface LeaderboardData {
+  monthly: Score[];
+  overall: Score[];
+  date: string;
+}
+
+export interface LeaderboardProps {
+  props: LeaderboardData & { date: string };
+  revalidate: number;
+}

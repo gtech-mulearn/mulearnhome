@@ -3,7 +3,6 @@
 import React, { useState, useRef } from 'react';
 import MuImage from '@/components/MuImage';
 import * as htmlToImage from 'html-to-image';
-import { cdnUrl } from '@/services/cdn';
 
 const StripesBackground = ({ className = "" }: { className?: string }) => (
   <MuImage
@@ -19,23 +18,18 @@ const StripesBackground = ({ className = "" }: { className?: string }) => (
   />
 );
 
-// Function to convert color to CSS filter for SVG color change
 const colorToFilter = (color: string): string => {
-  // Handle gradient case (both direct gradient and CSS variable)
   if (color.startsWith('linear-gradient') || color.includes('--mulearn-trusty)')) {
     return 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1180%) hue-rotate(200deg) brightness(95%) contrast(101%)'; // Default to blue for gradient
   }
   
-  // Convert to filter values for solid colors
-  if (color === '#FEFEFE') return 'brightness(0) invert(1)'; // White
+  if (color === '#FEFEFE') return 'brightness(0) invert(1)';
   if (color === '#AF2EE6' || color.includes('--mulearn-duke-purple')) return 'brightness(0) saturate(100%) invert(45%) sepia(84%) saturate(2274%) hue-rotate(244deg) brightness(97%) contrast(98%)'; // Purple
   if (color === '#2E85FE' || color.includes('--mulearn-trusty-blue')) return 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1180%) hue-rotate(200deg) brightness(95%) contrast(101%)'; // Blue
   
-  // Default fallback to blue
   return 'brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1180%) hue-rotate(200deg) brightness(95%) contrast(101%)';
 };
 
-// MuLearn Logo Component with dynamic color
 const MuLearnLogo = ({ color, width = 200, height = 50 }: { color: string, width?: number, height?: number }) => {
   const isGradient = color.startsWith('linear-gradient') || color.includes('--mulearn-trusty)');
   
@@ -55,7 +49,7 @@ const MuLearnLogo = ({ color, width = 200, height = 50 }: { color: string, width
           height={height}
           className="w-full h-full absolute inset-0"
           style={{ 
-            filter: 'brightness(0) invert(1)' // Make it white first
+            filter: 'brightness(0) invert(1)'
           }}
         />
         <div 
@@ -93,7 +87,6 @@ const MuLearnLogo = ({ color, width = 200, height = 50 }: { color: string, width
   );
 };
 
-// YIP Logo Component with variant selection
 const YIPLogo = ({ variant, width = 200, height = 50 }: { variant: string, width?: number, height?: number }) => {
   const getLogoPath = () => {
     switch (variant) {
@@ -124,7 +117,6 @@ const YIPLogo = ({ variant, width = 200, height = 50 }: { variant: string, width
 };
 
 export default function CampusLogoGenerator() {
-  // State for form data and download functionality
   const [formData, setFormData] = useState({
     campusCode: '',
     logoType: 'MuLearn',
@@ -138,7 +130,6 @@ export default function CampusLogoGenerator() {
   const [isDownloading, setIsDownloading] = useState(false);
   const squareLogoRef = useRef<HTMLDivElement>(null);
 
-  // Color options
   const foregroundColors = [
     { name: 'White', value: '#FEFEFE' },
     { name: 'Purple', value: 'var(--mulearn-duke-purple)' },
@@ -151,8 +142,6 @@ export default function CampusLogoGenerator() {
     { name: 'Purple', value: 'var(--mulearn-duke-purple)' },
     { name: 'Blue', value: 'var(--mulearn-trusty-blue)' }
   ];
-
-  // YIP logo variants
   const yipVariants = [
     { name: 'Red', value: 'red', bgColor: '#ffffff' },
     { name: 'Dark', value: 'dark', bgColor: 'var(--mulearn-blackish)' },
@@ -175,7 +164,6 @@ export default function CampusLogoGenerator() {
     try {
       console.log('Starting download process...');
       
-      // Get the actual dimensions of the element
       const rect = squareLogoRef.current.getBoundingClientRect();
       console.log('Element dimensions:', rect);
       
@@ -186,14 +174,13 @@ export default function CampusLogoGenerator() {
         width: rect.width,
         height: rect.height,
         quality: 1.0,
-        pixelRatio: 2, // Reduced for better compatibility
+        pixelRatio: 2,
         useCORS: true,
         allowTaint: false,
         imageSmoothingEnabled: true,
         skipFonts: false,
         cacheBust: true,
         filter: (node: HTMLElement) => {
-          // Include all nodes except script tags
           if (node.tagName === 'SCRIPT') return false;
           return true;
         }
@@ -210,13 +197,12 @@ export default function CampusLogoGenerator() {
         console.log('Generating SVG...');
         dataUrl = await htmlToImage.toSvg(squareLogoRef.current, {
           ...config,
-          pixelRatio: 1, // SVG doesn't need pixelRatio
+          pixelRatio: 1,
         });
       }
 
       console.log('Image generated successfully');
 
-      // Create download link
       const link = document.createElement('a');
       link.download = `${formData.campusCode || 'mulearn'}-logo.${formData.fileType.toLowerCase()}`;
       link.href = dataUrl;
@@ -259,22 +245,15 @@ export default function CampusLogoGenerator() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex" style={{ fontFamily: 'var(--font-plus-jakarta)' }}>
-      {/* Main Content Area */}
       <div className="flex-1 flex flex-col lg:flex-row mr-2 overflow-hidden bg-mulearn-whitish">
-       
-
-        {/* Logo Preview Section - Mobile First */}
         <div className="order-1 lg:order-2 flex-1 bg-mulearn-blackish flex items-center justify-center p-6 lg:p-12 relative min-h-[50vh] lg:min-h-auto">
-          {/* Subtle pattern overlay */}
           <div className="absolute inset-0 opacity-10" style={{
             backgroundImage: `linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)`,
             backgroundSize: '30px 30px'
           }}></div>
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center relative z-10">
-            {/* Conditional Rendering based on Logo Type */}
             {formData.logoType === 'YIP' ? (
               <>
-                {/* YIP Square Logo */}
                 <div className="relative group">
                   <div 
                     ref={squareLogoRef}
@@ -309,7 +288,6 @@ export default function CampusLogoGenerator() {
                   </div>
                 </div>
 
-                {/* YIP Circular Logo - Hidden on mobile */}
                 <div 
                   className="hidden lg:block w-64 h-64 rounded-full flex items-center justify-center text-white relative overflow-hidden shadow-2xl"
                   style={{ 
@@ -343,7 +321,6 @@ export default function CampusLogoGenerator() {
               </>
             ) : (
               <>
-                {/* Square Logo */}
                 <div className="relative group">
                   <div 
                     ref={squareLogoRef}
@@ -354,7 +331,6 @@ export default function CampusLogoGenerator() {
                       backgroundColor: formData.logoVariant === 'Transparent Bg' ? 'transparent' : formData.backgroundColor
                     }}
                   >
-                    {/* Stripes Background - Only show for non-transparent backgrounds */}
                     {formData.logoVariant !== 'Transparent Bg' && <StripesBackground />}
                     <div className="relative w-full h-full flex items-center justify-center z-10">
                       <div className="transition-all duration-300">
@@ -382,13 +358,11 @@ export default function CampusLogoGenerator() {
                   </div>
                 </div>
 
-                {/* Circular Logo - Hidden on mobile */}
                 {formData.logoVariant !== 'Transparent Bg' && (
                   <div 
                     className="hidden lg:block w-64 h-64 rounded-full flex items-center justify-center text-white relative overflow-hidden shadow-2xl"
                     style={{ backgroundColor: formData.backgroundColor }}
                   >
-                    {/* Stripes Background */}
                     <StripesBackground />
                     <div className="relative w-full h-full flex items-center justify-center z-10">
                       <div className="transition-all duration-300">
@@ -420,10 +394,8 @@ export default function CampusLogoGenerator() {
           </div>
         </div>
 
-        {/* Control Panel */}
         <div className="order-2 lg:order-1 w-full lg:w-110 bg-white p-4 lg:p-10 shadow overflow-y-auto">
           <div className="space-y-6">
-            {/* Header */}
             <div>
               <h1 
                 className="font-bold mb-2" 
@@ -438,7 +410,6 @@ export default function CampusLogoGenerator() {
               </h1>
             </div>
 
-            {/* Campus Code Input */}
             <div>
               <label 
                 className="block font-medium mb-2" 
@@ -465,7 +436,6 @@ export default function CampusLogoGenerator() {
               <div className="text-right text-xs text-gray-400 mt-1">{formData.campusCode.length}/15</div>
             </div>
 
-            {/* Logo Type */}
             <div>
               <label 
                 className="block font-medium mb-2" 
@@ -514,9 +484,7 @@ export default function CampusLogoGenerator() {
               </div>
             </div>
 
-            {/* Conditional Logo Options based on Logo Type */}
             {formData.logoType === 'YIP' ? (
-              // YIP Variant Selection
               <div>
                 <label 
                   className="block font-medium mb-2" 
@@ -552,7 +520,6 @@ export default function CampusLogoGenerator() {
                 </div>
               </div>
             ) : (
-              // MuLearn Logo Variant Selection
               <div>
                 <label 
                   className="block font-medium mb-2" 
@@ -602,10 +569,8 @@ export default function CampusLogoGenerator() {
               </div>
             )}
 
-            {/* Foreground and Background Colors - Only show for MuLearn logos */}
             {formData.logoType !== 'YIP' && (
               <>
-                {/* Foreground Color */}
                 <div>
                   <label 
                     className="block font-medium mb-3" 
@@ -636,7 +601,6 @@ export default function CampusLogoGenerator() {
                   </div>
                 </div>
 
-                {/* Background Color */}
                 <div>
                   <label 
                     className={`block font-medium mb-3 ${
@@ -676,7 +640,6 @@ export default function CampusLogoGenerator() {
               </>
             )}
 
-            {/* File Type */}
             <div>
               <label 
                 className="block font-medium mb-2" 
@@ -725,7 +688,6 @@ export default function CampusLogoGenerator() {
               </div>
             </div>
 
-            {/* Download Button */}
             <button
               className="w-full rounded-lg p-4 text-white font-medium transition-all hover:opacity-90 active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ 
