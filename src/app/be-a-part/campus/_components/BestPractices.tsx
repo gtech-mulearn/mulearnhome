@@ -1,12 +1,10 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 import { campusChapter } from "@/data/data";
 
 export default function BestPractices() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-32">
-      <motion.div
+      <MotionDiv
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -23,7 +21,7 @@ export default function BestPractices() {
           {campusChapter.bestpractices.map((practice, idx) => {
             const Icon = practice.icon;
             return (
-              <motion.div
+              <MotionDiv
                 key={practice.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -45,11 +43,11 @@ export default function BestPractices() {
                   {practice.title}
                 </h3>
                 <p className="text-mulearn-gray-600">{practice.desc}</p>
-              </motion.div>
+              </MotionDiv>
             );
           })}
         </div>
-      </motion.div>
+      </MotionDiv>
     </section>
   );
 }

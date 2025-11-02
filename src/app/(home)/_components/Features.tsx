@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { motion, Variants } from "framer-motion";
+import { Variants } from "framer-motion";
+import { MotionDiv, MotionSection } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { features } from "@/data/data";
 
@@ -40,7 +41,7 @@ export default function Features() {
 
   return (
     <div className="px-4 sm:px-6 md:px-12 lg:px-24 xl:px-40 w-full text-center flex flex-col items-center justify-center gap-4">
-      <motion.section
+      <MotionSection
         className="flex flex-col justify-center py-24 pb-0 items-center"
         variants={fadeInUp}
         initial="hidden"
@@ -62,7 +63,7 @@ export default function Features() {
           some of the key features that µLearn offers.
         </h6>
 
-        <motion.div
+        <MotionDiv
           className={`flex w-full mt-10 overflow-hidden relative justify-center gap-5 flex-wrap`}
           variants={fadeInUp}
           initial="hidden"
@@ -71,7 +72,7 @@ export default function Features() {
           onMouseLeave={() => setIsHovering(false)}
         >
           {features.map((feature, i) => (
-            <motion.div
+            <MotionDiv
               key={i}
               variants={fadeInUp}
               custom={i}
@@ -159,10 +160,10 @@ export default function Features() {
                   {feature.cta}
                 </Button>
               </Link>
-            </motion.div>
+            </MotionDiv>
           ))}
-        </motion.div>
-      </motion.section>
+        </MotionDiv>
+      </MotionSection>
     </div>
   );
 }

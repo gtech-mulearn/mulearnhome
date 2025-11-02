@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { MotionDiv, MotionH2 } from "@/components/MuFramer";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import {
@@ -28,22 +28,22 @@ export default function ImpactStats() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-16 bg-white">
+    <section ref={ref} className="py-16 bg-mulearn-whitish">
       <div className="container mx-auto px-4">
-        <motion.h2
+        <MotionH2
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           className="text-4xl font-bold text-center text-mulearn-blackish mb-12 "
         >
           Our Impact in Numbers
-        </motion.h2>
+        </MotionH2>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {impactStats.map((stat: ImpactStat, index) => {
             const IconComponent = iconMap[stat.icon as keyof typeof iconMap];
 
             return (
-              <motion.div
+              <MotionDiv
                 key={stat.label}
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={
@@ -54,13 +54,13 @@ export default function ImpactStats() {
                 transition={{ delay: index * 0.1 }}
                 className="text-center group"
               >
-                <motion.div
+                <MotionDiv
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   className="text-4xl mb-4 inline-block bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent"
                 >
                   <IconComponent size={40} />
-                </motion.div>
-                <motion.div
+                </MotionDiv>
+                <MotionDiv
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : { scale: 0 }}
                   transition={{ delay: index * 0.1 + 0.2, type: "spring" }}
@@ -73,11 +73,11 @@ export default function ImpactStats() {
                   }}
                 >
                   {stat.number}
-                </motion.div>
+                </MotionDiv>
                 <div className="text-mulearn-gray-600 font-semibold ">
                   {stat.label}
                 </div>
-              </motion.div>
+              </MotionDiv>
             );
           })}
         </div>

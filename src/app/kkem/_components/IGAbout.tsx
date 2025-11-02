@@ -1,17 +1,16 @@
-"use client";
-
+import { MotionDiv, MotionP } from "@/components/MuFramer";
 import Image from "next/image";
-import { motion, Variants, easeInOut } from "framer-motion";
+import { Variants  } from "framer-motion";
 import { cdnUrl } from "@/services/cdn";
 
 const slideInLeft: Variants = {
   hidden: { opacity: 0, x: -100 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: easeInOut } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.42, 0, 0.58, 1]  } },
 };
 
 const slideInRight: Variants = {
   hidden: { opacity: 0, x: 100 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: easeInOut } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.42, 0, 0.58, 1]  } },
 };
 
 export default function IGAbout() {
@@ -20,7 +19,7 @@ export default function IGAbout() {
       id="about"
       className="px-12 py-12 flex flex-col lg:flex-row items-center justify-between lg:gap-8"
     >
-      <motion.div
+      <MotionDiv
         className="flex-1"
         variants={slideInLeft}
         initial="hidden"
@@ -33,7 +32,7 @@ export default function IGAbout() {
           </span>
           Interest Groups
         </h1>
-        <motion.p
+        <MotionP
           className="text-mulearn-blackish text-lg lg:text-xl leading-[127.5%] max-w-200 mt-8"
           variants={slideInLeft}
           initial="hidden"
@@ -42,8 +41,8 @@ export default function IGAbout() {
         >
           Discover your passion, collaborate with like-minded individuals, and
           embark on a transformative learning journey.
-        </motion.p>
-        <motion.p
+        </MotionP>
+        <MotionP
           className="text-mulearn-blackish text-lg lg:text-xl leading-[127.5%] max-w-200 mt-4"
           variants={slideInLeft}
           initial="hidden"
@@ -53,17 +52,17 @@ export default function IGAbout() {
           Join our vibrant community of students and explore a wide range of
           interest areas, from coding to design, entrepreneurship to data
           science
-        </motion.p>
-      </motion.div>
+        </MotionP>
+      </MotionDiv>
 
-      <motion.div
+      <MotionDiv
         className="flex-1 flex flex-col items-center justify-center mt-12 lg:mt-0"
         variants={slideInRight}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <motion.div
+        <MotionDiv
           variants={slideInRight}
           initial="hidden"
           whileInView="visible"
@@ -76,8 +75,8 @@ export default function IGAbout() {
             height={400}
             className="mb-6"
           />
-        </motion.div>
-        <motion.p
+        </MotionDiv>
+        <MotionP
           className="text-lg lg:text-[1.35rem] font-medium leading-[127.5%] max-w-[60vmax] mb-4"
           variants={slideInRight}
           initial="hidden"
@@ -85,8 +84,8 @@ export default function IGAbout() {
           viewport={{ once: true }}
         >
           Curated by
-        </motion.p>
-        <motion.div
+        </MotionP>
+        <MotionDiv
           className="flex items-center justify-between gap-8"
           variants={slideInRight}
           initial="hidden"
@@ -115,8 +114,8 @@ export default function IGAbout() {
             className="rounded-full object-cover shadow-md p-2"
           />
           <p>and more...</p>
-        </motion.div>
-      </motion.div>
+        </MotionDiv>
+      </MotionDiv>
     </section>
   );
 }

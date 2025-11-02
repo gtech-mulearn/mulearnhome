@@ -1,12 +1,10 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { MotionBQ } from "@/components/MuFramer";
 
 export default function Quote() {
   return (
     <section className="py-20 lg:py-32">
       <div className="mx-auto max-w-4xl px-6 lg:px-8">
-        <motion.blockquote
+        <MotionBQ
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -20,7 +18,7 @@ export default function Quote() {
           <footer className="text-lg font-semibold text-mulearn-blackish">
             Start small. Stay consistent. The impact compounds.
           </footer>
-        </motion.blockquote>
+        </MotionBQ>
       </div>
     </section>
   );

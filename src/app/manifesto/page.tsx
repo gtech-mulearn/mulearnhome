@@ -1,10 +1,8 @@
-"use client";
-
-import React from "react";
+import { MotionH1, MotionH2 } from "@/components/MuFramer";
 import { cdnUrl } from "@/services/cdn";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+
 import Link from "next/link";
 
 const bglogo = cdnUrl("/src/modules/Public/Manifesto/assets/µ.png");
@@ -25,7 +23,7 @@ export default function Manifesto() {
           <div className="bg-mulearn-whitish/30 rounded-full pr-[6vw] md:pr-16 pl-[5vw] md:pl-8 py-[1vw] md:py-2 w-fit md:mb-4 uppercase text-mulearn-whitish text-[1.5vw] md:text-[1.3vw] font-medium">
             Our Manifesto
           </div>
-          <motion.h1
+          <MotionH1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -33,7 +31,7 @@ export default function Manifesto() {
             style={{ fontFamily: "var(--font-retro)" }}
           >
             We,The Unbound, The Unbowed
-          </motion.h1>
+          </MotionH1>
         </div>
 
         <MuImage
@@ -81,7 +79,7 @@ export default function Manifesto() {
       </div>
 
       <div className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple text-mulearn-whitish flex flex-col justify-center items-center gap-4 md:gap-8 mt-8 mb-[1.2rem] mx-0 sm:mt-20 sm:mb-24 text-center py-6 px-4 rounded-b-2xl">
-        <motion.h2
+        <MotionH2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -90,11 +88,10 @@ export default function Manifesto() {
           Welcome to the <span className="font-semibold">µLearn.</span>
           <br />
           Welcome to the <span className="font-semibold">Revolution.</span>
-        </motion.h2>
+        </MotionH2>
 
         <Link href="https://app.mulearn.org" target="_blank" rel="noreferrer">
           <Button
-            variant={"mulearn"}
             className="bg-mulearn-whitish text-mulearn-trusty-blue py-2 px-6 sm:px-8 sm:py-3 font-semibold text-[0.95rem] sm:text-[1.3rem] shadow hover:bg-mulearn-duke-purple hover:text-mulearn-whitish hover:scale-105 transition-all cursor-pointer rounded-full"
           >
             Join µLearn

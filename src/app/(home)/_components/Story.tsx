@@ -1,25 +1,28 @@
-"use client";
-
-import { motion, Variants, easeOut } from "framer-motion";
+import { Variants } from "framer-motion";
+import { MotionSection, MotionDiv } from "@/components/MuFramer";
 import { YouTubeEmbed } from "@next/third-parties/google";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
 };
 
 export default function Story() {
   return (
     <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full pt-12">
-      <motion.section
+      <MotionSection
         className="grid grid-cols-1 lg:grid-cols-2 mt-5 gap-5 py-12"
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true }}
       >
         <div>
-          <motion.div variants={fadeInUp}>
+          <MotionDiv variants={fadeInUp}>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl text-center max-w-140 font-extrabold leading-normal">
               Understand μLearn with a{" "}
               <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
@@ -32,11 +35,11 @@ export default function Story() {
               builds learning circles, and immerses herself in events, emerging
               industry-ready with newfound skills and confidence.
             </h6>
-          </motion.div>
+          </MotionDiv>
         </div>
 
         <div className="w-full h-full aspect-video">
-          <motion.div
+          <MotionDiv
             variants={{
               hidden: { opacity: 0, y: 50 },
               visible: {
@@ -53,9 +56,9 @@ export default function Story() {
               playlabel="true"
               params="disablekb=1&enablejsapi=1&playsinline=1"
             />
-          </motion.div>
+          </MotionDiv>
         </div>
-      </motion.section>
+      </MotionSection>
     </div>
   );
 }

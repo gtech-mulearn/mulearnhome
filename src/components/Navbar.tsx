@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import MuImage from "@/components/MuImage";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import { MotionDiv, MotionButton, MotionLi } from "./MuFramer";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@data/data";
 import { SubItem } from "@/lib/types";
@@ -78,7 +79,7 @@ export default function Navbar() {
   return (
     <div className="relative z-1000 w-full bg-mulearn-whitish p-2">
       {!isMobileView && (
-        <motion.div
+        <MotionDiv
           className="flex justify-between items-center h-20 w-full px-12 box-border xl:px-12 lg:px-8 md:px-5"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -97,7 +98,7 @@ export default function Navbar() {
 
           <ul className="flex items-center gap-8 list-none m-0 p-0 xl:gap-8 lg:gap-6 md:gap-4">
             {navItems.map((item, index) => (
-              <motion.li
+              <MotionLi
                 key={index}
                 className="relative text-mulearn-gray-600 hover:text-mulearn-trusty-blue font-bold text-base cursor-pointer py-2 text-left transition-all duration-300 hover:-translate-y-px after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-mulearn-trusty-blue after:transition-all after:duration-500 hover:after:w-full"
                 onMouseEnter={() => handleMouseEnter(index, !!item.submenu)}
@@ -109,7 +110,7 @@ export default function Navbar() {
 
                 <AnimatePresence>
                   {activeSubmenu === index && item.submenu && (
-                    <motion.div
+                    <MotionDiv
                       className="absolute top-full left-1/2 -translate-x-1/2 bg-mulearn-whitish rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-mulearn-greyish z-1000 overflow-hidden mt-2 lg:min-w-[240px]"
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -142,22 +143,22 @@ export default function Navbar() {
                           )
                         )}
                       </div>
-                    </motion.div>
+                    </MotionDiv>
                   )}
                 </AnimatePresence>
-              </motion.li>
+              </MotionLi>
             ))}
           </ul>
 
-          <motion.button
+          <MotionButton
             className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple text-mulearn-whitish border-none py-3 px-6 rounded-[50px] font-semibold text-[0.9rem] cursor-pointer shadow-[0_4px_12px_rgba(49,130,206,0.3)] hover:bg-mulearn-duke-purple active:bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple lg:py-2.5 lg:px-5 lg:text-[0.85rem]"
             onClick={handleAuthClick}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             {refreshToken ? "Dashboard" : "Login"}
-          </motion.button>
-        </motion.div>
+          </MotionButton>
+        </MotionDiv>
       )}
 
       {isMobileView && (
@@ -173,7 +174,7 @@ export default function Navbar() {
                 style={{ height: "auto" }}
               />
             </Link>
-            <motion.button
+            <MotionButton
               className="cursor-pointer flex items-center justify-center w-8 h-8 z-2001"
               onClick={() => setIsMenuOpen(true)}
               aria-label="Open menu"
@@ -181,13 +182,13 @@ export default function Navbar() {
               whileTap={{ scale: 0.95 }}
             >
               <Menu size={30} />
-            </motion.button>
+            </MotionButton>
           </div>
 
           <AnimatePresence>
             {isMenuOpen && (
               <>
-                <motion.div
+                <MotionDiv
                   className="fixed inset-0 bg-mulearn-blackish/50 z-1001"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -196,14 +197,14 @@ export default function Navbar() {
                   onClick={() => setIsMenuOpen(false)}
                 />
 
-                <motion.div
+                <MotionDiv
                   className="fixed top-0 right-0 h-full w-full max-w-[400px] bg-linear-to-br from-white to-slate-50 shadow-[-5px_0_25px_rgba(0,0,0,0.15)] z-1002 flex flex-col p-8 overflow-y-auto"
                   initial={{ x: "100%" }}
                   animate={{ x: 0 }}
                   exit={{ x: "100%" }}
                   transition={{ duration: 0.4 }}
                 >
-                  <motion.button
+                  <MotionButton
                     className="absolute top-6 right-4 cursor-pointer text-mulearn-gray-600 w-10 h-10 flex items-center justify-center"
                     onClick={() => setIsMenuOpen(false)}
                     aria-label="Close menu"
@@ -211,7 +212,7 @@ export default function Navbar() {
                     whileTap={{ scale: 0.95 }}
                   >
                     <X size={30} />
-                  </motion.button>
+                  </MotionButton>
 
                   <ul className="list-none mt-16 mb-8 p-0 flex-1">
                     {activeMobileSubmenu === null ? (
@@ -267,15 +268,15 @@ export default function Navbar() {
                     )}
                   </ul>
 
-                  <motion.button
+                  <MotionButton
                     className="w-full p-4 mb-20 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple text-mulearn-whitish border-none rounded-[50px] font-semibold cursor-pointer transition-all duration-300 shadow-[0_4px_12px_rgba(49,130,206,0.3)] hover:bg-mulearn-duke-purple active:bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple"
                     onClick={handleAuthClick}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     {refreshToken ? "Dashboard" : "Login"}
-                  </motion.button>
-                </motion.div>
+                  </MotionButton>
+                </MotionDiv>
               </>
             )}
           </AnimatePresence>

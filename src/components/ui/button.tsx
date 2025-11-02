@@ -11,7 +11,7 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive:
-          "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "bg-destructive text-mulearn-whitish hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
           "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
         secondary:
@@ -20,17 +20,17 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         mulearn:
-          "bg-gradient-to-r from-[#6366f1] to-[#2E85FE] text-[#fefefe] hover:from-[#5856eb] hover:to-[#1d4ed8] shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-full cursor-pointer",
+          "bg-linear-to-r from-[#6366f1] to-[#2E85FE] text-[#fefefe] hover:from-[#5856eb] hover:to-[#1d4ed8] shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 rounded-full cursor-pointer",
         "mulearn-outline":
-          "border-2 border-[#2E85FE] text-[#2E85FE] hover:bg-gradient-to-r hover:from-[#6366f1] hover:to-[#2E85FE] hover:text-[#fefefe] transition-all duration-300",
+          "border-2 border-[#2E85FE] text-[#2E85FE] hover:bg-linear-to-r hover:from-[#6366f1] hover:to-[#2E85FE] hover:text-[#fefefe] transition-all duration-300",
         "mulearn-ghost":
-          "text-transparent bg-gradient-to-r from-[#6366f1] to-[#2E85FE] bg-clip-text hover:bg-[#6366f1]/10 transition-all duration-300",
+          "text-transparent bg-linear-to-r from-[#6366f1] to-[#2E85FE] bg-clip-text hover:bg-[#6366f1]/10 transition-all duration-300",
         "mulearn-secondary":
           "bg-[#c4c4c4] text-[#1a1a1a] hover:bg-[#a3a3a3] border border-[#c4c4c4] transition-all duration-300",
         "mulearn-purple":
           "bg-[#AF2EE6] text-[#fefefe] hover:bg-[#9333ea] shadow-lg hover:shadow-xl transition-all duration-300",
         "mulearn-trusty":
-          "bg-gradient-to-r from-[#6366f1] to-[#2E85FE] text-[#fefefe] hover:from-[#5856eb] hover:to-[#1d4ed8] shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300",
+          "bg-linear-to-r from-[#6366f1] to-[#2E85FE] text-[#fefefe] hover:from-[#5856eb] hover:to-[#1d4ed8] shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300",
         "mulearn-blue":
           "bg-mulearn-trusty-blue text-mulearn-whitish rounded-full text-base hover:bg-mulearn-duke-purple active:bg-mulearn-trusty-blue transition-all duration-300 rounded-full cursor-pointer",
       },

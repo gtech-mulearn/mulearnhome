@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { motion, Variants } from "framer-motion";
+import { Variants } from "framer-motion";
+import {
+  MotionSection,
+  MotionDiv,
+  MotionNav
+} from "@/components/MuFramer";
 import { rolesTitle, rolesContent } from "@/data/data";
 import { Role, RoleItem } from "@/lib/types";
 import MuImage from "@/components/MuImage";
@@ -19,23 +24,23 @@ export default function Roles() {
   const [activeRole, setActiveRole] = useState<string>("partner");
 
   return (
-    <motion.section
+    <MotionSection
       className="py-[30px] px-5 max-w-[1200px] mx-auto"
       variants={fadeInUp}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
     >
-      <motion.div className="text-center mb-10" variants={fadeInUp}>
+      <MotionDiv className="text-center mb-10" variants={fadeInUp}>
         <h1 className="text-[2.5rem] max-[540px]:text-[8vw] m-0 font-extrabold text-mulearn-blackish">
           Roles in μLearn Network
         </h1>
         <h6 className="text-[1.2rem] text-mulearn-gray-600 mt-2.5">
           A brief overview of the diverse roles that power our network.
         </h6>
-      </motion.div>
+      </MotionDiv>
 
-      <motion.nav className="flex justify-center mb-10" variants={fadeInUp}>
+      <MotionNav className="flex justify-center mb-10" variants={fadeInUp}>
         <ul className="list-none flex gap-5 p-0 m-0">
           {rolesTitle.map((role: Role) => (
             <li
@@ -51,14 +56,14 @@ export default function Roles() {
             </li>
           ))}
         </ul>
-      </motion.nav>
+      </MotionNav>
 
-      <motion.div
+      <MotionDiv
         className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5 px-5"
         variants={fadeInUp}
       >
         {rolesContent[activeRole].map((item: RoleItem) => (
-          <motion.div
+          <MotionDiv
             key={item.id}
             className="bg-mulearn-greyish/20 rounded-lg overflow-hidden text-center p-5 transition-transform duration-300 ease-in-out hover:-translate-y-[5px]"
             variants={fadeInUp}
@@ -76,9 +81,9 @@ export default function Roles() {
             <p className="text-[0.85rem] font-normal text-center text-mulearn-gray-600">
               {item.description}
             </p>
-          </motion.div>
+          </MotionDiv>
         ))}
-      </motion.div>
-    </motion.section>
+      </MotionDiv>
+    </MotionSection>
   );
 }

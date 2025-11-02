@@ -1,33 +1,44 @@
-"use client";
-
 import { communityPartners } from "@/data/data";
 import CommunityCard from "@/app/partners/community-partners/_components/CommunityCard";
 import { cdnUrl } from "@services/cdn";
 import MuImage from "@/components/MuImage";
-import { motion, Variants, easeOut } from "framer-motion";
+import { Variants } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 import { Partner } from "@/lib/types";
 
 export default function CommmunityPartners() {
   const fadeInLeft: Variants = {
     hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: easeOut } },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: [0.42, 0, 0.58, 1] },
+    },
   };
 
   const fadeInRight: Variants = {
     hidden: { opacity: 0, x: 50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: easeOut } },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: [0.42, 0, 0.58, 1] },
+    },
   };
 
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOut } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.42, 0, 0.58, 1] },
+    },
   };
 
   return (
     <>
       <div className="flex flex-col items-center justify-center md:ml-3 md:mr-3 xl:ml-0 xl:mr-0 lg:ml-0 lg:mr-0 min-h-screen">
         <div className="flex flex-col md:flex-row items-center justify-around w-full ">
-          <motion.div
+          <MotionDiv
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -46,9 +57,9 @@ export default function CommmunityPartners() {
               things take place. What if multiple Communities join their hands
               together for a common aim things get much more interesting!
             </p>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -72,11 +83,11 @@ export default function CommmunityPartners() {
               }}
               priority
             />
-          </motion.div>
+          </MotionDiv>
         </div>
 
         <div className="max-w-7xl xl:w-7xl sm:mt-24 md:mt-32 lg:mt-32 xl:mt-0 pb-20">
-          <motion.div
+          <MotionDiv
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -95,9 +106,9 @@ export default function CommmunityPartners() {
               peers the best resources and events to learn and up-skill
               themselves.
             </p>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -113,7 +124,7 @@ export default function CommmunityPartners() {
                 customlink={partner.customlink}
               />
             ))}
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
     </>

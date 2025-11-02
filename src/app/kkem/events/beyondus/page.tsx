@@ -1,27 +1,25 @@
-"use client";
-
-import React from "react";
+import { MotionDiv } from "@/components/MuFramer";
 import Link from "next/link";
 import { cardProps } from "@/lib/types";
 import MuImage from "@/components/MuImage";
 import { cdnUrl } from "@/services/cdn";
 import { kkem } from "@/data/data";
 import { SquareArrowOutUpRight } from "lucide-react";
-import { easeInOut, motion, Variants } from "framer-motion";
+import { Variants } from "framer-motion";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeInOut } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1]  } },
 };
 
 const slideInLeft: Variants = {
   hidden: { opacity: 0, x: -100 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: easeInOut } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.42, 0, 0.58, 1]  } },
 };
 
 const slideInRight: Variants = {
   hidden: { opacity: 0, x: 100 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: easeInOut } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.42, 0, 0.58, 1]  } },
 };
 
 export default function BeyondUs() {
@@ -29,7 +27,7 @@ export default function BeyondUs() {
     { name, description, image, link }: cardProps,
     index: number
   ) => (
-    <motion.div
+    <MotionDiv
       key={name}
       initial="hidden"
       whileInView="visible"
@@ -68,13 +66,13 @@ export default function BeyondUs() {
           )}
         </div>
       </Link>
-    </motion.div>
+    </MotionDiv>
   );
 
   return (
     <div className="w-full mx-auto px-6 md:px-12">
       <div className="flex flex-wrap justify-between items-center py-8 md:py-12">
-        <motion.div
+        <MotionDiv
           className="max-w-xl"
           initial="hidden"
           whileInView="visible"
@@ -93,9 +91,9 @@ export default function BeyondUs() {
           <p className="text-lg md:text-xl font-light text-mulearn-gray-600">
             08 August 2023 - 09 August 2023
           </p>
-        </motion.div>
+        </MotionDiv>
 
-        <motion.div
+        <MotionDiv
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -110,10 +108,10 @@ export default function BeyondUs() {
             height={384}
             className="rounded-lg"
           />
-        </motion.div>
+        </MotionDiv>
       </div>
 
-      <motion.div
+      <MotionDiv
         className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple py-8 flex justify-center rounded-2xl"
         initial="hidden"
         whileInView="visible"
@@ -146,9 +144,9 @@ export default function BeyondUs() {
             </p>
           </div>
         </div>
-      </motion.div>
+      </MotionDiv>
 
-      <motion.div
+      <MotionDiv
         className="py-8 md:py-12"
         initial="hidden"
         whileInView="visible"
@@ -161,9 +159,9 @@ export default function BeyondUs() {
         <div className="flex flex-wrap justify-center gap-6 md:gap-8">
           {kkem.winnersDesign.map(renderCard)}
         </div>
-      </motion.div>
+      </MotionDiv>
 
-      <motion.div
+      <MotionDiv
         className="py-8 md:py-12"
         initial="hidden"
         whileInView="visible"
@@ -176,7 +174,7 @@ export default function BeyondUs() {
         <div className="flex flex-wrap justify-center gap-6 md:gap-8">
           {kkem.winnersSoftware.map(renderCard)}
         </div>
-      </motion.div>
+      </MotionDiv>
     </div>
   );
 }

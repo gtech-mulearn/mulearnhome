@@ -1,13 +1,18 @@
 "use client";
 
-import { motion, Variants, easeOut } from "framer-motion";
+import { Variants } from "framer-motion";
+import { MotionSection, MotionDiv } from "@/components/MuFramer";
 import { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
 import { Counts } from "@/lib/types";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
 };
 
 export default function Stats() {
@@ -47,14 +52,14 @@ export default function Stats() {
 
   return (
     <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full">
-      <motion.section
+      <MotionSection
         className="flex flex-col justify-center py-24 items-center"
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <motion.div
+        <MotionDiv
           className="flex flex-col sm:flex-row justify-between items-start gap-8 w-full"
           variants={fadeInUp}
         >
@@ -74,9 +79,9 @@ export default function Stats() {
               learning and upskill themselves.
             </h6>
           </div>
-        </motion.div>
+        </MotionDiv>
 
-        <motion.div variants={fadeInUp} className="w-full">
+        <MotionDiv variants={fadeInUp} className="w-full">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-6 px-4 sm:px-8">
             <StatCard value={counts.members} label="Members" />
             <StatCard
@@ -116,8 +121,8 @@ export default function Stats() {
               />
             ))}
           </div>
-        </motion.div>
-      </motion.section>
+        </MotionDiv>
+      </MotionSection>
     </div>
   );
 }

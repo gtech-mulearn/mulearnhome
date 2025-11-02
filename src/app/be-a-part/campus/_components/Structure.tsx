@@ -1,13 +1,11 @@
-"use client";
-
+import { MotionDiv } from "@/components/MuFramer";
 import { campusChapter } from "@/data/data";
-import { motion } from "framer-motion";
 
 export default function Structure() {
   return (
     <section className="py-20 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -25,7 +23,7 @@ export default function Structure() {
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {campusChapter.structure.map((item, idx) => (
-              <motion.div
+              <MotionDiv
                 key={item.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -40,10 +38,10 @@ export default function Structure() {
                   {item.label}
                 </div>
                 <div className="text-sm text-mulearn-gray-600">{item.desc}</div>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
-        </motion.div>
+        </MotionDiv>
       </div>
     </section>
   );

@@ -1,7 +1,8 @@
 "use client";
-// Removed cdnUrl usage
+
 import { useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
+import { MotionSection, MotionDiv, MotionA } from "@/components/MuFramer";
 import {
   Search,
   ArrowRight,
@@ -80,29 +81,28 @@ export default function InterestGroups() {
   );
 
   return (
-    <div className="bg-gradient-to-b from-mulearn-greyish/10 to-mulearn-whitish min-h-screen">
-      {/* Hero Section */}
-      <motion.section
+    <div className="bg-linear-to-b from-mulearn-greyish/10 to-mulearn-whitish min-h-screen">
+      <MotionSection
         style={{ y: heroY, opacity: heroOpacity }}
         className="relative overflow-hidden bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple pt-20 pb-32 md:pt-32 md:pb-40"
       >
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <motion.div
+            <MotionDiv
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-block mb-6 px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30"
+              className="inline-block mb-6 px-6 py-2 bg-mulearn-whitish/20 backdrop-blur-sm rounded-full border border-mulearn-whitish/30"
             >
               <span className="text-mulearn-whitish text-sm font-medium tracking-wide uppercase">
                 Interest Groups
               </span>
-            </motion.div>
+            </MotionDiv>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-mulearn-whitish mb-6 leading-tight ">
               Find Your Tribe,
@@ -115,10 +115,9 @@ export default function InterestGroups() {
               collaborate on projects, and grow together through shared
               curiosity and hands-on learning.
             </p>
-          </motion.div>
+          </MotionDiv>
         </div>
 
-        {/* Decorative wave */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg
             viewBox="0 0 1440 120"
@@ -131,11 +130,10 @@ export default function InterestGroups() {
             />
           </svg>
         </div>
-      </motion.section>
+      </MotionSection>
 
-      {/* Core Values Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -148,11 +146,11 @@ export default function InterestGroups() {
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             At µLearn, we believe in the power of learning together
           </p>
-        </motion.div>
+        </MotionDiv>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {coreValues.map((value, index) => (
-            <motion.div
+            <MotionDiv
               key={value.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -165,15 +163,14 @@ export default function InterestGroups() {
                 {value.title}
               </h3>
               <p className="text-gray-600">{value.description}</p>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </section>
 
-      {/* How It Works Timeline */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-mulearn-greyish/10 to-mulearn-whitish">
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-mulearn-greyish/10 to-mulearn-whitish">
         <div className="max-w-6xl mx-auto">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -186,11 +183,9 @@ export default function InterestGroups() {
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               From curiosity to career readiness in five simple steps
             </p>
-          </motion.div>
+          </MotionDiv>
 
-          {/* Desktop Timeline */}
           <div className="hidden md:block relative">
-            {/* Vertical center line */}
             <div
               className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple/40 rounded-full"
               style={{ top: 0, height: "calc(100% - 96px)" }}
@@ -201,7 +196,7 @@ export default function InterestGroups() {
               const isLeft = index % 2 === 0;
 
               return (
-                <motion.div
+                <MotionDiv
                   key={step.title}
                   initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -237,9 +232,8 @@ export default function InterestGroups() {
                     </div>
                   </div>
 
-                  {/* Center dot */}
                   <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-                    <motion.div
+                    <MotionDiv
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
@@ -247,20 +241,19 @@ export default function InterestGroups() {
                       className="w-12 h-12 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple rounded-full flex items-center justify-center shadow-lg"
                     >
                       <div className="w-6 h-6 bg-mulearn-whitish rounded-full" />
-                    </motion.div>
+                    </MotionDiv>
                   </div>
-                </motion.div>
+                </MotionDiv>
               );
             })}
           </div>
 
-          {/* Mobile Timeline */}
           <div className="md:hidden space-y-8">
             {workflowSteps.map((step, index) => {
               const Icon = step.icon;
 
               return (
-                <motion.div
+                <MotionDiv
                   key={step.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -268,19 +261,16 @@ export default function InterestGroups() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="relative pl-12"
                 >
-                  {/* Vertical line */}
                   {index < workflowSteps.length - 1 && (
                     <div className="absolute left-5 top-12 bottom-0 w-0.5 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple/30 transform -translate-x-1/2" />
                   )}
 
-                  {/* Dot */}
                   <div className="absolute left-0 top-0">
                     <div className="w-10 h-10 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple rounded-full flex items-center justify-center shadow-md">
                       <Icon className="w-5 h-5 text-mulearn-whitish" />
                     </div>
                   </div>
 
-                  {/* Content */}
                   <div className="bg-mulearn-whitish p-6 rounded-xl shadow-md border border-mulearn-greyish/20">
                     <h3 className="text-lg font-bold text-mulearn-blackish mb-2 ">
                       {step.title}
@@ -289,16 +279,15 @@ export default function InterestGroups() {
                       {step.description}
                     </p>
                   </div>
-                </motion.div>
+                </MotionDiv>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Interest Groups Section */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -313,7 +302,6 @@ export default function InterestGroups() {
             today
           </p>
 
-          {/* Search Bar */}
           <div className="max-w-md mx-auto relative">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
@@ -325,12 +313,11 @@ export default function InterestGroups() {
               aria-label="Search interest groups"
             />
           </div>
-        </motion.div>
+        </MotionDiv>
 
-        {/* Groups Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredGroups.map((group, index) => (
-            <motion.a
+            <MotionA
               key={group.name}
               href={group.link}
               target="_blank"
@@ -342,7 +329,6 @@ export default function InterestGroups() {
               className="group block"
             >
               <div className="relative h-full bg-mulearn-whitish rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-mulearn-greyish/20">
-                {/* Image Header */}
                 <div className="relative h-48 overflow-hidden rounded-t-2xl">
                   <MuImage
                     src={group.image}
@@ -353,9 +339,8 @@ export default function InterestGroups() {
                   />
                 </div>
 
-                {/* Card Content */}
                 <div className="relative z-10 flex flex-col p-6">
-                  <h3 className="text-xl font-bold text-mulearn-blackish mb-2 group-hover:bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent transition-colors duration-300 ">
+                  <h3 className="text-xl font-bold mb-2 group-hover:bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent transition-colors duration-300 ">
                     {group.name}
                   </h3>
                   <p className="text-sm text-gray-600 mb-4 flex-grow">
@@ -367,7 +352,6 @@ export default function InterestGroups() {
                   </div>
                 </div>
 
-                {/* Hover Overlay */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6 z-20 rounded-2xl"
                   style={{ background: "var(--mulearn-trusty)" }}
@@ -377,12 +361,12 @@ export default function InterestGroups() {
                   </p>
                 </div>
               </div>
-            </motion.a>
+            </MotionA>
           ))}
         </div>
 
         {filteredGroups.length === 0 && (
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="text-center py-16"
@@ -390,13 +374,12 @@ export default function InterestGroups() {
             <p className="text-gray-500 text-lg">
               No interest groups found matching your search.
             </p>
-          </motion.div>
+          </MotionDiv>
         )}
       </section>
 
-      {/* Call to Action */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -415,14 +398,11 @@ export default function InterestGroups() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button
-              variant={"mulearn"}
-              className="inline-flex items-center gap-2 px-8 py-4  bg-mulearn-whitish text-mulearn-duke-purple font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-mulearn-duke-purple hover:text-mulearn-whitish transition-all duration-300"
-            >
+            <Button className="inline-flex items-center gap-2 px-8 py-4  bg-mulearn-whitish text-mulearn-duke-purple rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-mulearn-duke-purple hover:text-mulearn-whitish transition-all duration-300">
               Join an Interest Group <ArrowRight className="w-5 h-5" />
             </Button>
           </Link>
-        </motion.div>
+        </MotionDiv>
       </section>
     </div>
   );

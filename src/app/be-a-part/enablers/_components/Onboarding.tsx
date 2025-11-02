@@ -1,13 +1,11 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { enablers } from "@/data/data";
 
 export default function Onboarding() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
-      <motion.div
+      <MotionDiv
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -22,7 +20,7 @@ export default function Onboarding() {
 
         <div className="grid gap-8 md:grid-cols-3 md:gap-6">
           {enablers.onboarding.map((step, idx) => (
-            <motion.div
+            <MotionDiv
               key={step.number}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +39,7 @@ export default function Onboarding() {
               )}
 
               <div className="relative z-10 mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-linear-to-br from-mulearn-trusty-blue to-mulearn-duke-purple shadow-lg">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white">
+                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-mulearn-whitish">
                   <MuImage
                     src={step.image}
                     alt={`${step.title} icon`}
@@ -51,7 +49,7 @@ export default function Onboarding() {
                   />
                 </div>
 
-                <div className="absolute -right-2 -top-2 flex h-10 w-10 items-center justify-center rounded-full bg-mulearn-blackish text-xs font-bold text-white shadow-md">
+                <div className="absolute -right-2 -top-2 flex h-10 w-10 items-center justify-center rounded-full bg-mulearn-blackish text-xs font-bold text-mulearn-whitish shadow-md">
                   {step.number}
                 </div>
               </div>
@@ -64,10 +62,10 @@ export default function Onboarding() {
                   {step.description}
                 </p>
               </div>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
-      </motion.div>
+      </MotionDiv>
     </section>
   );
 }

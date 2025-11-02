@@ -1,17 +1,20 @@
-"use client";
-
-import { motion, type Variants, easeOut } from "framer-motion";
+import { type Variants } from "framer-motion";
+import { MotionDiv, MotionH2, MotionP } from "@/components/MuFramer";
 
 export default function WhoIsEnabler() {
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+    },
   };
 
   return (
     <section className="py-16 md:py-24 bg-mulearn-whitish text-mulearn-blackish">
       <div className="container mx-auto px-4">
-        <motion.div
+        <MotionDiv
           className="max-w-4xl mx-auto text-center space-y-6"
           initial="hidden"
           whileInView="visible"
@@ -23,13 +26,13 @@ export default function WhoIsEnabler() {
               y: 0,
               transition: {
                 duration: 0.6,
-                ease: easeOut,
+                ease: [0.42, 0, 0.58, 1],
                 staggerChildren: 0.2,
               },
             },
           }}
         >
-          <motion.h2
+          <MotionH2
             variants={fadeInUp}
             className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
           >
@@ -55,9 +58,9 @@ export default function WhoIsEnabler() {
               </svg>
             </span>
             ?
-          </motion.h2>
+          </MotionH2>
 
-          <motion.p
+          <MotionP
             variants={fadeInUp}
             className="text-pretty text-lg md:text-xl leading-relaxed"
           >
@@ -65,8 +68,8 @@ export default function WhoIsEnabler() {
             capital, connecting within the µLearn framework, and networking with
             various other enablers or students. They guide and mentor students,
             enhancing their growth and social capital as well.
-          </motion.p>
-        </motion.div>
+          </MotionP>
+        </MotionDiv>
       </div>
     </section>
   );

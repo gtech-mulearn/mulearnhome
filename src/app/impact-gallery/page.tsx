@@ -1,6 +1,7 @@
 "use client";
+
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { MotionH1, MotionP } from "@/components/MuFramer";
 import GalleryGrid from "./_components/GalleryGrid";
 import FilterButtons from "./_components/FilterButtons";
 import ImpactStats from "./_components/ImpactStats";
@@ -12,28 +13,28 @@ export default function ImpactGallery() {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-mulearn-whitish to-white">
+    <div className="min-h-screen bg-linear-to-b from-mulearn-whitish to-mulearn-whitish">
       <section
         className="relative py-20"
         style={{ background: "var(--mulearn-trusty)" }}
       >
         <div className="container mx-auto px-4 text-center">
-          <motion.h1
+          <MotionH1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-bold mb-6 text-white "
+            className="text-5xl md:text-6xl font-bold mb-6 text-mulearn-whitish "
           >
             μLearn Impact Gallery
-          </motion.h1>
-          <motion.p
+          </MotionH1>
+          <MotionP
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 text-white/90 "
+            className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 text-mulearn-whitish/90 "
           >
             Showcasing our journey, milestones, and the incredible impact
             we&apos;ve created together
-          </motion.p>
+          </MotionP>
         </div>
       </section>
       <ImpactStats />

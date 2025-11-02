@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { useState } from "react";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
 import { FiCalendar, FiClock, FiX } from "react-icons/fi";
@@ -10,7 +10,7 @@ import { SpecialEvent } from "@/lib/types";
 const SpecialEventCard: React.FC<{ specialevent: SpecialEvent }> = ({
   specialevent,
 }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>

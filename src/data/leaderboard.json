@@ -1,95 +1,95 @@
 {
-  "month": "2025-10",
+  "month": "2025-11",
   "monthly": [
     {
-      "username": "alvin-dennis",
+      "username": "alanfrancis442",
       "commits": 0,
-      "prs_opened": 21,
-      "prs_merged": 15,
-      "issues_opened": 15,
-      "issues_closed": 12,
-      "displayname": "Alvin Dennis"
-    },
-    {
-      "username": "Amith-Abey-Stephen",
-      "commits": 0,
-      "prs_opened": 9,
-      "prs_merged": 7,
-      "issues_opened": 10,
-      "issues_closed": 10,
-      "displayname": "Amith Abey Stephen"
-    },
-    {
-      "username": "AdarshDev9349",
-      "commits": 0,
-      "prs_opened": 8,
-      "prs_merged": 3,
-      "issues_opened": 6,
-      "issues_closed": 5,
-      "displayname": "Adarsh Dev"
-    },
-    {
-      "username": "aflaha01",
-      "commits": 0,
-      "prs_opened": 10,
-      "prs_merged": 8,
+      "prs_opened": 0,
+      "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
-      "displayname": "aflahaa"
+      "displayname": "Alan Francis"
     },
     {
       "username": "ABHISHEK2k6",
       "commits": 0,
-      "prs_opened": 7,
-      "prs_merged": 6,
+      "prs_opened": 0,
+      "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
       "displayname": "Abhishek P"
     },
     {
-      "username": "adn26",
+      "username": "JUDU-13",
       "commits": 0,
-      "prs_opened": 7,
-      "prs_merged": 4,
+      "prs_opened": 0,
+      "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
-      "displayname": "Muhammed Adnan"
+      "displayname": "JAIDON GILL SHAJAN"
     },
     {
-      "username": "abinrd",
+      "username": "nashnsulthan",
       "commits": 0,
-      "prs_opened": 7,
-      "prs_merged": 4,
+      "prs_opened": 0,
+      "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
-      "displayname": "Abin Raju Daniel"
+      "displayname": "Nash N Sulthan"
+    },
+    {
+      "username": "alvin-dennis",
+      "commits": 0,
+      "prs_opened": 0,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Alvin Dennis"
+    },
+    {
+      "username": "Amith-Abey-Stephen",
+      "commits": 0,
+      "prs_opened": 0,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Amith Abey Stephen"
+    },
+    {
+      "username": "aflaha01",
+      "commits": 0,
+      "prs_opened": 0,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "aflahaa"
     },
     {
       "username": "abin-karukappallil",
       "commits": 0,
-      "prs_opened": 5,
-      "prs_merged": 4,
+      "prs_opened": 0,
+      "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
       "displayname": "Abin Thomas"
     },
     {
-      "username": "awindsr",
-      "commits": 0,
-      "prs_opened": 3,
-      "prs_merged": 3,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "Awindsr"
-    },
-    {
-      "username": "anaghcodes",
+      "username": "adn26",
       "commits": 0,
       "prs_opened": 0,
       "prs_merged": 0,
-      "issues_opened": 3,
-      "issues_closed": 3,
-      "displayname": "Anagh B R"
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Muhammed Adnan"
+    },
+    {
+      "username": "AdarshDev9349",
+      "commits": 0,
+      "prs_opened": 0,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Adarsh Dev"
     }
   ],
   "overall": [
@@ -184,5 +184,5 @@
       "displayname": "Joel T Vadakekalam"
     }
   ],
-  "date": "October 2025"
+  "date": "November 2025"
 }

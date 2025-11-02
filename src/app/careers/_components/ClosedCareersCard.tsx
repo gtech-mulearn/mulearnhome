@@ -1,15 +1,4 @@
-"use client";
-import React from "react";
-
-interface ClosedCareersCardProps {
-  date?: string;
-  title?: string;
-  location?: string;
-  qualifications?: string;
-  role?: string;
-  duration?: string;
-  remuneration?: string;
-}
+import { ClosedCareersCardProps } from "@/lib/types";
 
 const ClosedCareersCard = ({
   date,
@@ -21,14 +10,12 @@ const ClosedCareersCard = ({
   remuneration,
 }: ClosedCareersCardProps) => {
   return (
-    <div className="relative w-[350px] rounded-2xl bg-white shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
-      {/* Gradient Header */}
-      <div className="bg-gradient-to-r from-mulearn-trusty-blue to-mulearn-duke-purple p-4 text-center">
-        <h2 className="text-lg font-semibold text-white">{title}</h2>
-        <p className="text-sm text-white/90 italic">Closed on {date}</p>
+    <div className="relative w-[350px] rounded-2xl bg-mulearn-whitish shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+      <div className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple p-4 text-center">
+        <h2 className="text-lg font-semibold text-mulearn-whitish">{title}</h2>
+        <p className="text-sm text-mulearn-whitish">Closed on {date}</p>
       </div>
 
-      {/* Body */}
       <div className="p-5 space-y-2 text-mulearn-blackish text-sm">
         {role && (
           <p>
@@ -57,7 +44,6 @@ const ClosedCareersCard = ({
         )}
       </div>
 
-      {/* Closed Tag */}
       <div className="absolute top-3 right-3 bg-red-100 text-red-600 text-xs font-semibold px-2 py-1 rounded-full">
         Closed
       </div>
@@ -65,4 +51,3 @@ const ClosedCareersCard = ({
   );
 };
 export default ClosedCareersCard;
-

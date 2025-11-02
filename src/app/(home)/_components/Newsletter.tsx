@@ -1,17 +1,20 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
-import { motion, Variants, easeOut } from "framer-motion";
+import { Variants } from "framer-motion";
+import { MotionSection, MotionDiv, MotionH2 } from "@/components/MuFramer";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
 };
 
 export default function Newsletter() {
   return (
     <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full">
-      <motion.section
+      <MotionSection
         id="newsletter"
         className="bg-mulearn-greyish/20 rounded-2xl py-8 my-8 mx-auto max-w-[1000px] shadow-[0_2px_16px_0_rgba(0,0,0,0.02)] flex flex-col items-center gap-4"
         variants={fadeInUp}
@@ -19,12 +22,12 @@ export default function Newsletter() {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <motion.h2
+        <MotionH2
           variants={fadeInUp}
           className="text-2xl sm:text-[1.7rem] font-bold mb-5 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent text-center px-4"
         >
           Subscribe to our Newsletter
-        </motion.h2>
+        </MotionH2>
 
         <form
           method="post"
@@ -33,7 +36,7 @@ export default function Newsletter() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <motion.div
+          <MotionDiv
             variants={fadeInUp}
             className="flex flex-col gap-4 w-full mb-4 flex-wrap justify-center items-center px-4"
           >
@@ -50,9 +53,9 @@ export default function Newsletter() {
               placeholder="Name (optional)"
               className="py-3 px-4 border border-mulearn-gray-600 rounded-lg text-base max-w-[500px] w-full sm:w-[400px] bg-mulearn-whitish transition-all duration-200 focus:border-[1.5px] focus:border-mulearn-trusty-blue focus:outline-none"
             />
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             variants={fadeInUp}
             className="flex items-center gap-2 mb-4 text-base px-4"
           >
@@ -66,9 +69,9 @@ export default function Newsletter() {
             <label htmlFor="a1ef1">
               I agree to subscribe to the μPulse Newsletter
             </label>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div variants={fadeInUp}>
+          <MotionDiv variants={fadeInUp}>
             <Button
               type="submit"
               variant="mulearn"
@@ -76,9 +79,9 @@ export default function Newsletter() {
             >
               Subscribe
             </Button>
-          </motion.div>
+          </MotionDiv>
         </form>
-      </motion.section>
+      </MotionSection>
     </div>
   );
 }

@@ -1,7 +1,4 @@
-"use client";
-
-import React from "react";
-import { motion } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 import EventCard from "./EventCard";
 import { Event } from "@/lib/types";
 
@@ -15,7 +12,7 @@ export default function Grid({ events }: Props) {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
       {events.map((event, i) => {
         return (
-          <motion.div
+          <MotionDiv
             key={event.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -23,7 +20,7 @@ export default function Grid({ events }: Props) {
             transition={{ duration: 0.5, delay: i * 0.1 }}
           >
             <EventCard event={event} />
-          </motion.div>
+          </MotionDiv>
         );
       })}
     </div>

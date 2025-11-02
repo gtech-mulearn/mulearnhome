@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import CareersCard from "@/app/careers/_components/CareersCard";
-import ClosedCareersCard from "@/app/careers/_components/CloedCareersCard";
+import ClosedCareersCard from "@/app/careers/_components/ClosedCareersCard";
 import axios from "axios";
 import LogoLoop from "@/components/ui/LogoLoop";
 import { companies } from "@/data/data";

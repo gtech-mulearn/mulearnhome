@@ -1,8 +1,6 @@
-"use client";
-
-import React from "react";
+import { MotionButton, MotionDiv } from "@/components/MuFramer";
 import Link from "next/link";
-import { motion } from "framer-motion";
+
 import { ArrowRight, Calendar } from "lucide-react";
 import { Event } from "@/lib/types";
 import MuImage from "@/components/MuImage";
@@ -24,10 +22,12 @@ interface Props {
 
 export default function EventCard({ event }: Props) {
   return (
-    <motion.div
+    <MotionDiv
       transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
       className={`group relative bg-mulearn-whitish rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border/50 hover:border-mulearn-trusty-blue
-        w-[380px] ${event.image ? "h-[360px]" : "h-[280px]"} flex flex-col`}
+    w-full h-auto sm:w-[380px] ${
+      event.image ? "h-[360px]" : "h-[280px]"
+    } flex flex-col`}
     >
       {event.image && (
         <div className="w-full h-20">
@@ -70,13 +70,13 @@ export default function EventCard({ event }: Props) {
         {event.link && (
           <Dialog>
             <DialogTrigger asChild>
-              <motion.button
+              <MotionButton
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="mt-4 w-full flex items-center justify-center gap-2 bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple hover:bg-mulearn-duke-purple text-mulearn-whitish rounded-xl px-4 py-3 font-semibold text-sm shadow-sm hover:shadow-md transition-all duration-300"
               >
                 Check it out! <ArrowRight className="w-4 h-4" />
-              </motion.button>
+              </MotionButton>
             </DialogTrigger>
 
             <DialogContent className="max-w-lg rounded-2xl">
@@ -106,15 +106,13 @@ export default function EventCard({ event }: Props) {
                   variant="mulearn"
                   className="w-full flex items-center justify-center gap-3 text-mulearn-whitish rounded-xl px-5 py-3 font-semibold text-sm shadow-sm hover:shadow-md"
                 >
-                  <Link href={event.link}>
-                    Go to Event
-                  </Link>
+                  <Link href={event.link}>Go to Event</Link>
                 </Button>
               </DialogFooter>
             </DialogContent>
           </Dialog>
         )}
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }

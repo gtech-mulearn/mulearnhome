@@ -1,17 +1,20 @@
-"use client";
-
-import { motion, Variants, easeOut } from "framer-motion";
+import { Variants } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
 };
 
 export default function Calendar() {
   return (
     <>
       <div className="mx-4 md:mx-auto md:max-w-[1000px] mt-4 md:mt-14 min-h-screen">
-        <motion.div
+        <MotionDiv
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
@@ -26,9 +29,9 @@ export default function Calendar() {
             close watch on this calendar. We have many surprises for you on the
             way!
           </p>
-        </motion.div>
+        </MotionDiv>
 
-        <motion.div
+        <MotionDiv
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
@@ -46,7 +49,7 @@ export default function Calendar() {
               ></iframe>
             </div>
           </div>
-        </motion.div>
+        </MotionDiv>
       </div>
     </>
   );

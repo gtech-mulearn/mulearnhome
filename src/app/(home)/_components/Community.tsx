@@ -1,13 +1,16 @@
-"use client";
-
-import { motion, Variants, easeOut } from "framer-motion";
+import { Variants } from "framer-motion";
+import { MotionDiv, MotionSection } from "@/components/MuFramer";
 import { cdnUrl } from "@/services/cdn";
 import MuImage from "@/components/MuImage";
 import Link from "next/link";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
 };
 
 const community = cdnUrl("/public/assets/home/join.webp");
@@ -15,14 +18,14 @@ const community = cdnUrl("/public/assets/home/join.webp");
 export default function Community() {
   return (
     <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full">
-      <motion.section
+      <MotionSection
         className="grid grid-cols-1 lg:grid-cols-2 gap-5 py-12"
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <motion.div
+        <MotionDiv
           className="flex flex-col items-start sm:items-center justify-center max-w-[40rem]"
           variants={fadeInUp}
         >
@@ -52,9 +55,9 @@ export default function Community() {
           >
             Join The Community
           </Link>
-        </motion.div>
+        </MotionDiv>
 
-        <motion.div
+        <MotionDiv
           variants={fadeInUp}
           className="flex justify-center items-center"
         >
@@ -65,8 +68,8 @@ export default function Community() {
             width={640}
             className="h-[40rem] w-auto max-w-full object-contain"
           />
-        </motion.div>
-      </motion.section>
+        </MotionDiv>
+      </MotionSection>
     </div>
   );
 }

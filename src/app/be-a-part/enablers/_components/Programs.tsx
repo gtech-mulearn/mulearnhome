@@ -1,14 +1,12 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 import { Button } from "@/components/ui/button";
 import { YouTubeEmbed } from "@next/third-parties/google";
 
 export default function Programs() {
   return (
-    <section className="bg-linear-to-b from-gray-50 to-white py-16 lg:py-20">
+    <section className="bg-linear-to-b from-gray-50 to-mulearn-whitish py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -27,7 +25,7 @@ export default function Programs() {
 
           <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-mulearn-greyish bg-blue-50/50 p-6 shadow-lg md:p-8">
             <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -44,9 +42,9 @@ export default function Programs() {
                     />
                   </div>
                 </div>
-              </motion.div>
+              </MotionDiv>
 
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -74,10 +72,10 @@ export default function Programs() {
                     Know More
                   </Button>
                 </div>
-              </motion.div>
+              </MotionDiv>
             </div>
           </div>
-        </motion.div>
+        </MotionDiv>
       </div>
     </section>
   );

@@ -1,8 +1,7 @@
-"use client";
-
+import { MotionDiv, MotionSection } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import Link from "next/link";
-import { motion } from "framer-motion";
+
 import { learningCircleData } from "@/data/data";
 import { Button } from "@/components/ui/button";
 
@@ -23,7 +22,7 @@ export default function LearningCirclePage() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-6 py-16 bg-mulearn-whitish text-mulearn-blackish gap-16 md:gap-24">
       <section className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-10">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -42,7 +41,7 @@ export default function LearningCirclePage() {
           )}
           <p className="leading-relaxed mb-8 ">{description}</p>
 
-          <motion.div
+          <MotionDiv
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-block"
@@ -55,10 +54,10 @@ export default function LearningCirclePage() {
             >
               {ctaText}
             </Link>
-          </motion.div>
-        </motion.div>
+          </MotionDiv>
+        </MotionDiv>
 
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           whileHover={{ scale: 1.05 }}
@@ -73,11 +72,11 @@ export default function LearningCirclePage() {
             priority
             className="rounded-2xl"
           />
-        </motion.div>
+        </MotionDiv>
       </section>
 
       <section className="max-w-6xl w-full text-center">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -89,11 +88,11 @@ export default function LearningCirclePage() {
           <p className="max-w-3xl mx-auto leading-relaxed mb-12  whitespace-pre-line">
             {introduction.description}
           </p>
-        </motion.div>
+        </MotionDiv>
 
         <div className="grid md:grid-cols-3 gap-8">
           {introduction.features.map((feature, index) => (
-            <motion.div
+            <MotionDiv
               key={feature.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -111,14 +110,13 @@ export default function LearningCirclePage() {
                 {feature.title}
               </h3>
               <p className="">{feature.description}</p>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </section>
 
-      {/* Learning Domains Section */}
       <section className="max-w-6xl w-full">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -131,11 +129,11 @@ export default function LearningCirclePage() {
           <p className="text-lg text-mulearn-blackish/70  max-w-2xl mx-auto">
             {learningDomains.subtitle}
           </p>
-        </motion.div>
+        </MotionDiv>
 
         <div className="grid md:grid-cols-3 gap-6">
           {learningDomains.domains.map((domain, index) => (
-            <motion.div
+            <MotionDiv
               key={domain.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -155,14 +153,13 @@ export default function LearningCirclePage() {
               <p className="text-mulearn-blackish/70  text-sm">
                 {domain.description}
               </p>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </section>
 
-      {/* How It Works Section */}
       <section className="max-w-6xl w-full">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -175,11 +172,11 @@ export default function LearningCirclePage() {
           <p className="text-lg text-mulearn-blackish/70  max-w-2xl mx-auto">
             {howItWorks.subtitle}
           </p>
-        </motion.div>
+        </MotionDiv>
 
         <div className="grid md:grid-cols-4 gap-8">
           {howItWorks.steps.map((step, index) => (
-            <motion.div
+            <MotionDiv
               key={step.step}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -187,7 +184,7 @@ export default function LearningCirclePage() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={`relative text-center ${
                 index === 4 ? "md:col-start-2" : ""
-              } ${index === 5 ? "md:col-start-3" : ""}`} // centering steps 5 and 6
+              } ${index === 5 ? "md:col-start-3" : ""}`}
             >
               <div className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple text-mulearn-whitish w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4 ">
                 {step.step}
@@ -199,14 +196,13 @@ export default function LearningCirclePage() {
               <p className="text-mulearn-blackish/70  text-sm">
                 {step.description}
               </p>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </section>
 
-      {/* Benefits Section */}
       <section className="max-w-6xl w-full">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -219,11 +215,11 @@ export default function LearningCirclePage() {
           <p className="text-lg text-mulearn-blackish/70  max-w-2xl mx-auto">
             {benefits.subtitle}
           </p>
-        </motion.div>
+        </MotionDiv>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.benefits.map((benefit, index) => (
-            <motion.div
+            <MotionDiv
               key={benefit.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -247,13 +243,11 @@ export default function LearningCirclePage() {
                   {benefit.description}
                 </p>
               </div>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </section>
-
-      {/* CTA Section */}
-      <motion.section
+      <MotionSection
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -266,7 +260,7 @@ export default function LearningCirclePage() {
         <p className="text-lg mb-8 text-mulearn-whitish  max-w-2xl mx-auto">
           {ctaSection.description}
         </p>
-        <motion.div
+        <MotionDiv
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="inline-block"
@@ -277,14 +271,13 @@ export default function LearningCirclePage() {
             rel="noopener noreferrer"
           >
             <Button
-              variant={"mulearn"}
               className="inline-block bg-mulearn-whitish text-mulearn-duke-purple rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-mulearn-duke-purple hover:text-mulearn-whitish px-8 py-3 font-semiboldhover:bg-mulearn-whitish/90"
             >
               {ctaSection.buttonText}
             </Button>
           </Link>
-        </motion.div>
-      </motion.section>
+        </MotionDiv>
+      </MotionSection>
     </main>
   );
 }

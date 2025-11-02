@@ -1,7 +1,4 @@
-"use client";
-
-import React from "react";
-import { motion } from "framer-motion";
+import { MotionDiv, MotionButton } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { in50hrs } from "@/data/data";
 import { cdnUrl } from "@/services/cdn";
@@ -16,7 +13,7 @@ export default function In50Hours() {
   return (
     <div className="flex flex-col justify-between items-center text-mulearn-blackish min-h-screen">
       <div className="flex flex-col items-center justify-between p-2 sm:p-4 max-w-[1300px] w-full mx-auto md:flex-row md:items-center">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -52,18 +49,18 @@ export default function In50Hours() {
               rel="noreferrer"
               href="https://www.makemypass.com/in50hours"
             >
-              <motion.button
+              <MotionButton
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple text-mulearn-whitish mt-2 sm:mt-4 px-4 sm:px-6 py-2 rounded-lg font-semibold hover:bg-mulearn-duke-purple transition-colors duration-300 text-sm sm:text-base"
               >
                 Register Now
-              </motion.button>
+              </MotionButton>
             </Link>
           </div>
-        </motion.div>
+        </MotionDiv>
 
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -76,12 +73,12 @@ export default function In50Hours() {
             height={400}
             className="w-full object-cover"
           />
-        </motion.div>
+        </MotionDiv>
       </div>
 
       <div className="flex flex-col sm:flex-row items-start justify-between max-w-[1300px] w-full mx-auto p-2 sm:p-4 gap-4 sm:gap-0">
         {in50hrs.features.map((feature, index) => (
-          <motion.div
+          <MotionDiv
             key={feature.title}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -118,12 +115,12 @@ export default function In50Hours() {
             <p className="text-sm sm:text-base font-normal text-center sm:text-left mt-2 mb-4 break-words">
               {feature.description}
             </p>
-          </motion.div>
+          </MotionDiv>
         ))}
       </div>
 
       <div className="max-w-[1300px] w-full flex flex-col md:flex-row items-center justify-between p-2 sm:p-4 mx-auto gap-4">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -154,9 +151,9 @@ export default function In50Hours() {
               className="w-[6rem] sm:w-[8rem]"
             />
           </div>
-        </motion.div>
+        </MotionDiv>
 
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -170,12 +167,12 @@ export default function In50Hours() {
             height={320}
             className="w-full"
           />
-        </motion.div>
+        </MotionDiv>
       </div>
 
       <div className="flex flex-col sm:flex-row items-start justify-between max-w-[1300px] w-full mx-auto p-2 sm:p-4 gap-4 sm:gap-0">
         {in50hrs.steps.map((step, index) => (
-          <motion.div
+          <MotionDiv
             key={step.step}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -192,7 +189,7 @@ export default function In50Hours() {
             <p className="text-sm sm:text-base font-normal text-center sm:text-left mt-2 mb-4 break-words">
               {step.description}
             </p>
-          </motion.div>
+          </MotionDiv>
         ))}
       </div>
     </div>

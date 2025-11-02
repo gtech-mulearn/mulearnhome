@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,12 +11,17 @@ import { ArrowRight } from "lucide-react";
 import { enablers } from "@/data/data";
 import MuImage from "@/components/MuImage";
 import Link from "next/link";
-import { motion, Variants, easeOut } from "framer-motion";
+import { Variants } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 
 export default function Programs() {
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+    },
   };
 
   return (
@@ -45,7 +48,7 @@ export default function Programs() {
 
         <div className="grid gap-8 md:grid-cols-2 max-w-6xl mx-auto">
           {enablers.programs.map((program, index) => (
-            <motion.div
+            <MotionDiv
               key={index}
               initial="hidden"
               whileInView="visible"
@@ -92,7 +95,7 @@ export default function Programs() {
                   </Link>
                 </CardFooter>
               </Card>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </div>

@@ -1,11 +1,9 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 
 export default function WhoIsEnabler() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
-      <motion.div
+      <MotionDiv
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -25,7 +23,7 @@ export default function WhoIsEnabler() {
           other enablers or students. They guide and mentor students, enhancing
           their growth and social capital as well.
         </p>
-      </motion.div>
+      </MotionDiv>
     </section>
   );
 }

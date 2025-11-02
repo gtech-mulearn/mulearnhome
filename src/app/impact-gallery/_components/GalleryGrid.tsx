@@ -1,6 +1,5 @@
-"use client";
-
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 import MediaCard from "./MediaCard";
 import { galleryData } from "@/data/data";
 import { GalleryItem } from "@/lib/types";
@@ -35,7 +34,7 @@ export default function GalleryGrid({
   };
 
   return (
-    <motion.div
+    <MotionDiv
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -43,7 +42,7 @@ export default function GalleryGrid({
     >
       <AnimatePresence mode="wait">
         {filteredItems.map((item) => (
-          <motion.div
+          <MotionDiv
             key={item.id}
             variants={itemVariants}
             layout
@@ -53,7 +52,7 @@ export default function GalleryGrid({
             transition={{ duration: 0.3 }}
           >
             <MediaCard item={item} onClick={() => onItemClick(item)} />
-          </motion.div>
+          </MotionDiv>
         ))}
       </AnimatePresence>
 
@@ -64,6 +63,6 @@ export default function GalleryGrid({
           </p>
         </div>
       )}
-    </motion.div>
+    </MotionDiv>
   );
 }

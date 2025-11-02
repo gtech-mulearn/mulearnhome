@@ -15,9 +15,17 @@ const MuImage = React.forwardRef<HTMLImageElement, ImageProps>((props, ref) => {
     newStyle.width = "auto";
   }
 
-  // Ensure alt is always present for accessibility
   const alt = rest.alt ?? "";
-  return <Image ref={ref} width={width} height={height} style={newStyle} {...rest} alt={alt} />;
+  return (
+    <Image
+      ref={ref}
+      width={width}
+      height={height}
+      style={newStyle}
+      {...rest}
+      alt={alt}
+    />
+  );
 });
 
 MuImage.displayName = "MuImage";

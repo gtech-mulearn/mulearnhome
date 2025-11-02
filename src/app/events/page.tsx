@@ -1,6 +1,5 @@
-"use client";
-
-import { motion, type Variants, easeOut } from "framer-motion";
+import { type Variants } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 import EventCarousel from "@/app/events/_components/EventCarousel";
 import Grid from "@/app/events/_components/Grid";
 import { events } from "@/data/data";
@@ -9,7 +8,11 @@ import { Event } from "@/lib/types";
 export default function Events() {
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+    },
   };
 
   const formatSectionTitle = (type: string) => {
@@ -38,7 +41,7 @@ export default function Events() {
     <>
       <section className="bg-mulearn-whitish px-6 py-8 md:px-12 min-h-screen">
         <div className="max-w-[1300px] mx-auto mb-16">
-          <motion.div
+          <MotionDiv
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
@@ -57,16 +60,16 @@ export default function Events() {
               inspirations, and much more. Join in and let&apos;s learn
               something new.
             </p>
-          </motion.div>
+          </MotionDiv>
         </div>
 
         <div className="max-w-6xl mx-auto">
           {allEventsSections.map(([type, events]) => (
-            <motion.div
+            <MotionDiv
               key={type}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true }}
               variants={fadeInUp}
               className="mb-12"
             >
@@ -82,7 +85,7 @@ export default function Events() {
               ) : (
                 <Grid events={events} />
               )}
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </section>

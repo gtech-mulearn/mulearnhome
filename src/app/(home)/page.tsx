@@ -8,7 +8,6 @@ import Roles from "@/app/(home)/_components/Roles";
 import Stats from "@/app/(home)/_components/Stats";
 import Community from "@/app/(home)/_components/Community";
 import Newsletter from "@/app/(home)/_components/Newsletter";
-import BackToTop from "@/components/BacktoTop";
 
 const Home = () => {
   return (
@@ -23,9 +22,6 @@ const Home = () => {
       <Stats />
       <Community />
       <Newsletter />
-      <div className="fixed z-10">
-        <BackToTop />
-      </div>
     </div>
   );
 };

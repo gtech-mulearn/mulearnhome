@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 import { GalleryItem } from "@/lib/types";
 import {
   School,
@@ -70,21 +68,21 @@ export default function MediaCard({ item, onClick }: MediaCardProps) {
   };
 
   return (
-    <motion.div
+    <MotionDiv
       whileHover={{ scale: 1.05, y: -5 }}
       whileTap={{ scale: 0.95 }}
       className="bg-mulearn-whitish rounded-lg overflow-hidden cursor-pointer group border border-mulearn-greyish hover:shadow-xl transition-all "
       onClick={onClick}
     >
       <div className="relative h-48 overflow-hidden">
-        {/* Placeholder for image */}
+        {}
         <div className="w-full h-full bg-mulearn-trusty flex items-center justify-center">
           <span className="text-mulearn-whitish text-lg font-semibold text-center px-4">
             {item.title}
           </span>
         </div>
 
-        {/* Category Badge with Icon */}
+        {}
         <div className="absolute top-3 left-3">
           <span
             className={`px-3 py-1 rounded-full text-xs font-semibold text-mulearn-whitish ${getCategoryColor(
@@ -99,9 +97,9 @@ export default function MediaCard({ item, onClick }: MediaCardProps) {
           </span>
         </div>
 
-        {/* Overlay on hover */}
+        {}
         <div className="absolute inset-0 bg-mulearn-blackish bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, scale: 0.8 }}
             whileHover={{ opacity: 1, scale: 1 }}
             className="text-mulearn-whitish text-center"
@@ -109,7 +107,7 @@ export default function MediaCard({ item, onClick }: MediaCardProps) {
             <div className="bg-mulearn-blackish bg-opacity-70 rounded-full p-3">
               <Eye size={20} />
             </div>
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
 
@@ -121,9 +119,9 @@ export default function MediaCard({ item, onClick }: MediaCardProps) {
           {item.description}
         </p>
 
-        {/* Stats Section */}
+        {}
         <div className="mt-3 flex flex-wrap gap-2">
-          {/* Show stats if available */}
+          {}
           {item.stats &&
             Object.entries(item.stats).map(([key, value]) => (
               <span
@@ -135,7 +133,7 @@ export default function MediaCard({ item, onClick }: MediaCardProps) {
               </span>
             ))}
 
-          {/* Always show category icon badge */}
+          {}
           <span className="text-xs bg-mulearn-whitish text-mulearn-gray-600 px-2 py-1 rounded border border-mulearn-greyish flex items-center gap-1">
             {getCategoryIcon(item.category)}
             {item.category
@@ -145,6 +143,6 @@ export default function MediaCard({ item, onClick }: MediaCardProps) {
           </span>
         </div>
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }

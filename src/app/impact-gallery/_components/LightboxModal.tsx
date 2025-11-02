@@ -1,5 +1,7 @@
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
+
+import { AnimatePresence } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 import { useEffect } from "react";
 import { GalleryItem } from "@/lib/types";
 
@@ -41,21 +43,20 @@ export default function LightboxModal({ item, onClose }: LightboxModalProps) {
 
   return (
     <AnimatePresence>
-      <motion.div
+      <MotionDiv
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 bg-mulearn-blackish bg-opacity-90 z-50 flex items-center justify-center p-4"
         onClick={onClose}
       >
-        <motion.div
+        <MotionDiv
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.8, opacity: 0 }}
           className="bg-mulearn-whitish rounded-2xl max-w-4xl max-h-[90vh] overflow-hidden border border-mulearn-greyish"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Modal Header */}
           <div className="flex justify-between items-center p-6 border-b border-mulearn-greyish">
             <div>
               <h2 className="text-2xl font-bold text-mulearn-blackish ">
@@ -71,7 +72,6 @@ export default function LightboxModal({ item, onClose }: LightboxModalProps) {
             </button>
           </div>
 
-          {/* Modal Content */}
           <div className="p-6">
             <div
               className="aspect-video rounded-lg mb-6 flex items-center justify-center"
@@ -82,7 +82,6 @@ export default function LightboxModal({ item, onClose }: LightboxModalProps) {
               </span>
             </div>
 
-            {/* Stats if available */}
             {item.stats && (
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
                 {item.stats.participants && (
@@ -162,8 +161,8 @@ export default function LightboxModal({ item, onClose }: LightboxModalProps) {
               </button>
             </div>
           </div>
-        </motion.div>
-      </motion.div>
+        </MotionDiv>
+      </MotionDiv>
     </AnimatePresence>
   );
 }

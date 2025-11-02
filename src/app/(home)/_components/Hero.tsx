@@ -1,7 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, Variants, easeOut } from "framer-motion";
+import { Variants } from "framer-motion";
+import {
+  MotionHeader,
+  MotionDiv,
+  MotionH1,
+  MotionP,
+} from "@/components/MuFramer";
 import { cdnUrl } from "@services/cdn";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
@@ -9,7 +15,11 @@ import { useRedirectToApp } from "@/lib/utils";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
 };
 
 const textVariant: Variants = {
@@ -31,7 +41,7 @@ export default function Hero() {
     setRefreshToken(localStorage.getItem("refreshToken"));
   }, []);
   return (
-    <motion.header
+    <MotionHeader
       id="home"
       className="relative flex flex-col items-center justify-start overflow-hidden"
       style={{
@@ -43,7 +53,7 @@ export default function Hero() {
     >
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-20 md:pt-28 lg:pt-32">
         <div className="flex flex-col items-center justify-center text-center">
-          <motion.h1
+          <MotionH1
             custom={1}
             variants={textVariant}
             initial="hidden"
@@ -57,9 +67,9 @@ export default function Hero() {
             <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
               Peer-Led Growth
             </span>
-          </motion.h1>
+          </MotionH1>
 
-          <motion.p
+          <MotionP
             custom={2}
             variants={textVariant}
             initial="hidden"
@@ -68,9 +78,9 @@ export default function Hero() {
             className="text-base sm:text-lg md:text-xl text-mulearn-gray-600 mt-4 sm:mt-6 mb-6 sm:mb-8 max-w-xl sm:max-w-2xl font-normal"
           >
             An open community for learners, makers, and innovators
-          </motion.p>
+          </MotionP>
 
-          <motion.div
+          <MotionDiv
             custom={3}
             initial="hidden"
             whileInView="visible"
@@ -88,11 +98,11 @@ export default function Hero() {
             >
               Join µLearn
             </Button>
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
 
-      <motion.div
+      <MotionDiv
         custom={4}
         initial="hidden"
         whileInView="visible"
@@ -110,7 +120,7 @@ export default function Hero() {
           fetchPriority="high"
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 70vw, (max-width: 1280px) 60vw, 50vw"
         />
-      </motion.div>
-    </motion.header>
+      </MotionDiv>
+    </MotionHeader>
   );
 }

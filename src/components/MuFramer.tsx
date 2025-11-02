@@ -106,6 +106,26 @@ const MotionFooter = React.forwardRef<HTMLElement, HTMLMotionProps<"footer">>(
   }
 );
 
+const MotionA = React.forwardRef<HTMLAnchorElement, HTMLMotionProps<"a">>(
+  function MotionA({ children, ...props }, ref) {
+    return (
+      <motion.a ref={ref} {...props}>
+        {children}
+      </motion.a>
+    );
+  }
+);
+
+const MotionLi = React.forwardRef<HTMLLIElement, HTMLMotionProps<"li">>(
+  function MotionLI({ children, ...props }, ref) {
+    return (
+      <motion.li ref={ref} {...props}>
+        {children}
+      </motion.li>
+    );
+  }
+);
+
 export {
   MotionDiv,
   MotionSection,
@@ -117,4 +137,6 @@ export {
   MotionBQ,
   MotionButton,
   MotionFooter,
+  MotionA,
+  MotionLi
 };

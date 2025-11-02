@@ -1,4 +1,3 @@
-import React from "react";
 import { cdnUrl } from "@/services/cdn";
 import Link from "next/link";
 import MuImage from "@/components/MuImage";

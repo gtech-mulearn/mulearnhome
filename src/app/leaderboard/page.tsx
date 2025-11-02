@@ -1,6 +1,5 @@
-"use client";
-
-import { motion, Variants, easeOut } from "framer-motion";
+import { Variants } from "framer-motion";
+import { MotionDiv, MotionH2 } from "@/components/MuFramer";
 import {
   Table,
   TableBody,
@@ -17,7 +16,11 @@ import { Button } from "@/components/ui/button";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
 };
 
 export default function LeaderBoard() {
@@ -27,7 +30,7 @@ export default function LeaderBoard() {
     scores.map((c) => ({ ...c, displayname: c.displayname || c.username }));
 
   const renderTable = (title: string, scores: Score[]) => (
-    <motion.div
+    <MotionDiv
       className="m-3 p-5 rounded-2xl shadow-md w-full max-w-5xl overflow-x-auto bg-mulearn-bg"
       variants={fadeInUp}
       initial="hidden"
@@ -71,7 +74,7 @@ export default function LeaderBoard() {
               key={score.username}
               className={
                 index < 3
-                  ? "bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple text-white font-bold"
+                  ? "bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple text-mulearn-whitish font-bold"
                   : ""
               }
             >
@@ -101,12 +104,12 @@ export default function LeaderBoard() {
           ))}
         </TableBody>
       </Table>
-    </motion.div>
+    </MotionDiv>
   );
 
   return (
     <div className="flex flex-col w-full px-3 md:px-5 py-10">
-      <motion.h2
+      <MotionH2
         className="text-4xl md:text-5xl font-bold text-center mb-10 text-mulearn-primary"
         variants={fadeInUp}
         initial="hidden"
@@ -116,7 +119,7 @@ export default function LeaderBoard() {
           μLearn{" "}
         </span>
         Contribution Leaderboard
-      </motion.h2>
+      </MotionH2>
 
       <div className="flex flex-col lg:flex-row justify-center items-start w-full gap-5 lg:gap-10">
         <div className="w-full lg:w-1/2 flex justify-center">
@@ -127,7 +130,7 @@ export default function LeaderBoard() {
           {renderTable("Overall Leaderboard", mapScores(overall))}
         </div>
       </div>
-      <motion.div
+      <MotionDiv
         variants={fadeInUp}
         initial="hidden"
         animate="visible"
@@ -141,7 +144,7 @@ export default function LeaderBoard() {
             View Full Leaderboard <ArrowRight className="w-5 h-5" />
           </Button>
         </Link>
-      </motion.div>
+      </MotionDiv>
     </div>
   );
 }

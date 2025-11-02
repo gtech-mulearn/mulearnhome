@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+
+import { MotionDiv } from "@/components/MuFramer";
 import EventCard from "./EventCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -35,7 +35,7 @@ export default function EventCarousel({ events }: Props) {
       >
         {events.map((event, i) => (
           <SwiperSlide key={event.title}>
-            <motion.div
+            <MotionDiv
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -43,7 +43,7 @@ export default function EventCarousel({ events }: Props) {
               className="h-full"
             >
               <EventCard event={event} />
-            </motion.div>
+            </MotionDiv>
           </SwiperSlide>
         ))}
       </Swiper>

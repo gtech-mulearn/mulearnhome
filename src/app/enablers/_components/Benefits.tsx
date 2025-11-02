@@ -1,14 +1,17 @@
-"use client";
-
 import MuImage from "@/components/MuImage";
 import { enablers } from "@/data/data";
 import { BiSolidRightArrow } from "react-icons/bi";
-import { motion, Variants, easeOut } from "framer-motion";
+import { Variants } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 
 export default function Benefits() {
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+    },
   };
 
   return (
@@ -30,7 +33,7 @@ export default function Benefits() {
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {enablers.benefits.map((benefit, index) => (
-            <motion.div
+            <MotionDiv
               key={index}
               className="rounded-2xl border border-mulearn-gray-600/20 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 p-8 flex flex-col space-y-6"
               initial="hidden"
@@ -64,7 +67,7 @@ export default function Benefits() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </div>

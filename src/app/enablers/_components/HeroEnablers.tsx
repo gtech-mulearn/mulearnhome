@@ -1,7 +1,5 @@
-"use client";
-
+import { MotionDiv } from "@/components/MuFramer";
 import { cdnUrl } from "@/services/cdn";
-import { motion } from "framer-motion";
 import MuImage from "@/components/MuImage";
 
 const heroImage = cdnUrl("src/modules/Public/EnablersPage/assests/Hero.webp");
@@ -11,7 +9,7 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-mulearn-whitish text-mulearn-blackish">
       <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
-          <motion.div
+          <MotionDiv
             className="space-y-6 text-center lg:text-left"
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -33,9 +31,9 @@ export default function Hero() {
               Make students industry ready by enhancing your teaching
               capabilities and connecting with a vibrant community of enablers.
             </p>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             className="flex justify-end"
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -51,7 +49,7 @@ export default function Hero() {
                 priority
               />
             </div>
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
     </section>

@@ -1,6 +1,8 @@
-"use client";
-
-import { motion, Variants } from "framer-motion";
+import { Variants } from "framer-motion";
+import {
+  MotionSection,
+  MotionDiv
+} from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { opportunities } from "@/data/data";
 
@@ -16,14 +18,14 @@ const fadeInUp: Variants = {
 export default function Opportunities() {
   return (
     <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full">
-      <motion.section
+      <MotionSection
         className="flex flex-col justify-center py-24 items-center"
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <motion.div className="text-center" variants={fadeInUp}>
+        <MotionDiv className="text-center" variants={fadeInUp}>
           <h1 className="text-3xl sm:text-4xl lg:text-[2.5rem] font-extrabold">
             At The End Of a μLearners Journey
           </h1>
@@ -33,14 +35,14 @@ export default function Opportunities() {
             a job, freelance, research, start their own venture, or work for a
             social cause.
           </h6>
-        </motion.div>
+        </MotionDiv>
 
-        <motion.div
+        <MotionDiv
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 mt-4 gap-8 justify-center border-none"
           variants={fadeInUp}
         >
           {opportunities.map((opportunity) => (
-            <motion.div
+            <MotionDiv
               key={opportunity.id}
               className="flex flex-col items-center justify-center py-12 px-8 bg-mulearn-greyish/20 transition-all rounded-lg duration-500 ease-in-out hover:-translate-y-[5px] cursor-pointer min-h-[250px]"
               variants={fadeInUp}
@@ -57,10 +59,10 @@ export default function Opportunities() {
               <h6 className="text-xl mt-6 font-semibold text-center">
                 {opportunity.name}
               </h6>
-            </motion.div>
+            </MotionDiv>
           ))}
-        </motion.div>
-      </motion.section>
+        </MotionDiv>
+      </MotionSection>
     </div>
   );
 }

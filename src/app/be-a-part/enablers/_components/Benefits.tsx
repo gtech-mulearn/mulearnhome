@@ -1,12 +1,10 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 import { enablers } from "@/data/data";
 
 export default function Benefits() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
-      <motion.div
+      <MotionDiv
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -20,7 +18,7 @@ export default function Benefits() {
         </h2>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -33,7 +31,7 @@ export default function Benefits() {
             <ul className=" space-y-4">
               {enablers.benefits[0].items.map((item, itemIdx) => (
                 <li key={itemIdx} className="flex items-start gap-3">
-                  <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/20">
+                  <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mulearn-whitish/20">
                     <svg
                       className="h-3 w-3"
                       fill="currentColor"
@@ -59,14 +57,14 @@ export default function Benefits() {
                 height="32"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="text-white/30"
+                className="text-mulearn-whitish/30"
               >
                 <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" />
               </svg>
             </div>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -98,9 +96,9 @@ export default function Benefits() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -113,7 +111,7 @@ export default function Benefits() {
             <ul className=" space-y-4">
               {enablers.benefits[2].items.map((item, itemIdx) => (
                 <li key={itemIdx} className="flex items-start gap-3">
-                  <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/20">
+                  <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mulearn-whitish/20">
                     <svg
                       className="h-3 w-3"
                       fill="currentColor"
@@ -139,19 +137,19 @@ export default function Benefits() {
                 height="32"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="text-white/30"
+                className="text-mulearn-whitish/30"
               >
                 <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" />
               </svg>
             </div>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative flex items-center justify-center overflow-hidden rounded-3xl border-2 border-gray-200 bg-white p-8 shadow-lg"
+            className="relative flex items-center justify-center overflow-hidden rounded-3xl border-2 border-gray-200 bg-mulearn-whitish p-8 shadow-lg"
           >
             <div className="absolute right-6 top-6">
               <svg
@@ -171,9 +169,9 @@ export default function Benefits() {
                 That Shapes Tomorrow&quot;
               </p>
             </div>
-          </motion.div>
+          </MotionDiv>
         </div>
-      </motion.div>
+      </MotionDiv>
     </section>
   );
 }

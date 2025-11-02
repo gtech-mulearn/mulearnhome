@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -60,7 +60,6 @@ const donationFormSchema = z
   })
   .refine(
     (data) => {
-      // If organisation is checked, organisation name is required
       if (
         data.isOrganisation &&
         (!data.organisationName || data.organisationName.trim() === "")
@@ -105,7 +104,6 @@ export default function DonationForm() {
     },
   });
 
-  // Get donation amounts based on donation type
   const getDonationAmounts = (type: DonationType) => {
     switch (type) {
       case "monthly":
@@ -141,12 +139,10 @@ export default function DonationForm() {
   const isOrganisation = watch("isOrganisation");
   const totalAmount = watch("donationAmount") || 0;
 
-  // Handle client-side hydration
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Reset amount selection when donation type changes
   useEffect(() => {
     setSelectedAmount("");
     setCustomAmount("");
@@ -210,7 +206,7 @@ export default function DonationForm() {
               type="text"
               placeholder="John Doe"
               {...register("name")}
-              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${
+              className={`h-11 bg-mulearn-whitish  border-gray-200 dark:border-gray-700 focus:border-mulearn-trusty-blue focus:ring-1 focus:ring-mulearn-trusty-blue transition-all ${
                 errors.name ? "border-red-500" : ""
               }`}
             />
@@ -234,7 +230,7 @@ export default function DonationForm() {
               type="email"
               placeholder="john.doe@example.com"
               {...register("email")}
-              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${
+              className={`h-11 bg-mulearn-whitish  border-gray-200 dark:border-gray-700 focus:border-mulearn-trusty-blue focus:ring-1 focus:ring-mulearn-trusty-blue transition-all ${
                 errors.email ? "border-red-500" : ""
               }`}
             />
@@ -260,7 +256,7 @@ export default function DonationForm() {
               type="tel"
               placeholder="+91 98765 43210"
               {...register("phone")}
-              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${
+              className={`h-11 bg-mulearn-whitish  border-gray-200 dark:border-gray-700 focus:border-mulearn-trusty-blue focus:ring-1 focus:ring-mulearn-trusty-blue transition-all ${
                 errors.phone ? "border-red-500" : ""
               }`}
             />
@@ -291,7 +287,7 @@ export default function DonationForm() {
                 },
               })}
               maxLength={10}
-              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${
+              className={`h-11 bg-mulearn-whitish  border-gray-200 dark:border-gray-700 focus:border-mulearn-trusty-blue focus:ring-1 focus:ring-mulearn-trusty-blue transition-all ${
                 errors.panNumber ? "border-red-500" : ""
               }`}
             />
@@ -308,7 +304,7 @@ export default function DonationForm() {
             type="checkbox"
             id="isOrganisation"
             {...register("isOrganisation")}
-            className="w-4 h-4 text-[var(--mulearn-trusty-blue)] border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-[var(--mulearn-trusty-blue)] focus:ring-offset-0 transition-all cursor-pointer"
+            className="w-4 h-4 text-mulearn-trusty-blue border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-mulearn-trusty-blue focus:ring-offset-0 transition-all cursor-pointer"
           />
           <Label
             htmlFor="isOrganisation"
@@ -318,7 +314,7 @@ export default function DonationForm() {
           </Label>
         </div>
 
-        {/* Organisation Name (conditional) */}
+        {}
         {isOrganisation && (
           <div className="space-y-2 animate-in fade-in duration-200">
             <Label
@@ -335,7 +331,7 @@ export default function DonationForm() {
               type="text"
               placeholder="Enter organisation name"
               {...register("organisationName")}
-              className={`h-11 bg-white  border-gray-200 dark:border-gray-700 focus:border-[var(--mulearn-trusty-blue)] focus:ring-1 focus:ring-[var(--mulearn-trusty-blue)] transition-all ${
+              className={`h-11 bg-mulearn-whitish  border-gray-200 dark:border-gray-700 focus:border-mulearn-trusty-blue focus:ring-1 focus:ring-mulearn-trusty-blue transition-all ${
                 errors.organisationName ? "border-red-500" : ""
               }`}
             />
@@ -435,13 +431,12 @@ export default function DonationForm() {
     </TabsContent>
   );
 
-  // Prevent hydration mismatch by only rendering after mount
   if (!mounted) {
     return (
-      <div className="w-full bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col max-h-[calc(100vh-10rem)] overflow-hidden">
+      <div className="w-full bg-mulearn-whitish dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col max-h-[calc(100vh-10rem)] overflow-hidden">
         <div className="flex-1 overflow-y-auto px-6 sm:px-10 py-8 sm:py-10 min-h-0">
           <div className="mb-10">
-            <h2 className="text-2xl sm:text-3xl font-semibold mb-2 text-gray-900 dark:text-gray-50 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-2 text-mulearn-blackish dark:text-gray-50 tracking-tight">
               Make a Donation
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm sm:text-base">
@@ -499,17 +494,17 @@ export default function DonationForm() {
         </Tabs>
       </div>
 
-      {/* Fixed Footer with Total and Continue Button */}
+      {}
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="border-t border-gray-200 dark:border-gray-800 bg-white  px-6 sm:px-10 py-6">
+        <div className="border-t border-gray-200 dark:border-gray-800 bg-mulearn-whitish  px-6 sm:px-10 py-6">
           <div className="flex flex-col gap-5">
-            {/* Terms and Conditions Checkbox */}
+            {}
             <div className="flex items-start space-x-3">
               <input
                 type="checkbox"
                 id="termsAccepted"
                 {...register("termsAccepted")}
-                className="w-4 h-4 mt-0.5 text-[var(--mulearn-trusty-blue)] border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-[var(--mulearn-trusty-blue)] focus:ring-offset-0 transition-all cursor-pointer"
+                className="w-4 h-4 mt-0.5 text-mulearn-trusty-blue border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-mulearn-trusty-blue focus:ring-offset-0 transition-all cursor-pointer"
               />
               <div className="flex-1">
                 <Label
@@ -520,7 +515,7 @@ export default function DonationForm() {
                   <a
                     href="/termsandconditions"
                     target="_blank"
-                    className="text-[var(--mulearn-trusty-blue)] hover:underline"
+                    className="text-mulearn-trusty-blue hover:underline"
                   >
                     Terms and Conditions
                   </a>
@@ -528,7 +523,7 @@ export default function DonationForm() {
                   <a
                     href="/privacypolicy"
                     target="_blank"
-                    className="text-[var(--mulearn-trusty-blue)] hover:underline"
+                    className="text-mulearn-trusty-blue hover:underline"
                   >
                     Privacy Policy
                   </a>{" "}
@@ -536,7 +531,7 @@ export default function DonationForm() {
                   <a
                     href="/refundpolicy"
                     target="_blank"
-                    className="text-[var(--mulearn-trusty-blue)] hover:underline"
+                    className="text-mulearn-trusty-blue hover:underline"
                   >
                     Refund Policy
                   </a>
@@ -549,20 +544,20 @@ export default function DonationForm() {
               </div>
             </div>
 
-            {/* Donation Amount Error */}
+            {}
             {errors.donationAmount && (
               <p className="text-xs text-red-500">
                 {errors.donationAmount.message}
               </p>
             )}
 
-            {/* Total and Continue */}
+            {}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
               <div>
                 <p className="text-xs text-gray-500 dark:text-gray-500 mb-1">
                   Donation Amount
                 </p>
-                <p className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-gray-50 tracking-tight">
+                <p className="text-3xl sm:text-4xl font-semibold text-mulearn-blackish dark:text-gray-50 tracking-tight">
                   ₹{totalAmount.toLocaleString("en-IN")}
                 </p>
               </div>

@@ -10,36 +10,46 @@ import { Badge } from "@/components/ui/badge";
 import MuImage from "@/components/MuImage";
 
 export default function OpenMicPage() {
-  const upcomingEvents = openMicData.events.filter(event => event.isUpcoming);
-  const pastEvents = openMicData.events.filter(event => !event.isUpcoming);
+  const upcomingEvents = openMicData.events.filter((event) => event.isUpcoming);
+  const pastEvents = openMicData.events.filter((event) => !event.isUpcoming);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-mulearn-gray-50 to-mulearn-whitish">
+    <div className="min-h-screen bg-linear-to-br from-mulearn-gray-50 to-mulearn-whitish">
       <section className="relative overflow-hidden py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <Badge 
-              variant="outline" 
+            <Badge
+              variant="outline"
               className="mb-6 border-2 border-mulearn-trusty-blue text-mulearn-trusty-blue font-bold text-sm py-2 px-4 hover:bg-mulearn-trusty-blue/10 hover:border-mulearn-duke-purple hover:text-mulearn-duke-purple transition-all duration-300 shadow-sm"
             >
               <Mic className="w-4 h-4 mr-2" />
               Community Platform
             </Badge>
-            
+
             <h1 className="text-4xl md:text-6xl font-black text-mulearn-blackish mb-6 leading-tight">
-              µLearn <span className="bg-gradient-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">Open Mic</span>
+              µLearn{" "}
+              <span className="bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+                Open Mic
+              </span>
             </h1>
-            
+
             <p className="text-lg md:text-xl text-mulearn-gray-600 leading-relaxed mb-8">
-              A platform where µLearn members perform, speak, express creativity, and share unique stories or talents. Join our community-driven stage for music, poetry, storytelling, and innovative performances that celebrate youth expression and creative voices.
+              A platform where µLearn members perform, speak, express
+              creativity, and share unique stories or talents. Join our
+              community-driven stage for music, poetry, storytelling, and
+              innovative performances that celebrate youth expression and
+              creative voices.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button className="px-8 py-3 gap-2 text-base rounded-full hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
                 <PlayCircle className="w-5 h-5" />
                 Join Next Session
               </Button>
-              <Button variant="outline" className="px-8 py-3 gap-2 text-base rounded-full border-2 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+              <Button
+                variant="outline"
+                className="px-8 py-3 gap-2 text-base rounded-full border-2 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+              >
                 <Users className="w-5 h-5" />
                 Watch Previous Events
               </Button>
@@ -95,13 +105,13 @@ export default function OpenMicPage() {
 
 function useReadMore(initialText: string, maxLength: number = 100) {
   const [isExpanded, setIsExpanded] = useState(false);
-  
+
   const shouldTruncate = initialText.length > maxLength;
-  const displayText = isExpanded 
-    ? initialText 
-    : shouldTruncate 
-      ? initialText.slice(0, maxLength) + '...' 
-      : initialText;
+  const displayText = isExpanded
+    ? initialText
+    : shouldTruncate
+    ? initialText.slice(0, maxLength) + "..."
+    : initialText;
 
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
@@ -109,7 +119,7 @@ function useReadMore(initialText: string, maxLength: number = 100) {
     displayText,
     isExpanded,
     shouldTruncate,
-    toggleExpand
+    toggleExpand,
   };
 }
 
@@ -121,7 +131,7 @@ function EventCard({ event }: { event: OMEvent }) {
 
   return (
     <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden h-full flex flex-col">
-      <div className="h-48 bg-gradient-to-br from-mulearn-trusty-blue/20 to-mulearn-duke-purple/20 flex items-center justify-center relative flex-shrink-0">
+      <div className="h-48 bg-linear-to-br from-mulearn-trusty-blue/20 to-mulearn-duke-purple/20 flex items-center justify-center relative flex-shrink-0">
         {event.thumbnail ? (
           <MuImage
             src={event.thumbnail}

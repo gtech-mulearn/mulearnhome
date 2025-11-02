@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import MuImage from "@/components/MuImage";
 import DonateCounters from "@/app/donate/_components/DonateCounters";
 import DonationForm from "@/app/donate/_components/DonationForm";

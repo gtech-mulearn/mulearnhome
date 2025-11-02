@@ -1,15 +1,18 @@
-"use client";
-
 import { Card, CardContent } from "@/components/ui/card";
 import { enablers } from "@/data/data";
 import MuImage from "@/components/MuImage";
 import Link from "next/link";
-import { motion, Variants, easeOut } from "framer-motion";
+import { Variants } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 
 export default function Onboarding() {
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+    },
   };
 
   return (
@@ -34,7 +37,7 @@ export default function Onboarding() {
 
         <div className="max-w-5xl mx-auto space-y-8">
           {enablers.onboarding.map((step, index) => (
-            <motion.div
+            <MotionDiv
               key={index}
               initial="hidden"
               whileInView="visible"
@@ -90,7 +93,7 @@ export default function Onboarding() {
                   </div>
                 </CardContent>
               </Card>
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
       </div>

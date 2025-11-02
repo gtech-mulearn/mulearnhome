@@ -1,24 +1,27 @@
-"use client";
-
-import { motion, Variants, easeOut } from "framer-motion";
+import { Variants } from "framer-motion";
+import { MotionDiv, MotionSection } from "@/components/MuFramer";
 import { comparisons } from "@/data/data";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
 };
 
 export default function Comparison() {
   return (
     <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full">
-      <motion.section
+      <MotionSection
         className="flex flex-col justify-center py-24 pb-0 items-center"
         variants={fadeInUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <motion.div
+        <MotionDiv
           className="flex flex-col justify-center items-center"
           variants={fadeInUp}
         >
@@ -66,8 +69,8 @@ export default function Comparison() {
               })}
             </tbody>
           </table>
-        </motion.div>
-      </motion.section>
+        </MotionDiv>
+      </MotionSection>
     </div>
   );
 }

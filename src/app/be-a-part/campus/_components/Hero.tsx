@@ -1,14 +1,12 @@
-"use client";
-
+import { MotionDiv } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
-import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="relative mx-auto max-w-7xl px-6 py-12 md:py-20 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -32,9 +30,9 @@ export default function Hero() {
               Build the future through peer-to-peer learning, proof-of-work, and
               a 55,000+ strong community.
             </p>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -48,7 +46,7 @@ export default function Hero() {
               className="w-64 sm:w-80 md:w-full h-auto max-w-md rounded-2xl object-contain"
               priority
             />
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
     </section>

@@ -30,7 +30,7 @@ const CareersCard = ({
         />
       )}
 
-      <p className="mb-3 text-center text-2xl font-semibold bg-gradient-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
+      <p className="mb-3 text-center text-2xl font-semibold bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text text-transparent">
         {role}
       </p>
 
@@ -98,4 +98,3 @@ const CareersCard = ({
 };
 
 export default CareersCard;
-

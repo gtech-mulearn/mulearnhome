@@ -1,14 +1,12 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Apply() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-32">
-      <motion.div
+      <MotionDiv
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -27,14 +25,13 @@ export default function Apply() {
           rel="noopener noreferrer"
         >
           <Button
-            variant="mulearn"
-            className="bg-mulearn-whitish text-mulearn-trusty-blue group inline-flex items-center text-center justify-center gap-2 px-6 py-3 text-base font-semibold sm:px-8 sm:py-4 sm:text-lg w-full sm:w-auto"
+            className="bg-mulearn-whitish text-mulearn-trusty-blue hover:bg-mulearn-whitish rounded-2xl group inline-flex items-center text-center justify-center gap-2 px-6 py-3 text-base font-semibold sm:px-8 sm:py-4 sm:text-lg w-full sm:w-auto"
           >
             Apply to Start a Chapter
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </Button>
         </Link>
-      </motion.div>
+      </MotionDiv>
     </section>
   );
 }

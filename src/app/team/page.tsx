@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion, Variants, easeOut } from "framer-motion";
+import { Variants } from "framer-motion";
+import { MotionDiv } from "@/components/MuFramer";
 import {
   Select,
   SelectContent,
@@ -25,17 +26,29 @@ const containerVariants: Variants = {
 
 const fadeInLeft: Variants = {
   hidden: { opacity: 0, x: -50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: easeOut } },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
 };
 
 const fadeInRight: Variants = {
   hidden: { opacity: 0, x: 50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: easeOut } },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
 };
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
+  },
 };
 
 type YearType = "2025" | "2024" | "2023" | "2022";
@@ -53,7 +66,7 @@ export default function Team() {
 
   const renderTeamGrid = (teams: Teams[]) =>
     teams.map((team, teamIndex) => (
-      <motion.div
+      <MotionDiv
         key={teamIndex}
         variants={fadeInUp}
         initial="hidden"
@@ -116,11 +129,11 @@ export default function Team() {
                 </div>
               )}
         </div>
-      </motion.div>
+      </MotionDiv>
     ));
 
   return (
-    <motion.div
+    <MotionDiv
       className="text-center"
       initial="hidden"
       animate="visible"
@@ -128,7 +141,7 @@ export default function Team() {
     >
       <div className="py-12 px-4 flex justify-center">
         <div className="flex flex-col md:flex-row items-center max-w-7xl w-full gap-8">
-          <motion.div
+          <MotionDiv
             variants={fadeInLeft}
             initial="hidden"
             whileInView="visible"
@@ -147,8 +160,8 @@ export default function Team() {
               would not have been possible without the team&apos;s soul and
               heart...
             </p>
-          </motion.div>
-          <motion.div
+          </MotionDiv>
+          <MotionDiv
             variants={fadeInRight}
             initial="hidden"
             whileInView="visible"
@@ -163,7 +176,7 @@ export default function Team() {
               className="w-full h-auto max-w-[32rem]"
               priority
             />
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
 
@@ -192,7 +205,7 @@ export default function Team() {
         </div>
         <div className="mt-8">
           {selectedYearData && (
-            <motion.div
+            <MotionDiv
               key={activeYear}
               variants={fadeInUp}
               initial="hidden"
@@ -201,10 +214,10 @@ export default function Team() {
               className="w-full"
             >
               {renderTeamGrid(selectedYearData.teams)}
-            </motion.div>
+            </MotionDiv>
           )}
         </div>
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }
