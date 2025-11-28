@@ -32,19 +32,10 @@
       "username": "salahudheenthajudheen",
       "commits": 0,
       "prs_opened": 7,
-      "prs_merged": 2,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "Salahudheen Thajudheen"
-    },
-    {
-      "username": "alvin-dennis",
-      "commits": 0,
-      "prs_opened": 5,
       "prs_merged": 3,
       "issues_opened": 0,
       "issues_closed": 0,
-      "displayname": "Alvin Dennis"
+      "displayname": "Salahudheen Thajudheen"
     },
     {
       "username": "godlykmathews",
@@ -56,10 +47,19 @@
       "displayname": "Godly K Mathews"
     },
     {
+      "username": "alvin-dennis",
+      "commits": 0,
+      "prs_opened": 5,
+      "prs_merged": 3,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Alvin Dennis"
+    },
+    {
       "username": "AdarshDev9349",
       "commits": 0,
-      "prs_opened": 2,
-      "prs_merged": 1,
+      "prs_opened": 3,
+      "prs_merged": 2,
       "issues_opened": 0,
       "issues_closed": 0,
       "displayname": "Adarsh Dev"
