@@ -38,15 +38,6 @@
       "displayname": "Salahudheen Thajudheen"
     },
     {
-      "username": "godlykmathews",
-      "commits": 0,
-      "prs_opened": 4,
-      "prs_merged": 4,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "Godly K Mathews"
-    },
-    {
       "username": "alvin-dennis",
       "commits": 0,
       "prs_opened": 5,
@@ -54,6 +45,15 @@
       "issues_opened": 0,
       "issues_closed": 0,
       "displayname": "Alvin Dennis"
+    },
+    {
+      "username": "godlykmathews",
+      "commits": 0,
+      "prs_opened": 4,
+      "prs_merged": 4,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Godly K Mathews"
     },
     {
       "username": "AdarshDev9349",
