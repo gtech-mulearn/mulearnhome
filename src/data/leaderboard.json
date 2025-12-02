@@ -2,6 +2,51 @@
   "month": "2025-12",
   "monthly": [
     {
+      "username": "Safwancs7",
+      "commits": 0,
+      "prs_opened": 2,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Muhammad Safwan C S"
+    },
+    {
+      "username": "Blackhole-supernova",
+      "commits": 0,
+      "prs_opened": 1,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Blackhole-supernova"
+    },
+    {
+      "username": "stccreation",
+      "commits": 0,
+      "prs_opened": 1,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Shaheen T"
+    },
+    {
+      "username": "Prapanchj",
+      "commits": 0,
+      "prs_opened": 1,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Prapanchj"
+    },
+    {
+      "username": "joyanna27",
+      "commits": 0,
+      "prs_opened": 1,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "joyanna27"
+    },
+    {
       "username": "alvin-dennis",
       "commits": 0,
       "prs_opened": 0,
@@ -45,51 +90,6 @@
       "issues_opened": 0,
       "issues_closed": 0,
       "displayname": "aflahaa"
-    },
-    {
-      "username": "abin-karukappallil",
-      "commits": 0,
-      "prs_opened": 0,
-      "prs_merged": 0,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "Abin Thomas"
-    },
-    {
-      "username": "adn26",
-      "commits": 0,
-      "prs_opened": 0,
-      "prs_merged": 0,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "Muhammed Adnan"
-    },
-    {
-      "username": "awindsr",
-      "commits": 0,
-      "prs_opened": 0,
-      "prs_merged": 0,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "Awindsr"
-    },
-    {
-      "username": "erzer12",
-      "commits": 0,
-      "prs_opened": 0,
-      "prs_merged": 0,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "Harshil P"
-    },
-    {
-      "username": "goldibabu14",
-      "commits": 0,
-      "prs_opened": 0,
-      "prs_merged": 0,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "Goldi Babu"
     }
   ],
   "overall": [
