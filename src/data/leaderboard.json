@@ -4,11 +4,20 @@
     {
       "username": "Safwancs7",
       "commits": 0,
-      "prs_opened": 2,
+      "prs_opened": 3,
       "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
       "displayname": "Muhammad Safwan C S"
+    },
+    {
+      "username": "joyanna27",
+      "commits": 0,
+      "prs_opened": 2,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "joyanna27"
     },
     {
       "username": "Blackhole-supernova",
@@ -38,13 +47,40 @@
       "displayname": "Prapanchj"
     },
     {
-      "username": "joyanna27",
+      "username": "JUDU-13",
       "commits": 0,
-      "prs_opened": 1,
+      "prs_opened": 0,
       "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
-      "displayname": "joyanna27"
+      "displayname": "JAIDON GILL SHAJAN"
+    },
+    {
+      "username": "akashanil-dev",
+      "commits": 0,
+      "prs_opened": 0,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Akash A"
+    },
+    {
+      "username": "vishakh-abhayan",
+      "commits": 0,
+      "prs_opened": 0,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Vishakh Abhayan"
+    },
+    {
+      "username": "Asinsayedali",
+      "commits": 0,
+      "prs_opened": 0,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Asin sayed ali"
     },
     {
       "username": "alvin-dennis",
@@ -54,42 +90,6 @@
       "issues_opened": 0,
       "issues_closed": 0,
       "displayname": "Alvin Dennis"
-    },
-    {
-      "username": "Amith-Abey-Stephen",
-      "commits": 0,
-      "prs_opened": 0,
-      "prs_merged": 0,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "Amith Abey Stephen"
-    },
-    {
-      "username": "github-actions[bot]",
-      "commits": 0,
-      "prs_opened": 0,
-      "prs_merged": 0,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "github-actions[bot]"
-    },
-    {
-      "username": "AdarshDev9349",
-      "commits": 0,
-      "prs_opened": 0,
-      "prs_merged": 0,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "Adarsh Dev"
-    },
-    {
-      "username": "aflaha01",
-      "commits": 0,
-      "prs_opened": 0,
-      "prs_merged": 0,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "aflahaa"
     }
   ],
   "overall": [
