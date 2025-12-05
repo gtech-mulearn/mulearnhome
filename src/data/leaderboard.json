@@ -11,6 +11,15 @@
       "displayname": "Muhammad Safwan C S"
     },
     {
+      "username": "awindsr",
+      "commits": 0,
+      "prs_opened": 1,
+      "prs_merged": 1,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Awindsr"
+    },
+    {
       "username": "joyanna27",
       "commits": 0,
       "prs_opened": 2,
@@ -47,49 +56,40 @@
       "displayname": "Prapanchj"
     },
     {
-      "username": "JUDU-13",
+      "username": "adnankattekaden",
       "commits": 0,
       "prs_opened": 0,
       "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
-      "displayname": "JAIDON GILL SHAJAN"
+      "displayname": "Adnan Kattekaden"
     },
     {
-      "username": "akashanil-dev",
+      "username": "MZaFaRM",
       "commits": 0,
       "prs_opened": 0,
       "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
-      "displayname": "Akash A"
+      "displayname": "Muhammed Zafar "
     },
     {
-      "username": "vishakh-abhayan",
+      "username": "jelanmathewjames",
       "commits": 0,
       "prs_opened": 0,
       "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
-      "displayname": "Vishakh Abhayan"
+      "displayname": "Jelan Mathew James"
     },
     {
-      "username": "Asinsayedali",
+      "username": "anirudh-mk",
       "commits": 0,
       "prs_opened": 0,
       "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
-      "displayname": "Asin sayed ali"
-    },
-    {
-      "username": "alvin-dennis",
-      "commits": 0,
-      "prs_opened": 0,
-      "prs_merged": 0,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "Alvin Dennis"
+      "displayname": "Anirudh MK"
     }
   ],
   "overall": [
