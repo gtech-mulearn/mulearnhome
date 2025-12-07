@@ -5,7 +5,7 @@
       "username": "Safwancs7",
       "commits": 0,
       "prs_opened": 3,
-      "prs_merged": 0,
+      "prs_merged": 1,
       "issues_opened": 0,
       "issues_closed": 0,
       "displayname": "Muhammad Safwan C S"
@@ -13,7 +13,7 @@
     {
       "username": "Blackhole-supernova",
       "commits": 0,
-      "prs_opened": 3,
+      "prs_opened": 4,
       "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
@@ -36,6 +36,15 @@
       "issues_opened": 0,
       "issues_closed": 0,
       "displayname": "joyanna27"
+    },
+    {
+      "username": "peepsbruh",
+      "commits": 0,
+      "prs_opened": 1,
+      "prs_merged": 0,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Athul P P"
     },
     {
       "username": "AFEEF19",
@@ -67,29 +76,20 @@
     {
       "username": "alvin-dennis",
       "commits": 0,
-      "prs_opened": 0,
+      "prs_opened": 1,
       "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
       "displayname": "Alvin Dennis"
     },
     {
-      "username": "Amith-Abey-Stephen",
+      "username": "Anand-S-G",
       "commits": 0,
       "prs_opened": 0,
       "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
-      "displayname": "Amith Abey Stephen"
-    },
-    {
-      "username": "github-actions[bot]",
-      "commits": 0,
-      "prs_opened": 0,
-      "prs_merged": 0,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "github-actions[bot]"
+      "displayname": "Anand SG"
     }
   ],
   "overall": [
