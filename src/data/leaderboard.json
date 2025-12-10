@@ -2,15 +2,6 @@
   "month": "2025-12",
   "monthly": [
     {
-      "username": "alvin-dennis",
-      "commits": 0,
-      "prs_opened": 2,
-      "prs_merged": 2,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "Alvin Dennis"
-    },
-    {
       "username": "Safwancs7",
       "commits": 0,
       "prs_opened": 3,
@@ -27,6 +18,24 @@
       "issues_opened": 0,
       "issues_closed": 0,
       "displayname": "Blackhole-supernova"
+    },
+    {
+      "username": "alvin-dennis",
+      "commits": 0,
+      "prs_opened": 2,
+      "prs_merged": 2,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Alvin Dennis"
+    },
+    {
+      "username": "stccreation",
+      "commits": 0,
+      "prs_opened": 1,
+      "prs_merged": 1,
+      "issues_opened": 0,
+      "issues_closed": 0,
+      "displayname": "Shaheen T"
     },
     {
       "username": "Amith-Abey-Stephen",
@@ -56,40 +65,31 @@
       "displayname": "joyanna27"
     },
     {
-      "username": "Niya59",
+      "username": "afiya525",
       "commits": 0,
       "prs_opened": 1,
       "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
-      "displayname": "Niya Santhosh"
+      "displayname": "Afiya Fathima"
     },
     {
-      "username": "PrasanthPradeep",
+      "username": "ANUPAMA-JA29",
       "commits": 0,
       "prs_opened": 1,
       "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
-      "displayname": "Prasanth P"
+      "displayname": "Anupama J A"
     },
     {
-      "username": "Athira1903",
+      "username": "alkadevii",
       "commits": 0,
       "prs_opened": 1,
       "prs_merged": 0,
       "issues_opened": 0,
       "issues_closed": 0,
-      "displayname": "Athira Biju"
-    },
-    {
-      "username": "spikedbug69",
-      "commits": 0,
-      "prs_opened": 1,
-      "prs_merged": 0,
-      "issues_opened": 0,
-      "issues_closed": 0,
-      "displayname": "Ajay_M_Nbr"
+      "displayname": "Alka Devi"
     }
   ],
   "overall": [
