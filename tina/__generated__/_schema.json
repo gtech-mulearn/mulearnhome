@@ -1,26 +1,14 @@
+{"version":{"fullVersion":"2.1.1","major":"2","minor":"1","patch":"1"},"meta":{"flags":["experimentalData"]},"collections":[{"name":"event","label":"Events","path":"content/events","format":"json","ui":{"filename":{"readonly":false}},"fields":[{"type":"string","name":"title","label":"Title","isTitle":true,"required":true,"namespace":["event","title"],"searchable":true,"uid":false},{"type":"string","name":"date","label":"Date","description":"e.g., 'Oct 1-31, 2025' or 'Every Tuesday'","namespace":["event","date"],"searchable":true,"uid":false},{"type":"string","name":"description","label":"Description","ui":{"component":"textarea"},"namespace":["event","description"],"searchable":true,"uid":false},{"type":"string","name":"link","label":"Link URL","namespace":["event","link"],"searchable":true,"uid":false},{"type":"image","name":"image","label":"Event Image","namespace":["event","image"],"searchable":false,"uid":false},{"type":"boolean","name":"isLive","label":"Is Live?","namespace":["event","isLive"],"searchable":true,"uid":false},{"type":"string","name":"category","label":"Category","required":true,"options":[{"label":"Latest Events","value":"latest"},{"label":"Past Events","value":"past"},{"label":"Flagship Events","value":"flagship"},{"label":"Weekly Events","value":"weekly"},{"label":"Biweekly Events","value":"biweekly"},{"label":"Monthly Events","value":"monthly"}],"namespace":["event","category"],"searchable":true,"uid":false},{"type":"number","name":"order","label":"Display Order","namespace":["event","order"],"searchable":true,"uid":false}],"namespace":["event"]},{"name":"officeHours","label":"Office Hours","path":"content","format":"json","match":{"include":"office-hours"},"fields":[{"type":"object","name":"sessions","label":"Sessions","list":true,"ui":{},"fields":[{"type":"string","name":"title","label":"Title","required":true,"namespace":["officeHours","sessions","title"],"searchable":true,"uid":false},{"type":"string","name":"performer","label":"Speaker/Host","namespace":["officeHours","sessions","performer"],"searchable":true,"uid":false},{"type":"string","name":"designation","label":"Speaker Designation","description":"e.g., Senior Developer, Tech Lead, Product Manager","namespace":["officeHours","sessions","designation"],"searchable":true,"uid":false},{"type":"string","name":"description","label":"Description","ui":{"component":"textarea"},"namespace":["officeHours","sessions","description"],"searchable":true,"uid":false},{"type":"string","name":"date","label":"Date","description":"Format: DD/MM/YYYY - Events are automatically marked as upcoming/past based on this date","required":true,"namespace":["officeHours","sessions","date"],"searchable":true,"uid":false},{"type":"string","name":"link","label":"Event Link","description":"Optional link for the session (shown only for upcoming events)","namespace":["officeHours","sessions","link"],"searchable":true,"uid":false},{"type":"string","name":"interestGroups","label":"Interest Groups","description":"Select one or more Interest Groups related to this session","list":true,"options":[{"label":"UI/UX","value":"ui-ux"},{"label":"Web Development","value":"web-development"},{"label":"Product Management","value":"product-management"},{"label":"DevOps","value":"devops"},{"label":"Game Dev","value":"game-dev"},{"label":"No Or Low Code","value":"no-low-code"},{"label":"Entrepreneurship","value":"entrepreneurship"},{"label":"AR/VR/MR","value":"ar-vr-mr"},{"label":"Cyber Security","value":"cyber-security"},{"label":"Mobile Development","value":"mobile-development"},{"label":"Data Analytics","value":"data-analytics"},{"label":"Space","value":"space"},{"label":"AI","value":"ai"},{"label":"Comics","value":"comics"},{"label":"Digital Marketing","value":"digital-marketing"},{"label":"MuV","value":"muv"},{"label":"Generative AI","value":"generative-ai"},{"label":"Data Structures and Algorithm","value":"dsa"},{"label":"Blockchain","value":"blockchain"},{"label":"Data Science","value":"data-science"},{"label":"Project Management","value":"project-management"},{"label":"Quantum Computing","value":"quantum-computing"},{"label":"Strategic Leadership","value":"strategic-leadership"},{"label":"Civil","value":"civil"},{"label":"Internet Of Things (IOT) And Robotics","value":"iot-robotics"},{"label":"Creative Design","value":"creative-design"},{"label":"Beckn","value":"beckn"},{"label":"Quality Assurance","value":"quality-assurance"},{"label":"Human Resources","value":"human-resources"},{"label":"Cloud","value":"cloud"}],"namespace":["officeHours","sessions","interestGroups"],"searchable":true,"uid":false},{"type":"image","name":"poster_thumbnail","label":"Poster Thumbnail","description":"Image to display on the event card instead of the default icon","namespace":["officeHours","sessions","poster_thumbnail"],"searchable":false,"uid":false}],"namespace":["officeHours","sessions"],"searchable":true,"uid":false}],"namespace":["officeHours"]},{"name":"saltMangoTree","label":"Salt Mango Tree","path":"content","format":"json","match":{"include":"salt-mango-tree"},"fields":[{"type":"object","name":"episodes","label":"Episodes","list":true,"ui":{},"fields":[{"type":"string","name":"topic","label":"Topic","required":true,"namespace":["saltMangoTree","episodes","topic"],"searchable":true,"uid":false},{"type":"string","name":"campus","label":"Campus","required":true,"namespace":["saltMangoTree","episodes","campus"],"searchable":true,"uid":false},{"type":"string","name":"zone","label":"Zone","options":["North","Central","South"],"namespace":["saltMangoTree","episodes","zone"],"searchable":true,"uid":false},{"type":"string","name":"date","label":"Date","description":"Format: YYYY-MM-DD - Episodes are automatically marked as upcoming/past based on this date","required":true,"namespace":["saltMangoTree","episodes","date"],"searchable":true,"uid":false},{"type":"string","name":"description","label":"Description","ui":{"component":"textarea"},"namespace":["saltMangoTree","episodes","description"],"searchable":true,"uid":false},{"type":"string","name":"link","label":"Event Link","description":"Optional link for the episode (shown only for upcoming events)","namespace":["saltMangoTree","episodes","link"],"searchable":true,"uid":false}],"namespace":["saltMangoTree","episodes"],"searchable":true,"uid":false}],"namespace":["saltMangoTree"]},{"name":"inspirationStation","label":"Inspiration Station Radio","path":"content","format":"json","match":{"include":"inspiration-station"},"fields":[{"type":"object","name":"episodes","label":"Episodes","list":true,"ui":{},"fields":[{"type":"string","name":"topic","label":"Topic","required":true,"namespace":["inspirationStation","episodes","topic"],"searchable":true,"uid":false},{"type":"string","name":"campus","label":"Campus","required":true,"namespace":["inspirationStation","episodes","campus"],"searchable":true,"uid":false},{"type":"string","name":"zone","label":"Zone","options":["North","Central","South"],"namespace":["inspirationStation","episodes","zone"],"searchable":true,"uid":false},{"type":"string","name":"date","label":"Date","description":"Format: YYYY-MM-DD - Episodes are automatically marked as upcoming/past based on this date","required":true,"namespace":["inspirationStation","episodes","date"],"searchable":true,"uid":false},{"type":"string","name":"description","label":"Description","ui":{"component":"textarea"},"namespace":["inspirationStation","episodes","description"],"searchable":true,"uid":false},{"type":"string","name":"link","label":"Event Link","description":"Optional link for the episode (shown only for upcoming events)","namespace":["inspirationStation","episodes","link"],"searchable":true,"uid":false}],"namespace":["inspirationStation","episodes"],"searchable":true,"uid":false}],"namespace":["inspirationStation"]},{"name":"specialEvent","label":"Special Events (Home)","path":"content/special-events","format":"json","fields":[{"type":"string","name":"title","label":"Title","isTitle":true,"required":true,"namespace":["specialEvent","title"],"searchable":true,"uid":false},{"type":"string","name":"description","label":"Description","ui":{"component":"textarea"},"namespace":["specialEvent","description"],"searchable":true,"uid":false},{"type":"string","name":"link","label":"Link URL","namespace":["specialEvent","link"],"searchable":true,"uid":false},{"type":"image","name":"image","label":"Event Image","namespace":["specialEvent","image"],"searchable":false,"uid":false},{"type":"boolean","name":"isLive","label":"Is Live?","namespace":["specialEvent","isLive"],"searchable":true,"uid":false},{"type":"number","name":"order","label":"Display Order","namespace":["specialEvent","order"],"searchable":true,"uid":false}],"namespace":["specialEvent"]}],"config":{"media":{"tina":{"publicFolder":"public","mediaRoot":"assets/events"}}}}
 {
-  "version": {
-    "fullVersion": "2.1.1",
-    "major": "2",
-    "minor": "1",
-    "patch": "1"
-  },
-  "meta": {
-    "flags": [
-      "experimentalData"
-    ]
-  },
+  "version": { "fullVersion": "2.1.1", "major": "2", "minor": "1", "patch": "1" },
+  "meta": { "flags": ["experimentalData"] },
   "collections": [
     {
       "name": "event",
       "label": "Events",
       "path": "content/events",
       "format": "json",
-      "ui": {
-        "filename": {
-          "readonly": false
-        }
-      },
+      "ui": { "filename": { "readonly": false } },
       "fields": [
         {
           "type": "string",
@@ -28,10 +16,7 @@
           "label": "Title",
           "isTitle": true,
           "required": true,
-          "namespace": [
-            "event",
-            "title"
-          ],
+          "namespace": ["event", "title"],
           "searchable": true,
           "uid": false
         },
@@ -40,10 +25,7 @@
           "name": "date",
           "label": "Date",
           "description": "e.g., 'Oct 1-31, 2025' or 'Every Tuesday'",
-          "namespace": [
-            "event",
-            "date"
-          ],
+          "namespace": ["event", "date"],
           "searchable": true,
           "uid": false
         },
@@ -51,13 +33,8 @@
           "type": "string",
           "name": "description",
           "label": "Description",
-          "ui": {
-            "component": "textarea"
-          },
-          "namespace": [
-            "event",
-            "description"
-          ],
+          "ui": { "component": "textarea" },
+          "namespace": ["event", "description"],
           "searchable": true,
           "uid": false
         },
@@ -65,10 +42,7 @@
           "type": "string",
           "name": "link",
           "label": "Link URL",
-          "namespace": [
-            "event",
-            "link"
-          ],
+          "namespace": ["event", "link"],
           "searchable": true,
           "uid": false
         },
@@ -76,10 +50,7 @@
           "type": "image",
           "name": "image",
           "label": "Event Image",
-          "namespace": [
-            "event",
-            "image"
-          ],
+          "namespace": ["event", "image"],
           "searchable": false,
           "uid": false
         },
@@ -87,10 +58,7 @@
           "type": "boolean",
           "name": "isLive",
           "label": "Is Live?",
-          "namespace": [
-            "event",
-            "isLive"
-          ],
+          "namespace": ["event", "isLive"],
           "searchable": true,
           "uid": false
         },
@@ -100,35 +68,14 @@
           "label": "Category",
           "required": true,
           "options": [
-            {
-              "label": "Latest Events",
-              "value": "latest"
-            },
-            {
-              "label": "Past Events",
-              "value": "past"
-            },
-            {
-              "label": "Flagship Events",
-              "value": "flagship"
-            },
-            {
-              "label": "Weekly Events",
-              "value": "weekly"
-            },
-            {
-              "label": "Biweekly Events",
-              "value": "biweekly"
-            },
-            {
-              "label": "Monthly Events",
-              "value": "monthly"
-            }
+            { "label": "Latest Events", "value": "latest" },
+            { "label": "Past Events", "value": "past" },
+            { "label": "Flagship Events", "value": "flagship" },
+            { "label": "Weekly Events", "value": "weekly" },
+            { "label": "Biweekly Events", "value": "biweekly" },
+            { "label": "Monthly Events", "value": "monthly" }
           ],
-          "namespace": [
-            "event",
-            "category"
-          ],
+          "namespace": ["event", "category"],
           "searchable": true,
           "uid": false
         },
@@ -136,26 +83,19 @@
           "type": "number",
           "name": "order",
           "label": "Display Order",
-          "namespace": [
-            "event",
-            "order"
-          ],
+          "namespace": ["event", "order"],
           "searchable": true,
           "uid": false
         }
       ],
-      "namespace": [
-        "event"
-      ]
+      "namespace": ["event"]
     },
     {
       "name": "officeHours",
       "label": "Office Hours",
       "path": "content",
       "format": "json",
-      "match": {
-        "include": "office-hours"
-      },
+      "match": { "include": "office-hours" },
       "fields": [
         {
           "type": "object",
@@ -169,11 +109,7 @@
               "name": "title",
               "label": "Title",
               "required": true,
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "title"
-              ],
+              "namespace": ["officeHours", "sessions", "title"],
               "searchable": true,
               "uid": false
             },
@@ -181,11 +117,7 @@
               "type": "string",
               "name": "performer",
               "label": "Speaker/Host",
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "performer"
-              ],
+              "namespace": ["officeHours", "sessions", "performer"],
               "searchable": true,
               "uid": false
             },
@@ -194,11 +126,7 @@
               "name": "designation",
               "label": "Speaker Designation",
               "description": "e.g., Senior Developer, Tech Lead, Product Manager",
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "designation"
-              ],
+              "namespace": ["officeHours", "sessions", "designation"],
               "searchable": true,
               "uid": false
             },
@@ -206,14 +134,8 @@
               "type": "string",
               "name": "description",
               "label": "Description",
-              "ui": {
-                "component": "textarea"
-              },
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "description"
-              ],
+              "ui": { "component": "textarea" },
+              "namespace": ["officeHours", "sessions", "description"],
               "searchable": true,
               "uid": false
             },
@@ -223,11 +145,7 @@
               "label": "Date",
               "description": "Format: DD/MM/YYYY - Events are automatically marked as upcoming/past based on this date",
               "required": true,
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "date"
-              ],
+              "namespace": ["officeHours", "sessions", "date"],
               "searchable": true,
               "uid": false
             },
@@ -236,11 +154,7 @@
               "name": "link",
               "label": "Event Link",
               "description": "Optional link for the session (shown only for upcoming events)",
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "link"
-              ],
+              "namespace": ["officeHours", "sessions", "link"],
               "searchable": true,
               "uid": false
             },
@@ -251,132 +165,38 @@
               "description": "Select one or more Interest Groups related to this session",
               "list": true,
               "options": [
-                {
-                  "label": "UI/UX",
-                  "value": "ui-ux"
-                },
-                {
-                  "label": "Web Development",
-                  "value": "web-development"
-                },
-                {
-                  "label": "Product Management",
-                  "value": "product-management"
-                },
-                {
-                  "label": "DevOps",
-                  "value": "devops"
-                },
-                {
-                  "label": "Game Dev",
-                  "value": "game-dev"
-                },
-                {
-                  "label": "No Or Low Code",
-                  "value": "no-low-code"
-                },
-                {
-                  "label": "Entrepreneurship",
-                  "value": "entrepreneurship"
-                },
-                {
-                  "label": "AR/VR/MR",
-                  "value": "ar-vr-mr"
-                },
-                {
-                  "label": "Cyber Security",
-                  "value": "cyber-security"
-                },
-                {
-                  "label": "Mobile Development",
-                  "value": "mobile-development"
-                },
-                {
-                  "label": "Data Analytics",
-                  "value": "data-analytics"
-                },
-                {
-                  "label": "Space",
-                  "value": "space"
-                },
-                {
-                  "label": "AI",
-                  "value": "ai"
-                },
-                {
-                  "label": "Comics",
-                  "value": "comics"
-                },
-                {
-                  "label": "Digital Marketing",
-                  "value": "digital-marketing"
-                },
-                {
-                  "label": "MuV",
-                  "value": "muv"
-                },
-                {
-                  "label": "Generative AI",
-                  "value": "generative-ai"
-                },
-                {
-                  "label": "Data Structures and Algorithm",
-                  "value": "dsa"
-                },
-                {
-                  "label": "Blockchain",
-                  "value": "blockchain"
-                },
-                {
-                  "label": "Data Science",
-                  "value": "data-science"
-                },
-                {
-                  "label": "Project Management",
-                  "value": "project-management"
-                },
-                {
-                  "label": "Quantum Computing",
-                  "value": "quantum-computing"
-                },
-                {
-                  "label": "Strategic Leadership",
-                  "value": "strategic-leadership"
-                },
-                {
-                  "label": "Civil",
-                  "value": "civil"
-                },
-                {
-                  "label": "Internet Of Things (IOT) And Robotics",
-                  "value": "iot-robotics"
-                },
-                {
-                  "label": "Creative Design",
-                  "value": "creative-design"
-                },
-                {
-                  "label": "Beckn",
-                  "value": "beckn"
-                },
-                {
-                  "label": "Quality Assurance",
-                  "value": "quality-assurance"
-                },
-                {
-                  "label": "Human Resources",
-                  "value": "human-resources"
-                },
-                {
-                  "label": "Cloud",
-                  "value": "cloud"
-                }
+                { "label": "UI/UX", "value": "ui-ux" },
+                { "label": "Web Development", "value": "web-development" },
+                { "label": "Product Management", "value": "product-management" },
+                { "label": "DevOps", "value": "devops" },
+                { "label": "Game Dev", "value": "game-dev" },
+                { "label": "No Or Low Code", "value": "no-low-code" },
+                { "label": "Entrepreneurship", "value": "entrepreneurship" },
+                { "label": "AR/VR/MR", "value": "ar-vr-mr" },
+                { "label": "Cyber Security", "value": "cyber-security" },
+                { "label": "Mobile Development", "value": "mobile-development" },
+                { "label": "Data Analytics", "value": "data-analytics" },
+                { "label": "Space", "value": "space" },
+                { "label": "AI", "value": "ai" },
+                { "label": "Comics", "value": "comics" },
+                { "label": "Digital Marketing", "value": "digital-marketing" },
+                { "label": "MuV", "value": "muv" },
+                { "label": "Generative AI", "value": "generative-ai" },
+                { "label": "Data Structures and Algorithm", "value": "dsa" },
+                { "label": "Blockchain", "value": "blockchain" },
+                { "label": "Data Science", "value": "data-science" },
+                { "label": "Project Management", "value": "project-management" },
+                { "label": "Quantum Computing", "value": "quantum-computing" },
+                { "label": "Strategic Leadership", "value": "strategic-leadership" },
+                { "label": "Civil", "value": "civil" },
+                { "label": "Internet Of Things (IOT) And Robotics", "value": "iot-robotics" },
+                { "label": "Creative Design", "value": "creative-design" },
+                { "label": "Beckn", "value": "beckn" },
+                { "label": "Quality Assurance", "value": "quality-assurance" },
+                { "label": "Human Resources", "value": "human-resources" },
+                { "label": "Cloud", "value": "cloud" }
               ],
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "interestGroups"
-              ],
+              "namespace": ["officeHours", "sessions", "interestGroups"],
               "searchable": true,
               "uid": false
             },
@@ -385,35 +205,24 @@
               "name": "poster_thumbnail",
               "label": "Poster Thumbnail",
               "description": "Image to display on the event card instead of the default icon",
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "poster_thumbnail"
-              ],
+              "namespace": ["officeHours", "sessions", "poster_thumbnail"],
               "searchable": false,
               "uid": false
             }
           ],
-          "namespace": [
-            "officeHours",
-            "sessions"
-          ],
+          "namespace": ["officeHours", "sessions"],
           "searchable": true,
           "uid": false
         }
       ],
-      "namespace": [
-        "officeHours"
-      ]
+      "namespace": ["officeHours"]
     },
     {
       "name": "saltMangoTree",
       "label": "Salt Mango Tree",
       "path": "content",
       "format": "json",
-      "match": {
-        "include": "salt-mango-tree"
-      },
+      "match": { "include": "salt-mango-tree" },
       "fields": [
         {
           "type": "object",
@@ -427,11 +236,7 @@
               "name": "topic",
               "label": "Topic",
               "required": true,
-              "namespace": [
-                "saltMangoTree",
-                "episodes",
-                "topic"
-              ],
+              "namespace": ["saltMangoTree", "episodes", "topic"],
               "searchable": true,
               "uid": false
             },
@@ -440,11 +245,7 @@
               "name": "campus",
               "label": "Campus",
               "required": true,
-              "namespace": [
-                "saltMangoTree",
-                "episodes",
-                "campus"
-              ],
+              "namespace": ["saltMangoTree", "episodes", "campus"],
               "searchable": true,
               "uid": false
             },
@@ -452,16 +253,8 @@
               "type": "string",
               "name": "zone",
               "label": "Zone",
-              "options": [
-                "North",
-                "Central",
-                "South"
-              ],
-              "namespace": [
-                "saltMangoTree",
-                "episodes",
-                "zone"
-              ],
+              "options": ["North", "Central", "South"],
+              "namespace": ["saltMangoTree", "episodes", "zone"],
               "searchable": true,
               "uid": false
             },
@@ -471,11 +264,7 @@
               "label": "Date",
               "description": "Format: YYYY-MM-DD - Episodes are automatically marked as upcoming/past based on this date",
               "required": true,
-              "namespace": [
-                "saltMangoTree",
-                "episodes",
-                "date"
-              ],
+              "namespace": ["saltMangoTree", "episodes", "date"],
               "searchable": true,
               "uid": false
             },
@@ -483,14 +272,8 @@
               "type": "string",
               "name": "description",
               "label": "Description",
-              "ui": {
-                "component": "textarea"
-              },
-              "namespace": [
-                "saltMangoTree",
-                "episodes",
-                "description"
-              ],
+              "ui": { "component": "textarea" },
+              "namespace": ["saltMangoTree", "episodes", "description"],
               "searchable": true,
               "uid": false
             },
@@ -499,35 +282,24 @@
               "name": "link",
               "label": "Event Link",
               "description": "Optional link for the episode (shown only for upcoming events)",
-              "namespace": [
-                "saltMangoTree",
-                "episodes",
-                "link"
-              ],
+              "namespace": ["saltMangoTree", "episodes", "link"],
               "searchable": true,
               "uid": false
             }
           ],
-          "namespace": [
-            "saltMangoTree",
-            "episodes"
-          ],
+          "namespace": ["saltMangoTree", "episodes"],
           "searchable": true,
           "uid": false
         }
       ],
-      "namespace": [
-        "saltMangoTree"
-      ]
+      "namespace": ["saltMangoTree"]
     },
     {
       "name": "inspirationStation",
       "label": "Inspiration Station Radio",
       "path": "content",
       "format": "json",
-      "match": {
-        "include": "inspiration-station"
-      },
+      "match": { "include": "inspiration-station" },
       "fields": [
         {
           "type": "object",
@@ -541,11 +313,7 @@
               "name": "topic",
               "label": "Topic",
               "required": true,
-              "namespace": [
-                "inspirationStation",
-                "episodes",
-                "topic"
-              ],
+              "namespace": ["inspirationStation", "episodes", "topic"],
               "searchable": true,
               "uid": false
             },
@@ -554,11 +322,7 @@
               "name": "campus",
               "label": "Campus",
               "required": true,
-              "namespace": [
-                "inspirationStation",
-                "episodes",
-                "campus"
-              ],
+              "namespace": ["inspirationStation", "episodes", "campus"],
               "searchable": true,
               "uid": false
             },
@@ -566,16 +330,8 @@
               "type": "string",
               "name": "zone",
               "label": "Zone",
-              "options": [
-                "North",
-                "Central",
-                "South"
-              ],
-              "namespace": [
-                "inspirationStation",
-                "episodes",
-                "zone"
-              ],
+              "options": ["North", "Central", "South"],
+              "namespace": ["inspirationStation", "episodes", "zone"],
               "searchable": true,
               "uid": false
             },
@@ -585,11 +341,7 @@
               "label": "Date",
               "description": "Format: YYYY-MM-DD - Episodes are automatically marked as upcoming/past based on this date",
               "required": true,
-              "namespace": [
-                "inspirationStation",
-                "episodes",
-                "date"
-              ],
+              "namespace": ["inspirationStation", "episodes", "date"],
               "searchable": true,
               "uid": false
             },
@@ -597,14 +349,8 @@
               "type": "string",
               "name": "description",
               "label": "Description",
-              "ui": {
-                "component": "textarea"
-              },
-              "namespace": [
-                "inspirationStation",
-                "episodes",
-                "description"
-              ],
+              "ui": { "component": "textarea" },
+              "namespace": ["inspirationStation", "episodes", "description"],
               "searchable": true,
               "uid": false
             },
@@ -613,26 +359,17 @@
               "name": "link",
               "label": "Event Link",
               "description": "Optional link for the episode (shown only for upcoming events)",
-              "namespace": [
-                "inspirationStation",
-                "episodes",
-                "link"
-              ],
+              "namespace": ["inspirationStation", "episodes", "link"],
               "searchable": true,
               "uid": false
             }
           ],
-          "namespace": [
-            "inspirationStation",
-            "episodes"
-          ],
+          "namespace": ["inspirationStation", "episodes"],
           "searchable": true,
           "uid": false
         }
       ],
-      "namespace": [
-        "inspirationStation"
-      ]
+      "namespace": ["inspirationStation"]
     },
     {
       "name": "specialEvent",
@@ -646,10 +383,7 @@
           "label": "Title",
           "isTitle": true,
           "required": true,
-          "namespace": [
-            "specialEvent",
-            "title"
-          ],
+          "namespace": ["specialEvent", "title"],
           "searchable": true,
           "uid": false
         },
@@ -657,13 +391,8 @@
           "type": "string",
           "name": "description",
           "label": "Description",
-          "ui": {
-            "component": "textarea"
-          },
-          "namespace": [
-            "specialEvent",
-            "description"
-          ],
+          "ui": { "component": "textarea" },
+          "namespace": ["specialEvent", "description"],
           "searchable": true,
           "uid": false
         },
@@ -671,10 +400,7 @@
           "type": "string",
           "name": "link",
           "label": "Link URL",
-          "namespace": [
-            "specialEvent",
-            "link"
-          ],
+          "namespace": ["specialEvent", "link"],
           "searchable": true,
           "uid": false
         },
@@ -682,10 +408,7 @@
           "type": "image",
           "name": "image",
           "label": "Event Image",
-          "namespace": [
-            "specialEvent",
-            "image"
-          ],
+          "namespace": ["specialEvent", "image"],
           "searchable": false,
           "uid": false
         },
@@ -693,10 +416,7 @@
           "type": "boolean",
           "name": "isLive",
           "label": "Is Live?",
-          "namespace": [
-            "specialEvent",
-            "isLive"
-          ],
+          "namespace": ["specialEvent", "isLive"],
           "searchable": true,
           "uid": false
         },
@@ -704,753 +424,13 @@
           "type": "number",
           "name": "order",
           "label": "Display Order",
-          "namespace": [
-            "specialEvent",
-            "order"
-          ],
+          "namespace": ["specialEvent", "order"],
           "searchable": true,
           "uid": false
         }
       ],
-      "namespace": [
-        "specialEvent"
-      ]
+      "namespace": ["specialEvent"]
     }
   ],
-  "config": {
-    "media": {
-      "tina": {
-        "publicFolder": "public",
-        "mediaRoot": "assets/events"
-      }
-    }
-  }
-}
-{
-  "version": {
-    "fullVersion": "2.1.1",
-    "major": "2",
-    "minor": "1",
-    "patch": "1"
-  },
-  "meta": {
-    "flags": [
-      "experimentalData"
-    ]
-  },
-  "collections": [
-    {
-      "name": "event",
-      "label": "Events",
-      "path": "content/events",
-      "format": "json",
-      "ui": {
-        "filename": {
-          "readonly": false
-        }
-      },
-      "fields": [
-        {
-          "type": "string",
-          "name": "title",
-          "label": "Title",
-          "isTitle": true,
-          "required": true,
-          "namespace": [
-            "event",
-            "title"
-          ],
-          "searchable": true,
-          "uid": false
-        },
-        {
-          "type": "string",
-          "name": "date",
-          "label": "Date",
-          "description": "e.g., 'Oct 1-31, 2025' or 'Every Tuesday'",
-          "namespace": [
-            "event",
-            "date"
-          ],
-          "searchable": true,
-          "uid": false
-        },
-        {
-          "type": "string",
-          "name": "description",
-          "label": "Description",
-          "ui": {
-            "component": "textarea"
-          },
-          "namespace": [
-            "event",
-            "description"
-          ],
-          "searchable": true,
-          "uid": false
-        },
-        {
-          "type": "string",
-          "name": "link",
-          "label": "Link URL",
-          "namespace": [
-            "event",
-            "link"
-          ],
-          "searchable": true,
-          "uid": false
-        },
-        {
-          "type": "image",
-          "name": "image",
-          "label": "Event Image",
-          "namespace": [
-            "event",
-            "image"
-          ],
-          "searchable": false,
-          "uid": false
-        },
-        {
-          "type": "boolean",
-          "name": "isLive",
-          "label": "Is Live?",
-          "namespace": [
-            "event",
-            "isLive"
-          ],
-          "searchable": true,
-          "uid": false
-        },
-        {
-          "type": "string",
-          "name": "category",
-          "label": "Category",
-          "required": true,
-          "options": [
-            {
-              "label": "Latest Events",
-              "value": "latest"
-            },
-            {
-              "label": "Past Events",
-              "value": "past"
-            },
-            {
-              "label": "Flagship Events",
-              "value": "flagship"
-            },
-            {
-              "label": "Weekly Events",
-              "value": "weekly"
-            },
-            {
-              "label": "Biweekly Events",
-              "value": "biweekly"
-            },
-            {
-              "label": "Monthly Events",
-              "value": "monthly"
-            }
-          ],
-          "namespace": [
-            "event",
-            "category"
-          ],
-          "searchable": true,
-          "uid": false
-        },
-        {
-          "type": "number",
-          "name": "order",
-          "label": "Display Order",
-          "namespace": [
-            "event",
-            "order"
-          ],
-          "searchable": true,
-          "uid": false
-        }
-      ],
-      "namespace": [
-        "event"
-      ]
-    },
-    {
-      "name": "officeHours",
-      "label": "Office Hours",
-      "path": "content",
-      "format": "json",
-      "match": {
-        "include": "office-hours"
-      },
-      "fields": [
-        {
-          "type": "object",
-          "name": "sessions",
-          "label": "Sessions",
-          "list": true,
-          "ui": {},
-          "fields": [
-            {
-              "type": "string",
-              "name": "title",
-              "label": "Title",
-              "required": true,
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "title"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "performer",
-              "label": "Speaker/Host",
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "performer"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "designation",
-              "label": "Speaker Designation",
-              "description": "e.g., Senior Developer, Tech Lead, Product Manager",
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "designation"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "description",
-              "label": "Description",
-              "ui": {
-                "component": "textarea"
-              },
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "description"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "date",
-              "label": "Date",
-              "description": "Format: DD/MM/YYYY - Events are automatically marked as upcoming/past based on this date",
-              "required": true,
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "date"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "link",
-              "label": "Event Link",
-              "description": "Optional link for the session (shown only for upcoming events)",
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "link"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "interestGroups",
-              "label": "Interest Groups",
-              "description": "Select one or more Interest Groups related to this session",
-              "list": true,
-              "options": [
-                {
-                  "label": "UI/UX",
-                  "value": "ui-ux"
-                },
-                {
-                  "label": "Web Development",
-                  "value": "web-development"
-                },
-                {
-                  "label": "Product Management",
-                  "value": "product-management"
-                },
-                {
-                  "label": "DevOps",
-                  "value": "devops"
-                },
-                {
-                  "label": "Game Dev",
-                  "value": "game-dev"
-                },
-                {
-                  "label": "No Or Low Code",
-                  "value": "no-low-code"
-                },
-                {
-                  "label": "Entrepreneurship",
-                  "value": "entrepreneurship"
-                },
-                {
-                  "label": "AR/VR/MR",
-                  "value": "ar-vr-mr"
-                },
-                {
-                  "label": "Cyber Security",
-                  "value": "cyber-security"
-                },
-                {
-                  "label": "Mobile Development",
-                  "value": "mobile-development"
-                },
-                {
-                  "label": "Data Analytics",
-                  "value": "data-analytics"
-                },
-                {
-                  "label": "Space",
-                  "value": "space"
-                },
-                {
-                  "label": "AI",
-                  "value": "ai"
-                },
-                {
-                  "label": "Comics",
-                  "value": "comics"
-                },
-                {
-                  "label": "Digital Marketing",
-                  "value": "digital-marketing"
-                },
-                {
-                  "label": "MuV",
-                  "value": "muv"
-                },
-                {
-                  "label": "Generative AI",
-                  "value": "generative-ai"
-                },
-                {
-                  "label": "Data Structures and Algorithm",
-                  "value": "dsa"
-                },
-                {
-                  "label": "Blockchain",
-                  "value": "blockchain"
-                },
-                {
-                  "label": "Data Science",
-                  "value": "data-science"
-                },
-                {
-                  "label": "Project Management",
-                  "value": "project-management"
-                },
-                {
-                  "label": "Quantum Computing",
-                  "value": "quantum-computing"
-                },
-                {
-                  "label": "Strategic Leadership",
-                  "value": "strategic-leadership"
-                },
-                {
-                  "label": "Civil",
-                  "value": "civil"
-                },
-                {
-                  "label": "Internet Of Things (IOT) And Robotics",
-                  "value": "iot-robotics"
-                },
-                {
-                  "label": "Creative Design",
-                  "value": "creative-design"
-                },
-                {
-                  "label": "Beckn",
-                  "value": "beckn"
-                },
-                {
-                  "label": "Quality Assurance",
-                  "value": "quality-assurance"
-                },
-                {
-                  "label": "Human Resources",
-                  "value": "human-resources"
-                },
-                {
-                  "label": "Cloud",
-                  "value": "cloud"
-                }
-              ],
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "interestGroups"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "image",
-              "name": "poster_thumbnail",
-              "label": "Poster Thumbnail",
-              "description": "Image to display on the event card instead of the default icon",
-              "namespace": [
-                "officeHours",
-                "sessions",
-                "poster_thumbnail"
-              ],
-              "searchable": false,
-              "uid": false
-            }
-          ],
-          "namespace": [
-            "officeHours",
-            "sessions"
-          ],
-          "searchable": true,
-          "uid": false
-        }
-      ],
-      "namespace": [
-        "officeHours"
-      ]
-    },
-    {
-      "name": "saltMangoTree",
-      "label": "Salt Mango Tree",
-      "path": "content",
-      "format": "json",
-      "match": {
-        "include": "salt-mango-tree"
-      },
-      "fields": [
-        {
-          "type": "object",
-          "name": "episodes",
-          "label": "Episodes",
-          "list": true,
-          "ui": {},
-          "fields": [
-            {
-              "type": "string",
-              "name": "topic",
-              "label": "Topic",
-              "required": true,
-              "namespace": [
-                "saltMangoTree",
-                "episodes",
-                "topic"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "campus",
-              "label": "Campus",
-              "required": true,
-              "namespace": [
-                "saltMangoTree",
-                "episodes",
-                "campus"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "zone",
-              "label": "Zone",
-              "options": [
-                "North",
-                "Central",
-                "South"
-              ],
-              "namespace": [
-                "saltMangoTree",
-                "episodes",
-                "zone"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "date",
-              "label": "Date",
-              "description": "Format: YYYY-MM-DD - Episodes are automatically marked as upcoming/past based on this date",
-              "required": true,
-              "namespace": [
-                "saltMangoTree",
-                "episodes",
-                "date"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "description",
-              "label": "Description",
-              "ui": {
-                "component": "textarea"
-              },
-              "namespace": [
-                "saltMangoTree",
-                "episodes",
-                "description"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "link",
-              "label": "Event Link",
-              "description": "Optional link for the episode (shown only for upcoming events)",
-              "namespace": [
-                "saltMangoTree",
-                "episodes",
-                "link"
-              ],
-              "searchable": true,
-              "uid": false
-            }
-          ],
-          "namespace": [
-            "saltMangoTree",
-            "episodes"
-          ],
-          "searchable": true,
-          "uid": false
-        }
-      ],
-      "namespace": [
-        "saltMangoTree"
-      ]
-    },
-    {
-      "name": "inspirationStation",
-      "label": "Inspiration Station Radio",
-      "path": "content",
-      "format": "json",
-      "match": {
-        "include": "inspiration-station"
-      },
-      "fields": [
-        {
-          "type": "object",
-          "name": "episodes",
-          "label": "Episodes",
-          "list": true,
-          "ui": {},
-          "fields": [
-            {
-              "type": "string",
-              "name": "topic",
-              "label": "Topic",
-              "required": true,
-              "namespace": [
-                "inspirationStation",
-                "episodes",
-                "topic"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "campus",
-              "label": "Campus",
-              "required": true,
-              "namespace": [
-                "inspirationStation",
-                "episodes",
-                "campus"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "zone",
-              "label": "Zone",
-              "options": [
-                "North",
-                "Central",
-                "South"
-              ],
-              "namespace": [
-                "inspirationStation",
-                "episodes",
-                "zone"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "date",
-              "label": "Date",
-              "description": "Format: YYYY-MM-DD - Episodes are automatically marked as upcoming/past based on this date",
-              "required": true,
-              "namespace": [
-                "inspirationStation",
-                "episodes",
-                "date"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "description",
-              "label": "Description",
-              "ui": {
-                "component": "textarea"
-              },
-              "namespace": [
-                "inspirationStation",
-                "episodes",
-                "description"
-              ],
-              "searchable": true,
-              "uid": false
-            },
-            {
-              "type": "string",
-              "name": "link",
-              "label": "Event Link",
-              "description": "Optional link for the episode (shown only for upcoming events)",
-              "namespace": [
-                "inspirationStation",
-                "episodes",
-                "link"
-              ],
-              "searchable": true,
-              "uid": false
-            }
-          ],
-          "namespace": [
-            "inspirationStation",
-            "episodes"
-          ],
-          "searchable": true,
-          "uid": false
-        }
-      ],
-      "namespace": [
-        "inspirationStation"
-      ]
-    },
-    {
-      "name": "specialEvent",
-      "label": "Special Events (Home)",
-      "path": "content/special-events",
-      "format": "json",
-      "fields": [
-        {
-          "type": "string",
-          "name": "title",
-          "label": "Title",
-          "isTitle": true,
-          "required": true,
-          "namespace": [
-            "specialEvent",
-            "title"
-          ],
-          "searchable": true,
-          "uid": false
-        },
-        {
-          "type": "string",
-          "name": "description",
-          "label": "Description",
-          "ui": {
-            "component": "textarea"
-          },
-          "namespace": [
-            "specialEvent",
-            "description"
-          ],
-          "searchable": true,
-          "uid": false
-        },
-        {
-          "type": "string",
-          "name": "link",
-          "label": "Link URL",
-          "namespace": [
-            "specialEvent",
-            "link"
-          ],
-          "searchable": true,
-          "uid": false
-        },
-        {
-          "type": "image",
-          "name": "image",
-          "label": "Event Image",
-          "namespace": [
-            "specialEvent",
-            "image"
-          ],
-          "searchable": false,
-          "uid": false
-        },
-        {
-          "type": "boolean",
-          "name": "isLive",
-          "label": "Is Live?",
-          "namespace": [
-            "specialEvent",
-            "isLive"
-          ],
-          "searchable": true,
-          "uid": false
-        },
-        {
-          "type": "number",
-          "name": "order",
-          "label": "Display Order",
-          "namespace": [
-            "specialEvent",
-            "order"
-          ],
-          "searchable": true,
-          "uid": false
-        }
-      ],
-      "namespace": [
-        "specialEvent"
-      ]
-    }
-  ],
-  "config": {
-    "media": {
-      "tina": {
-        "publicFolder": "public",
-        "mediaRoot": "assets/events"
-      }
-    }
-  }
+  "config": { "media": { "tina": { "publicFolder": "public", "mediaRoot": "assets/events" } } }
 }
