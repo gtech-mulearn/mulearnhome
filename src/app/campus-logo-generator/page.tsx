@@ -31,7 +31,6 @@ const colorToFilter = (color: string): string => {
     return "contrast(0) brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1180%) hue-rotate(200deg) brightness(95%) contrast(101%)"; // Blue
   if (color.includes("--mulearn-blackish")) return "brightness(0) invert(0)";
   return "brightness(0) saturate(100%) invert(58%) sepia(96%) saturate(1180%) hue-rotate(200deg) brightness(95%) contrast(101%)";
-
 };
 
 const MuLearnLogo = ({
@@ -349,8 +348,9 @@ export default function CampusLogoGenerator() {
                 <div className="relative group">
                   <div
                     ref={squareLogoRef}
-                    className={`w-64 h-64 lg:w-72 lg:h-72 flex items-center justify-center text-mulearn-whitish relative transform transition-all duration-300 overflow-hidden ${formData.logoVariant === "Transparent Bg" ? "" : "shadow-2xl"
-                      }`}
+                    className={`w-64 h-64 lg:w-72 lg:h-72 flex items-center justify-center text-mulearn-whitish relative transform transition-all duration-300 overflow-hidden ${
+                      formData.logoVariant === "Transparent Bg" ? "" : "shadow-2xl"
+                    }`}
                     style={{
                       backgroundColor:
                         formData.logoVariant === "Transparent Bg"
@@ -496,10 +496,11 @@ export default function CampusLogoGenerator() {
                       <button
                         type="button"
                         key={color.value}
-                        className={`w-12 h-12 rounded border border-mulearn-greyish transition-all ${formData.foregroundColor === color.value
-                          ? "scale-110 ring-2 ring-mulearn-trusty-blue"
-                          : "hover:opacity-80"
-                          }`}
+                        className={`w-12 h-12 rounded border border-mulearn-greyish transition-all ${
+                          formData.foregroundColor === color.value
+                            ? "scale-110 ring-2 ring-mulearn-trusty-blue"
+                            : "hover:opacity-80"
+                        }`}
                         style={{
                           background: color.value,
                         }}
@@ -511,8 +512,9 @@ export default function CampusLogoGenerator() {
 
                 <div>
                   <span
-                    className={`block font-medium mb-3 ${formData.logoVariant === "Transparent Bg" ? "opacity-50" : ""
-                      }`}
+                    className={`block font-medium mb-3 ${
+                      formData.logoVariant === "Transparent Bg" ? "opacity-50" : ""
+                    }`}
                   >
                     Background Color
                   </span>
@@ -522,13 +524,15 @@ export default function CampusLogoGenerator() {
                         type="button"
                         key={color.value}
                         disabled={formData.logoVariant === "Transparent Bg"}
-                        className={`w-12 h-12 rounded border border-mulearn-greyish transition-all ${formData.backgroundColor === color.value
-                          ? "scale-110 ring-2 ring-mulearn-trusty-blue"
-                          : "hover:opacity-80"
-                          } ${formData.logoVariant === "Transparent Bg"
+                        className={`w-12 h-12 rounded border border-mulearn-greyish transition-all ${
+                          formData.backgroundColor === color.value
+                            ? "scale-110 ring-2 ring-mulearn-trusty-blue"
+                            : "hover:opacity-80"
+                        } ${
+                          formData.logoVariant === "Transparent Bg"
                             ? "opacity-30 cursor-not-allowed"
                             : ""
-                          }`}
+                        }`}
                         style={{
                           backgroundColor: color.value,
                         }}

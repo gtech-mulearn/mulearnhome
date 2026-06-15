@@ -369,7 +369,7 @@ export const galleryEvents: GalleryEvent[] = (
 
     {
       slug: "codestorm",
-      name: " Grand Tech Adventure: CodeStorm ",
+      name: "Grand Tech Adventure: CodeStorm",
       date: "August 19-20, 2023",
       location: "Kerala Knowledge Economy Mission",
       coverImage: "/assets/gallery/codestorm/1.jpeg",
@@ -379,13 +379,13 @@ export const galleryEvents: GalleryEvent[] = (
         {
           type: "image",
           src: "/assets/gallery/codestorm/1.jpeg",
-          alt: "event img",
+          alt: "Participants coding during The Grand Tech Adventure: CodeStorm",
         },
 
         {
           type: "image",
           src: "/assets/gallery/codestorm/2.jpeg",
-          alt: "event img",
+          alt: "Team presenting their prototype at CodeStorm",
         },
       ],
     },
@@ -402,31 +402,31 @@ export const galleryEvents: GalleryEvent[] = (
         {
           type: "image",
           src: "/assets/gallery/hrOlympus/1.jpeg",
-          alt: "event img",
+          alt: "Panel discussion at OLYMPUS: The HR Icon",
         },
 
         {
           type: "image",
           src: "/assets/gallery/hrOlympus/2.jpeg",
-          alt: "event img",
+          alt: "Workshop session at OLYMPUS: The HR Icon",
         },
 
         {
           type: "image",
           src: "/assets/gallery/hrOlympus/3.jpeg",
-          alt: "event img",
+          alt: "Attendees networking at OLYMPUS: The HR Icon",
         },
 
         {
           type: "image",
           src: "/assets/gallery/hrOlympus/4.jpeg",
-          alt: "event img",
+          alt: "Group photo from OLYMPUS: The HR Icon",
         },
       ],
     },
 
     {
-      slug: "Mucomics",
+      slug: "mucomics",
       name: "Mucomics",
       date: "August 24, 2024",
       location: "MuShack",
@@ -437,13 +437,13 @@ export const galleryEvents: GalleryEvent[] = (
         {
           type: "image",
           src: "/assets/gallery/Mucomics/1.jpeg",
-          alt: "event img",
+          alt: "Comic artists collaborating at Mucomics",
         },
 
         {
           type: "image",
           src: "/assets/gallery/Mucomics/2.jpeg",
-          alt: "event img",
+          alt: "Sketching and discussions at Mucomics",
         },
       ],
     },
@@ -460,13 +460,13 @@ export const galleryEvents: GalleryEvent[] = (
         {
           type: "image",
           src: "/assets/gallery/Muplay/1.jpeg",
-          alt: "event img",
+          alt: "Game showcase at μplay",
         },
 
         {
           type: "image",
           src: "/assets/gallery/Muplay/2.jpeg",
-          alt: "event img",
+          alt: "Players testing games at μplay",
         },
       ],
     },
@@ -483,19 +483,19 @@ export const galleryEvents: GalleryEvent[] = (
         {
           type: "image",
           src: "/assets/gallery/globalgamejam/1.jpeg",
-          alt: "event img",
+          alt: "Teams brainstorming at Global Game Jam 2025",
         },
 
         {
           type: "image",
           src: "/assets/gallery/globalgamejam/2.jpeg",
-          alt: "event img",
+          alt: "Prototype testing during Global Game Jam 2025",
         },
 
         {
           type: "image",
           src: "/assets/gallery/globalgamejam/3.jpeg",
-          alt: "event img",
+          alt: "Final presentations at Global Game Jam 2025",
         },
       ],
     },
