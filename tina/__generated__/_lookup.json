@@ -1,1 +1,74 @@
-{"DocumentConnection":{"type":"DocumentConnection","resolveType":"multiCollectionDocumentList","collections":["event","officeHours","saltMangoTree","inspirationStation","specialEvent"]},"Node":{"type":"Node","resolveType":"nodeDocument"},"DocumentNode":{"type":"DocumentNode","resolveType":"multiCollectionDocument","createDocument":"create","updateDocument":"update"},"Event":{"type":"Event","resolveType":"collectionDocument","collection":"event","createEvent":"create","updateEvent":"update"},"EventConnection":{"type":"EventConnection","resolveType":"collectionDocumentList","collection":"event"},"OfficeHours":{"type":"OfficeHours","resolveType":"collectionDocument","collection":"officeHours","createOfficeHours":"create","updateOfficeHours":"update"},"OfficeHoursConnection":{"type":"OfficeHoursConnection","resolveType":"collectionDocumentList","collection":"officeHours"},"SaltMangoTree":{"type":"SaltMangoTree","resolveType":"collectionDocument","collection":"saltMangoTree","createSaltMangoTree":"create","updateSaltMangoTree":"update"},"SaltMangoTreeConnection":{"type":"SaltMangoTreeConnection","resolveType":"collectionDocumentList","collection":"saltMangoTree"},"InspirationStation":{"type":"InspirationStation","resolveType":"collectionDocument","collection":"inspirationStation","createInspirationStation":"create","updateInspirationStation":"update"},"InspirationStationConnection":{"type":"InspirationStationConnection","resolveType":"collectionDocumentList","collection":"inspirationStation"},"SpecialEvent":{"type":"SpecialEvent","resolveType":"collectionDocument","collection":"specialEvent","createSpecialEvent":"create","updateSpecialEvent":"update"},"SpecialEventConnection":{"type":"SpecialEventConnection","resolveType":"collectionDocumentList","collection":"specialEvent"}}
+{
+  "DocumentConnection": {
+    "type": "DocumentConnection",
+    "resolveType": "multiCollectionDocumentList",
+    "collections": ["event", "officeHours", "saltMangoTree", "inspirationStation", "specialEvent"]
+  },
+  "Node": { "type": "Node", "resolveType": "nodeDocument" },
+  "DocumentNode": {
+    "type": "DocumentNode",
+    "resolveType": "multiCollectionDocument",
+    "createDocument": "create",
+    "updateDocument": "update"
+  },
+  "Event": {
+    "type": "Event",
+    "resolveType": "collectionDocument",
+    "collection": "event",
+    "createEvent": "create",
+    "updateEvent": "update"
+  },
+  "EventConnection": {
+    "type": "EventConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "event"
+  },
+  "OfficeHours": {
+    "type": "OfficeHours",
+    "resolveType": "collectionDocument",
+    "collection": "officeHours",
+    "createOfficeHours": "create",
+    "updateOfficeHours": "update"
+  },
+  "OfficeHoursConnection": {
+    "type": "OfficeHoursConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "officeHours"
+  },
+  "SaltMangoTree": {
+    "type": "SaltMangoTree",
+    "resolveType": "collectionDocument",
+    "collection": "saltMangoTree",
+    "createSaltMangoTree": "create",
+    "updateSaltMangoTree": "update"
+  },
+  "SaltMangoTreeConnection": {
+    "type": "SaltMangoTreeConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "saltMangoTree"
+  },
+  "InspirationStation": {
+    "type": "InspirationStation",
+    "resolveType": "collectionDocument",
+    "collection": "inspirationStation",
+    "createInspirationStation": "create",
+    "updateInspirationStation": "update"
+  },
+  "InspirationStationConnection": {
+    "type": "InspirationStationConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "inspirationStation"
+  },
+  "SpecialEvent": {
+    "type": "SpecialEvent",
+    "resolveType": "collectionDocument",
+    "collection": "specialEvent",
+    "createSpecialEvent": "create",
+    "updateSpecialEvent": "update"
+  },
+  "SpecialEventConnection": {
+    "type": "SpecialEventConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "specialEvent"
+  }
+}
