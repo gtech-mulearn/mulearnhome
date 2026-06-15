@@ -366,6 +366,139 @@ export const galleryEvents: GalleryEvent[] = (
         },
       ],
     },
+
+    {
+      slug: "codestorm",
+      name: " Grand Tech Adventure: CodeStorm ",
+      date: "August 19-20, 2023",
+      location: "Kerala Knowledge Economy Mission",
+      coverImage: "/assets/gallery/codestorm/1.jpeg",
+      description:
+        "The Grand Tech Adventure: CodeStorm was a 24-hour offline hackathon organized by Kerala Knowledge Economy Mission in association with μLearn KMEA. The event brought together participants from diverse domains to showcase their creativity, technical skills, and problem-solving abilities through a gamified and collaborative competition format.",
+      media: [
+        {
+          type: "image",
+          src: "/assets/gallery/codestorm/1.jpeg",
+          alt: "event img",
+        },
+
+        {
+          type: "image",
+          src: "/assets/gallery/codestorm/2.jpeg",
+          alt: "event img",
+        },
+      ],
+    },
+
+    {
+      slug: "olympus-hr-icon",
+      name: "OLYMPUS: The HR Icon",
+      date: "March 7, 2026",
+      location: "Carestack, Technopark, Thiruvananthapuram",
+      coverImage: "/assets/gallery/hrOlympus/2.jpeg",
+      description:
+        "OLYMPUS: The HR Icon is the inaugural flagship hybrid program that brings together students and HR professionals to bridge the gap between academic learning and industry practice. Hosted for management students and HR enthusiasts",
+      media: [
+        {
+          type: "image",
+          src: "/assets/gallery/hrOlympus/1.jpeg",
+          alt: "event img",
+        },
+
+        {
+          type: "image",
+          src: "/assets/gallery/hrOlympus/2.jpeg",
+          alt: "event img",
+        },
+
+        {
+          type: "image",
+          src: "/assets/gallery/hrOlympus/3.jpeg",
+          alt: "event img",
+        },
+
+        {
+          type: "image",
+          src: "/assets/gallery/hrOlympus/4.jpeg",
+          alt: "event img",
+        },
+      ],
+    },
+
+    {
+      slug: "Mucomics",
+      name: "Mucomics",
+      date: "August 24, 2024",
+      location: "MuShack",
+      coverImage: "/assets/gallery/Mucomics/1.jpeg",
+      description:
+        "A community-driven event that brought together comic creators and artists from across Kerala to foster collaboration and strengthen the state's comic creation ecosystem",
+      media: [
+        {
+          type: "image",
+          src: "/assets/gallery/Mucomics/1.jpeg",
+          alt: "event img",
+        },
+
+        {
+          type: "image",
+          src: "/assets/gallery/Mucomics/2.jpeg",
+          alt: "event img",
+        },
+      ],
+    },
+
+    {
+      slug: "muplay",
+      name: "μplay",
+      date: "July 7, 2024",
+      location: "Kerala Startup Mission (KSUM), Kalamassery",
+      coverImage: "/assets/gallery/Muplay/1.jpeg",
+      description:
+        "A community-focused event that introduced a gaming platform built for game developers, gamers, and esports enthusiasts",
+      media: [
+        {
+          type: "image",
+          src: "/assets/gallery/Muplay/1.jpeg",
+          alt: "event img",
+        },
+
+        {
+          type: "image",
+          src: "/assets/gallery/Muplay/2.jpeg",
+          alt: "event img",
+        },
+      ],
+    },
+
+    {
+      slug: "global-game-jam",
+      name: "Global Game Jam 2025",
+      date: "January 24-26, 2025",
+      location: "Kerala Startup Mission, Kochi",
+      coverImage: "/assets/gallery/globalgamejam/1.jpeg",
+      description:
+        "Global Game Jam 2025 is a 48-hour gaming hackathon that brings together students, professionals, game developers, and gaming enthusiasts to collaborate, innovate, and create games",
+      media: [
+        {
+          type: "image",
+          src: "/assets/gallery/globalgamejam/1.jpeg",
+          alt: "event img",
+        },
+
+        {
+          type: "image",
+          src: "/assets/gallery/globalgamejam/2.jpeg",
+          alt: "event img",
+        },
+
+        {
+          type: "image",
+          src: "/assets/gallery/globalgamejam/3.jpeg",
+          alt: "event img",
+        },
+      ],
+    },
   ] as GalleryEvent[]
 ).sort((a, b) => {
   const getSortableDate = (event: GalleryEvent) => {
