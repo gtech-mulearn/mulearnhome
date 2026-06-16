@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import CareersCard from "@/app/careers/_components/CareersCard";
 import CareersStats from "@/app/careers/_components/CareersStats";
@@ -94,6 +95,13 @@ export default function Careers() {
             </p>
 
             <CareersStats />
+            <div className="mt-8 flex justify-center lg:justify-start">
+              <Link href="/contact?intent=hiring#get-in-touch">
+                <Button size="lg" className="text-base font-semibold">
+                  Post your job openings
+                </Button>
+              </Link>
+            </div>
           </div>
 
           <div className="flex justify-center lg:justify-end mt-6 lg:mt-0">

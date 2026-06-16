@@ -1,6 +1,7 @@
 "use client";
 
 import { Mail, MapPin } from "lucide-react";
+import { Suspense } from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import MuImage from "@/components/MuImage";
 import { contactInfo, contactPage } from "@/data/common";
@@ -43,7 +44,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="relative mt-14 overflow-hidden">
+      <section id="get-in-touch" className="relative mt-14 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-8 flex flex-col justify-center">
@@ -91,7 +92,9 @@ export default function ContactPage() {
                     nonce: undefined,
                   }}
                 >
-                  <ContactForm />
+                  <Suspense fallback={<div>Loading form...</div>}>
+                    <ContactForm />
+                  </Suspense>
                 </GoogleReCaptchaProvider>
               </div>
             </div>

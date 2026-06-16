@@ -4,96 +4,125 @@ import MuImage from "@/components/MuImage";
 
 export default function Level5Section() {
   return (
-    <section
-      className="relative bg-mulearn-whitish flex items-center py-10 lg:py-20 overflow-hidden"
-      id="level-5"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          <div className="relative flex items-center justify-center lg:justify-start lg:-ml-32 min-h-[500px]">
-            <div className="absolute top-[40%] left-[55%] w-[450px] md:w-[500px] h-auto opacity-80 pointer-events-none z-0">
-              <MuImage
-                src="/assets/levelstructure/planets_lvl5.svg"
-                alt="Floating Planets"
-                width={500}
-                height={500}
-                className="w-full h-auto"
-              />
+    <section className="relative flex items-center py-15 overflow-hidden" id="level-5">
+      {/* Background elements */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <MuImage
+          src="/assets/levelstructure/line_lvl2.svg"
+          alt="Line Path"
+          width={1400}
+          height={800}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] max-w-[1600px] object-contain opacity-40 scale-x-[-1]"
+        />
+        <MuImage
+          src="/assets/levelstructure/rocket_lvl2.svg"
+          alt="Rocket"
+          width={300}
+          height={400}
+          className="hidden md:block absolute top-0 left-[-10%] sm:left-[-5%] lg:left-[5%] z-20 w-[40%] sm:w-[30%] max-w-[300px] object-contain scale-x-[-1]"
+        />
+        <Sparkle className="absolute top-[10%] left-[20%] text-mulearn-trusty-blue w-4 h-4 fill-mulearn-trusty-blue opacity-50" />
+        <Sparkle className="absolute top-[30%] left-[5%] text-mulearn-trusty-blue w-6 h-6 fill-mulearn-trusty-blue opacity-40" />
+        <Sparkle className="absolute bottom-[20%] left-[15%] text-mulearn-trusty-blue w-5 h-5 fill-mulearn-trusty-blue opacity-60" />
+        <Sparkle className="absolute top-[15%] right-[25%] text-mulearn-trusty-blue w-3 h-3 fill-mulearn-trusty-blue opacity-30" />
+        <Sparkle className="absolute top-[40%] right-[5%] text-mulearn-trusty-blue w-6 h-6 fill-mulearn-trusty-blue opacity-50" />
+        <Sparkle className="absolute bottom-[10%] right-[20%] text-mulearn-trusty-blue w-4 h-4 fill-mulearn-trusty-blue opacity-40" />
+        <Sparkle className="absolute top-[50%] left-[30%] text-mulearn-trusty-blue w-3 h-3 fill-mulearn-trusty-blue opacity-50" />
+        <Sparkle className="absolute bottom-[40%] right-[30%] text-mulearn-trusty-blue w-5 h-5 fill-mulearn-trusty-blue opacity-60" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 w-full z-10">
+        <div className="grid md:grid-cols-2 gap-20 items-center">
+          <MotionDiv
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative flex items-center justify-center order-1"
+          >
+            <div className="relative flex items-center justify-center lg:justify-start lg:-ml-32 min-h-[500px]">
+              <div className="absolute top-[40%] left-[55%] w-[450px] md:w-[500px] h-auto opacity-80 pointer-events-none z-0">
+                <MuImage
+                  src="/assets/levelstructure/planets_lvl5.svg"
+                  alt="Floating Planets"
+                  width={500}
+                  height={500}
+                  className="w-full h-auto"
+                />
+              </div>
+
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="relative z-10 w-full max-w-[480px] hover:-translate-y-4 transition-transform duration-700 ease-in-out"
+              >
+                <MuImage
+                  src="/assets/levelstructure/astronaut4.svg"
+                  alt="The Global Arena Astronaut"
+                  width={480}
+                  height={480}
+                  className="w-full h-auto object-contain"
+                />
+              </MotionDiv>
+
+              <Sparkle className="absolute top-[10%] left-[20%] text-mulearn-trusty-blue w-4 h-4 fill-mulearn-trusty-blue opacity-50" />
+              <Sparkle className="absolute bottom-[20%] right-[10%] text-mulearn-trusty-blue w-6 h-6 fill-mulearn-trusty-blue opacity-30" />
+              <Sparkle className="absolute top-[50%] left-[5%] text-mulearn-trusty-blue w-3 h-3 fill-mulearn-trusty-blue opacity-25" />
+              <Sparkle className="absolute bottom-[10%] left-[40%] text-mulearn-trusty-blue w-5 h-5 fill-mulearn-trusty-blue opacity-20" />
             </div>
-
-            <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="relative z-10 w-full max-w-[480px] hover:-translate-y-4 transition-transform duration-700 ease-in-out"
-            >
-              <MuImage
-                src="/assets/levelstructure/astronaut4.svg"
-                alt="The Global Arena Astronaut"
-                width={480}
-                height={480}
-                className="w-full h-auto object-contain"
-              />
-            </MotionDiv>
-
-            <Sparkle className="absolute top-[10%] left-[20%] text-mulearn-trusty-blue w-4 h-4 fill-mulearn-trusty-blue opacity-50" />
-            <Sparkle className="absolute bottom-[20%] right-[10%] text-mulearn-trusty-blue w-6 h-6 fill-mulearn-trusty-blue opacity-30" />
-            <Sparkle className="absolute top-[50%] left-[5%] text-mulearn-trusty-blue w-3 h-3 fill-mulearn-trusty-blue opacity-25" />
-            <Sparkle className="absolute bottom-[10%] left-[40%] text-mulearn-trusty-blue w-5 h-5 fill-mulearn-trusty-blue opacity-20" />
-          </div>
+          </MotionDiv>
 
           <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8 relative z-20"
+            className="space-y-8 relative z-20 order-2"
           >
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold text-mulearn-blackish tracking-tight">
-                The <span className="text-mulearn-trusty-blue">Global Arena</span>
+                Level 5: <span className="text-mulearn-trusty-blue">The Global Arena Awaits</span>
               </h2>
-              <p className="text-xl font-bold text-mulearn-blackish">
-                Challenges, Hackathons & Competitions
-              </p>
-              <p className="text-sm md:text-base text-mulearn-blackish  leading-relaxed max-w-2xl">
-                The student now steps onto global battlegrounds. Facing global peers raises the bar,
-                sharpens skills, and builds recognition.
+              <p className="text-sm md:text-base text-mulearn-blackish leading-relaxed max-w-2xl font-semibold">
+                Hackathons,design competitions,film festivals and global challenges appear. The
+                competition might be intense,but it is not something that will push the learners
+                away. They face global peers raising their bars,sharpening their skills,and thus
+                building recognition.
               </p>
             </div>
 
             <div className="space-y-6 relative pl-8">
               <div className="absolute left-0 top-0 bottom-0 w-[3px] flex flex-col gap-2">
-                {[...Array(4)].map((_, i) => (
+                {[...Array(3)].map((_, i) => (
                   <div key={i} className="flex-1 bg-mulearn-trusty-blue rounded-full" />
                 ))}
               </div>
 
-              {[
-                { label: "AI Students", text: '"Competing in Kaggle & LLM hackathons."' },
-                { label: "Film Group", text: '"Submitting to online festivals & comic cons."' },
-                {
-                  label: "Civil Engineers",
-                  text: '"Sustainable city models in design challenges."',
-                },
-                {
-                  label: "Space/Cosmos Tribe",
-                  text: '"Writing proposals for CubeSat challenges."',
-                },
-              ].map((item, i) => (
-                <div key={i} className="py-1">
-                  <p className="text-sm md:text-base text-mulearn-blackish">
-                    <span className="font-bold">{item.label}:</span> <span>{item.text}</span>
-                  </p>
-                </div>
-              ))}
+              <div className="py-1">
+                <p className="text-sm md:text-base text-mulearn-blackish font-medium">
+                  An AI student competes in an LLM hackathon while a civil learner participates in
+                  design challenges.
+                </p>
+              </div>
+              <div className="py-1">
+                <p className="text-sm md:text-base text-mulearn-blackish font-medium">
+                  At the same time, a project management learner may take a part in global case
+                  competitions.
+                </p>
+              </div>
+              <div className="py-1">
+                <p className="text-sm md:text-base text-mulearn-blackish font-medium">
+                  The level is not exclusive for anyone-every interest group has their own
+                  battlefield which may be different from the other.
+                </p>
+              </div>
             </div>
 
             <div className="bg-mulearn-whitish border-[1.5px] border-mulearn-blackish rounded-[2.5rem] p-8 shadow-sm max-w-xl">
               <p className="text-sm md:text-base text-mulearn-blackish leading-relaxed">
-                <span className="font-bold">The Impact</span>
+                <span className="font-bold">The End Goal</span>
                 <br />
-                Learners transform into contributors, not just participants. Global competition
-                builds real-world credibility and industry recognition.
+                But,there is only one end goal for level 5-transform into contributors,not just stay
+                there as participants.
               </p>
             </div>
           </MotionDiv>

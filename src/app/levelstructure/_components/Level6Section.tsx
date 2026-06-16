@@ -4,69 +4,81 @@ import MuImage from "@/components/MuImage";
 
 export default function Level6Section() {
   return (
-    <section
-      className="relative bg-mulearn-whitish flex items-center py-10 lg:py-20 overflow-hidden"
-      id="level-6"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section className="relative flex items-center py-15 overflow-hidden" id="level-6">
+      {/* Background elements */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <MuImage
+          src="/assets/levelstructure/line_lvl2.svg"
+          alt="Line Path"
+          width={1400}
+          height={800}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] max-w-[1600px] object-contain opacity-40"
+        />
+        <MuImage
+          src="/assets/levelstructure/rocket_lvl2.svg"
+          alt="Rocket"
+          width={300}
+          height={400}
+          className="hidden md:block absolute top-0 right-[-10%] sm:right-[-5%] lg:right-[5%] z-20 w-[40%] sm:w-[30%] max-w-[300px] object-contain"
+        />
+        <Sparkle className="absolute top-[10%] left-[20%] text-mulearn-trusty-blue w-4 h-4 fill-mulearn-trusty-blue opacity-50" />
+        <Sparkle className="absolute top-[30%] left-[5%] text-mulearn-trusty-blue w-6 h-6 fill-mulearn-trusty-blue opacity-40" />
+        <Sparkle className="absolute bottom-[20%] left-[15%] text-mulearn-trusty-blue w-5 h-5 fill-mulearn-trusty-blue opacity-60" />
+        <Sparkle className="absolute top-[15%] right-[25%] text-mulearn-trusty-blue w-3 h-3 fill-mulearn-trusty-blue opacity-30" />
+        <Sparkle className="absolute top-[40%] right-[5%] text-mulearn-trusty-blue w-6 h-6 fill-mulearn-trusty-blue opacity-50" />
+        <Sparkle className="absolute bottom-[10%] right-[20%] text-mulearn-trusty-blue w-4 h-4 fill-mulearn-trusty-blue opacity-40" />
+        <Sparkle className="absolute top-[50%] left-[30%] text-mulearn-trusty-blue w-3 h-3 fill-mulearn-trusty-blue opacity-50" />
+        <Sparkle className="absolute bottom-[40%] right-[30%] text-mulearn-trusty-blue w-5 h-5 fill-mulearn-trusty-blue opacity-60" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 w-full z-10">
+        <div className="grid md:grid-cols-2 gap-20 items-center">
           <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="relative flex items-center justify-center order-2 md:order-1"
           >
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-mulearn-blackish tracking-tight">
-                Build & <span className="text-mulearn-trusty-blue">Ship</span>
-              </h2>
-              <p className="text-xl font-bold text-mulearn-blackish">
-                Proof-of-Impact & Real Users
-              </p>
-              <p className="text-sm md:text-base text-mulearn-blackish leading-relaxed max-w-2xl">
-                Every hero must build their sword. Here, they don&apos;t just make prototypes. They
-                ship to real users.
-              </p>
-            </div>
+            <div className="relative w-full max-w-lg aspect-square hidden md:flex flex-col items-center justify-center">
+              {/* LEFT SIDE: REDESIGNED CONTENT for even level */}
+              <div className="space-y-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-mulearn-blackish tracking-tight">
+                  Level 6: <span className="text-mulearn-trusty-blue">Build. Ship. Impact.</span>
+                </h2>
+                <p className="text-sm md:text-base text-mulearn-blackish leading-relaxed max-w-2xl font-semibold">
+                  At this level, learners grow into builders and instead of making prototypes, they
+                  ship them to real users.
+                </p>
 
-            <div className="space-y-6 relative pl-8">
-              <div className="absolute left-0 top-0 bottom-0 w-[3px] flex flex-col gap-2">
-                {[...Array(4)].map((_, i) => (
-                  <div key={i} className="flex-1 bg-mulearn-trusty-blue rounded-full" />
-                ))}
-              </div>
+                {/* Impact Examples Section */}
+                <div className="space-y-6">
+                  <div className="space-y-4">
+                    <p className="text-sm md:text-base text-mulearn-blackish font-medium">
+                      A game developer may launch their first game, while the AI team may build a
+                      mental wellness chatbot.
+                    </p>
+                  </div>
+                  <div className="space-y-4">
+                    <p className="text-sm md:text-base text-mulearn-blackish font-medium">
+                      On the other side, a civil-mechanical duo prototypes a low cost water filter
+                      for rural areas.
+                    </p>
+                  </div>
+                  <div className="space-y-4">
+                    <p className="text-sm md:text-base text-mulearn-blackish font-medium">
+                      Their paths may be different, but the end goal is the same.
+                    </p>
+                  </div>
+                </div>
 
-              {[
-                { label: "AI Team", text: '"Mental wellness chatbot → deployed in colleges."' },
-                { label: "Web Dev Team", text: '"Alumni-network portal → adopted by campus."' },
-                {
-                  label: "Civil + Mechanical",
-                  text: '"Water filter prototype → tested with NGOs."',
-                },
-                {
-                  label: "Film + Comics",
-                  text: '"Gamified storytelling series → shared in schools."',
-                },
-              ].map((item, i) => (
-                <div key={i} className="py-1">
-                  <p className="text-sm md:text-base text-mulearn-blackish">
-                    <span className="font-bold">{item.label}:</span> <span>{item.text}</span>
+                {/* Proof of Impact Section */}
+                <div className="bg-mulearn-whitish border-[1.5px] border-mulearn-blackish rounded-[2.5rem] p-6">
+                  <p className="text-sm md:text-base text-mulearn-blackish leading-relaxed font-semibold">
+                    Proof of works turn into proof of impact and that is exactly how the learners
+                    get their key for entering the Muverse.
                   </p>
                 </div>
-              ))}
-            </div>
-
-            <div className="bg-mulearn-whitish border-[1.5px] border-mulearn-blackish rounded-[2.5rem] p-8 shadow-sm max-w-2xl">
-              <p className="text-sm md:text-base text-mulearn-blackish leading-relaxed">
-                <span className="font-bold">The Impact</span>
-                <br />
-                Shipping builds accountability, feedback flow, and real-world value. Proof-of-work
-                matures into proof-of-impact.
-                <br />
-                <br />
-                Students grow into builders & interdisciplinary collaborators who create things that
-                others use.
-              </p>
+              </div>
             </div>
           </MotionDiv>
 
@@ -74,14 +86,14 @@ export default function Level6Section() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative flex items-center justify-center lg:justify-end"
+            className="relative flex items-center justify-center order-1 md:order-2"
           >
             <div className="relative z-10 w-full max-w-[550px] hover:-translate-y-4 transition-transform duration-700 ease-in-out">
               <MuImage
                 src="/assets/levelstructure/astronauts.svg"
                 alt="Build & Ship Astronauts"
-                width={600}
-                height={600}
+                width={500}
+                height={500}
                 className="w-full h-auto object-contain"
               />
             </div>

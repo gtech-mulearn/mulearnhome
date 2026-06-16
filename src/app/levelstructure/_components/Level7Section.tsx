@@ -4,10 +4,7 @@ import MuImage from "@/components/MuImage";
 
 export default function Level7Section() {
   return (
-    <section
-      className="relative flex flex-col items-center py-10 lg:py-20 overflow-hidden min-h-[90vh]"
-      id="level-7"
-    >
+    <section className="relative flex items-center py-15 overflow-hidden" id="level-7">
       <div className="absolute inset-0 pointer-events-none z-0">
         <MuImage
           src="/assets/levelstructure/bg_lvl7.svg"
@@ -18,49 +15,68 @@ export default function Level7Section() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full relative z-10 flex flex-col items-center text-center">
+      <div className="max-w-7xl mx-auto px-4 w-full relative z-10 flex flex-col items-center text-center">
         <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-6 mb-20"
+          className="space-y-6 mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-mulearn-blackish tracking-tight">
-            Welcome to the <span className="text-mulearn-trusty-blue">μVerse</span>
+            Level 7: Where Talent Meets Opportunity
           </h2>
           <p className="text-lg md:text-2xl text-mulearn-blackish max-w-4xl mx-auto font-medium leading-relaxed">
-            Where learning transforms into opportunity, and students become global contributors.
+            At level 7,the path now opens to the µVerse. Learners are connected to opportunities
+            instead of just stopping it right there at skill development.
+          </p>
+          <p className="text-base md:text-lg text-mulearn-gray-600 max-w-3xl mx-auto leading-relaxed">
+            A space science enthusiast may land a fellowship at CubeSat program,while a film
+            enthusiast might be able to get freelance work with ad agencies.
+          </p>
+          <p className="text-lg font-bold text-mulearn-blackish">
+            Here,talent is converted into opportunities and learners become global contributors.
           </p>
         </MotionDiv>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl mb-24">
+        <div className="w-full max-w-4xl mx-auto mb-16 p-8 bg-mulearn-whitish border-[1.5px] border-mulearn-blackish rounded-[2.5rem]">
+          <p className="text-base md:text-lg text-mulearn-blackish leading-relaxed font-semibold">
+            This could possibly be how a student&apos;s life could change. Instead of falling into
+            the vicious cycle that they find during their college,they can find their own path.A
+            predictable college life could be turned extraordinary by investing in the right skill
+            set that compliments their passion.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl mb-20">
           {[
             {
-              title: "Access",
-              text: "Direct pathways to fellowships, startups, and global opportunities curated for your journey.",
+              title: "For students",
+              text: "it is personal growth and access.",
             },
             {
-              title: "Network",
-              text: "Connect with mentors, industry leaders, and peers who accelerate your growth.",
+              title: "For academia",
+              text: "it brings alignment to the industry.",
             },
             {
-              title: "Impact",
-              text: "Build solutions that matter, ship to real users, and contribute to meaningful projects.",
+              title: "For companies",
+              text: "it is a proof-of-work talent pipeline.",
+            },
+            {
+              title: "For governments",
+              text: "it is a civic innovation system at youth scale.",
             },
           ].map((card, i) => (
             <MotionDiv
               key={card.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              whileHover={{ y: -10 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ y: -5 }}
               viewport={{ once: true }}
-              className="bg-mulearn-whitish border-[1.5px] border-mulearn-blackish rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-xl transition-all duration-300"
+              className="bg-mulearn-whitish border-[1.5px] border-mulearn-blackish rounded-[2rem] p-6 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <h3 className="text-2xl md:text-3xl font-bold text-mulearn-blackish mb-4">
-                {card.title}
-              </h3>
-              <p className="text-base md:text-lg text-mulearn-blackish/80 leading-relaxed font-medium">
+              <h3 className="text-lg font-bold text-mulearn-blackish mb-2">{card.title}</h3>
+              <p className="text-sm text-mulearn-blackish leading-relaxed font-medium">
                 {card.text}
               </p>
             </MotionDiv>
@@ -71,12 +87,11 @@ export default function Level7Section() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-8 max-w-4xl mx-auto"
+          className="space-y-8 max-w-4xl mx-auto pt-6 border-t border-mulearn/20"
         >
-          <div className="w-24 h-[3px] bg-mulearn-duke-purple mx-auto rounded-full" />
-          <p className="text-lg md:text-xl text-mulearn-blackish font-semibold leading-relaxed">
-            The μVerse is not a destination. It&apos;s a continuous cycle of learning, building, and
-            contributing that keeps you growing throughout your career.
+          <p className="text-xl md:text-2xl text-mulearn font-bold leading-relaxed">
+            µlearn is not just about learning-it is a regenerative talent engine that transforms
+            students into innovators builders and global contributors.
           </p>
         </MotionDiv>
 

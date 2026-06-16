@@ -1,7 +1,8 @@
 "use client";
 
 import { Building, Calendar, FileText, HelpCircle, School, Send, Users } from "lucide-react";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -18,8 +19,11 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 
 export default function ContactForm() {
+  const searchParams = useSearchParams();
+  const initialIntent = searchParams?.get("intent") || "";
+
   const [formData, setFormData] = useState({
-    intent: "",
+    intent: initialIntent,
     name: "",
     email: "",
     phone: "",
@@ -98,6 +102,13 @@ export default function ContactForm() {
     { value: "bug", label: "Bug Report" },
     { value: "other-tech", label: "Other Technical Issue" },
   ];
+
+  useEffect(() => {
+    const intentParam = searchParams?.get("intent");
+    if (intentParam && intents.some((i) => i.value === intentParam)) {
+      setFormData((prev) => ({ ...prev, intent: intentParam }));
+    }
+  }, [searchParams]);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};

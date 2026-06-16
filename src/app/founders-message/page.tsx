@@ -29,15 +29,20 @@ export default function FoundersMessage() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="min-h-screen bg-mulearn-whitish overflow-hidden"
+      className="min-h-screen bg-neutral-50/70 py-16 md:py-24 px-4 sm:px-6 lg:px-8 flex justify-center items-start"
     >
-      <div className="max-w-4xl mx-auto px-6 py-24 md:py-32">
+      <div className="w-full max-w-5xl bg-white border border-neutral-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.02)] rounded-2xl p-6 sm:p-10 md:p-16 text-[#1a1a1a] flex flex-col font-sans">
+        {/* Hello Greeting */}
+        <MotionDiv variants={fadeInUp}>
+          <p className="text-neutral-800 text-lg md:text-xl font-medium mb-6">Hello 👋</p>
+        </MotionDiv>
+
         {/* Header / Title */}
-        <MotionDiv variants={fadeInUp} className="mb-16 md:mb-20 text-center">
-          <span className="inline-block px-4 py-1.5 bg-mulearn/10 text-mulearn font-bold text-sm uppercase tracking-widest rounded-full mb-6">
+        <MotionDiv variants={fadeInUp} className="mb-12">
+          <p className="text-neutral-500 font-bold uppercase tracking-widest text-xs md:text-sm mb-2">
             Founders Message
-          </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-mulearn-blackish tracking-tight leading-[1.1]">
+          </p>
+          <h1 className="font-sans text-3xl md:text-5xl lg:text-6xl font-black text-mulearn leading-tight tracking-tight">
             A Message to the World
           </h1>
         </MotionDiv>
@@ -45,9 +50,10 @@ export default function FoundersMessage() {
         {/* Main Content */}
         <MotionDiv
           variants={fadeInUp}
-          className="prose prose-lg md:prose-xl prose max-w-none text-mulearn-gray-600 leading-relaxed"
+          className="text-neutral-600 leading-relaxed text-base md:text-lg flex flex-col"
         >
-          <p className="text-xl md:text-2xl font-medium text-mulearn-blackish mb-10 leading-relaxed">
+          {/* Main bold opening statement */}
+          <p className="text-lg md:text-xl font-bold text-neutral-900 leading-relaxed mb-8">
             μLearn was not born out of policy, funding, or disruption theatre. It was born out of a
             simple discomfort—the quiet but persistent feeling that we are wasting human potential
             at scale.
@@ -62,7 +68,8 @@ export default function FoundersMessage() {
             for the past.
           </p>
 
-          <p className="text-mulearn font-bold text-2xl md:text-3xl my-10 border-l-4 border-mulearn pl-6">
+          {/* Standalone brand message */}
+          <p className="text-lg md:text-xl font-bold text-mulearn leading-relaxed mb-8">
             μLearn exists to interrupt this pattern.
           </p>
 
@@ -74,54 +81,39 @@ export default function FoundersMessage() {
             built by institutions alone, but by empowered individuals connected through purpose.
           </p>
 
-          {/* Stakeholder Messages */}
-          <div className="my-16 space-y-12">
-            <div className="bg-mulearn-whitish p-8 rounded-2xl shadow-sm border border-mulearn-gray-200">
-              <p className="font-bold text-lg text-mulearn-blackish mb-3 flex items-center gap-2">
-                <span className="text-mulearn text-2xl">→</span> To students,
-              </p>
-              <p className="text-base md:text-lg pl-8 text-mulearn-gray-600">
-                μLearn exists to return something that was taken away early—agency. You are not here
-                to fit into predefined roles. You are here to explore, to build, to fail safely, to
-                find your edge, and to contribute before you are &quot;ready&quot;. Your curiosity
-                is not a distraction. It is your signal.
-              </p>
-            </div>
-
-            <div className="bg-mulearn-whitish p-8 rounded-2xl shadow-sm border border-mulearn-gray-200">
-              <p className="font-bold text-lg text-mulearn-blackish mb-3 flex items-center gap-2">
-                <span className="text-mulearn-duke-purple text-2xl">→</span> To industry,
-              </p>
-              <p className="text-base md:text-lg pl-8 text-mulearn-gray-600">
-                μLearn exists as a mirror and an invitation. The skills you seek cannot be
-                manufactured through hiring alone. They must be cultivated through ecosystems that
-                reward learning, collaboration, and real-world contribution. μLearn connects you not
-                to resumes, but to capability in motion.
-              </p>
-            </div>
-
-            <div className="bg-mulearn-whitish p-8 rounded-2xl shadow-sm border border-mulearn-gray-200">
-              <p className="font-bold text-lg text-mulearn-blackish mb-3 flex items-center gap-2">
-                <span className="text-mulearn-trusty-blue text-2xl">→</span> To governments,
-              </p>
-              <p className="text-base md:text-lg pl-8 text-mulearn-gray-600">
-                μLearn exists as a public good. A living infrastructure for skills, motivation, and
-                civic capability. Not another program layered onto an overloaded system, but a
-                protocol that allows learning to happen anywhere, anytime, driven by communities and
-                aligned with national priorities.
-              </p>
-            </div>
-
-            <div className="bg-mulearn-whitish p-8 rounded-2xl shadow-sm border border-mulearn-gray-200">
-              <p className="font-bold text-lg text-mulearn-blackish mb-3 flex items-center gap-2">
-                <span className="text-mulearn-gray-500 text-2xl">→</span> To NGOs and civil society,
-              </p>
-              <p className="text-base md:text-lg pl-8 text-mulearn-gray-600">
-                μLearn exists as leverage. A way to scale impact by empowering people not just to
-                receive help, but to develop agency, skills, and dignity through contribution.
-              </p>
-            </div>
-          </div>
+          {/* Stakeholder Messages List */}
+          <ul className="space-y-6 mb-12 text-base md:text-lg text-neutral-600 leading-relaxed">
+            <li className="relative pl-6">
+              <span className="absolute left-0 text-mulearn font-black">•</span>
+              <span className="font-bold text-mulearn">To students, </span>
+              μLearn exists to return something that was taken away early—agency. You are not here
+              to fit into predefined roles. You are here to explore, to build, to fail safely, to
+              find your edge, and to contribute before you are &quot;ready&quot;. Your curiosity is
+              not a distraction. It is your signal.
+            </li>
+            <li className="relative pl-6">
+              <span className="absolute left-0 text-mulearn font-black">•</span>
+              <span className="font-bold text-mulearn">To industry, </span>
+              μLearn exists as a mirror and an invitation. The skills you seek cannot be
+              manufactured through hiring alone. They must be cultivated through ecosystems that
+              reward learning, collaboration, and real-world contribution. μLearn connects you not
+              to resumes, but to capability in motion.
+            </li>
+            <li className="relative pl-6">
+              <span className="absolute left-0 text-mulearn font-black">•</span>
+              <span className="font-bold text-mulearn">To governments, </span>
+              μLearn exists as a public good. A living infrastructure for skills, motivation, and
+              civic capability. Not another program layered onto an overloaded system, but a
+              protocol that allows learning to happen anywhere, anytime, driven by communities and
+              aligned with national priorities.
+            </li>
+            <li className="relative pl-6">
+              <span className="absolute left-0 text-mulearn font-black">•</span>
+              <span className="font-bold text-mulearn">To NGOs and civil society, </span>
+              μLearn exists as leverage. A way to scale impact by empowering people not just to
+              receive help, but to develop agency, skills, and dignity through contribution.
+            </li>
+          </ul>
 
           <p className="mb-6">
             I serve μLearn not as its owner, but as its chief volunteer. Because movements like this
@@ -129,41 +121,33 @@ export default function FoundersMessage() {
             in public, and pull others forward with them.
           </p>
 
-          <div className="font-bold text-mulearn-blackish text-xl md:text-2xl space-y-2 mb-12">
-            <p>The future will not be shaped by those who wait for permission.</p>
-            <p>
-              It will be shaped by those who learn continuously, act responsibly, and collaborate
-              generously.
-            </p>
-            <p className="text-mulearn pt-4">μLearn exists to make that future inevitable.</p>
-          </div>
+          <p className="mb-6">
+            The future will not be shaped by those who wait for permission. It will be shaped by
+            those who learn continuously, act responsibly, and collaborate generously.
+          </p>
 
-          <div className="bg-gradient-to-r from-mulearn/5 to-mulearn-duke-purple/5 rounded-2xl p-10 mb-16 border border-mulearn/10">
-            <p className="text-mulearn-gray-600 italic text-xl mb-4 font-serif">
-              &quot;This is not an invitation to join a platform. It is a call to participate in a
-              learning civilization.&quot;
-            </p>
-            <div className="flex flex-wrap items-center gap-3 mt-4">
-              <span className="text-mulearn-blackish font-bold text-2xl md:text-3xl mb-2">
-                Welcome to
-              </span>
-              <MuImage
-                src="/assets/logo-black.png"
-                alt="μLearn"
-                width={70}
-                height={5}
-                className="h-4 md:h-6 w-auto object-contain"
-              />
-            </div>
-          </div>
+          <p className="text-lg md:text-xl font-bold text-mulearn leading-relaxed mb-12">
+            μLearn exists to make that future inevitable.
+          </p>
+
+          {/* Muted Quote Block */}
+          <p className="text-neutral-500 italic text-base md:text-lg mb-6 leading-relaxed">
+            &quot;This is not an invitation to join a platform. It is a call to participate in a
+            learning civilization.&quot;
+          </p>
+
+          {/* Welcome to μLearn */}
+          <p className="text-neutral-800 text-lg md:text-xl mb-12">
+            Welcome to <span className="font-bold text-neutral-900">μLearn</span>
+          </p>
         </MotionDiv>
 
         {/* Signature / Founder Profile */}
         <MotionDiv
           variants={fadeInUp}
-          className="flex items-center gap-6 pt-8 border-t border-mulearn-gray-200"
+          className="flex items-center gap-4 pt-8 border-t border-neutral-100"
         >
-          <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-mulearn-whitish shadow-md">
+          <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border border-neutral-100 shadow-sm">
             <MuImage
               src="/assets/founders-message/deepu-s-nath.jpg"
               alt="Deepu S Nath"
@@ -173,21 +157,25 @@ export default function FoundersMessage() {
             />
           </div>
           <div>
-            <h3 className="font-bold text-mulearn-blackish text-xl">Deepu S Nath</h3>
-            <p className="text-mulearn font-medium">Chief Volunteer</p>
+            <h3 className="font-sans text-neutral-900 font-bold text-lg leading-tight">
+              Deepu S Nath
+            </h3>
+            <p className="text-mulearn font-semibold text-sm leading-tight mt-0.5">
+              Chief Volunteer
+            </p>
             <Link
               href="https://deepusnath.com"
               target="_blank"
-              className="text-mulearn-gray-600 text-sm hover:text-mulearn transition-colors block mt-1"
+              className="text-neutral-500 hover:text-mulearn transition-colors text-sm leading-tight mt-1 block"
             >
               deepusnath.com
             </Link>
-            <p className="text-mulearn-gray-600 text-sm">Mulearn Foundation</p>
+            <p className="text-neutral-400 text-sm leading-tight mt-0.5">Mulearn Foundation</p>
           </div>
         </MotionDiv>
 
-        {/* CTA */}
-        <MotionDiv variants={fadeInUp} className="mt-20 text-center">
+        {/* CTA - Join the Movement */}
+        <MotionDiv variants={fadeInUp} className="mt-16 text-center">
           <Link href="https://app.mulearn.org" target="_blank" rel="noreferrer">
             <Button variant={"default"} className="px-7 py-7 font-semibold">
               Join the Movement
