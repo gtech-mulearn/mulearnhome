@@ -179,12 +179,12 @@ export function GenericEventCard({
         {/* Performer/Campus info */}
         {event.performer && variant === "office-hour" && (
           <div className="text-sm text-mulearn-gray-400">
-            <p className="flex items-center gap-1">
-              <User className="w-4 h-4" /> {event.performer}
+            <p className="flex items-start gap-1 leading-5">
+              <User className="w-4 h-4 shrink-0 mt-0.5" /> {event.performer}
             </p>
             {event.designation && (
-              <p className="flex items-center gap-1">
-                <Briefcase className="w-4 h-4" /> {event.designation}
+              <p className="flex items-start gap-1 leading-5">
+                <Briefcase className="w-4 h-4 shrink-0 mt-0.5" /> {event.designation}
               </p>
             )}
           </div>
@@ -196,8 +196,8 @@ export function GenericEventCard({
           </p>
         )}
         {event.campus && variant === "episode" && (
-          <p className="text-mulearn-gray-700 font-medium mb-3 flex items-center">
-            <MapPin className="w-4 h-4 mr-2 text-mulearn-gray-500" />
+          <p className="text-mulearn-gray-700 font-medium mb-3 flex items-start leading-5">
+            <MapPin className="w-4 h-4 mr-2 mt-0.5 shrink-0 text-mulearn-gray-500" />
             {event.campus}
           </p>
         )}
