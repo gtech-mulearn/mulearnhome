@@ -1,96 +1,42 @@
-import type { LucideIcon } from "lucide-react";
-import { Sparkle } from "lucide-react";
-import Image from "next/image";
+import MuImage from "@/components/MuImage";
 import { enablers } from "@/data/enablers";
-
-const Icon = ({ icon: IconComponent }: { icon: LucideIcon }) => (
-  <IconComponent className="w-9 h-9 text-mulearn-whitish" />
-);
 
 export default function WhoIsEnabler() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8 lg:py-16">
-      <div className="relative w-full rounded-[20px] bg-mulearn shadow-md overflow-hidden">
-        <div className="hidden md:block" style={{ minHeight: "480px" }}>
-          <Sparkle className="absolute left-10 top-8 z-20 fill-mulearn-whitish text-mulearn-whitish" />
-          <div className="relative z-10 flex flex-col justify-start items-start gap-5 px-10 pt-24 pb-10 max-w-[620px]">
-            <h2 className="text-5xl font-bold leading-[1.3]">
-              <span>Who is an </span>
-              <span className="text-mulearn-whitish">Enabler</span>
-              <span>?</span>
-            </h2>
-            <p className="text-mulearn-whitish text-xl font-semibold leading-8">
-              Enablers help students learn the right way — through action, proof-of-work and
-              community engagement.
-            </p>
-            <div className="flex flex-col gap-2.5 w-full">
-              {enablers.features.map((feature) => (
-                <div
-                  key={feature.text}
-                  className="flex items-center gap-4 w-full max-w-[511px] min-h-[80px] bg-mulearn rounded-2xl px-6 py-4"
-                >
-                  <div className="shrink-0">
-                    <Icon icon={feature.icon} />
-                  </div>
-                  <p className="text-mulearn-whitish text-xl font-semibold leading-7">
+    <section id="who-is-enabler">
+      <div className="grid grid-cols-1 items-center gap-8 rounded-3xl bg-mulearn p-8 md:p-12 lg:grid-cols-2 lg:gap-12">
+        <div>
+          <h2 className="text-mulearn-whitish">
+            Who is an <span className="text-mulearn-blackish">Enabler</span>?
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-mulearn-whitish/90 md:text-lg">
+            Enablers help students learn the right way — through action, proof-of-work and community
+            engagement.
+          </p>
+
+          <ul className="mt-6 flex flex-col gap-3">
+            {enablers.features.map((feature) => {
+              const Icon = feature.icon;
+              return (
+                <li key={feature.text} className="flex items-center gap-3">
+                  <Icon className="size-5 shrink-0 text-mulearn-whitish" />
+                  <span className="text-sm font-medium text-mulearn-whitish md:text-base">
                     {feature.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <Sparkle className="absolute right-[430px] top-[380px] z-20 fill-mulearn-whitish text-mulearn-whitish" />
-          <Sparkle className="absolute right-[320px] top-[270px] z-20 fill-mulearn-whitish text-mulearn-whitish" />
-          <Sparkle className="absolute right-[130px] top-[320px] z-20 fill-mulearn-whitish text-mulearn-whitish" />
-
-          <Image
-            style={{ right: 0, top: 0 }}
-            width={515}
-            height={480}
-            className="absolute rounded-r-[20px] object-cover"
-            src="/assets/be-a-part/enabler-character.svg"
-            alt="Campus Enabler Illustration"
-          />
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
         </div>
 
-        <div className="md:hidden flex flex-col">
-          <div className="flex flex-col gap-5 px-8 pt-10 pb-6">
-            <h2 className="text-5xl font-bold leading-[62.40px]">
-              <span>Who is an </span>
-              <span className="text-mulearn-whitish">Enabler</span>
-              <span>?</span>
-            </h2>
-
-            <p className="text-mulearn-whitish text-sm font-semibold leading-8">
-              Enablers help students learn the right way — through action, proof-of-work and
-              community engagement.
-            </p>
-
-            <div className="flex flex-col gap-2.5 w-full">
-              {enablers.features.map((feature) => (
-                <div
-                  key={feature.text}
-                  className="w-full p-5 bg-mulearn rounded-2xl flex flex-col justify-start items-start gap-2.5"
-                >
-                  <div className="shrink-0">
-                    <Icon icon={feature.icon} />
-                  </div>
-                  <p className="text-mulearn-whitish text-sm font-semibold">{feature.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="w-full flex justify-center items-end px-4 pb-0">
-            <Image
-              src="/assets/be-a-part/enabler-character.svg"
-              alt="Campus Enabler Illustration"
-              width={515}
-              height={480}
-              className="w-full max-w-xs object-contain"
-            />
-          </div>
+        <div className="flex items-center justify-center">
+          <MuImage
+            src="/assets/be-a-part/enabler-character.svg"
+            alt="Illustration of an enabler at a campus building"
+            width={400}
+            height={520}
+            className="h-auto w-full max-w-56 rounded-2xl sm:max-w-xs lg:max-w-sm"
+          />
         </div>
       </div>
     </section>

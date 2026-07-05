@@ -1,31 +1,17 @@
 "use client";
 
-import type { Variants } from "framer-motion";
-import { Sparkle } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import CountUp from "react-countup";
-import { MotionDiv, MotionSection } from "@/components/MuFramer";
+import { AnimatedNumber } from "@/components/AnimatedNumber";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
 import { enablers } from "@/data/enablers";
 import type { Counts } from "@/lib/types";
 import { cdnUrl } from "@/services/cdn";
-import { fetchPublicProfileImage } from "@/services/profile";
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] },
-  },
-};
-
-export default function MissionandGrowth() {
+export default function MissionAndGrowth() {
   const [counts, setCounts] = useState<Counts | null>(null);
-  const [displayedCount, setDisplayedCount] = useState(12);
-  const [publicProfileImages, setPublicProfileImages] = useState<Record<string, string | null>>({});
+  const [displayedCount, setDisplayedCount] = useState(6);
   const socketRef = useRef<WebSocket | null>(null);
   const fallbackImage = cdnUrl("public/assets/team/default.webp");
 
@@ -37,9 +23,8 @@ export default function MissionandGrowth() {
       const handleMessage = (event: MessageEvent) => {
         setCounts(JSON.parse(event.data) as Counts);
       };
-
       const handleError = (event: Event) => {
-        void event;
+        console.error("WebSocket error:", event);
       };
 
       socket.addEventListener("message", handleMessage);
@@ -54,151 +39,72 @@ export default function MissionandGrowth() {
     }
   }, []);
 
-  useEffect(() => {
-    const visibleFaculties = enablers.faculties.slice(0, displayedCount);
-    const missingMuidList = visibleFaculties
-      .map((faculty) => faculty.muid)
-      .filter((muid) => publicProfileImages[muid] === undefined);
+  const collegeCount =
+    counts?.org_type_counts?.find((o) => o.org_type.toLowerCase() === "college")?.org_count ?? 0;
+  const enablerCount =
+    counts?.enablers_mentors_count?.find((r) => r.role__title.toLowerCase() === "enabler")
+      ?.role_count ?? 0;
+  const mentorCount =
+    counts?.enablers_mentors_count?.find((r) => r.role__title.toLowerCase() === "mentor")
+      ?.role_count ?? 0;
 
-    if (missingMuidList.length === 0) return;
-
-    let isCancelled = false;
-
-    const loadPublicProfileImages = async () => {
-      const imageEntries = await Promise.all(
-        missingMuidList.map(async (muid) => [muid, await fetchPublicProfileImage(muid)] as const),
-      );
-
-      if (!isCancelled) {
-        setPublicProfileImages((prev) => {
-          const next = { ...prev };
-          for (const [muid, imageUrl] of imageEntries) {
-            next[muid] = imageUrl;
-          }
-          return next;
-        });
-      }
-    };
-
-    void loadPublicProfileImages();
-
-    return () => {
-      isCancelled = true;
-    };
-  }, [displayedCount, publicProfileImages]);
-
-  const handleLoadMore = () => {
-    setDisplayedCount((prev) => prev + 18);
-  };
+  const stats = [
+    { value: collegeCount, label: "Colleges" },
+    { value: enablerCount, label: "Enablers" },
+    { value: mentorCount, label: "Mentors" },
+  ];
 
   const hasMore = displayedCount < enablers.faculties.length;
 
-  if (!counts) {
-    return (
-      <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full py-24">
-        <div className="text-center">Loading stats...</div>
-      </div>
-    );
-  }
-
   return (
-    <div className="flex justify-center relative">
-      <div className="hidden md:block absolute top-6 right-10 z-10">
-        <Sparkle className="w-6 h-6 fill-mulearn text-mulearn" />
-      </div>
-      <div className="hidden md:block absolute bottom-6 left-8 z-10">
-        <Sparkle className="w-6 h-6 fill-mulearn text-mulearn" />
-      </div>
-      <div className="px-4 sm:px-8 md:px-16 lg:px-32  max-w-7xl">
-        <MotionSection
-          className="flex flex-col justify-center py-24 items-center"
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <MotionDiv
-            className="text-4xl md:text-5xl lg:text-6xl flex flex-col items-center text-center w-full"
-            variants={fadeInUp}
-          >
-            <h1>
-              Our <span className="text-mulearn">Mission</span> &
-              <span className="text-mulearn">Growth</span>
-            </h1>
-          </MotionDiv>
+    <section id="mission" className="text-center">
+      <h2>
+        Our <span className="text-mulearn">Mission</span> &{" "}
+        <span className="text-mulearn">Growth</span>
+      </h2>
 
-          <MotionDiv variants={fadeInUp} className="w-full">
-            <div className="flex flex-wrap justify-center gap-9 mt-6 px-8">
-              {counts.org_type_counts
-                .filter((org) => org.org_type.toLowerCase() === "college")
-                .map((org) => (
-                  <StatCard
-                    key={org.org_type}
-                    value={org.org_count}
-                    label={
-                      org.org_type.endsWith("y")
-                        ? `${org.org_type.slice(0, -1)}ies`
-                        : `${org.org_type}s`
-                    }
-                  />
-                ))}
-              {counts.enablers_mentors_count.map((role) => (
-                <StatCard
-                  key={role.role__title}
-                  value={role.role_count}
-                  label={`${role.role__title}s`}
+      <div className="mt-8 flex flex-wrap justify-center gap-10">
+        {stats.map((stat) => (
+          <div key={stat.label} className="flex flex-col items-center">
+            <AnimatedNumber
+              value={stat.value}
+              separator=","
+              scrollSpy
+              className="text-3xl font-black text-mulearn md:text-4xl"
+            />
+            <span className="mt-1 text-sm text-mulearn-gray-600">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <ul className="mx-auto mt-10 grid max-w-3xl grid-cols-3 gap-x-4 gap-y-6 sm:grid-cols-4 md:grid-cols-6">
+        {enablers.faculties.slice(0, displayedCount).map((faculty) => (
+          <li key={faculty.muid}>
+            <Link
+              href={`${process.env.NEXT_PUBLIC_APP_URL}profile/${faculty.muid}`}
+              className="flex flex-col items-center gap-2"
+            >
+              <span className="relative size-16 overflow-hidden rounded-full bg-muted">
+                <MuImage
+                  src={faculty.profile_pic ?? fallbackImage}
+                  alt={faculty.full_name}
+                  fill
+                  className="object-cover"
                 />
-              ))}
-            </div>
-            <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-3 mt-6">
-              {enablers.faculties.slice(0, displayedCount).map((c) => (
-                <Link
-                  key={c.muid}
-                  href={`${process.env.NEXT_PUBLIC_APP_URL}profile/${c.muid}`}
-                  className="flex flex-col items-center gap-1.5 group"
-                >
-                  <div className="rounded-full ring-2 ring-mulearn transition-all relative h-20 w-20">
-                    <MuImage
-                      // src={publicProfileImages[c.muid] ?? fallbackImage}
-                      src={c.profile_pic ?? fallbackImage}
-                      alt={c.full_name}
-                      fill
-                      className="rounded-full object-cover"
-                    />
-                  </div>
-                  <p className="text-sm text-center leading-tight truncate w-full">{c.full_name}</p>
-                </Link>
-              ))}
-            </div>
-            {hasMore && (
-              <div className="flex justify-center mt-6">
-                <Button variant={"default"} onClick={handleLoadMore}>
-                  Load more
-                </Button>
-              </div>
-            )}
-          </MotionDiv>
-        </MotionSection>
-      </div>
-    </div>
-  );
-}
+              </span>
+              <span className="line-clamp-2 text-xs text-mulearn-gray-600">
+                {faculty.full_name}
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
 
-function StatCard({
-  value,
-  label,
-  isString = false,
-}: {
-  value: number | string;
-  label: string;
-  isString?: boolean;
-}) {
-  return (
-    <div className="bg-card rounded-2xl shadow-sm flex flex-col justify-center items-center p-4">
-      <p className="font-semibold text-mulearn text-2xl sm:text-3xl lg:text-[2rem]">
-        {isString ? value : <CountUp end={value as number} duration={5} separator="," />}
-      </p>
-      <p className="text-sm sm:text-base font-medium mt-1">{label}</p>
-    </div>
+      {hasMore && (
+        <div className="mt-8 flex justify-center">
+          <Button onClick={() => setDisplayedCount((prev) => prev + 12)}>Load more</Button>
+        </div>
+      )}
+    </section>
   );
 }

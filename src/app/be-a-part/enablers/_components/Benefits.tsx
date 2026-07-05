@@ -1,68 +1,68 @@
-import type { LucideIcon } from "lucide-react";
 import { Award, Building2, Layers, Users } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
-interface BenefitCard {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-}
-
-const cards: BenefitCard[] = [
+const cards = [
   {
     icon: Layers,
     title: "Structured Framework",
     description: "Clear guidelines for smooth chapter functioning.",
+    chip: "bg-category-blue",
+    text: "text-category-blue",
   },
   {
     icon: Users,
     title: "Community Impact",
     description:
       "Bridge the gap between education and employment by fueling the next generation of talent.",
+    chip: "bg-category-purple",
+    text: "text-category-purple",
   },
   {
     icon: Building2,
     title: "Campus Impact",
     description:
       "Enable portfolios, projects and student-led initiatives that enhance institution reputation.",
+    chip: "bg-category-teal",
+    text: "text-category-teal",
   },
   {
     icon: Award,
     title: "Faculty Recognition",
     description:
       "Enable portfolios, projects and student-led initiatives that enhance institution reputation.",
+    chip: "bg-category-amber",
+    text: "text-category-amber",
   },
 ];
 
-const Icon = ({ icon: IconComponent }: { icon: LucideIcon }) => (
-  <IconComponent className="w-12 h-12 text-mulearn" />
-);
-
 export default function Benefits() {
   return (
-    <section className="mx-auto max-w-[1276px] px-6 py-16 lg:px-8 lg:py-20">
-      <div className="w-full flex flex-col items-center gap-5">
-        <div className="self-stretch text-center">
-          <span className="text-5xl font-bold leading-[62.40px]">Benefits of an </span>
-          <span className="text-mulearn text-5xl font-bold leading-[62.40px]">Enabler</span>
-          <span className="text-5xl font-bold leading-[62.40px]">?</span>
-        </div>
+    <section id="benefits">
+      <h2 className="text-center">
+        Benefits of an <span className="text-mulearn">Enabler</span>?
+      </h2>
 
-        <div className="w-full flex flex-col items-center gap-5 xl:flex-row xl:items-start xl:flex-wrap xl:justify-start">
-          {cards.map((card) => (
-            <Card
-              key={card.title}
-              className="relative w-full max-w-xs xl:w-72 h-60 p-6 flex flex-col justify-start items-start gap-5"
-            >
-              <div className="w-12 h-12 relative overflow-hidden flex-shrink-0">
-                <Icon icon={card.icon} />
-              </div>
-              <div className="text-mulearn text-2xl font-semibold leading-6">{card.title}</div>
-              <div className="self-stretch text-base font-normal leading-6">{card.description}</div>
-            </Card>
-          ))}
-        </div>
-      </div>
+      <ul className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {cards.map((card) => {
+          const Icon = card.icon;
+          return (
+            <li key={card.title}>
+              <span
+                className={cn(
+                  "flex size-11 items-center justify-center rounded-xl text-mulearn-whitish",
+                  card.chip,
+                )}
+              >
+                <Icon className="size-5" />
+              </span>
+              <h3 className={cn("mt-4 text-lg font-bold", card.text)}>{card.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-mulearn-gray-600">
+                {card.description}
+              </p>
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 }
