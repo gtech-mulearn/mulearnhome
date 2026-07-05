@@ -561,7 +561,7 @@ export default function DonationForm() {
                   >
                     I agree to the{" "}
                     <a
-                      href="/termsandconditions"
+                      href="/terms-and-conditions"
                       target="_blank"
                       className="text-amber-600 hover:underline"
                       rel="noopener"
@@ -570,7 +570,7 @@ export default function DonationForm() {
                     </a>
                     ,{" "}
                     <a
-                      href="/privacypolicy"
+                      href="/privacy-policy"
                       target="_blank"
                       className="text-amber-600 hover:underline"
                       rel="noopener"
@@ -579,7 +579,7 @@ export default function DonationForm() {
                     </a>{" "}
                     and{" "}
                     <a
-                      href="/refundpolicy"
+                      href="/refund-policy"
                       target="_blank"
                       className="text-amber-600 hover:underline"
                       rel="noopener"
@@ -976,7 +976,7 @@ export default function DonationForm() {
               >
                 I agree to the{" "}
                 <a
-                  href="/termsandconditions"
+                  href="/terms-and-conditions"
                   target="_blank"
                   className="text-mulearn-trusty-blue hover:underline"
                   rel="noopener"
@@ -985,7 +985,7 @@ export default function DonationForm() {
                 </a>
                 ,{" "}
                 <a
-                  href="/privacypolicy"
+                  href="/privacy-policy"
                   target="_blank"
                   className="text-mulearn-trusty-blue hover:underline"
                   rel="noopener"
@@ -994,7 +994,7 @@ export default function DonationForm() {
                 </a>{" "}
                 and{" "}
                 <a
-                  href="/refundpolicy"
+                  href="/refund-policy"
                   target="_blank"
                   className="text-mulearn-trusty-blue hover:underline"
                   rel="noopener"

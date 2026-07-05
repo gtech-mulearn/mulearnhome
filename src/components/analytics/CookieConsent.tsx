@@ -82,7 +82,7 @@ export default function CookieConsent() {
                       >
                         We use cookies to analyze traffic and improve your experience.{" "}
                         <a
-                          href="/privacypolicy"
+                          href="/privacy-policy"
                           className="text-gray-900 underline underline-offset-2 hover:no-underline dark:text-white"
                         >
                           Privacy Policy

@@ -141,9 +141,9 @@ export const footer = [
   {
     title: "Legal",
     links: [
-      { title: "Terms and Conditions", url: "/termsandconditions" },
-      { title: "Privacy Policy", url: "/privacypolicy" },
-      { title: "Refund Policy", url: "/refundpolicy" },
+      { title: "Terms and Conditions", url: "/terms-and-conditions" },
+      { title: "Privacy Policy", url: "/privacy-policy" },
+      { title: "Refund Policy", url: "/refund-policy" },
       { title: "Cookie Settings", url: "#cookie-settings" },
     ],
   },

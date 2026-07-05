@@ -28,10 +28,10 @@
     },
     {
       "username": "awindsr",
-      "commits": 1067,
-      "prs_opened": 282,
-      "prs_merged": 274,
-      "points": 1623,
+      "commits": 1086,
+      "prs_opened": 287,
+      "prs_merged": 278,
+      "points": 1651,
       "displayname": "Awindsr"
     },
     {
@@ -60,10 +60,10 @@
     },
     {
       "username": "alvin-dennis",
-      "commits": 811,
-      "prs_opened": 169,
-      "prs_merged": 155,
-      "points": 1135,
+      "commits": 829,
+      "prs_opened": 175,
+      "prs_merged": 161,
+      "points": 1165,
       "displayname": "Alvin Dennis"
     },
     {
@@ -86,19 +86,43 @@
   "monthly": [
     {
       "username": "DevWithPranav",
-      "commits": 24,
-      "prs_opened": 27,
-      "prs_merged": 26,
-      "points": 77,
+      "commits": 32,
+      "prs_opened": 32,
+      "prs_merged": 30,
+      "points": 94,
       "displayname": "Pranav P"
     },
     {
       "username": "awindsr",
-      "commits": 3,
-      "prs_opened": 2,
-      "prs_merged": 2,
-      "points": 7,
+      "commits": 21,
+      "prs_opened": 7,
+      "prs_merged": 6,
+      "points": 34,
       "displayname": "Awindsr"
+    },
+    {
+      "username": "alvin-dennis",
+      "commits": 10,
+      "prs_opened": 8,
+      "prs_merged": 6,
+      "points": 24,
+      "displayname": "Alvin Dennis"
+    },
+    {
+      "username": "GokulShaji2005",
+      "commits": 6,
+      "prs_opened": 6,
+      "prs_merged": 1,
+      "points": 13,
+      "displayname": "Gokul Shaji"
+    },
+    {
+      "username": "sachin-raj-m",
+      "commits": 9,
+      "prs_opened": 0,
+      "prs_merged": 0,
+      "points": 9,
+      "displayname": "Sachin Raj"
     },
     {
       "username": "irfanfarisf",
@@ -139,30 +163,6 @@
       "prs_merged": 1,
       "points": 4,
       "displayname": "Prince Sheji varghese"
-    },
-    {
-      "username": "jumanajalal",
-      "commits": 1,
-      "prs_opened": 2,
-      "prs_merged": 1,
-      "points": 4,
-      "displayname": "Jumana Jalal"
-    },
-    {
-      "username": "krishnapriya609",
-      "commits": 1,
-      "prs_opened": 2,
-      "prs_merged": 1,
-      "points": 4,
-      "displayname": "Krishnapriya"
-    },
-    {
-      "username": "eldhoseabrahamemerson",
-      "commits": 1,
-      "prs_opened": 1,
-      "prs_merged": 1,
-      "points": 3,
-      "displayname": "Eldhose Abraham Emerson"
     }
   ]
 }
