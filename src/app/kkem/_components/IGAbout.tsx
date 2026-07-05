@@ -13,11 +13,17 @@ const slideInRight: Variants = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.42, 0, 0.58, 1] } },
 };
 
+const curators = [
+  { src: cdnUrl("src/modules/Public/KKEM/assets/im7.webp"), alt: "Curator" },
+  { src: cdnUrl("src/modules/Public/KKEM/assets/im9.webp"), alt: "Curator" },
+  { src: cdnUrl("src/modules/Public/KKEM/assets/im10.webp"), alt: "Curator" },
+];
+
 export default function IGAbout() {
   return (
     <section
       id="about"
-      className="px-12 py-12 flex flex-col lg:flex-row items-center justify-between lg:gap-8"
+      className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-12"
     >
       <MotionDiv
         className="flex-1"
@@ -26,12 +32,12 @@ export default function IGAbout() {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <h1 className="mb-12">
-          <span className="text-mulearn">μLearn </span>
-          Interest Groups
+        <h1 className="text-4xl md:text-5xl">
+          <span className="text-mulearn">μLearn</span> Interest Groups
         </h1>
+
         <MotionP
-          className="text-mulearn-blackish text-lg lg:text-xl leading-[127.5%] max-w-200 mt-8"
+          className="mt-6 max-w-md text-base leading-relaxed text-mulearn-gray-600 md:text-lg"
           variants={slideInLeft}
           initial="hidden"
           whileInView="visible"
@@ -41,77 +47,52 @@ export default function IGAbout() {
           transformative learning journey.
         </MotionP>
         <MotionP
-          className="text-mulearn-blackish text-lg lg:text-xl leading-[127.5%] max-w-200 mt-4"
+          className="mt-4 max-w-md text-base leading-relaxed text-mulearn-gray-600 md:text-lg"
           variants={slideInLeft}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
           Join our vibrant community of students and explore a wide range of interest areas, from
-          coding to design, entrepreneurship to data science
+          coding to design, entrepreneurship to data science.
         </MotionP>
+
+        <p className="mt-10 text-xs font-bold uppercase tracking-widest text-mulearn-blackish">
+          Curated by
+        </p>
+        <div className="mt-4 flex items-center gap-3">
+          <div className="flex items-center -space-x-2">
+            {curators.map((curator, index) => (
+              <MuImage
+                // biome-ignore lint/suspicious/noArrayIndexKey: static curator avatars
+                key={index}
+                src={curator.src}
+                alt={curator.alt}
+                width={40}
+                height={40}
+                className="size-10 rounded-full object-cover ring-2 ring-background"
+              />
+            ))}
+          </div>
+          <span className="text-sm text-mulearn-gray-600">and more…</span>
+        </div>
       </MotionDiv>
 
       <MotionDiv
-        className="flex-1 flex flex-col items-center justify-center mt-12 lg:mt-0"
+        className="flex w-full flex-1 items-center justify-center lg:justify-end"
         variants={slideInRight}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <MotionDiv
-          variants={slideInRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <MuImage
-            src="assets/kkem/kkem-hero.svg"
-            alt="Interest Group"
-            width={400}
-            height={400}
-            className="mb-6"
-          />
-        </MotionDiv>
-        <MotionP
-          className="text-lg lg:text-[1.35rem] font-medium leading-[127.5%] max-w-[60vmax] mb-4"
-          variants={slideInRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          Curated by
-        </MotionP>
-        <MotionDiv
-          className="flex items-center justify-between gap-8"
-          variants={slideInRight}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <MuImage
-            src={cdnUrl("src/modules/Public/KKEM/assets/im7.webp")}
-            alt="Curator 1"
-            width={56}
-            height={56}
-            className="rounded-full object-cover shadow-md p-2"
-          />
-          <MuImage
-            src={cdnUrl("src/modules/Public/KKEM/assets/im9.webp")}
-            alt="Curator 2"
-            width={56}
-            height={56}
-            className="rounded-full object-cover shadow-md p-2"
-          />
-          <MuImage
-            src={cdnUrl("src/modules/Public/KKEM/assets/im10.webp")}
-            alt="Curator 3"
-            width={56}
-            height={56}
-            className="rounded-full object-cover shadow-md p-2"
-          />
-          <p>and more...</p>
-        </MotionDiv>
+        <MuImage
+          src="/assets/kkem/kkem-hero.svg"
+          alt="Illustration of a team collaborating"
+          width={560}
+          height={440}
+          priority
+          className="h-auto w-full max-w-xl"
+        />
       </MotionDiv>
     </section>
   );

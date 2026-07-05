@@ -6,7 +6,7 @@ export const kkem = {
       name: "GTA: SandShores",
       code: "gtas",
       description:
-        "After Codestorm get ready for an exhilarating journey with GTA: SandShore Hackathon💫",
+        "After Codestorm get ready for an exhilarating journey with GTA: SandShore Hackathon.",
       image: cdnUrl("src/modules/Public/KKEM/assets/past_events/gtas.webp"),
       link: "https://gta.mulearn.org",
       date: "14th and 15th October",
@@ -21,10 +21,10 @@ export const kkem = {
       date: "7th August 2023",
     },
     {
-      name: "GTA:CodeStorm",
+      name: "GTA: CodeStorm",
       code: "gtac",
       description:
-        "Gear up for CodeStorm — the first hackathon of the Grand Tech Adventure Series. 🚀",
+        "Gear up for CodeStorm — the first hackathon of the Grand Tech Adventure Series.",
       image: cdnUrl("src/modules/Public/KKEM/assets/past_events/gtac.webp"),
       link: "https://gta.mulearn.org/codestorm",
       date: "19th and 20th August",
@@ -33,7 +33,7 @@ export const kkem = {
       name: "Beyond Us Hackathon",
       code: "buh",
       description:
-        "Create impressive projects from scratch and explore the limitless universe — Beyond Us ✨",
+        "Create impressive projects from scratch and explore the limitless universe — Beyond Us.",
       image: cdnUrl("src/modules/Public/KKEM/assets/past_events/buh.webp"),
       link: "https://mulearn.org/events/beyondus",
       date: "8th and 9th July 2023",
