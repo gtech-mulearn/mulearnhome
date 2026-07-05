@@ -1,36 +1,41 @@
-import { YouTubeEmbed } from "@next/third-parties/google";
+import { VideoFacade } from "@/components/VideoFacade";
 import { artOfTeachingUrls } from "@/data/events";
+
+const prizeBadge = ["bg-category-amber", "bg-mulearn-blackish", "bg-category-purple"];
 
 const Archives = () => {
   return (
-    <div className="px-8 py-8 bg-mulearn-whitish">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-8">
-          <h2 className="text-4xl lg:text-6xl font-semibold text-mulearn-blackish leading-tight mb-4">
-            Art of Teaching <span className="text-mulearn">Archives</span>
-          </h2>
-          <p className="text-base lg:text-lg text-mulearn-gray-600 lg:w-2/5">
-            Take a look at the top submissions by the teachers from the first edition of The Art of
-            Teaching.
-          </p>
-        </div>
+    <section>
+      <h2>
+        Art of Teaching <span className="text-category-pink">Archives</span>
+      </h2>
+      <p className="mt-3 max-w-2xl text-base leading-relaxed text-mulearn-gray-600">
+        Take a look at the top submissions by the teachers from the first edition of The Art of
+        Teaching.
+      </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {artOfTeachingUrls.archives.map((videoUrl) => (
-            <div key={videoUrl} className="relative w-full rounded-lg overflow-hidden aspect-video">
-              <div className="absolute top-0 left-0 w-full h-full">
-                <YouTubeEmbed
-                  videoid={videoUrl}
-                  style="border-none"
-                  playlabel="true"
-                  params="disablekb=1&enablejsapi=1&playsinline=1"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+      <ul className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        {artOfTeachingUrls.archives.map((archive, index) => (
+          <li key={archive.videoId}>
+            <VideoFacade
+              videoId={archive.videoId}
+              title={`${archive.name} — ${archive.prize}`}
+              className="aspect-video w-full rounded-2xl"
+            >
+              <span
+                className={`pointer-events-none absolute left-3 top-3 rounded-full px-3 py-1 text-xs font-bold text-mulearn-whitish ${
+                  prizeBadge[index % prizeBadge.length]
+                }`}
+              >
+                {archive.prize}
+              </span>
+            </VideoFacade>
+            <h3 className="mt-4 text-base font-bold text-mulearn-blackish">{archive.name}</h3>
+            <p className="mt-1 text-sm text-mulearn-gray-600">{archive.college}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 };
 

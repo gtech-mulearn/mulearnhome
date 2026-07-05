@@ -1,53 +1,64 @@
+import { Linkedin } from "lucide-react";
 import Link from "next/link";
-import { FaLinkedin } from "react-icons/fa";
-import MuImage from "@/components/MuImage";
-import { Card, CardContent } from "@/components/ui/card";
-import { cdnUrl } from "@/services/cdn";
+import { cn } from "@/lib/utils";
+
+export type MentorAccent = "blue" | "purple" | "amber";
 
 interface MentorCardProps {
   name: string;
   designation: string;
-  image?: string;
   linkedIn?: string;
+  accent: MentorAccent;
 }
 
-const MentorCard = ({ name, designation, image, linkedIn }: MentorCardProps) => {
-  const fallbackImage = cdnUrl("public/assets/team/default.webp");
-  // const mentorImage = image ? image : fallbackImage;
-  const mentorImage = image ? fallbackImage : undefined;
+const accentStyles: Record<MentorAccent, { card: string; avatar: string }> = {
+  blue: { card: "bg-mulearn/5", avatar: "bg-mulearn" },
+  purple: { card: "bg-category-purple/10", avatar: "bg-category-purple" },
+  amber: { card: "bg-category-amber/10", avatar: "bg-category-amber" },
+};
+
+/** Honorific-aware initials: "Dr T M George" -> "TG", "Ann Andrews" -> "AA". */
+const honorifics = new Set(["dr", "mr", "mrs", "ms", "prof"]);
+function getInitials(name: string) {
+  const parts = name
+    .split(/\s+/)
+    .filter((word) => !honorifics.has(word.toLowerCase().replace(/\.$/, "")));
+  if (parts.length === 0) return name.slice(0, 2).toUpperCase();
+  const first = parts[0][0];
+  const last = parts[parts.length - 1][0];
+  return `${first}${last}`.toUpperCase();
+}
+
+const MentorCard = ({ name, designation, linkedIn, accent }: MentorCardProps) => {
+  const styles = accentStyles[accent];
 
   return (
-    <Card className="mx-auto mt-4 max-w-sm w-full h-full overflow-hidden border-mulearn/10 hover:border-mulearn/30 transition-all duration-300 hover:shadow-lg">
-      <CardContent className="flex flex-col items-center text-center pt-6 pb-6">
-        {mentorImage && (
-          <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden bg-gradient-to-br from-mulearn/20 to-mulearn/5 ring-2 ring-mulearn/20 mb-4 transition-all">
-            <MuImage
-              src={mentorImage}
-              alt={`${name} profile`}
-              width={144}
-              height={144}
-              className="object-cover w-full h-full"
-              loading="lazy"
-            />
-          </div>
+    <div className={cn("flex flex-col items-center rounded-2xl p-8 text-center", styles.card)}>
+      <div
+        className={cn(
+          "flex size-14 items-center justify-center rounded-full text-lg font-bold text-mulearn-whitish",
+          styles.avatar,
         )}
+      >
+        {getInitials(name)}
+      </div>
 
-        <h3 className="text-xl font-semibold text-mulearn-blackish mb-3">{name}</h3>
+      <h3 className="mt-4 text-base font-bold text-mulearn-blackish">{name}</h3>
 
-        {linkedIn && linkedIn !== "" && (
-          <Link
-            href={linkedIn}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mb-3 inline-block"
-          >
-            <FaLinkedin className="w-7 h-7 text-mulearn-trusty-blue hover:scale-110 transition-transform duration-300 hover:opacity-80" />
-          </Link>
-        )}
+      {linkedIn ? (
+        <Link
+          href={linkedIn}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${name} on LinkedIn`}
+          className="mt-2 inline-flex text-mulearn-trusty-blue transition-opacity hover:opacity-80"
+        >
+          <Linkedin className="size-5" />
+        </Link>
+      ) : null}
 
-        <p className="text-sm text-mulearn-gray-600 leading-relaxed px-4">{designation}</p>
-      </CardContent>
-    </Card>
+      <p className="mt-3 text-sm leading-relaxed text-mulearn-gray-600">{designation}</p>
+    </div>
   );
 };
 

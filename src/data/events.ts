@@ -199,10 +199,29 @@ export const artOfTeachingMentors = [
 ];
 
 export const artOfTeachingUrls = {
-  mainVideo: "https://www.youtube.com/embed/r5izRx-4j68?si=L9gHSznyZTeCI3b3",
-  firstEdition: "vPLuA5kXoBI",
-  archives: ["Wmo0StqW9Kc", "TEylubYDzhQ", "jRcseEVk2sk"],
+  recapVideoId: "r5izRx-4j68",
+  firstEditionVideoId: "vPLuA5kXoBI",
   registerNow: "https://airtable.com/appopz4GXqkTszuJ7/pagmodllXiRWsjhXi/form",
+  archives: [
+    {
+      videoId: "Wmo0StqW9Kc",
+      name: "Tony Varghese",
+      college: "Amal Jyothi College of Engineering",
+      prize: "1st Prize",
+    },
+    {
+      videoId: "TEylubYDzhQ",
+      name: "Anuroop K B",
+      college: "Adi Shankara Institute of Engg and Technology",
+      prize: "2nd Prize",
+    },
+    {
+      videoId: "jRcseEVk2sk",
+      name: "Divya Mohanan",
+      college: "MES College of Engineering, Kuttippuram",
+      prize: "3rd Prize",
+    },
+  ],
 };
 
 export const yip = [

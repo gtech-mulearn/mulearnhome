@@ -1,4 +1,6 @@
+import { ArrowUpRight, Asterisk, Plus } from "lucide-react";
 import Link from "next/link";
+import { AnimatedNumber } from "@/components/AnimatedNumber";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
 import { artOfTeachingUrls } from "@/data/events";
@@ -8,60 +10,65 @@ const Hero = () => {
   const teachingGif = cdnUrl("/src/modules/Public/ArtOfTeaching/assets/Teaching.gif");
 
   return (
-    <div className="px-8 py-8 lg:px-12 lg:py-12">
-      <div className="flex flex-col-reverse lg:flex-row items-center p-4 justify-between max-w-7xl mx-auto">
-        <div className="text-center  lg:text-left lg:w-1/2">
-          <h1 className="text-5xl lg:text-7xl font-semibold text-mulearn-blackish leading-tight">
-            <span className="text-mulearn">µLearn Art</span> of Teaching 4.0
-          </h1>
-          <p className="mt-2 text-base lg:text-lg text-mulearn-gray-600 lg:w-4/5">
-            µLearn is returning with Art of Teaching to pay tribute to educators who shape the next
-            generation.
-          </p>
+    <section className="relative">
+      <Asterisk aria-hidden className="absolute left-0 top-0 size-8 text-mulearn-trusty-blue" />
+      <Plus aria-hidden className="absolute right-0 top-2 size-6 text-category-amber" />
 
-          <div className="flex flex-col justify-center lg:justify-start items-center lg:items-start gap-2 mt-2 w-full ">
-            <Link href={artOfTeachingUrls.registerNow} className="no-underline w-full">
-              <Button
-                variant={"default"}
-                className="w-full px-6 py-3 text-center font-bold mt-4 transition-colors"
-              >
-                Register Now
-              </Button>
+      <div className="mx-auto max-w-2xl text-center">
+        <h1 className="text-4xl font-black leading-tight md:text-6xl">
+          µLearn<br></br>
+          <span className="text-mulearn"> Art of Teaching 4.0</span>
+        </h1>
+        <p className="mx-auto mt-4 max-w-md text-base text-mulearn-gray-600 md:text-lg">
+          µLearn is returning with Art of Teaching to pay tribute to educators who shape the next
+          generation.
+        </p>
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <Button asChild>
+            <Link href={artOfTeachingUrls.registerNow} target="_blank" rel="noopener noreferrer">
+              Register Now
+              <ArrowUpRight />
             </Link>
-
-            <div className="flex flex-row justify-center items-center gap-2 mt-2 w-full">
-              <Link href="/enablers" className="flex-1">
-                <Button
-                  variant={"outline"}
-                  className="w-full px-6 py-2 font-bold transition-colors"
-                >
-                  Enablers
-                </Button>
-              </Link>
-              <Link href="/" className="flex-1">
-                <Button
-                  variant={"outline"}
-                  className="w-full px-6 py-2 font-bold transition-colors"
-                >
-                  µlearn
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="lg:w-1/2 flex justify-center lg:justify-end">
-          <MuImage
-            src={teachingGif}
-            alt="Art of Teaching Illustration"
-            width={400}
-            height={400}
-            className="w-72 lg:w-[28rem] h-auto"
-            unoptimized
-          />
+          </Button>
+          <Button asChild variant="outline">
+            <Link href="/enablers">Enablers</Link>
+          </Button>
+          <Button asChild variant="outline">
+            <Link href="/">µlearn</Link>
+          </Button>
         </div>
       </div>
-    </div>
+
+      <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3">
+        <li className="flex h-56 flex-col justify-end rounded-2xl bg-mulearn p-5 sm:h-80 sm:p-6 lg:h-96">
+          <span className="text-3xl font-black text-mulearn-whitish sm:text-4xl">4.0</span>
+          <span className="mt-1 text-sm font-semibold text-mulearn-whitish/90 sm:text-base">
+            Lessons of The Future
+          </span>
+        </li>
+        <li className="relative order-first col-span-2 h-56 sm:order-0 sm:col-span-1 sm:h-80 lg:h-96">
+          <MuImage
+            src={teachingGif}
+            alt="Art of Teaching illustration"
+            fill
+            sizes="(max-width: 640px) 100vw, 33vw"
+            className="object-contain"
+            unoptimized
+          />
+        </li>
+        <li className="flex h-56 flex-col justify-end rounded-2xl bg-category-purple p-5 sm:h-80 sm:p-6 lg:h-96">
+          <AnimatedNumber
+            value={100}
+            suffix="+"
+            className="text-3xl font-black text-mulearn-whitish sm:text-4xl"
+          />
+          <span className="mt-1 text-sm font-semibold text-mulearn-whitish/90 sm:text-base">
+            Entries Received
+          </span>
+        </li>
+      </ul>
+    </section>
   );
 };
 
