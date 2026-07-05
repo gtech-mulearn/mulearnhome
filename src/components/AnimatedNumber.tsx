@@ -9,6 +9,8 @@ interface AnimatedNumberProps {
   suffix?: string;
   duration?: number;
   className?: string;
+  /** Thousands separator, e.g. "," to render 1222 as 1,222. */
+  separator?: string;
   /**
    * Trigger the count-up when scrolled into view. Use for below-the-fold
    * stats. Leave off (default) for above-the-fold stats — scroll-spy will not
@@ -29,6 +31,7 @@ export function AnimatedNumber({
   suffix,
   duration = 2,
   className,
+  separator,
   scrollSpy = false,
 }: AnimatedNumberProps) {
   const shouldReduceMotion = useReducedMotion();
@@ -37,7 +40,7 @@ export function AnimatedNumber({
     return (
       <span className={className}>
         {prefix}
-        {value}
+        {separator ? value.toLocaleString("en-US") : value}
         {suffix}
       </span>
     );
@@ -49,6 +52,7 @@ export function AnimatedNumber({
       duration={duration}
       prefix={prefix}
       suffix={suffix}
+      separator={separator}
       enableScrollSpy={scrollSpy}
       scrollSpyOnce={scrollSpy}
       className={className}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import CountUp from "react-countup";
+import { AnimatedNumber } from "@/components/AnimatedNumber";
 import type { Counts } from "@/lib/types";
 
 export default function CareersStats() {
@@ -26,29 +26,26 @@ export default function CareersStats() {
 
   const companyCount =
     counts?.org_type_counts?.find((o) => o.org_type === "Company")?.org_count ?? 100;
-  const hiredCandidates = 1222; // Hardcoded count of hired candidates
-  const hiringCalls = 233; // Hardcoded count of hiring calls
+
+  const stats = [
+    { value: 1222, label: "Hired Candidates" },
+    { value: companyCount, label: "Companies" },
+    { value: 233, label: "Hiring Calls" },
+  ];
 
   return (
-    <div className="mt-4 sm:mt-6 flex flex-wrap justify-center lg:justify-start gap-6">
-      <div className="flex flex-col items-center lg:items-start">
-        <span className="text-[1.6rem] md:text-[2rem] font-semibold text-mulearn">
-          <CountUp end={hiredCandidates} duration={2.5} separator="," />+
-        </span>
-        <span className="text-base">Hired Candidates</span>
-      </div>
-      <div className="flex flex-col items-center lg:items-start">
-        <span className="text-[1.6rem] md:text-[2rem] font-semibold text-mulearn">
-          <CountUp end={companyCount} duration={2.5} separator="," />+
-        </span>
-        <span className="text-base">Companies</span>
-      </div>
-      <div className="flex flex-col items-center lg:items-start">
-        <span className="text-[1.6rem] md:text-[2rem] font-semibold text-mulearn">
-          <CountUp end={hiringCalls} duration={2.5} separator="," />+
-        </span>
-        <span className="text-base">Hiring Calls</span>
-      </div>
+    <div className="mt-6 flex flex-wrap justify-center gap-8 lg:justify-start">
+      {stats.map((stat) => (
+        <div key={stat.label} className="flex flex-col items-center lg:items-start">
+          <AnimatedNumber
+            value={stat.value}
+            suffix="+"
+            separator=","
+            className="text-3xl font-black text-mulearn"
+          />
+          <span className="text-sm text-mulearn-gray-600">{stat.label}</span>
+        </div>
+      ))}
     </div>
   );
 }

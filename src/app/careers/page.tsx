@@ -6,12 +6,21 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import CareersCard from "@/app/careers/_components/CareersCard";
 import CareersStats from "@/app/careers/_components/CareersStats";
-import ClosedCareersCard from "@/app/careers/_components/ClosedCareersCard";
+import { PageContainer } from "@/components/layout/PageContainer";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
 import LogoLoop from "@/components/ui/LogoLoop";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { companies } from "@/data/company";
 import type { Company, NewHiringRole, PreviousHiringRole } from "@/lib/types";
+import { cn } from "@/lib/utils";
 import { cdnUrl } from "@/services/cdn";
 
 export default function Careers() {
@@ -81,43 +90,41 @@ export default function Careers() {
   };
 
   return (
-    <div className="min-h-screen">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center">
-          <div className="text-center lg:text-left">
-            <h2 className="text-5xl sm:text-5xl lg:text-7xl font-semibold mb-5 sm:mb-12 text-mulearn-blackish">
-              µLearn <span className="text-mulearn">Career Labs</span>
-            </h2>
+    <PageContainer>
+      {/* Hero */}
+      <section className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="text-center lg:text-left">
+          <h1 className="text-4xl font-black sm:text-5xl lg:text-6xl">
+            µLearn <span className="text-mulearn">Career Labs</span>
+          </h1>
+          <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-mulearn-gray-600 lg:mx-0">
+            In search of a job opportunity / internship? µLearn Career Labs helps you connect with
+            opportunities from the industry.
+          </p>
 
-            <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-mulearn-gray-600 mb-6 sm:mb-8">
-              In search of a job opportunity / internship? µLearn Career Labs helps you connect with
-              opportunities from the industry.
-            </p>
+          <CareersStats />
 
-            <CareersStats />
-            <div className="mt-8 flex justify-center lg:justify-start">
-              <Link href="/contact?intent=hiring#get-in-touch">
-                <Button size="lg" className="text-base font-semibold">
-                  Post your job openings
-                </Button>
-              </Link>
-            </div>
-          </div>
-
-          <div className="flex justify-center lg:justify-end mt-6 lg:mt-0">
-            <MuImage
-              src="/assets/career/career-hero.svg"
-              alt="μLearn Career Illustration"
-              width={400}
-              height={400}
-              className="w-49 sm:w-64 md:w-72 lg:w-80 h-auto rounded-2xl object-cover"
-              preload
-            />
+          <div className="mt-8 flex justify-center lg:justify-start">
+            <Button asChild size="lg">
+              <Link href="/contact?intent=hiring#get-in-touch">Post your job openings</Link>
+            </Button>
           </div>
         </div>
-      </div>
 
-      <div className="mb-4 mt-12 flex flex-nowrap overflow-x-auto">
+        <div className="flex justify-center lg:justify-end">
+          <MuImage
+            src="/assets/career/career-hero.svg"
+            alt="Illustration of a job search with a magnifying glass"
+            width={520}
+            height={400}
+            priority
+            className="h-auto w-full max-w-md"
+          />
+        </div>
+      </section>
+
+      {/* Company marquee */}
+      <section aria-label="Hiring partners" className="overflow-hidden">
         <LogoLoop
           logos={companyData.map((company) => ({
             ...company,
@@ -133,123 +140,139 @@ export default function Careers() {
           fadeOutColor="#ffffff"
           ariaLabel="Career partners"
         />
-      </div>
+      </section>
 
-      {newHiring && newHiring.length > 0 && (
-        <div className="mx-auto mt-30 block max-w-[1300px]">
-          <div className="m-8">
-            <h2 className="mt-8 text-center text-mulearn">New Hiring Calls</h2>
-            <p className="mx-auto mb-4 block max-w-[40rem] text-center text-base">
-              Unlock your potential and accelerate your career growth with the endless opportunities
-              available on Career Labs
-            </p>
-            <div className="mt-8 flex flex-row flex-wrap items-stretch justify-around gap-4">
-              {newHiring.map((role) => (
-                <CareersCard
-                  key={role.role}
-                  logo={role.logo}
-                  role={role.role}
-                  remuneration={role.remuneration}
-                  vacancies={role.vacancies}
-                  location={role.location}
-                  lastdate={role.lastdate}
-                  applylink={role.applylink}
-                  jdlink={role.jdlink}
-                  duration={role.duration}
-                  extraField={role.extrafieldname}
-                  extraContent={role.extrafieldvalue}
-                  extraButton={role.extrafieldlink}
-                  organization={role.organization}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div id="previous-hiring" className="mx-auto mt-30 block max-w-[1300px]">
-        <div className="m-8">
-          <h2 className="mt-8 text-center text-mulearn">Previous Hiring Calls</h2>
-          <p className="mx-auto mb-4 block max-w-[40rem] text-center text-base">
-            Listed below are the list of hiring calls that were announced through career labs
-            previously.
+      {/* New hiring calls */}
+      {newHiring.length > 0 && (
+        <section>
+          <h2>New Hiring Calls</h2>
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-mulearn-gray-600">
+            Unlock your potential and accelerate your career growth with the endless opportunities
+            available on Career Labs.
           </p>
 
-          <div className="mt-8 flex flex-row flex-wrap items-stretch justify-around gap-4">
-            {currentItems.map((role) => {
-              return (
-                <ClosedCareersCard
-                  key={`${role.title}-${role.location}-${role.company}`}
-                  title={role.title}
-                  qualifications={role.qualifications}
-                  date={role.date}
+          <ul className="mt-10 grid grid-cols-1 md:grid-cols-2">
+            {newHiring.map((role, index) => (
+              <li
+                key={`${role.organization}-${role.role}-${index}`}
+                className={cn(
+                  "border-b border-border py-6 last:border-b-0",
+                  "md:odd:border-r md:odd:pr-10 md:even:pl-10",
+                  "md:nth-last-[-n+2]:border-b-0",
+                )}
+              >
+                <CareersCard
+                  organization={role.organization}
                   role={role.role}
-                  remuneration={role.remuneration}
                   location={role.location}
-                  duration={role.duration}
-                  organization={role.company}
+                  lastdate={role.lastdate}
+                  jdlink={role.jdlink}
+                  applylink={role.applylink}
+                  index={index}
                 />
-              );
-            })}
-          </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
-          {totalPages > 1 && (
-            <div className="mt-12 mb-8">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button
-                  variant="outline"
-                  onClick={goToPrevious}
-                  disabled={currentPage === 1}
-                  className="flex items-center gap-2 px-4 py-2"
-                  aria-label="Previous page"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                  <span className="text-sm font-medium">Previous</span>
-                </Button>
+      {/* Previous hiring calls */}
+      <section id="previous-hiring">
+        <h2>Previous Hiring Calls</h2>
+        <p className="mt-3 max-w-xl text-base leading-relaxed text-mulearn-gray-600">
+          Listed below are the list of hiring calls that were announced through career labs
+          previously.
+        </p>
 
-                <div className="flex items-center gap-2">
-                  {getPageNumbers().map((item) => {
-                    if (item.type === "ellipsis" || item.number === undefined) {
-                      return (
-                        <span key={item.key} className="px-2 text-mulearn-gray-600">
-                          ...
-                        </span>
-                      );
-                    }
-                    const pageNumber = item.number;
-                    return (
-                      <Button
-                        variant={currentPage === pageNumber ? "default" : "secondary"}
-                        key={item.key}
-                        onClick={() => goToPage(pageNumber)}
-                        className="w-10 h-10 text-sm font-medium"
-                        aria-label={`Go to page ${pageNumber}`}
-                        aria-current={currentPage === pageNumber ? "page" : undefined}
-                      >
-                        {pageNumber}
-                      </Button>
-                    );
-                  })}
-                </div>
-                <Button
-                  variant="outline"
-                  onClick={goToNext}
-                  disabled={currentPage === totalPages}
-                  className="flex items-center gap-2 px-4 py-2"
-                  aria-label="Next page"
-                >
-                  <span className="text-sm font-medium">Next</span>
-                  <ChevronRight className="w-5 h-5" />
-                </Button>
-              </div>
-              <p className="mt-4 text-center text-sm text-mulearn-gray-600">
-                Showing {startIndex + 1}-{Math.min(endIndex, previousHiring.length)} of{" "}
-                {previousHiring.length} positions
-              </p>
-            </div>
-          )}
+        <div className="mt-8">
+          <Table>
+            <TableHeader className="sr-only">
+              <TableRow>
+                <TableHead>Company</TableHead>
+                <TableHead>Role</TableHead>
+                <TableHead>Location</TableHead>
+                <TableHead>Closed date</TableHead>
+                <TableHead>Status</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody className="[&_td:first-child]:pl-0 [&_td:last-child]:pr-0 [&_td]:px-3 [&_td]:py-4">
+              {currentItems.map((role, index) => (
+                <TableRow key={`${role.company}-${role.role}-${startIndex + index}`}>
+                  <TableCell className="font-bold text-mulearn-blackish">{role.company}</TableCell>
+                  <TableCell className="text-mulearn-gray-600">{role.role ?? role.title}</TableCell>
+                  <TableCell className="text-mulearn-gray-600">{role.location}</TableCell>
+                  <TableCell className="whitespace-nowrap text-mulearn-gray-600">
+                    {role.date ? `Closed ${role.date}` : "Closed"}
+                  </TableCell>
+                  <TableCell className="text-right font-semibold text-destructive">
+                    Closed
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
         </div>
-      </div>
-    </div>
+
+        {totalPages > 1 && (
+          <nav
+            aria-label="Previous hiring calls pagination"
+            className="mt-10 flex flex-col items-center gap-3"
+          >
+            <div className="flex items-center gap-1 text-sm">
+              <button
+                type="button"
+                onClick={goToPrevious}
+                disabled={currentPage === 1}
+                className="inline-flex items-center gap-1 px-2 py-1 text-mulearn-gray-600 hover:text-mulearn-blackish disabled:opacity-40"
+              >
+                <ChevronLeft className="size-4" />
+                Previous
+              </button>
+
+              {getPageNumbers().map((item) => {
+                if (item.type === "ellipsis" || item.number === undefined) {
+                  return (
+                    <span key={item.key} className="px-2 text-mulearn-gray-600">
+                      …
+                    </span>
+                  );
+                }
+                const pageNumber = item.number;
+                return (
+                  <button
+                    key={item.key}
+                    type="button"
+                    onClick={() => goToPage(pageNumber)}
+                    aria-current={currentPage === pageNumber ? "page" : undefined}
+                    className={cn(
+                      "inline-flex size-8 items-center justify-center rounded-md text-sm",
+                      currentPage === pageNumber
+                        ? "bg-mulearn font-semibold text-mulearn-whitish"
+                        : "text-mulearn-gray-600 hover:text-mulearn-blackish",
+                    )}
+                  >
+                    {pageNumber}
+                  </button>
+                );
+              })}
+
+              <button
+                type="button"
+                onClick={goToNext}
+                disabled={currentPage === totalPages}
+                className="inline-flex items-center gap-1 px-2 py-1 text-mulearn-gray-600 hover:text-mulearn-blackish disabled:opacity-40"
+              >
+                Next
+                <ChevronRight className="size-4" />
+              </button>
+            </div>
+            <p className="text-xs text-mulearn-gray-600">
+              Showing {startIndex + 1}–{Math.min(endIndex, previousHiring.length)} of{" "}
+              {previousHiring.length} positions
+            </p>
+          </nav>
+        )}
+      </section>
+    </PageContainer>
   );
 }
