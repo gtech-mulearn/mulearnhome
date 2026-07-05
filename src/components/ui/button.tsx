@@ -10,13 +10,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-mulearn text-mulearn-whitish border border-mulearn shadow-[inset_0px_6px_11px_0px_rgba(255,255,255,0.33),inset_0px_-6px_17px_0px_rgba(0,0,0,0.18),0px_4px_7px_0px_rgba(0,0,0,0.18)] hover:opacity-95 rounded-full font-sans",
+          "bg-mulearn text-mulearn-whitish rounded-full font-semibold shadow-sm hover:bg-mulearn/90 active:bg-mulearn hover:shadow-md",
         destructive:
-          "bg-destructive text-mulearn-whitish hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "bg-destructive text-mulearn-whitish rounded-full font-semibold hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
-          "border-2 border-mulearn-trusty-blue text-mulearn-trusty-blue hover:bg-linear-to-r hover:bg-mulearn-trusty-blue hover:text-mulearn-whitish font-bold cursor-pointer   transition-all duration-300",
+          "bg-background text-foreground border border-border rounded-full font-semibold shadow-sm hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "bg-mulearn-greyish text-mulearn-blackish hover:bg-mulearn-blackish/30 border border-mulearn-greyish transition-all duration-300 font-bold cursor-pointer",
+          "bg-muted text-foreground border border-border rounded-full font-semibold hover:bg-accent hover:text-accent-foreground",
         ghost:
           "text-transparent bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple bg-clip-text hover:bg-[var(--mulearn-trusty-blue)]/10 transition-all font-bold cursor-pointer duration-300",
         link: "text-primary underline-offset-4 hover:underline",
@@ -31,9 +31,9 @@ const buttonVariants = cva(
           "bg-linear-to-r from-mulearn-trusty-blue to-mulearn-duke-purple text-mulearn-whitish hover:from-[var(--mulearn-trusty-blue)] hover:to-[var(--mulearn-duke-purple)] shadow-lg hover:shadow-2xl  transition-all duration-300 font-bold cursor-pointer ",
       },
       size: {
-        default: "h-9 px-4 py-2 has-[>svg]:px-3",
-        sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
+        default: "h-9 px-5 py-2 has-[>svg]:px-4",
+        sm: "h-8 gap-1.5 px-4 has-[>svg]:px-3",
+        lg: "h-12 px-8 text-base has-[>svg]:px-6",
         icon: "size-12",
         "icon-sm": "size-10",
         "icon-lg": "size-12",

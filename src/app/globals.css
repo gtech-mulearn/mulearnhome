@@ -12,6 +12,13 @@
     --mulearn-blackish: #1a1a1a;
     --mulearn-whitish: #fefefe;
     --mulearn-gray-600: #666771;
+    /* Categorical accent palette (per-category icon chips + links) */
+    --category-blue: var(--mulearn-trusty-blue);
+    --category-purple: var(--mulearn-duke-purple);
+    --category-slate: var(--mulearn-blackish);
+    --category-teal: #10b981;
+    --category-amber: #f59e0b;
+    --category-pink: #ec4899;
     --radius: 0.625rem;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
@@ -190,6 +197,13 @@ h5 {
     --color-mulearn-blackish: var(--mulearn-blackish);
     --color-mulearn-whitish: var(--mulearn-whitish);
     --color-mulearn-gray-600: var(--mulearn-gray-600);
+    /* Categorical accent tokens */
+    --color-category-blue: var(--category-blue);
+    --color-category-purple: var(--category-purple);
+    --color-category-teal: var(--category-teal);
+    --color-category-amber: var(--category-amber);
+    --color-category-pink: var(--category-pink);
+    --color-category-slate: var(--category-slate);
     --color-sidebar: var(--sidebar);
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar-primary: var(--sidebar-primary);
