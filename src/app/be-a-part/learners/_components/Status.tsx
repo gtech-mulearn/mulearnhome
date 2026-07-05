@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import CountUp from "react-countup";
-import { MotionDiv } from "@/components/MuFramer";
+import { AnimatedNumber } from "@/components/AnimatedNumber";
 import type { Counts } from "@/lib/types";
 
 const LearnersStatus = () => {
@@ -17,7 +16,6 @@ const LearnersStatus = () => {
       const handleMessage = (event: MessageEvent) => {
         setCounts(JSON.parse(event.data) as Counts);
       };
-
       const handleError = (event: Event) => {
         console.error("WebSocket error:", event);
       };
@@ -34,72 +32,26 @@ const LearnersStatus = () => {
     }
   }, []);
 
-  // Format number to display with K+ suffix
-  const formatNumber = (num: number): string => {
-    if (num >= 1000) {
-      const thousands = Math.floor(num / 1000);
-      const decimal = Math.floor((num % 1000) / 100);
-      return decimal > 0 ? `${thousands}.${decimal}K+` : `${thousands}K+`;
-    }
-    return `${num}+`;
-  };
-
-  const stats = counts
-    ? [
-        {
-          number: counts.members,
-          displayNumber: formatNumber(counts.members),
-          label: "Active Learners",
-        },
-        {
-          number: counts.ig_count,
-          displayNumber: `${counts.ig_count}+`,
-          label: "Skill Tracks",
-        },
-        {
-          number: 2500,
-          displayNumber: "2.5K+",
-          label: "Verified Projects",
-        },
-      ]
-    : null;
-
-  if (!stats) {
-    return (
-      <section className="py-16 md:py-20 bg-mulearn-whitish">
-        <div className="container mx-auto px-4">
-          <div className="border-t border-mulearn-gray-600 mb-16"></div>
-          <div className="text-center">Loading statistics...</div>
-          <div className="border-t border-mulearn-gray-600 mt-16"></div>
-        </div>
-      </section>
-    );
-  }
+  const stats = [
+    { value: counts?.members ?? 0, label: "Active Learners" },
+    { value: counts?.ig_count ?? 0, label: "Skill Tracks" },
+    { value: 2500, label: "Verified Projects" },
+  ];
 
   return (
-    <section className="py-16 md:py-20 bg-mulearn-whitish">
-      <div className="container mx-auto px-4">
-        <div className="border-t border-mulearn-gray-600 mb-16"></div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 max-w-5xl mx-auto">
-          {stats.map((stat, index) => (
-            <MotionDiv
-              key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.6 }}
-              className="text-center"
-            >
-              <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold text-mulearn mb-4">
-                <CountUp end={stat.number} duration={2.5} separator="," />
-              </h3>
-
-              <p className="text-lg md:text-xl font-medium">{stat.label}</p>
-            </MotionDiv>
-          ))}
-        </div>
-        <div className="border-t border-mulearn-gray-600 mt-16"></div>
+    <section id="learners-status">
+      <div className="grid grid-cols-1 gap-8 border-y border-border py-12 md:grid-cols-3 md:gap-16">
+        {stats.map((stat) => (
+          <div key={stat.label} className="text-center">
+            <AnimatedNumber
+              value={stat.value}
+              separator=","
+              scrollSpy
+              className="text-4xl font-black text-mulearn md:text-5xl"
+            />
+            <p className="mt-2 text-base font-medium text-mulearn-gray-600">{stat.label}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

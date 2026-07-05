@@ -1,50 +1,36 @@
-import Image from "next/image";
 import Link from "next/link";
-import { MotionDiv } from "@/components/MuFramer";
+import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
 
 const CTA = () => {
   return (
-    <section className="py-16 md:py-20 bg-mulearn-whitish">
-      <div className="container mx-auto px-4">
-        <MotionDiv
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative bg-mulearn rounded-3xl overflow-hidden"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center p-8 md:p-12 lg:p-16">
-            {/* Left Content */}
-            <div className="text-mulearn-whitish z-10">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-mulearn-whitish">
-                Start building your future with µLearn.
-              </h2>
-              <p className="text-lg md:text-xl mb-8 text-mulearn-whitish leading-relaxed">
-                Gain real skills, collaborate with learners, and earn <br /> recognition as you
-                grow.
-              </p>
+    <section id="final-cta">
+      <div className="grid grid-cols-1 items-center gap-8 rounded-3xl bg-mulearn p-8 md:p-12 lg:grid-cols-2">
+        <div className="text-center md:text-left">
+          <h2 className="text-mulearn-whitish">Start building your future with µLearn.</h2>
+          <p className="mt-4 text-base leading-relaxed text-mulearn-whitish/90 md:text-lg">
+            Gain real skills, collaborate with learners, and earn recognition as you grow.
+          </p>
+          <div className="mt-8 flex justify-center md:justify-start">
+            <Button asChild variant="inverted" size="lg">
               <Link href="https://app.mulearn.org" target="_blank" rel="noopener noreferrer">
-                <Button variant={"inverted"} className="inline-block">
-                  Join µLearn
-                </Button>
+                Join µLearn
               </Link>
-            </div>
-
-            {/* Right Illustration */}
-            <div className="relative hidden lg:flex justify-center items-center">
-              <div className="relative w-full max-w-md aspect-square">
-                <Image
-                  src="/assets/learners/learner-cta.png"
-                  alt="Student learning with laptop"
-                  fill
-                  className="object-contain"
-                  priority={false}
-                />
-              </div>
-            </div>
+            </Button>
           </div>
-        </MotionDiv>
+        </div>
+
+        <div className="hidden justify-center lg:flex">
+          <div className="rounded-2xl bg-mulearn-whitish/10 p-6">
+            <MuImage
+              src="/assets/learners/learner-cta.png"
+              alt="Learner celebrating with a laptop"
+              width={360}
+              height={360}
+              className="h-auto w-full max-w-xs"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
