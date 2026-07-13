@@ -291,37 +291,6 @@ export interface OfficeHours {
   isUpcoming: boolean;
 }
 
-export interface Score {
-  username: string;
-  displayname: string;
-  commits: number;
-  prs_opened: number;
-  prs_merged: number;
-  points: number;
-}
-
-export interface LeaderboardData {
-  monthly: Score[];
-  overall: Score[];
-  date: string;
-}
-
-export interface TopContributorProps {
-  score: Score;
-  rank: 1 | 2 | 3;
-}
-
-export interface LeaderboardTableProps {
-  scores: Score[];
-  showTopThree?: boolean;
-}
-
-export interface LeaderboardRowProps {
-  score: Score;
-  rank: number;
-  isCurrentUser?: boolean;
-}
-
 export interface OnboardingStep {
   step: number;
   title: string;
@@ -396,7 +365,7 @@ export interface WeeklyTwitchPagination {
 }
 
 export interface WeeklyTwitchParams {
-  status?: "upcoming" | "completed";
+  status?: "upcoming" | "ongoing" | "completed";
   search?: string;
   pageIndex?: number;
   perPage?: number;

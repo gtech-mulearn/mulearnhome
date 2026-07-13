@@ -12,7 +12,7 @@ export const navItems = [
           label: "Impact Gallery",
           href: "/impact-gallery",
         },
-        { label: "Contribution Leaderboard", href: "/leaderboard" },
+        { label: "Contribution Leaderboard", href: "https://contributors.mulearn.org/" },
         { label: "Events", href: "/events" },
       ],
       "Flagship Initiatives": [

@@ -36,15 +36,36 @@ export default function OfficeHoursClient() {
   const [page, setPage] = useState(1);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [sessions, setSessions] = useState<OfficeHoursSession[]>([]);
+  const [ongoingSessions, setOngoingSessions] = useState<OfficeHoursSession[]>([]);
   const [pagination, setPagination] = useState<WeeklyTwitchPagination>(EMPTY_PAGINATION);
   const [error, setError] = useState(false);
 
   const debouncedSearch = useDebounce(searchInput, 400);
 
+  // Ongoing sessions are shown as a standalone "Live Now" strip, independent of
+  // the upcoming grid's pagination, since the API can't paginate a merged set.
+  useEffect(() => {
+    if (view !== "upcoming") {
+      setOngoingSessions([]);
+      return;
+    }
+
+    fetchOfficeHours({
+      status: "ongoing",
+      search: debouncedSearch || undefined,
+      pageIndex: 1,
+      perPage: 6,
+    })
+      .then(({ data }) => setOngoingSessions(data))
+      .catch(() => setOngoingSessions([]));
+  }, [view, debouncedSearch]);
+
   useEffect(() => {
     setError(false);
+
+    const status = view === "previous" ? "completed" : "upcoming";
     fetchOfficeHours({
-      status: view === "previous" ? "completed" : "upcoming",
+      status,
       search: debouncedSearch || undefined,
       pageIndex: page,
       perPage: 6,
@@ -78,7 +99,7 @@ export default function OfficeHoursClient() {
 
   const allTags = Array.from(
     new Set(
-      sessions.flatMap((s) =>
+      [...sessions, ...ongoingSessions].flatMap((s) =>
         (s.interest_groups ?? []).map((ig) => IG_LABELS[ig.toLowerCase()] || ig),
       ),
     ),
@@ -93,7 +114,7 @@ export default function OfficeHoursClient() {
           ),
         );
 
-  const events = filteredSessions.map((session, index) => ({
+  const toEvent = (session: OfficeHoursSession, index: number) => ({
     id: index + 1,
     title: session.title,
     performer: session.performer || "",
@@ -101,10 +122,26 @@ export default function OfficeHoursClient() {
     description: session.description || "",
     date: formatDate(session.date),
     interestGroups: (session.interest_groups ?? []).map((ig) => ig.toLowerCase()),
-    isUpcoming: session.status === "upcoming" || session.status === "ongoing",
+    isUpcoming: session.status === "upcoming",
+    isLive: session.status === "ongoing",
     link: session.link || undefined,
     thumbnail: session.poster_thumbnail || undefined,
-  }));
+  });
+
+  const filteredLive =
+    selectedTags.length === 0
+      ? ongoingSessions
+      : ongoingSessions.filter((s) =>
+          (s.interest_groups ?? []).some((ig) =>
+            selectedTags.includes(IG_LABELS[ig.toLowerCase()] || ig),
+          ),
+        );
+  const liveEvents = view === "upcoming" ? filteredLive.map((s, i) => toEvent(s, i)) : [];
+
+  const events = [
+    ...liveEvents,
+    ...filteredSessions.map((s, i) => toEvent(s, liveEvents.length + i)),
+  ];
 
   const motionVariants = {
     initial: { opacity: 0, y: 30 },

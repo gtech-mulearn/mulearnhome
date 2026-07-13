@@ -39,10 +39,27 @@ export default function SaltMangoTreeClient() {
   const [page, setPage] = useState(1);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [episodes, setEpisodes] = useState<WeeklyTwitchEpisode[]>([]);
+  const [ongoingEpisodes, setOngoingEpisodes] = useState<WeeklyTwitchEpisode[]>([]);
   const [pagination, setPagination] = useState<WeeklyTwitchPagination>(EMPTY_PAGINATION);
   const [error, setError] = useState(false);
 
   const debouncedSearch = useDebounce(searchInput, 400);
+
+  useEffect(() => {
+    if (view !== "upcoming") {
+      setOngoingEpisodes([]);
+      return;
+    }
+
+    fetchSaltMangoTree({
+      status: "ongoing",
+      search: debouncedSearch || undefined,
+      pageIndex: 1,
+      perPage: 6,
+    })
+      .then(({ data }) => setOngoingEpisodes(data))
+      .catch(() => setOngoingEpisodes([]));
+  }, [view, debouncedSearch]);
 
   useEffect(() => {
     setError(false);
@@ -79,23 +96,33 @@ export default function SaltMangoTreeClient() {
       prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
     );
 
-  const filteredEpisodes =
+  const filterByZone = (list: WeeklyTwitchEpisode[]) =>
     selectedTags.length === 0
-      ? episodes
-      : episodes.filter(
+      ? list
+      : list.filter(
           (e) => e.zone && selectedTags.includes(e.zone.charAt(0).toUpperCase() + e.zone.slice(1)),
         );
 
-  const events = filteredEpisodes.map((episode, index) => ({
+  const toEvent = (episode: WeeklyTwitchEpisode, index: number) => ({
     id: index + 1,
     topic: episode.topic,
     campus: episode.campus,
     zone: episode.zone ? episode.zone.charAt(0).toUpperCase() + episode.zone.slice(1) : undefined,
     date: formatDate(episode.date),
     description: episode.description || "",
-    isUpcoming: episode.status === "upcoming" || episode.status === "ongoing",
+    isUpcoming: episode.status === "upcoming",
+    isLive: episode.status === "ongoing",
     link: episode.link || undefined,
-  }));
+  });
+
+  const filteredEpisodes = filterByZone(episodes);
+  const liveEvents =
+    view === "upcoming" ? filterByZone(ongoingEpisodes).map((e, i) => toEvent(e, i)) : [];
+
+  const events = [
+    ...liveEvents,
+    ...filteredEpisodes.map((e, i) => toEvent(e, liveEvents.length + i)),
+  ];
 
   const motionVariants = {
     initial: { opacity: 0, y: 30 },

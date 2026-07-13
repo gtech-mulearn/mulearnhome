@@ -30,6 +30,7 @@ interface GenericEventCardProps {
     time?: string;
     description?: string;
     isUpcoming?: boolean;
+    isLive?: boolean;
     thumbnail?: string;
     interestGroups?: string[];
     tags?: string[];
@@ -69,6 +70,7 @@ export const IG_LABELS: Record<string, string> = {
   "strategic-leadership": "Strategic Leadership",
   civil: "Civil",
   "iot-robotics": "IoT & Robotics",
+  "internet-of-things-(iot)-and-robotics": "IoT & Robotics",
   "creative-design": "Creative Design",
   beckn: "Beckn",
   "quality-assurance": "QA",
@@ -96,7 +98,6 @@ export function GenericEventCard({
   variant = "episode",
   icon: IconComponent = Radio,
   igLabels = IG_LABELS,
-  actionButton,
 }: GenericEventCardProps) {
   const { displayText, isExpanded, shouldTruncate, toggleExpand } = useReadMore(
     event.description || "",
@@ -128,16 +129,30 @@ export function GenericEventCard({
           <IconComponent className="w-16 h-16 text-mulearn-trusty-blue" />
         )}
         <div className="absolute top-4 right-4">
-          <Badge
-            className={`flex items-center ${
-              event.isUpcoming
-                ? "bg-mulearn-whitish text-mulearn-trusty-blue border border-mulearn-trusty-blue"
-                : "bg-gray-100 text-mulearn-blackish"
-            }`}
-          >
-            <Clock className="w-3 h-3 mr-1" />
-            {event.isUpcoming ? "Upcoming" : variant === "episode" ? "Past Episode" : "Past Event"}
-          </Badge>
+          {event.isLive ? (
+            <Badge className="flex items-center bg-mulearn-whitish text-destructive border border-red-500 hover:bg-mulearn-whitish">
+              <span className="relative flex h-2 w-2 mr-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive  opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-destructive" />
+              </span>
+              Happening Today
+            </Badge>
+          ) : (
+            <Badge
+              className={`flex items-center ${
+                event.isUpcoming
+                  ? "bg-mulearn-whitish text-mulearn-trusty-blue border border-mulearn-trusty-blue"
+                  : "bg-gray-100 text-mulearn-blackish"
+              }`}
+            >
+              <Clock className="w-3 h-3 mr-1" />
+              {event.isUpcoming
+                ? "Upcoming"
+                : variant === "episode"
+                  ? "Past Episode"
+                  : "Past Event"}
+            </Badge>
+          )}
         </div>
       </div>
 
@@ -222,26 +237,17 @@ export function GenericEventCard({
 
         {/* Footer */}
         <div
-          className={`flex ${actionButton || (event.link && event.isUpcoming) ? "justify-between" : "justify-start"} items-center pt-4 border-t border-gray-100 mt-auto`}
+          className={`flex ${event.link && (event.isUpcoming || event.isLive) ? "justify-between" : "justify-start"} items-center pt-4 border-t border-gray-100 mt-auto`}
         >
           <span className="text-sm text-mulearn-gray-500 font-medium flex items-center">
             <Calendar className="w-4 h-4 mr-1" />
             {event.date} {event.time ? `• ${event.time}` : ""}
           </span>
-          {eventLink && event.isUpcoming && (
+          {eventLink && (event.isUpcoming || event.isLive) && (
             <Button variant="default" className="gap-1 px-4 py-2 text-sm rounded-full" asChild>
               <a href={eventLink} target="_blank" rel="noopener noreferrer">
                 Join <ExternalLink className="w-3.5 h-3.5" />
               </a>
-            </Button>
-          )}
-          {actionButton && (
-            <Button
-              variant={event.isUpcoming ? "default" : "outline"}
-              className="gap-1 px-4 py-2 text-sm rounded-full"
-              onClick={actionButton.onClick}
-            >
-              {actionButton.label}
             </Button>
           )}
         </div>
