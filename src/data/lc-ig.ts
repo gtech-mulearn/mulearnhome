@@ -259,4 +259,12 @@ export const interestGroups = [
     description:
       "Explore augmented and virtual reality. Build immersive applications and learn cutting-edge tech.",
   },
+  {
+    name: "Quantum Computing",
+    link: "https://app.mulearn.org/dashboard/interestgroups",
+    tagline: "Compute beyond classical limits",
+    image: "/assets/interestgroups/quantum.svg",
+    description:
+      "Explore quantum algorithms, qubits, and quantum computing frameworks. Learn the fundamentals shaping the next era of computation.",
+  },
 ];

@@ -21,6 +21,13 @@ export const events: {
   ],
   pastEvents: [
     {
+      title: "Quantum Tech Matrix",
+      date: "Jul 12, 2026",
+      description:
+        "Quantum Tech Matrix is the launch event of the Quantum Technologies Interest Group (IG), the first of its kind in Kerala. Sponsored by Altos and supported by ChatQLM and nanostuffs, and inaugurated by CP John, Hon Minister for Transport, Government of Kerala. Held at Gokulam Grand, Thiruvananthapuram, Kerala, bringing together students, researchers, faculty, and industry leaders under one roof for keynote sessions, interactive lab simulations, and the unveiling of Kerala's first quantum community.",
+      link: "https://quantum-tech-matrix.mulearn.org/",
+    },
+    {
       title: "NUDGE Studio Design Challenge",
       date: "Nov 2025 - Jan 2026",
       description:
@@ -93,7 +100,7 @@ export const events: {
       date: "Aug 24 - 29 2025",
       description:
         "The Hac'k P Bootcamp, organized by the μLearn Foundation in collaboration with the Silicon Society, was an intensive online program aimed at enhancing participants’ skills in hacking, problem-solving, and real-world project building. Led by Abimel S B Kulumala, Founder of Silicon Society, the bootcamp focused on practical approaches, community-driven innovation, and mindset development for both competitive and collaborative projects.",
-      link: "https://example.com/",
+      link: "https://hackp.kerala.gov.in/",
 
       isLive: false,
     },
@@ -102,7 +109,7 @@ export const events: {
       date: "01 - 30 June 2025",
       description:
         "μLearn, in collaboration with KKEM and hosted by μLearn LBSITW, is launching a 30-Day Coding Challenge from June 1 to 30, 2025. The challenge offers daily coding tasks, exciting rewards, and Karma points to help participants learn, code, and grow every day. Open to both beginners and experienced coders, it’s a great opportunity to build consistency and improve coding skills throughout the month. Participants can join through the provided link to be part of the action.",
-      link: "https://example.com",
+      link: "",
 
       isLive: false,
     },

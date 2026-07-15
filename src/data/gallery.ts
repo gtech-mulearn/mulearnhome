@@ -372,19 +372,19 @@ export const galleryEvents: GalleryEvent[] = (
       name: "Grand Tech Adventure: CodeStorm",
       date: "August 19-20, 2023",
       location: "Kerala Knowledge Economy Mission",
-      coverImage: "/assets/gallery/codestorm/1.jpeg",
+      coverImage: "/assets/gallery/codestorm/1.webp",
       description:
         "The Grand Tech Adventure: CodeStorm was a 24-hour offline hackathon organized by Kerala Knowledge Economy Mission in association with μLearn KMEA. The event brought together participants from diverse domains to showcase their creativity, technical skills, and problem-solving abilities through a gamified and collaborative competition format.",
       media: [
         {
           type: "image",
-          src: "/assets/gallery/codestorm/1.jpeg",
+          src: "/assets/gallery/codestorm/1.webp",
           alt: "Participants coding during The Grand Tech Adventure: CodeStorm",
         },
 
         {
           type: "image",
-          src: "/assets/gallery/codestorm/2.jpeg",
+          src: "/assets/gallery/codestorm/2.webp",
           alt: "Team presenting their prototype at CodeStorm",
         },
       ],
@@ -395,31 +395,31 @@ export const galleryEvents: GalleryEvent[] = (
       name: "OLYMPUS: The HR Icon",
       date: "March 7, 2026",
       location: "Carestack, Technopark, Thiruvananthapuram",
-      coverImage: "/assets/gallery/hrOlympus/2.jpeg",
+      coverImage: "/assets/gallery/hrOlympus/2.webp",
       description:
         "OLYMPUS: The HR Icon is the inaugural flagship hybrid program that brings together students and HR professionals to bridge the gap between academic learning and industry practice. Hosted for management students and HR enthusiasts",
       media: [
         {
           type: "image",
-          src: "/assets/gallery/hrOlympus/1.jpeg",
+          src: "/assets/gallery/hrOlympus/1.webp",
           alt: "Panel discussion at OLYMPUS: The HR Icon",
         },
 
         {
           type: "image",
-          src: "/assets/gallery/hrOlympus/2.jpeg",
+          src: "/assets/gallery/hrOlympus/2.webp",
           alt: "Workshop session at OLYMPUS: The HR Icon",
         },
 
         {
           type: "image",
-          src: "/assets/gallery/hrOlympus/3.jpeg",
+          src: "/assets/gallery/hrOlympus/3.webp",
           alt: "Attendees networking at OLYMPUS: The HR Icon",
         },
 
         {
           type: "image",
-          src: "/assets/gallery/hrOlympus/4.jpeg",
+          src: "/assets/gallery/hrOlympus/4.webp",
           alt: "Group photo from OLYMPUS: The HR Icon",
         },
       ],
@@ -430,19 +430,19 @@ export const galleryEvents: GalleryEvent[] = (
       name: "Mucomics",
       date: "August 24, 2024",
       location: "MuShack",
-      coverImage: "/assets/gallery/Mucomics/1.jpeg",
+      coverImage: "/assets/gallery/mucomics/1.webp",
       description:
         "A community-driven event that brought together comic creators and artists from across Kerala to foster collaboration and strengthen the state's comic creation ecosystem",
       media: [
         {
           type: "image",
-          src: "/assets/gallery/Mucomics/1.jpeg",
+          src: "/assets/gallery/mucomics/1.webp",
           alt: "Comic artists collaborating at Mucomics",
         },
 
         {
           type: "image",
-          src: "/assets/gallery/Mucomics/2.jpeg",
+          src: "/assets/gallery/mucomics/2.webp",
           alt: "Sketching and discussions at Mucomics",
         },
       ],
@@ -453,48 +453,144 @@ export const galleryEvents: GalleryEvent[] = (
       name: "μplay",
       date: "July 7, 2024",
       location: "Kerala Startup Mission (KSUM), Kalamassery",
-      coverImage: "/assets/gallery/Muplay/1.jpeg",
+      coverImage: "/assets/gallery/muplay/1.webp",
       description:
         "A community-focused event that introduced a gaming platform built for game developers, gamers, and esports enthusiasts",
       media: [
         {
           type: "image",
-          src: "/assets/gallery/Muplay/1.jpeg",
+          src: "/assets/gallery/muplay/1.webp",
           alt: "Game showcase at μplay",
         },
 
         {
           type: "image",
-          src: "/assets/gallery/Muplay/2.jpeg",
+          src: "/assets/gallery/muplay/2.webp",
           alt: "Players testing games at μplay",
         },
       ],
     },
 
     {
+      slug: "quantum-tech-matrix",
+      name: "Quantum Tech Matrix",
+      date: "July 12, 2026",
+      location: "Gokulam Grand, Thiruvananthapuram, Kerala",
+      coverImage: "/assets/gallery/quantum-tech-matrix/3.webp",
+      description:
+        "Quantum Tech Matrix is the launch event of the Quantum Technologies Interest Group (IG), the first of its kind in Kerala. Sponsored by Altos and supported by ChatQLM and nanostuffs, and inaugurated by CP John, Hon Minister for Transport, Government of Kerala. Held at Gokulam Grand, Thiruvananthapuram, Kerala, bringing together students, researchers, faculty, and industry leaders under one roof for keynote sessions, interactive lab simulations, and the unveiling of Kerala's first quantum community.",
+      media: [
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/1.webp",
+          alt: "Attendees arriving at Quantum Tech Matrix launch event",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/2.webp",
+          alt: "Keynote session on quantum technologies at Gokulam Grand",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/3.webp",
+          alt: "Main stage with Quantum Tech Matrix branding",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/4.webp",
+          alt: "Industry leaders speaking on quantum research and innovation",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/5.webp",
+          alt: "Audience engaged during the quantum technology summit",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/6.webp",
+          alt: "Interactive lab simulation demonstration for attendees",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/7.webp",
+          alt: "Panel discussion with researchers and students",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/8.webp",
+          alt: "Students exploring quantum computing demos",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/9.webp",
+          alt: "Networking session between industry leaders and students",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/10.webp",
+          alt: "Unveiling of Kerala's first quantum community",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/11.webp",
+          alt: "Researcher presenting quantum technology findings",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/12.webp",
+          alt: "Attendees participating in hands-on lab simulations",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/13.webp",
+          alt: "Group discussion on Quantum Technologies IG initiatives",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/14.webp",
+          alt: "Speaker addressing the audience on quantum innovation",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/15.webp",
+          alt: "Exhibition area showcasing quantum tech projects",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/16.webp",
+          alt: "Closing session of Quantum Tech Matrix summit",
+        },
+        {
+          type: "image",
+          src: "/assets/gallery/quantum-tech-matrix/17.webp",
+          alt: "Group photo of speakers and organizers at Quantum Tech Matrix",
+        },
+      ],
+    },
+    {
       slug: "global-game-jam",
       name: "Global Game Jam 2025",
       date: "January 24-26, 2025",
       location: "Kerala Startup Mission, Kochi",
-      coverImage: "/assets/gallery/globalgamejam/1.jpeg",
+      coverImage: "/assets/gallery/globalgamejam/1.webp",
       description:
         "Global Game Jam 2025 is a 48-hour gaming hackathon that brings together students, professionals, game developers, and gaming enthusiasts to collaborate, innovate, and create games",
       media: [
         {
           type: "image",
-          src: "/assets/gallery/globalgamejam/1.jpeg",
+          src: "/assets/gallery/globalgamejam/1.webp",
           alt: "Teams brainstorming at Global Game Jam 2025",
         },
 
         {
           type: "image",
-          src: "/assets/gallery/globalgamejam/2.jpeg",
+          src: "/assets/gallery/globalgamejam/2.webp",
           alt: "Prototype testing during Global Game Jam 2025",
         },
 
         {
           type: "image",
-          src: "/assets/gallery/globalgamejam/3.jpeg",
+          src: "/assets/gallery/globalgamejam/3.webp",
           alt: "Final presentations at Global Game Jam 2025",
         },
       ],
