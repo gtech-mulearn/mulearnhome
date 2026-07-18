@@ -16,7 +16,7 @@
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "validate": "bun run typecheck && bun run lint",
     "optimize:images": "bun run scripts/optimize-images.ts"
   },

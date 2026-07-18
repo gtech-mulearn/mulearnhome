@@ -1,7 +1,7 @@
 "use client";
 
 import type { Variants } from "framer-motion";
-import { ArrowRight, Info } from "lucide-react";
+import { ArrowRight, Atom, Info } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MotionDiv, MotionH1, MotionHeader, MotionP } from "@/components/MuFramer";
@@ -108,6 +108,30 @@ export default function Hero() {
                 }}
               >
                 Join µLearn
+              </Button>
+            </MotionDiv>
+
+            <MotionDiv
+              custom={4}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={textVariant}
+            >
+              {/* launch event for the Quantum Technologies IG */}
+              <Button
+                asChild
+                variant={"outline"}
+                className="px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-lg md:text-lg rounded-full"
+              >
+                <Link
+                  href="https://quantum-tech-matrix.mulearn.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Atom className="size-4 sm:size-5" />
+                  Explore Quantum Tech Matrix
+                </Link>
               </Button>
             </MotionDiv>
           </div>
