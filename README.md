@@ -298,7 +298,7 @@ Defined as CSS variables in `src/app/globals.css`:
 ### Fonts
 
 - **Plus Jakarta Sans** (`font-sans`): Body and UI text
-- **Circe Rounded** (`font-display`): Headings and display text
+- **Poppins** (`font-display`): Headings and display text
 
 ### Components
 

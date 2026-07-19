@@ -19,7 +19,7 @@ All components use the following CSS variables (defined in `globals.css`):
 ## Fonts
 
 - **Plus Jakarta Sans**: Used for all body and UI text (`font-sans`)
-- **Circe Rounded**: Used for headings and display text (`font-display`)
+- **Poppins**: Used for headings and display text (`font-display`)
 
 ## Component Usage
 

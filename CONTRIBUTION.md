@@ -312,7 +312,7 @@ Use **only** the CSS variables defined in `src/app/globals.css`:
 Use **only** these font families:
 
 - **`font-sans`** - Plus Jakarta Sans (body text, UI)
-- **`font-display`** - Circe Rounded (headings, display text)
+- **`font-display`** - Poppins (headings, display text)
 
 **Example:**
 
