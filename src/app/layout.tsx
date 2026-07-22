@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Poppins } from "next/font/google";
+import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import type React from "react";
 import { Suspense } from "react";
@@ -33,14 +33,14 @@ export const metadata: Metadata = {
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-display",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const poppins = Poppins({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-sans",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -64,7 +64,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://i.ytimg.com" />
       </head>
       <body
-        className={`${plusJakarta.variable} ${poppins.variable} ${retro.variable} font-sans antialiased`}
+        className={`${plusJakarta.variable} ${bricolage.variable} ${retro.variable} font-sans antialiased`}
       >
         <AnalyticsProvider>
           <Navbar />

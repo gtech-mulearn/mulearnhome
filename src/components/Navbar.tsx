@@ -17,13 +17,11 @@ export default function Navbar() {
   const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
   const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<number | null>(null);
   const redirect = useRedirectToApp();
-  const [refreshToken, setRefreshToken] = useState<string | null>(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobileView(window.innerWidth <= 1024);
     handleResize();
     window.addEventListener("resize", handleResize);
-    setRefreshToken(localStorage.getItem("refreshToken"));
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -34,10 +32,6 @@ export default function Navbar() {
       document.body.style.overflow = "unset";
     };
   }, [isMenuOpen, isMobileView]);
-
-  useEffect(() => {
-    setRefreshToken(localStorage.getItem("refreshToken"));
-  }, []);
 
   const handleMouseEnter = (index: number, hasSubmenu: boolean) => {
     if (!isMobileView && hasSubmenu) setActiveSubmenu(index);
@@ -139,9 +133,9 @@ export default function Navbar() {
             <Button
               variant={"default"}
               className="w-full py-2 px-8 font-semibold text-lg"
-              onClick={() => (refreshToken ? redirect("/dashboard/home") : redirect("/login"))}
+              onClick={() => redirect("/")}
             >
-              {refreshToken ? "Dashboard" : "Login"}
+              Get Started
             </Button>
           </MotionDiv>
         </MotionDiv>
@@ -251,11 +245,9 @@ export default function Navbar() {
                     <Button
                       variant={"default"}
                       className="w-full p-4 mb-20"
-                      onClick={() =>
-                        refreshToken ? redirect("/dashboard/home") : redirect("/login")
-                      }
+                      onClick={() => redirect("/")}
                     >
-                      {refreshToken ? "Dashboard" : "Login"}
+                      Get Started
                     </Button>
                   </MotionDiv>
                 </MotionDiv>

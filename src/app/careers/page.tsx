@@ -23,7 +23,7 @@ export default function Careers() {
 
   useEffect(() => {
     axios
-      .get("https://opensheet.elk.sh/1Afdbru7Neywhh8S2f0ACv7NJBKvoLKrcFf0eajYpmOo/careersOld")
+      .get("https://opensheet.elk.sh/1hD8IsJvvQ-aJuIjJlPMfwFOkFKo5TRveUeq0rY2SlWk/careersOld")
       .then((response) => {
         setPreviousHiring(response.data);
       })
@@ -31,7 +31,7 @@ export default function Careers() {
         console.log(error);
       });
     axios
-      .get("https://opensheet.elk.sh/1Afdbru7Neywhh8S2f0ACv7NJBKvoLKrcFf0eajYpmOo/careersNew")
+      .get("https://opensheet.elk.sh/1hD8IsJvvQ-aJuIjJlPMfwFOkFKo5TRveUeq0rY2SlWk/careersNew")
       .then((response) => {
         setNewHiring(response.data);
       })

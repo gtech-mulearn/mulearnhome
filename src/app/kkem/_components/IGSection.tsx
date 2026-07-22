@@ -3,7 +3,6 @@
 import type { Variants } from "framer-motion";
 import { SquareArrowOutUpRight } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { MotionDiv } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
@@ -23,11 +22,6 @@ const fadeInUp: Variants = {
 
 const IGSection = ({ cards, heading, largeImg }: IGSectionProps) => {
   const redirect = useRedirectToApp();
-  const [refreshToken, setRefreshToken] = useState<string | null>(null);
-
-  useEffect(() => {
-    setRefreshToken(localStorage.getItem("refreshToken"));
-  }, []);
 
   return (
     <>
@@ -62,7 +56,7 @@ const IGSection = ({ cards, heading, largeImg }: IGSectionProps) => {
             <Button
               variant="inverted"
               className="cursor-pointer mt-6 px-6 sm:px-8 md:px-10 py-3 sm:py-4 sm:text-lg md:text-lg gap-1 mx-auto md:mx-0"
-              onClick={() => redirect?.(refreshToken ? "/dashboard/home" : "/register")}
+              onClick={() => redirect?.("/")}
             >
               Get Started
             </Button>

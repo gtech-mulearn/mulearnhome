@@ -3,7 +3,6 @@
 import type { Variants } from "framer-motion";
 import { ArrowRight, Atom, Info } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { MotionDiv, MotionH1, MotionHeader, MotionP } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
@@ -29,11 +28,6 @@ const textVariant: Variants = {
 
 export default function Hero() {
   const redirect = useRedirectToApp();
-  const [refreshToken, setRefreshToken] = useState<string | null>(null);
-
-  useEffect(() => {
-    setRefreshToken(localStorage.getItem("refreshToken"));
-  }, []);
 
   return (
     <MotionHeader
@@ -102,10 +96,7 @@ export default function Hero() {
               <Button
                 variant={"default"}
                 className="px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-lg md:text-lg"
-                onClick={() => {
-                  const path = refreshToken ? "/dashboard/home" : "/register";
-                  redirect(path);
-                }}
+                onClick={() => redirect("/")}
               >
                 Join µLearn
               </Button>

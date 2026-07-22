@@ -16,13 +16,8 @@ export default function TestimonialsPage() {
   const videoTestimonialData = testimonials.video;
   const textTestimonialData = testimonials.text;
   const redirect = useRedirectToApp();
-  const [refreshToken, setRefreshToken] = useState<string | null>(null);
   const [counts, setCounts] = useState<Counts | null>(null);
   const socketRef = useRef<WebSocket | null>(null);
-
-  useEffect(() => {
-    setRefreshToken(localStorage.getItem("refreshToken"));
-  }, []);
 
   useEffect(() => {
     if (!socketRef.current) {
@@ -145,7 +140,7 @@ export default function TestimonialsPage() {
               <Button
                 variant="inverted"
                 className="w-full sm:w-auto px-12 py-7 text-lg font-bold"
-                onClick={() => (refreshToken ? redirect("/dashboard/home") : redirect("/register"))}
+                onClick={() => redirect("/")}
               >
                 Join the Community
               </Button>
