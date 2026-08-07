@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
+import { Black_Ops_One, Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import type React from "react";
 import { Suspense } from "react";
@@ -44,9 +44,10 @@ const bricolage = Bricolage_Grotesque({
   display: "swap",
 });
 
-const retro = localFont({
-  src: "../components/fonts/Retro_Team.otf",
-  variable: "--font-retro",
+const blackopsone = Black_Ops_One({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-blackopsone",
   display: "swap",
 });
 
@@ -64,7 +65,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://i.ytimg.com" />
       </head>
       <body
-        className={`${plusJakarta.variable} ${bricolage.variable} ${retro.variable} font-sans antialiased`}
+        className={`${plusJakarta.variable} ${bricolage.variable} ${blackopsone.variable} font-sans antialiased`}
       >
         <AnalyticsProvider>
           <Navbar />
