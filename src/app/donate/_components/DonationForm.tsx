@@ -1,54 +1,53 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AlertTriangle, Building2, Check, Copy, Crown, X } from "lucide-react";
+import { AnimatePresence } from "framer-motion";
+import { Building2, User } from "lucide-react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import {
+  buildDonationParams,
+  type DonationMode,
+  type DonorType,
+  parseDonationParams,
+} from "@/app/donate/_components/donationUrlParams";
+import TierCard from "@/app/donate/_components/TierCard";
+import { MotionDiv } from "@/components/MuFramer";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  type DonationFormData,
-  type DonationType,
-  donationFormSchema,
-} from "@/lib/schemas/donation";
-import { cn } from "@/lib/utils";
-import {
-  generateReferenceCode,
-  submitBankTransfer,
-  submitDonationForm,
-  submitSubscription,
-} from "@/services/donation";
-import {
-  annualTiers,
-  monthlyTiers,
-  oneTimeTiers,
-  type PatronTierConfig,
-  regularOneTimeTiers,
-} from "./PatronData";
+  type DonationTier,
+  individualOneTimeTiers,
+  individualSubscriptionTiers,
+  orgOneTimeTiers,
+  orgSubscriptionTiers,
+} from "@/data/donate";
+import { type DonationFormData, donationFormSchema } from "@/lib/schemas/donation";
+import { submitDonationForm, submitSubscription } from "@/services/donation";
 
-// Bank details for display
-const BANK_DETAILS = {
-  accountName: "MULEARN FOUNDATION",
-  bankName: "ICICI Bank",
-  accountNumber: "263405011014",
-  ifscCode: "ICIC0002534",
-  branch: "Technopark, Trivandrum",
-  accountType: "Current",
-} as const;
+function getTiers(donorType: DonorType, mode: DonationMode): DonationTier[] {
+  if (mode === "one-time") {
+    return donorType === "org" ? orgOneTimeTiers : individualOneTimeTiers;
+  }
+  return donorType === "org" ? orgSubscriptionTiers : individualSubscriptionTiers;
+}
 
 export default function DonationForm() {
-  const [mounted, setMounted] = useState(false);
-  const [donationType, setDonationType] = useState<DonationType>("monthly");
-  const [selectedAmount, setSelectedAmount] = useState<string>("");
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const [donorType, setDonorType] = useState<DonorType>("individual");
+  const [mode, setMode] = useState<DonationMode>("one-time");
+  const [selectedTierId, setSelectedTierId] = useState<string | null>(null);
   const [customAmount, setCustomAmount] = useState<string>("");
-  const [copiedField, setCopiedField] = useState<string | null>(null);
-  const [showFoundingPatron, setShowFoundingPatron] = useState(false);
-  const [foundingPatronTier, setFoundingPatronTier] = useState<PatronTierConfig | null>(null);
+  const [hydrated, setHydrated] = useState(false);
 
   const {
     register,
@@ -56,7 +55,6 @@ export default function DonationForm() {
     formState: { errors, isValid },
     watch,
     setValue,
-    reset,
   } = useForm<DonationFormData>({
     resolver: zodResolver(donationFormSchema),
     mode: "onChange",
@@ -71,113 +69,108 @@ export default function DonationForm() {
       organisationName: "",
       termsAccepted: false,
       donationAmount: 0,
-      donationType: "monthly",
+      donationType: "one-time",
     },
   });
 
-  const isOrganisation = watch("isOrganisation");
   const totalAmount = watch("donationAmount") || 0;
+  const isOrganisation = donorType === "org";
 
-  // Generate reference code for bank transfer (founding patron)
-  const referenceCode = useMemo(() => {
-    if (showFoundingPatron && foundingPatronTier) {
-      return generateReferenceCode();
-    }
-    return "";
-  }, [showFoundingPatron, foundingPatronTier]);
-
+  // Seed initial selection from the URL once on mount (deep-linking / shared links).
   useEffect(() => {
-    setMounted(true);
+    const parsed = parseDonationParams(searchParams);
+    const tiers = getTiers(parsed.donorType, parsed.mode);
+    const matchedTier = parsed.tierId ? tiers.find((t) => t.id === parsed.tierId) : undefined;
+
+    setDonorType(parsed.donorType);
+    setMode(parsed.mode);
+    setValue("isOrganisation", parsed.donorType === "org", { shouldValidate: true });
+
+    if (matchedTier) {
+      setSelectedTierId(matchedTier.id);
+      setValue("donationAmount", matchedTier.amount, { shouldValidate: true });
+    } else if (parsed.amount) {
+      setCustomAmount(String(parsed.amount));
+      setValue("donationAmount", parsed.amount, { shouldValidate: true });
+    }
+
+    setValue(
+      "donationType",
+      parsed.mode === "one-time" ? "one-time" : parsed.donorType === "org" ? "yearly" : "monthly",
+      { shouldValidate: true },
+    );
+
+    setHydrated(true);
+    // Intentionally runs once: this only seeds initial state from the URL the
+    // page was loaded with, it does not re-sync on every searchParams change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getTiers = (type: DonationType): PatronTierConfig[] => {
-    switch (type) {
-      case "yearly":
-        return annualTiers;
-      case "monthly":
-        return monthlyTiers;
-      case "one-time":
-        return regularOneTimeTiers;
-      default:
-        return monthlyTiers;
-    }
-  };
-
-  const currentTiers = getTiers(donationType);
-
+  // Keep the URL in sync with the current selection after the initial hydration.
   useEffect(() => {
-    setSelectedAmount("");
+    if (!hydrated) return;
+    const params = buildDonationParams({
+      donorType,
+      mode,
+      tierId: selectedTierId,
+      amount: selectedTierId ? null : customAmount ? Number(customAmount) : null,
+    });
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  }, [hydrated, donorType, mode, selectedTierId, customAmount, pathname, router]);
+
+  const currentTiers = useMemo(() => getTiers(donorType, mode), [donorType, mode]);
+
+  const cadenceLabel = mode === "one-time" ? "One-Time" : isOrganisation ? "Per Year" : "Per Month";
+
+  const handleDonorTypeChange = (value: string) => {
+    const next = value as DonorType;
+    setDonorType(next);
+    setValue("isOrganisation", next === "org", { shouldValidate: true });
+    setSelectedTierId(null);
     setCustomAmount("");
     setValue("donationAmount", 0, { shouldValidate: true });
-    setValue("donationType", donationType, { shouldValidate: true });
-  }, [donationType, setValue]);
+    setValue(
+      "donationType",
+      mode === "one-time" ? "one-time" : next === "org" ? "yearly" : "monthly",
+      {
+        shouldValidate: true,
+      },
+    );
+  };
 
-  const handleTierSelect = (tier: PatronTierConfig) => {
-    setSelectedAmount(tier.id);
-    const amount = isOrganisation ? tier.amountOrg || tier.amount : tier.amountInd || tier.amount;
-    setValue("donationAmount", amount, { shouldValidate: true });
+  const handleModeChange = (value: string) => {
+    const next = value as DonationMode;
+    setMode(next);
+    setSelectedTierId(null);
     setCustomAmount("");
+    setValue("donationAmount", 0, { shouldValidate: true });
+    setValue(
+      "donationType",
+      next === "one-time" ? "one-time" : isOrganisation ? "yearly" : "monthly",
+      { shouldValidate: true },
+    );
+  };
+
+  const handleTierSelect = (tier: DonationTier) => {
+    setSelectedTierId(tier.id);
+    setCustomAmount("");
+    setValue("donationAmount", tier.amount, { shouldValidate: true });
   };
 
   const handleCustomAmountChange = (value: string) => {
     setCustomAmount(value);
-    const numValue = parseFloat(value) || 0;
-    setValue("donationAmount", numValue, { shouldValidate: true });
-  };
-
-  const getDisplayAmount = (tier: PatronTierConfig) => {
-    return isOrganisation ? tier.amountOrg || tier.amount : tier.amountInd || tier.amount;
-  };
-
-  const handleFoundingPatronClick = () => {
-    setShowFoundingPatron(true);
-    setFoundingPatronTier(null);
-  };
-
-  const handleFoundingTierSelect = (tier: PatronTierConfig) => {
-    setFoundingPatronTier(tier);
-    setValue("donationAmount", tier.amount, { shouldValidate: true });
-    setValue("donationType", "one-time", { shouldValidate: true });
-  };
-
-  const closeFoundingPatron = () => {
-    setShowFoundingPatron(false);
-    setFoundingPatronTier(null);
-    reset();
+    setSelectedTierId(null);
+    setValue("donationAmount", parseFloat(value) || 0, { shouldValidate: true });
   };
 
   const onSubmit = async (data: DonationFormData) => {
     try {
-      // Founding Patron (Bank Transfer) flow
-      if (showFoundingPatron && foundingPatronTier) {
-        toast.loading("Submitting bank transfer details...", { id: "donation-loading" });
-
-        await submitBankTransfer({
-          amount: data.donationAmount,
-          name: data.name,
-          donationName: data.donationName,
-          email: data.email,
-          mobile: data.phone,
-          pan: data.panNumber,
-          address: data.address,
-          donationType: "one-time",
-          isOrganisation: data.isOrganisation,
-          organisationName: data.organisationName,
-          referenceCode: referenceCode,
-        });
-
-        toast.dismiss("donation-loading");
-        return;
-      }
-
-      // Determine payment flow based on donation type
       const isOneTime = data.donationType === "one-time";
 
-      if (isOneTime) {
-        toast.loading("Processing your donation...", { id: "donation-loading" });
-      } else {
-        toast.loading("Setting up your recurring support...", { id: "donation-loading" });
-      }
+      toast.loading(
+        isOneTime ? "Processing your donation..." : "Setting up your recurring support...",
+        { id: "donation-loading" },
+      );
 
       const payload = {
         amount: data.donationAmount,
@@ -193,10 +186,8 @@ export default function DonationForm() {
       };
 
       if (isOneTime) {
-        // One-time donation - use Orders API (single payment)
         await submitDonationForm(payload);
       } else {
-        // Recurring donation (monthly/yearly) - use Subscriptions API
         await submitSubscription(payload);
       }
 
@@ -207,779 +198,226 @@ export default function DonationForm() {
     }
   };
 
-  const copyToClipboard = (text: string, fieldName: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedField(fieldName);
-    toast.success("Copied to clipboard");
-    setTimeout(() => setCopiedField(null), 2000);
-  };
-
-  if (!mounted) {
-    return (
-      <div className="w-full bg-mulearn-whitish rounded-lg border border-mulearn-gray-600/20 shadow-sm flex flex-col max-h-[calc(100vh-10rem)] overflow-hidden">
-        <div className="flex-1 p-8 flex items-center justify-center">
-          <div className="text-mulearn-gray-600">Loading form...</div>
-        </div>
-      </div>
-    );
-  }
-
-  // Founding Patron View
-  if (showFoundingPatron) {
-    return (
-      <div className="w-full bg-mulearn-whitish rounded-xl border border-mulearn-gray-600/20 shadow-xl flex flex-col max-h-[calc(100vh-5rem)] overflow-hidden">
-        <div className="flex-1 overflow-y-auto px-6 sm:px-8 py-8 min-h-0 bg-white">
-          {/* Header with Back Button */}
-          <div className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <Crown className="w-6 h-6 text-amber-500" />
-                <h2 className="text-2xl font-bold tracking-tight text-mulearn-blackish">
-                  Become a Founding Patron
-                </h2>
-              </div>
-              <p className="text-mulearn-gray-600 text-sm">
-                Join the exclusive group of founding patrons shaping the future of learning
-              </p>
-            </div>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={closeFoundingPatron}
-              className="self-start"
-            >
-              <X className="w-4 h-4 mr-1" />
-              Back to Subscriptions
-            </Button>
-          </div>
-
-          {/* Bank Transfer Notice */}
-          <div className="flex items-start gap-3 p-4 mb-6 bg-amber-50 border border-amber-200 rounded-xl">
-            <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-            <p className="text-sm text-amber-800 leading-relaxed">
-              Founding Patron contributions are processed via{" "}
-              <span className="font-semibold">bank transfer</span> and verified manually. Please
-              select a tier, complete the transfer, and provide the payment proof below.
-            </p>
-          </div>
-
-          {/* Founding Patron Tiers */}
-          <div className="grid grid-cols-1 gap-4 mb-8">
-            {oneTimeTiers.map((tier) => {
-              const isSelected = foundingPatronTier?.id === tier.id;
-
-              return (
-                <div
-                  key={tier.id}
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => handleFoundingTierSelect(tier)}
-                  onKeyDown={(e) => e.key === "Enter" && handleFoundingTierSelect(tier)}
-                  className={cn(
-                    "relative rounded-xl border p-5 cursor-pointer transition-all duration-200 group overflow-hidden",
-                    isSelected
-                      ? `bg-linear-to-r ${tier.color} border-amber-400 ring-2 ring-offset-2 ring-amber-400/50 shadow-lg`
-                      : "bg-white border-mulearn-gray-600/20 hover:border-amber-400/50 hover:bg-amber-50/30",
-                  )}
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 relative z-10">
-                    <div className="flex-1 space-y-1">
-                      <div className="flex items-center gap-2">
-                        <h3
-                          className={cn(
-                            "text-lg font-bold",
-                            isSelected ? tier.textColor : "text-mulearn-blackish",
-                          )}
-                        >
-                          {tier.label}
-                        </h3>
-                        {tier.limit && (
-                          <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-amber-500 text-white">
-                            {tier.limit}
-                          </span>
-                        )}
-                      </div>
-                      <p
-                        className={cn(
-                          "text-sm font-medium",
-                          isSelected ? `${tier.textColor}/80` : "text-mulearn-gray-600",
-                        )}
-                      >
-                        {tier.description}
-                      </p>
-
-                      {(isSelected || window.innerWidth >= 640) && (
-                        <ul className="mt-3 space-y-1.5">
-                          {tier.benefits.map((benefit, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-sm leading-snug">
-                              <span
-                                className={cn(
-                                  "mt-0.5 size-1.5 rounded-full shrink-0",
-                                  isSelected ? "bg-amber-500" : "bg-amber-400",
-                                )}
-                              ></span>
-                              <span
-                                className={cn(
-                                  benefit.highlight ? "font-semibold" : "",
-                                  isSelected ? "text-mulearn-blackish" : "text-mulearn-gray-600",
-                                )}
-                              >
-                                {benefit.text}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-
-                    <div className="text-right shrink-0">
-                      <div
-                        className={cn(
-                          "text-2xl font-bold tabular-nums tracking-tight",
-                          isSelected ? "text-amber-600" : "text-mulearn-blackish",
-                        )}
-                      >
-                        ₹{tier.amount.toLocaleString("en-IN")}
-                      </div>
-                      <div
-                        className={cn(
-                          "text-xs font-medium uppercase tracking-wider opacity-60",
-                          isSelected ? "text-amber-600" : "text-mulearn-gray-600",
-                        )}
-                      >
-                        One-Time
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Show form only after tier selection */}
-          {foundingPatronTier && (
-            <>
-              {/* Organization checkbox */}
-              <div className="flex items-center space-x-2 bg-mulearn-greyish/10 p-3 rounded-lg border border-mulearn-gray-600/10 mb-6">
-                <Checkbox
-                  id="isOrganisation"
-                  checked={isOrganisation}
-                  onChange={(e) => setValue("isOrganisation", e.target.checked)}
-                  className="data-[state=checked]:bg-amber-500 data-[state=checked]:border-amber-500"
-                />
-                <Label
-                  htmlFor="isOrganisation"
-                  className="text-sm font-medium cursor-pointer text-mulearn-gray-600 select-none"
-                >
-                  I&apos;m paying as an Organization
-                </Label>
-              </div>
-
-              {/* Personal Information Section */}
-              <div className="space-y-6">
-                <h3 className="text-lg font-bold text-mulearn-blackish tracking-tight">
-                  Your Details
-                </h3>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="text-mulearn-gray-600">
-                      Full Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                      id="name"
-                      {...register("name")}
-                      placeholder="John Doe"
-                      className={`bg-white border-mulearn-gray-600/20 focus:border-amber-500 ${errors.name ? "border-red-500" : ""}`}
-                    />
-                    {errors.name && <p className="text-xs text-red-500">{errors.name.message}</p>}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="donationName" className="text-mulearn-gray-600">
-                      Donation Name{" "}
-                      <span className="text-mulearn-gray-600/60 font-normal">(Optional)</span>
-                    </Label>
-                    <Input
-                      id="donationName"
-                      {...register("donationName")}
-                      placeholder="e.g. In honor of someone special"
-                      className="bg-white border-mulearn-gray-600/20 focus:border-amber-500"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-mulearn-gray-600">
-                      Email Address <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      {...register("email")}
-                      placeholder="john@example.com"
-                      className={`bg-white border-mulearn-gray-600/20 focus:border-amber-500 ${errors.email ? "border-red-500" : ""}`}
-                    />
-                    {errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-mulearn-gray-600">
-                      Phone Number <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      {...register("phone")}
-                      placeholder="+91 98765 43210"
-                      className={`bg-white border-mulearn-gray-600/20 focus:border-amber-500 ${errors.phone ? "border-red-500" : ""}`}
-                    />
-                    {errors.phone && <p className="text-xs text-red-500">{errors.phone.message}</p>}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="pan" className="text-mulearn-gray-600">
-                      PAN Number <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                      id="pan"
-                      {...register("panNumber", {
-                        onChange: (e) => {
-                          e.target.value = e.target.value.toUpperCase();
-                        },
-                      })}
-                      placeholder="ABCDE1234F"
-                      maxLength={10}
-                      className={`bg-white border-mulearn-gray-600/20 focus:border-amber-500 ${errors.panNumber ? "border-red-500" : ""}`}
-                    />
-                    {errors.panNumber && (
-                      <p className="text-xs text-red-500">{errors.panNumber.message}</p>
-                    )}
-                  </div>
-
-                  {isOrganisation && (
-                    <div className="space-y-2">
-                      <Label htmlFor="orgName" className="text-mulearn-gray-600">
-                        Organisation Name <span className="text-red-500">*</span>
-                      </Label>
-                      <Input
-                        id="orgName"
-                        {...register("organisationName")}
-                        placeholder="Acme Corp"
-                        className={`bg-white border-mulearn-gray-600/20 focus:border-amber-500 ${errors.organisationName ? "border-red-500" : ""}`}
-                      />
-                      {errors.organisationName && (
-                        <p className="text-xs text-red-500">{errors.organisationName.message}</p>
-                      )}
-                    </div>
-                  )}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="address" className="text-mulearn-gray-600">
-                    Address <span className="text-red-500">*</span>
-                  </Label>
-                  <Textarea
-                    id="address"
-                    {...register("address")}
-                    placeholder="Full address"
-                    rows={3}
-                    className={`resize-none bg-white border-mulearn-gray-600/20 focus:border-amber-500 ${errors.address ? "border-red-500" : ""}`}
-                  />
-                  {errors.address && (
-                    <p className="text-xs text-red-500">{errors.address.message}</p>
-                  )}
-                </div>
-
-                {/* Bank Details Card */}
-                <div className="border border-mulearn-gray-600/20 rounded-xl overflow-hidden">
-                  <div className="bg-amber-50 px-5 py-4 border-b border-amber-200">
-                    <div className="flex items-center gap-2">
-                      <Building2 className="w-5 h-5 text-amber-600" />
-                      <h4 className="font-bold text-mulearn-blackish">Bank Transfer Details</h4>
-                    </div>
-                    <p className="text-xs text-mulearn-gray-600 mt-1">
-                      Please complete the transfer using NEFT/RTGS and provide the proof link below.
-                    </p>
-                  </div>
-
-                  <div className="p-5 space-y-3">
-                    {[
-                      {
-                        label: "Account Name",
-                        value: BANK_DETAILS.accountName,
-                        key: "accountName",
-                      },
-                      { label: "Bank Name", value: BANK_DETAILS.bankName, key: "bankName" },
-                      {
-                        label: "Account Number",
-                        value: BANK_DETAILS.accountNumber,
-                        key: "accountNumber",
-                      },
-                      { label: "IFSC Code", value: BANK_DETAILS.ifscCode, key: "ifsc" },
-                      { label: "Branch", value: BANK_DETAILS.branch, key: "branch" },
-                    ].map((item) => (
-                      <div
-                        key={item.key}
-                        className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0"
-                      >
-                        <span className="text-sm text-mulearn-gray-600">{item.label}</span>
-                        <div className="flex items-center gap-2">
-                          <span className="text-sm font-semibold text-mulearn-blackish font-mono">
-                            {item.value}
-                          </span>
-                          <button
-                            type="button"
-                            onClick={() => copyToClipboard(item.value, item.key)}
-                            className="p-1 hover:bg-mulearn-greyish/20 rounded transition-colors"
-                          >
-                            {copiedField === item.key ? (
-                              <Check className="w-4 h-4 text-green-500" />
-                            ) : (
-                              <Copy className="w-4 h-4 text-mulearn-gray-600" />
-                            )}
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
-
-        {/* Sticky Footer for Founding Patron */}
-        {foundingPatronTier && (
-          <div className="border-t border-mulearn-gray-600/10 bg-white px-6 sm:px-8 py-5">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <Checkbox id="termsAccepted" {...register("termsAccepted")} className="mt-0.5" />
-                <div className="flex-1">
-                  <Label
-                    htmlFor="termsAccepted"
-                    className="text-xs text-mulearn-gray-600 font-normal leading-relaxed"
-                  >
-                    I agree to the{" "}
-                    <a
-                      href="/terms-and-conditions"
-                      target="_blank"
-                      className="text-amber-600 hover:underline"
-                      rel="noopener"
-                    >
-                      Terms
-                    </a>
-                    ,{" "}
-                    <a
-                      href="/privacy-policy"
-                      target="_blank"
-                      className="text-amber-600 hover:underline"
-                      rel="noopener"
-                    >
-                      Privacy Policy
-                    </a>{" "}
-                    and{" "}
-                    <a
-                      href="/refund-policy"
-                      target="_blank"
-                      className="text-amber-600 hover:underline"
-                      rel="noopener"
-                    >
-                      Refund Policy
-                    </a>
-                    .
-                  </Label>
-                  {errors.termsAccepted && (
-                    <p className="text-xs text-red-500 mt-1">{errors.termsAccepted.message}</p>
-                  )}
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div>
-                  <p className="text-xs text-mulearn-gray-600 uppercase tracking-widest font-semibold">
-                    Total Contribution
-                  </p>
-                  <p className="text-3xl font-bold text-mulearn-blackish tracking-tight">
-                    ₹{foundingPatronTier.amount.toLocaleString("en-IN")}
-                  </p>
-                </div>
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full sm:w-auto px-8 py-6 text-base font-semibold bg-amber-500 shadow-xl shadow-amber-500/20 hover:shadow-2xl hover:shadow-amber-500/30 hover:scale-[1.02] transition-all"
-                  disabled={!isValid}
-                >
-                  Submit for Verification
-                </Button>
-              </div>
-            </form>
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  // Main Subscription View (Monthly/Annual)
   return (
-    <div className="w-full bg-mulearn-whitish rounded-xl border border-mulearn-gray-600/20 shadow-xl flex flex-col max-h-[calc(100vh-5rem)] overflow-hidden">
-      <div className="flex-1 overflow-y-auto px-6 sm:px-8 py-8 min-h-0 bg-white">
-        <div className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <section
+      id="donate-form"
+      className="w-full scroll-mt-24 px-4 py-20 sm:px-6 md:px-12 lg:px-24 xl:px-40"
+    >
+      <div className="mx-auto max-w-4xl">
+        <div className="flex flex-col items-center gap-3">
+          <Tabs value={donorType} onValueChange={handleDonorTypeChange}>
+            <TabsList className="rounded-full bg-mulearn-greyish/10 p-1">
+              <div className="relative grid w-full grid-cols-2">
+                <MotionDiv
+                  className="absolute inset-y-0 left-0 w-1/2 rounded-full bg-mulearn"
+                  animate={{ x: isOrganisation ? "100%" : "0%" }}
+                  transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                />
+                <TabsTrigger
+                  value="individual"
+                  className="relative z-10 gap-2 rounded-full px-4 py-2 data-[state=active]:bg-transparent data-[state=active]:text-mulearn-whitish"
+                >
+                  <User className="size-4" /> Individual / Alumni
+                </TabsTrigger>
+                <TabsTrigger
+                  value="org"
+                  className="relative z-10 gap-2 rounded-full px-4 py-2 data-[state=active]:bg-transparent data-[state=active]:text-mulearn-whitish"
+                >
+                  <Building2 className="size-4" /> Organisation / Institution
+                </TabsTrigger>
+              </div>
+            </TabsList>
+          </Tabs>
+
+          <Tabs value={mode} onValueChange={handleModeChange}>
+            <TabsList className="w-full max-w-xs rounded-full bg-mulearn-greyish/10 p-1">
+              <div className="relative grid w-full grid-cols-2">
+                <MotionDiv
+                  className="absolute inset-y-0 left-0 w-1/2 rounded-full bg-mulearn"
+                  animate={{ x: mode === "subscription" ? "100%" : "0%" }}
+                  transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                />
+                <TabsTrigger
+                  value="one-time"
+                  className="relative z-10 rounded-full data-[state=active]:bg-transparent data-[state=active]:text-mulearn-whitish"
+                >
+                  One-time
+                </TabsTrigger>
+                <TabsTrigger
+                  value="subscription"
+                  className="relative z-10 rounded-full data-[state=active]:bg-transparent data-[state=active]:text-mulearn-whitish"
+                >
+                  Subscription
+                </TabsTrigger>
+              </div>
+            </TabsList>
+          </Tabs>
+        </div>
+
+        <div className="mt-10 text-center">
+          <h2 className="text-2xl font-bold text-mulearn-blackish sm:text-3xl">
+            {mode === "one-time"
+              ? "One-time Donation"
+              : isOrganisation
+                ? "Annual Subscription"
+                : "Monthly Subscription"}
+          </h2>
+          <p className="mt-1 text-mulearn-gray-600">
+            {mode === "one-time"
+              ? "Choose a pre-defined amount or enter a custom amount."
+              : "Sustained support. Lasting impact."}
+          </p>
+        </div>
+
+        <div
+          className={
+            mode === "subscription" && !isOrganisation
+              ? "mt-8 grid grid-cols-2 gap-4 sm:grid-cols-5"
+              : "mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4"
+          }
+        >
+          <AnimatePresence mode="popLayout">
+            {currentTiers.map((tier, i) => (
+              <MotionDiv
+                key={`${donorType}-${mode}-${tier.id}`}
+                layout
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25, delay: i * 0.04 }}
+              >
+                <TierCard
+                  tier={tier}
+                  isSelected={selectedTierId === tier.id}
+                  cadenceLabel={cadenceLabel}
+                  onSelect={() => handleTierSelect(tier)}
+                />
+              </MotionDiv>
+            ))}
+          </AnimatePresence>
+        </div>
+
+        <div className="mt-6 flex flex-col items-center gap-3 rounded-xl border border-mulearn-gray-600/20 bg-white p-5 sm:flex-row sm:justify-between">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-mulearn-blackish">
-              Become a Patron
-            </h2>
-            <p className="text-mulearn-gray-600 text-sm mt-1">
-              Join the movement to fuel open learning and innovation
+            <p className="font-semibold text-mulearn-blackish">Custom Amount</p>
+            <p className="text-sm text-mulearn-gray-600">
+              Enter any amount you wish to contribute.
             </p>
           </div>
-
-          <div className="flex items-center space-x-2 bg-mulearn-greyish/10 p-1.5 rounded-lg border border-mulearn-gray-600/10 self-start">
-            <Checkbox
-              id="isOrganisation"
-              checked={isOrganisation}
-              onChange={(e) => setValue("isOrganisation", e.target.checked)}
-              className="data-[state=checked]:bg-mulearn-trusty-blue data-[state=checked]:border-mulearn-trusty-blue"
+          <div className="relative w-full sm:w-40">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-mulearn-gray-600">
+              ₹
+            </span>
+            <Input
+              type="number"
+              placeholder="Enter amount"
+              value={customAmount}
+              onChange={(e) => handleCustomAmountChange(e.target.value)}
+              className="pl-7"
             />
-            <Label
-              htmlFor="isOrganisation"
-              className="text-sm font-medium cursor-pointer text-mulearn-gray-600 pr-2 select-none"
-            >
-              I&apos;m paying as an Organization
-            </Label>
           </div>
         </div>
 
-        {/* Founding Patron CTA */}
-        <div
-          role="button"
-          tabIndex={0}
-          onClick={handleFoundingPatronClick}
-          onKeyDown={(e) => e.key === "Enter" && handleFoundingPatronClick()}
-          className="mb-6 p-4 bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-xl cursor-pointer hover:shadow-md hover:border-amber-300 transition-all group"
-        >
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-amber-100 rounded-lg group-hover:bg-amber-200 transition-colors">
-                <Crown className="w-5 h-5 text-amber-600" />
-              </div>
-              <div>
-                <h3 className="font-bold text-mulearn-blackish">
-                  Want to become a Founding Patron?
-                </h3>
-                <p className="text-sm text-mulearn-gray-600">
-                  One-time contributions starting from ₹5,00,000
-                </p>
-              </div>
-            </div>
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-amber-400 text-amber-700 hover:bg-amber-100"
-            >
-              Explore →
-            </Button>
-          </div>
-        </div>
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-10 space-y-6">
+          <div className="space-y-6 border-t border-mulearn-gray-600/10 pt-8">
+            <h3 className="text-lg font-bold text-mulearn-blackish">Your Details</h3>
 
-        <Tabs
-          value={donationType}
-          onValueChange={(v) => setDonationType(v as DonationType)}
-          className="space-y-6"
-        >
-          <TabsList className="w-full h-auto p-1 bg-mulearn-greyish/10 rounded-xl border border-mulearn-gray-600/10 grid grid-cols-3 gap-1">
-            <TabsTrigger
-              value="monthly"
-              className="py-2.5 rounded-lg text-sm font-medium transition-all data-[state=active]:bg-white data-[state=active]:text-mulearn-trusty-blue data-[state=active]:shadow-sm text-mulearn-gray-600"
-            >
-              Monthly
-            </TabsTrigger>
-            <TabsTrigger
-              value="yearly"
-              className="py-2.5 rounded-lg text-sm font-medium transition-all data-[state=active]:bg-white data-[state=active]:text-mulearn-trusty-blue data-[state=active]:shadow-sm text-mulearn-gray-600"
-            >
-              Annually
-            </TabsTrigger>
-            <TabsTrigger
-              value="one-time"
-              className="py-2.5 rounded-lg text-sm font-medium transition-all data-[state=active]:bg-white data-[state=active]:text-mulearn-trusty-blue data-[state=active]:shadow-sm text-mulearn-gray-600"
-            >
-              One Time
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value={donationType} className="space-y-6">
-            <div className="grid grid-cols-1 gap-4">
-              {currentTiers.map((tier) => {
-                const isSelected = selectedAmount === tier.id;
-                const displayAmount = getDisplayAmount(tier);
-
-                return (
-                  <div
-                    key={tier.id}
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => handleTierSelect(tier)}
-                    onKeyDown={(e) => e.key === "Enter" && handleTierSelect(tier)}
-                    className={cn(
-                      "relative rounded-xl border p-5 cursor-pointer transition-all duration-200 group overflow-hidden",
-                      isSelected
-                        ? `bg-gradient-to-r ${tier.color} border-mulearn-trusty-blue/30 ring-2 ring-offset-2 ring-mulearn-trusty-blue/30 shadow-lg`
-                        : "bg-white border-mulearn-gray-600/20 hover:border-mulearn-trusty-blue/50 hover:bg-mulearn-whitish",
-                    )}
-                  >
-                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 relative z-10">
-                      <div className="flex-1 space-y-1">
-                        <div className="flex items-center gap-2">
-                          <h3
-                            className={cn(
-                              "text-lg font-bold",
-                              isSelected ? tier.textColor : "text-mulearn-blackish",
-                            )}
-                          >
-                            {tier.label}
-                          </h3>
-                        </div>
-                        <p
-                          className={cn(
-                            "text-sm font-medium",
-                            isSelected ? `${tier.textColor}/80` : "text-mulearn-gray-600",
-                          )}
-                        >
-                          {tier.description}
-                        </p>
-
-                        {(isSelected || window.innerWidth >= 640) && (
-                          <ul className="mt-3 space-y-1.5">
-                            {tier.benefits.map((benefit, idx) => (
-                              <li key={idx} className="flex items-start gap-2 text-sm leading-snug">
-                                <span
-                                  className={cn(
-                                    "mt-0.5 size-1.5 rounded-full shrink-0",
-                                    isSelected ? "bg-current opacity-60" : "bg-mulearn-trusty-blue",
-                                  )}
-                                ></span>
-                                <span
-                                  className={cn(
-                                    benefit.highlight ? "font-semibold" : "",
-                                    isSelected ? "text-mulearn-blackish" : "text-mulearn-gray-600",
-                                  )}
-                                >
-                                  {benefit.text}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-
-                      <div className="text-right shrink-0">
-                        <div
-                          className={cn(
-                            "text-2xl font-bold tabular-nums tracking-tight",
-                            isSelected ? tier.textColor : "text-mulearn-blackish",
-                          )}
-                        >
-                          ₹{displayAmount.toLocaleString("en-IN")}
-                        </div>
-                        <div
-                          className={cn(
-                            "text-xs font-medium uppercase tracking-wider opacity-60",
-                            isSelected ? tier.textColor : "text-mulearn-gray-600",
-                          )}
-                        >
-                          {donationType === "one-time"
-                            ? "One-Time"
-                            : `Per ${donationType === "monthly" ? "Month" : "Year"}`}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-
-              {/* Custom Amount Option */}
-              <div
-                className={cn(
-                  "relative rounded-xl border p-5 transition-all duration-200",
-                  selectedAmount === "custom"
-                    ? "bg-mulearn-whitish border-mulearn-trusty-blue ring-1 ring-mulearn-trusty-blue"
-                    : "bg-white border-mulearn-gray-600/20 hover:border-mulearn-trusty-blue/30",
-                )}
-              >
-                <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <div
-                    className="flex items-center gap-3 flex-1 w-full"
-                    onClick={() => setSelectedAmount("custom")}
-                  >
-                    <input
-                      type="radio"
-                      name="amount-selection"
-                      id="custom-amt"
-                      checked={selectedAmount === "custom"}
-                      onChange={() => setSelectedAmount("custom")}
-                      className="sr-only"
-                    />
-                    <Label
-                      htmlFor="custom-amt"
-                      className="font-semibold text-mulearn-blackish cursor-pointer whitespace-nowrap"
-                    >
-                      Custom Amount
-                    </Label>
-                    <div className="h-px bg-mulearn-gray-600/20 flex-1"></div>
-                  </div>
-                  <div className="relative w-full sm:w-48">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-mulearn-gray-600">
-                      ₹
-                    </span>
-                    <Input
-                      type="number"
-                      placeholder="Enter amount"
-                      value={customAmount}
-                      onChange={(e) => {
-                        handleCustomAmountChange(e.target.value);
-                        setSelectedAmount("custom");
-                      }}
-                      onClick={() => setSelectedAmount("custom")}
-                      className="pl-7 bg-white border-mulearn-gray-600/20 focus:border-mulearn-trusty-blue focus:ring-1 focus:ring-mulearn-trusty-blue transition-all font-medium"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Personal Information Section */}
-            <div className="pt-8 border-t border-mulearn-gray-600/10 space-y-6">
-              <h3 className="text-lg font-bold text-mulearn-blackish tracking-tight">
-                Your Details
-              </h3>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-mulearn-gray-600">
-                    Full Name <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="name"
-                    {...register("name")}
-                    placeholder="John Doe"
-                    className={`bg-white border-mulearn-gray-600/20 focus:border-mulearn-trusty-blue ${errors.name ? "border-red-500" : ""}`}
-                  />
-                  {errors.name && <p className="text-xs text-red-500">{errors.name.message}</p>}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="donationName" className="text-mulearn-gray-600">
-                    Donation Name{" "}
-                    <span className="text-mulearn-gray-600/60 font-normal">(Optional)</span>
-                  </Label>
-                  <Input
-                    id="donationName"
-                    {...register("donationName")}
-                    placeholder="e.g. In honor of someone special"
-                    className="bg-white border-mulearn-gray-600/20 focus:border-mulearn-trusty-blue"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-mulearn-gray-600">
-                    Email Address <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    {...register("email")}
-                    placeholder="john@example.com"
-                    className={`bg-white border-mulearn-gray-600/20 focus:border-mulearn-trusty-blue ${errors.email ? "border-red-500" : ""}`}
-                  />
-                  {errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-mulearn-gray-600">
-                    Phone Number <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    {...register("phone")}
-                    placeholder="+91 98765 43210"
-                    className={`bg-white border-mulearn-gray-600/20 focus:border-mulearn-trusty-blue ${errors.phone ? "border-red-500" : ""}`}
-                  />
-                  {errors.phone && <p className="text-xs text-red-500">{errors.phone.message}</p>}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="pan" className="text-mulearn-gray-600">
-                    PAN Number <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="pan"
-                    {...register("panNumber", {
-                      onChange: (e) => {
-                        e.target.value = e.target.value.toUpperCase();
-                      },
-                    })}
-                    placeholder="ABCDE1234F"
-                    maxLength={10}
-                    className={`bg-white border-mulearn-gray-600/20 focus:border-mulearn-trusty-blue ${errors.panNumber ? "border-red-500" : ""}`}
-                  />
-                  {errors.panNumber && (
-                    <p className="text-xs text-red-500">{errors.panNumber.message}</p>
-                  )}
-                </div>
-
-                {isOrganisation && (
-                  <div className="space-y-2">
-                    <Label htmlFor="orgName" className="text-mulearn-gray-600">
-                      Organisation Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                      id="orgName"
-                      {...register("organisationName")}
-                      placeholder="Acme Corp"
-                      className={`bg-white border-mulearn-gray-600/20 focus:border-mulearn-trusty-blue ${errors.organisationName ? "border-red-500" : ""}`}
-                    />
-                    {errors.organisationName && (
-                      <p className="text-xs text-red-500">{errors.organisationName.message}</p>
-                    )}
-                  </div>
-                )}
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <div className="space-y-2">
+                <Label htmlFor="name">
+                  Full Name <span className="text-red-500">*</span>
+                </Label>
+                <Input id="name" {...register("name")} placeholder="John Doe" />
+                {errors.name && <p className="text-xs text-red-500">{errors.name.message}</p>}
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="address" className="text-mulearn-gray-600">
-                  Address <span className="text-red-500">*</span>
+                <Label htmlFor="donationName">
+                  Donation Name{" "}
+                  <span className="font-normal text-mulearn-gray-600/60">(Optional)</span>
                 </Label>
-                <Textarea
-                  id="address"
-                  {...register("address")}
-                  placeholder="Full address"
-                  rows={3}
-                  className={`resize-none bg-white border-mulearn-gray-600/20 focus:border-mulearn-trusty-blue ${errors.address ? "border-red-500" : ""}`}
+                <Input
+                  id="donationName"
+                  {...register("donationName")}
+                  placeholder="e.g. In honor of someone special"
                 />
-                {errors.address && <p className="text-xs text-red-500">{errors.address.message}</p>}
               </div>
-            </div>
-          </TabsContent>
-        </Tabs>
-      </div>
 
-      {/* Sticky Footer for Action */}
-      <div className="border-t border-mulearn-gray-600/10 bg-white px-6 sm:px-8 py-5">
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="email">
+                  Email Address <span className="text-red-500">*</span>
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  {...register("email")}
+                  placeholder="john@example.com"
+                />
+                {errors.email && <p className="text-xs text-red-500">{errors.email.message}</p>}
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="phone">
+                  Phone Number <span className="text-red-500">*</span>
+                </Label>
+                <Input id="phone" type="tel" {...register("phone")} placeholder="+91 98765 43210" />
+                {errors.phone && <p className="text-xs text-red-500">{errors.phone.message}</p>}
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="pan">
+                  PAN Number <span className="text-red-500">*</span>
+                </Label>
+                <Input
+                  id="pan"
+                  {...register("panNumber", {
+                    onChange: (e) => {
+                      e.target.value = e.target.value.toUpperCase();
+                    },
+                  })}
+                  placeholder="ABCDE1234F"
+                  maxLength={10}
+                />
+                {errors.panNumber && (
+                  <p className="text-xs text-red-500">{errors.panNumber.message}</p>
+                )}
+              </div>
+
+              {isOrganisation && (
+                <div className="space-y-2">
+                  <Label htmlFor="orgName">
+                    Organisation Name <span className="text-red-500">*</span>
+                  </Label>
+                  <Input id="orgName" {...register("organisationName")} placeholder="Acme Corp" />
+                  {errors.organisationName && (
+                    <p className="text-xs text-red-500">{errors.organisationName.message}</p>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="address">
+                Address <span className="text-red-500">*</span>
+              </Label>
+              <Textarea id="address" {...register("address")} placeholder="Full address" rows={3} />
+              {errors.address && <p className="text-xs text-red-500">{errors.address.message}</p>}
+            </div>
+          </div>
+
           <div className="flex items-start space-x-3">
             <Checkbox id="termsAccepted" {...register("termsAccepted")} className="mt-0.5" />
             <div className="flex-1">
               <Label
                 htmlFor="termsAccepted"
-                className="text-xs text-mulearn-gray-600 font-normal leading-relaxed"
+                className="text-xs font-normal leading-relaxed text-mulearn-gray-600"
               >
                 I agree to the{" "}
                 <a
                   href="/terms-and-conditions"
                   target="_blank"
-                  className="text-mulearn-trusty-blue hover:underline"
                   rel="noopener"
+                  className="text-mulearn hover:underline"
                 >
                   Terms
                 </a>
@@ -987,8 +425,8 @@ export default function DonationForm() {
                 <a
                   href="/privacy-policy"
                   target="_blank"
-                  className="text-mulearn-trusty-blue hover:underline"
                   rel="noopener"
+                  className="text-mulearn hover:underline"
                 >
                   Privacy Policy
                 </a>{" "}
@@ -996,15 +434,15 @@ export default function DonationForm() {
                 <a
                   href="/refund-policy"
                   target="_blank"
-                  className="text-mulearn-trusty-blue hover:underline"
                   rel="noopener"
+                  className="text-mulearn hover:underline"
                 >
                   Refund Policy
                 </a>
                 .
               </Label>
               {errors.termsAccepted && (
-                <p className="text-xs text-red-500 mt-1">{errors.termsAccepted.message}</p>
+                <p className="mt-1 text-xs text-red-500">{errors.termsAccepted.message}</p>
               )}
             </div>
           </div>
@@ -1013,27 +451,26 @@ export default function DonationForm() {
             <p className="text-xs text-red-500">{errors.donationAmount.message}</p>
           )}
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col items-center justify-between gap-4 border-t border-mulearn-gray-600/10 pt-6 sm:flex-row">
             <div>
-              <p className="text-xs text-mulearn-gray-600 uppercase tracking-widest font-semibold">
+              <p className="text-xs font-semibold uppercase tracking-widest text-mulearn-gray-600">
                 Total Contribution
               </p>
-              <p className="text-3xl font-bold text-mulearn-blackish tracking-tight">
+              <p className="text-3xl font-bold tracking-tight text-mulearn-blackish">
                 ₹{totalAmount.toLocaleString("en-IN")}
               </p>
             </div>
             <Button
               type="submit"
-              variant={"default"}
               size="lg"
-              className="w-full sm:w-auto text-base font-semibold"
+              className="w-full text-base font-semibold sm:w-auto"
               disabled={!isValid || totalAmount === 0}
             >
-              Proceed to Payment
+              {mode === "one-time" ? "Proceed to Payment" : "Subscribe"}
             </Button>
           </div>
         </form>
       </div>
-    </div>
+    </section>
   );
 }

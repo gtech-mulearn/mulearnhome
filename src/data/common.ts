@@ -109,6 +109,10 @@ export const navItems = [
     href: "/donate",
     submenu: null,
   },
+  {
+    label: "Docs",
+    href: "https://docs.mulearn.org/",
+  },
 ];
 
 export const footer = [
@@ -121,6 +125,7 @@ export const footer = [
       { title: "Interest Groups", url: "/interest-groups" },
       { title: "Contact Us", url: "/contact" },
       { title: "Donate", url: "/donate" },
+      { title: "Docs", url: "https://docs.mulearn.org/" },
     ],
   },
   {
