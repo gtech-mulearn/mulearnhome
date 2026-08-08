@@ -63,7 +63,7 @@ export default function TrustBar() {
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="text-2xl font-extrabold text-mulearn sm:text-3xl">
-                <CountUp end={stat.value} duration={2.5} separator="," />+
+                <CountUp end={stat.value} duration={2.5} separator="," />
               </p>
               <p className="text-sm text-mulearn-gray-600">{stat.label}</p>
             </div>
