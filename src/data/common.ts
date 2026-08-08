@@ -178,7 +178,7 @@ export const socials = [
 ];
 
 export const contactInfo = {
-  copyright: "μLearn Foundation | Copyright © 2025 All rights reserved.",
+  copyright: `μLearn Foundation | Copyright © ${new Date().getFullYear()} All rights reserved.`,
   address: "Technopark Phase 1, Thiruvananthapuram, Kerala - 695581",
   email: "info@mulearn.org",
   website: "www.mulearn.org",

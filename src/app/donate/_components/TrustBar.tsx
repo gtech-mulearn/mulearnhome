@@ -40,7 +40,6 @@ export default function TrustBar() {
     { value: learningCircleCount, label: "Learning circles" },
     { value: interestGroupCount, label: "Interest groups" },
     { value: companyCount, label: "Companies" },
-    { value: eventsCount, label: "Events" },
   ];
 
   return (
