@@ -126,6 +126,9 @@ export default function DonationForm() {
     const next = value as DonorType;
     setDonorType(next);
     setValue("isOrganisation", next === "org", { shouldValidate: true });
+    if (next !== "org") {
+      setValue("address", "", { shouldValidate: true });
+    }
     setSelectedTierId(null);
     setCustomAmount("");
     setValue("donationAmount", 0, { shouldValidate: true });
@@ -178,7 +181,7 @@ export default function DonationForm() {
         email: data.email,
         mobile: data.phone,
         pan: data.panNumber,
-        address: data.address,
+        address: data.isOrganisation ? data.address : undefined,
         donationType: data.donationType,
         isOrganisation: data.isOrganisation,
         organisationName: data.organisationName,
@@ -396,13 +399,20 @@ export default function DonationForm() {
               )}
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="address">
-                Address <span className="text-red-500">*</span>
-              </Label>
-              <Textarea id="address" {...register("address")} placeholder="Full address" rows={3} />
-              {errors.address && <p className="text-xs text-red-500">{errors.address.message}</p>}
-            </div>
+            {isOrganisation && (
+              <div className="space-y-2">
+                <Label htmlFor="address">
+                  Address <span className="text-red-500">*</span>
+                </Label>
+                <Textarea
+                  id="address"
+                  {...register("address")}
+                  placeholder="Full address"
+                  rows={3}
+                />
+                {errors.address && <p className="text-xs text-red-500">{errors.address.message}</p>}
+              </div>
+            )}
           </div>
 
           <div className="flex items-start space-x-3">
