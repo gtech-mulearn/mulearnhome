@@ -20,3 +20,7 @@ export const weeklyTwitchesRoutes = {
   saltMangoTree: "/dashboard/media-content/salt-mango-tree/",
   inspirationStation: "/dashboard/media-content/inspiration-station/",
 };
+
+export const interestGroupRoutes = {
+  list: "/public/ig/list/",
+};

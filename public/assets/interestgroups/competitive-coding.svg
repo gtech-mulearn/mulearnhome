@@ -1,0 +1,31 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="codingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#be123c;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#881337;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="400" height="250" fill="url(#codingGrad)" rx="16"/>
+  <circle cx="80" cy="125" r="120" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="320" cy="200" r="80" fill="rgba(255,255,255,0.06)"/>
+
+  <g transform="translate(200, 95)" filter="url(#glow)">
+    <rect x="-36" y="-22" width="72" height="44" rx="6" fill="#0f172a" stroke="#f43f5e" stroke-width="2"/>
+    <path d="M-22,-4 L-12,1 L-22,6" stroke="#fb7185" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <line x1="-6" y1="6" x2="8" y2="6" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+    <polygon points="14,-6 23,2 17,2 21,11 14,5 18,5" fill="#fbbf24"/>
+  </g>
+
+  <text x="200" y="165" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="white" text-anchor="middle" filter="url(#glow)">Competitive Coding</text>
+
+  <text x="200" y="208" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.9)" text-anchor="middle">µLearn</text>
+</svg>

@@ -1,8 +1,9 @@
 <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="cyberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0f766e;stop-opacity:1" />
+    <linearGradient id="becknGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d9488;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#115e59;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
     </linearGradient>
     <filter id="glow">
       <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
@@ -13,16 +14,17 @@
     </filter>
   </defs>
 
-  <rect width="400" height="250" fill="url(#cyberGrad)" rx="16"/>
+  <rect width="400" height="250" fill="url(#becknGrad)" rx="16"/>
   <circle cx="80" cy="125" r="120" fill="rgba(255,255,255,0.08)"/>
   <circle cx="320" cy="200" r="80" fill="rgba(255,255,255,0.06)"/>
 
   <g transform="translate(200, 95)" filter="url(#glow)">
-    <path d="M0,-30 L25,-15 L25,10 C25,25 0,35 0,35 C0,35 -25,25 -25,10 L-25,-15 Z" fill="#14b8a6" stroke="white" stroke-width="2"/>
-    <path d="M-8,-2 L0,6 L12,-6" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+    <circle cx="-11" cy="0" r="5" fill="#2dd4bf"/>
+    <circle cx="11" cy="0" r="5" fill="#fbbf24"/>
   </g>
 
-  <text x="200" y="165" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="white" text-anchor="middle" filter="url(#glow)">Cybersecurity</text>
+  <text x="200" y="165" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="white" text-anchor="middle" filter="url(#glow)">Beckn Protocol</text>
 
   <text x="200" y="208" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.9)" text-anchor="middle">µLearn</text>
 </svg>
