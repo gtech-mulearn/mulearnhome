@@ -1,10 +1,9 @@
 "use client";
 
 import type { Variants } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import { MotionDiv, MotionSection } from "@/components/MuFramer";
-import type { Counts } from "@/lib/types";
+import { useLandingStats } from "@/services/useLandingStats";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -16,36 +15,10 @@ const fadeInUp: Variants = {
 };
 
 export default function Stats() {
-  const [counts, setCounts] = useState<Counts | null>(null);
-  const socketRef = useRef<WebSocket | null>(null);
+  const { counts, hasError } = useLandingStats();
 
-  useEffect(() => {
-    if (!socketRef.current) {
-      const socket = new WebSocket("wss://mulearn.org/ws/v1/public/landing-stats/");
-      socketRef.current = socket;
-      const handleMessage = (event: MessageEvent) => {
-        setCounts(JSON.parse(event.data) as Counts);
-      };
-      const handleError = (event: Event) => {
-        void event;
-      };
-      socket.addEventListener("message", handleMessage);
-      socket.addEventListener("error", handleError);
-      return () => {
-        socket.removeEventListener("message", handleMessage);
-        socket.removeEventListener("error", handleError);
-        socket.close();
-        socketRef.current = null;
-      };
-    }
-  }, []);
-
-  if (!counts) {
-    return (
-      <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full py-24">
-        <div className="text-center">Loading stats...</div>
-      </div>
-    );
+  if (hasError || !counts) {
+    return null;
   }
 
   return (
@@ -117,7 +90,11 @@ function StatCard({
   return (
     <div className="flex flex-col justify-center items-center p-4">
       <p className="font-semibold text-mulearn text-2xl sm:text-3xl lg:text-[2rem]">
-        {isString ? value : <CountUp end={value as number} duration={5} separator="," />}
+        {isString ? (
+          value
+        ) : (
+          <CountUp end={value as number} duration={10} separator="," autoAnimate autoAnimateOnce />
+        )}
       </p>
       <p className="text-sm sm:text-base font-medium mt-1 text-mulearn-blackish">{label}</p>
     </div>

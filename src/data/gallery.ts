@@ -616,7 +616,3 @@ export const galleryEvents: GalleryEvent[] = (
 export function getGalleryEventBySlug(slug: string): GalleryEvent | undefined {
   return galleryEvents.find((e) => e.slug === slug);
 }
-
-export function getGalleryEventSlugs(): string[] {
-  return galleryEvents.map((e) => e.slug);
-}

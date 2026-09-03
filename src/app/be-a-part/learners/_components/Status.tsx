@@ -1,38 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import { MotionDiv } from "@/components/MuFramer";
-import type { Counts } from "@/lib/types";
+import { useLandingStats } from "@/services/useLandingStats";
 
 const LearnersStatus = () => {
-  const [counts, setCounts] = useState<Counts | null>(null);
-  const socketRef = useRef<WebSocket | null>(null);
-
-  useEffect(() => {
-    if (!socketRef.current) {
-      const socket = new WebSocket("wss://mulearn.org/ws/v1/public/landing-stats/");
-      socketRef.current = socket;
-
-      const handleMessage = (event: MessageEvent) => {
-        setCounts(JSON.parse(event.data) as Counts);
-      };
-
-      const handleError = (event: Event) => {
-        console.error("WebSocket error:", event);
-      };
-
-      socket.addEventListener("message", handleMessage);
-      socket.addEventListener("error", handleError);
-
-      return () => {
-        socket.removeEventListener("message", handleMessage);
-        socket.removeEventListener("error", handleError);
-        socket.close();
-        socketRef.current = null;
-      };
-    }
-  }, []);
+  const { counts, hasError } = useLandingStats();
 
   // Format number to display with K+ suffix
   const formatNumber = (num: number): string => {
@@ -64,16 +37,8 @@ const LearnersStatus = () => {
       ]
     : null;
 
-  if (!stats) {
-    return (
-      <section className="py-16 md:py-20 bg-mulearn-whitish">
-        <div className="container mx-auto px-4">
-          <div className="border-t border-mulearn-gray-600 mb-16"></div>
-          <div className="text-center">Loading statistics...</div>
-          <div className="border-t border-mulearn-gray-600 mt-16"></div>
-        </div>
-      </section>
-    );
+  if (hasError || !stats) {
+    return null;
   }
 
   return (
@@ -92,7 +57,13 @@ const LearnersStatus = () => {
               className="text-center"
             >
               <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold text-mulearn mb-4">
-                <CountUp end={stat.number} duration={2.5} separator="," />
+                <CountUp
+                  end={stat.number}
+                  duration={2.5}
+                  separator=","
+                  autoAnimate
+                  autoAnimateOnce
+                />
               </h3>
 
               <p className="text-lg md:text-xl font-medium">{stat.label}</p>

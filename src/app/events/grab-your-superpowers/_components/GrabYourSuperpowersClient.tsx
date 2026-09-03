@@ -2,19 +2,18 @@
 
 import { format, parse } from "date-fns";
 import { AnimatePresence } from "framer-motion";
-import { Calendar, Clock, Mic, PlayCircle } from "lucide-react";
+import { Calendar, Clock, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
-import { GenericEventCard, IG_LABELS } from "@/app/events/_components/GenericEventCard";
+import { GenericEventCard } from "@/app/events/_components/GenericEventCard";
 import Pagination from "@/app/events/_components/Pagination";
 import SearchAndFilter from "@/app/events/_components/SearchAndFilter";
 import { TabButton } from "@/app/events/_components/TabButton";
 import { MotionSection } from "@/components/MuFramer";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { StateDisplay } from "@/components/ui/state-display";
 import { useDebounce } from "@/hooks/useDebounce";
-import type { OfficeHoursSession, WeeklyTwitchPagination } from "@/lib/types";
-import { fetchOfficeHours } from "@/services/weeklyTwitches";
+import type { GrabYourSuperpowersSession, WeeklyTwitchPagination } from "@/lib/types";
+import { fetchGrabYourSuperpowers } from "@/services/weeklyTwitches";
 
 type ViewType = "upcoming" | "previous";
 
@@ -35,12 +34,11 @@ const EMPTY_PAGINATION: WeeklyTwitchPagination = {
   nextPage: null,
 };
 
-export default function OfficeHoursClient() {
+export default function GrabYourSuperpowersClient() {
   const [view, setView] = useState<ViewType>("upcoming");
   const [searchInput, setSearchInput] = useState("");
   const [page, setPage] = useState(1);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [sessions, setSessions] = useState<OfficeHoursSession[]>([]);
+  const [sessions, setSessions] = useState<GrabYourSuperpowersSession[]>([]);
   const [pagination, setPagination] = useState<WeeklyTwitchPagination>(EMPTY_PAGINATION);
   const [error, setError] = useState(false);
 
@@ -49,8 +47,7 @@ export default function OfficeHoursClient() {
   useEffect(() => {
     let isCurrent = true;
     setError(false);
-
-    fetchOfficeHours({
+    fetchGrabYourSuperpowers({
       status: view === "previous" ? "completed" : ["ongoing", "upcoming"],
       search: debouncedSearch || undefined,
       pageIndex: page,
@@ -75,7 +72,6 @@ export default function OfficeHoursClient() {
   const handleViewChange = (v: ViewType) => {
     setView(v);
     setPage(1);
-    setSelectedTags([]);
   };
 
   const handleSearchChange = (s: string) => {
@@ -83,68 +79,45 @@ export default function OfficeHoursClient() {
     setPage(1);
   };
 
-  const toggleTag = (tag: string) =>
-    setSelectedTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
-    );
-
-  const allTags = Array.from(
-    new Set(
-      sessions.flatMap((s) =>
-        (s.interest_groups ?? []).map((ig) => IG_LABELS[ig.toLowerCase()] || ig),
-      ),
-    ),
-  ).sort();
-
-  const filteredSessions =
-    selectedTags.length === 0
-      ? sessions
-      : sessions.filter((s) =>
-          (s.interest_groups ?? []).some((ig) =>
-            selectedTags.includes(IG_LABELS[ig.toLowerCase()] || ig),
-          ),
-        );
-
-  const toEvent = (session: OfficeHoursSession, index: number) => ({
+  const toEvent = (session: GrabYourSuperpowersSession, index: number) => ({
     id: index + 1,
     title: session.title,
     performer: session.performer || "",
     designation: session.designation || "",
+    campus: session.campus,
     description: session.description || "",
     date: formatDate(session.date),
     time: formatTime(session.time),
-    interestGroups: (session.interest_groups ?? []).map((ig) => ig.toLowerCase()),
     isUpcoming: session.status === "upcoming",
     isLive: session.status === "ongoing",
     link: session.link || undefined,
-    thumbnail: session.poster_thumbnail || undefined,
   });
 
-  const events = filteredSessions.map((s, i) => toEvent(s, i));
-  const hasActiveFilters = Boolean(debouncedSearch) || selectedTags.length > 0;
+  const events = sessions.map((s, i) => toEvent(s, i));
+  const hasActiveFilters = Boolean(debouncedSearch);
 
   const emptyStateCopy = error
     ? {
         title: "Something Went Wrong",
         description:
-          "We couldn't load Office Hour sessions right now. This might be a temporary connection issue — please refresh the page or try again in a few minutes.",
+          "We couldn't load Grab Your Superpowers sessions right now. This might be a temporary connection issue — please refresh the page or try again in a few minutes.",
       }
     : hasActiveFilters
       ? {
           title: "No Matching Sessions",
           description:
-            "No sessions matched your search or the selected tags. Try a different keyword, or clear the filters to browse all sessions.",
+            "No sessions matched your search. Try a different keyword, or clear the search to browse all sessions.",
         }
       : view === "upcoming"
         ? {
             title: "No Upcoming Sessions",
             description:
-              "There are no upcoming Office Hour sessions scheduled right now. New sessions are added regularly, so check back soon.",
+              "There are no upcoming Grab Your Superpowers sessions scheduled right now. New sessions are added regularly, so check back soon.",
           }
         : {
             title: "No Previous Sessions",
             description:
-              "No past Office Hour sessions to show yet. Once sessions wrap up, they'll appear here.",
+              "No past Grab Your Superpowers sessions to show yet. Once sessions wrap up, they'll appear here.",
           };
 
   const motionVariants = {
@@ -162,17 +135,17 @@ export default function OfficeHoursClient() {
               variant="outline"
               className="mb-6 border-2 border-mulearn-trusty-blue text-mulearn-trusty-blue font-bold text-sm py-2 px-4"
             >
-              <Mic className="w-4 h-4 mr-2" />
+              <Sparkles className="w-4 h-4 mr-2" />
               Community Platform
             </Badge>
 
             <h1 className="mb-6">
-              µLearn <span className="text-mulearn">Office Hour</span>
+              µLearn <span className="text-mulearn">Grab Your Superpowers</span>
             </h1>
 
             <p className="text-lg md:text-xl text-mulearn-gray-600 leading-relaxed mb-8">
-              A space where µLearn members connect, learn, and grow together. Office Hour is our
-              community-driven learning zone.
+              Weekly sessions to help you unlock new skills and superpowers, guided by mentors and
+              practitioners from across campuses.
             </p>
           </div>
         </div>
@@ -181,9 +154,9 @@ export default function OfficeHoursClient() {
       <SearchAndFilter
         search={searchInput}
         onSearchChange={handleSearchChange}
-        selectedTags={selectedTags}
-        onTagToggle={toggleTag}
-        allTags={allTags}
+        selectedTags={[]}
+        onTagToggle={() => {}}
+        allTags={[]}
         view={view}
       />
 
@@ -216,7 +189,12 @@ export default function OfficeHoursClient() {
             {events.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {events.map((event) => (
-                  <GenericEventCard key={event.id} event={event} variant="office-hour" icon={Mic} />
+                  <GenericEventCard
+                    key={event.id}
+                    event={event}
+                    variant="superpower"
+                    icon={Sparkles}
+                  />
                 ))}
               </div>
             ) : (
@@ -228,9 +206,7 @@ export default function OfficeHoursClient() {
               />
             )}
 
-            {selectedTags.length === 0 && (
-              <Pagination page={page} setPage={setPage} total={pagination.count} perPage={6} />
-            )}
+            <Pagination page={page} setPage={setPage} total={pagination.count} perPage={6} />
           </div>
         </MotionSection>
       </AnimatePresence>

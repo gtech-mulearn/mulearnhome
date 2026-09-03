@@ -3,15 +3,16 @@
 import type { Variants } from "framer-motion";
 import { Sparkle } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { MotionDiv, MotionSection } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
 import { enablers } from "@/data/enablers";
-import type { Counts } from "@/lib/types";
+import { clientEnv } from "@/lib/env/env.client";
 import { cdnUrl } from "@/services/cdn";
 import { fetchPublicProfileImage } from "@/services/profile";
+import { useLandingStats } from "@/services/useLandingStats";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -23,36 +24,10 @@ const fadeInUp: Variants = {
 };
 
 export default function MissionandGrowth() {
-  const [counts, setCounts] = useState<Counts | null>(null);
+  const { counts, hasError } = useLandingStats();
   const [displayedCount, setDisplayedCount] = useState(12);
   const [publicProfileImages, setPublicProfileImages] = useState<Record<string, string | null>>({});
-  const socketRef = useRef<WebSocket | null>(null);
   const fallbackImage = cdnUrl("public/assets/team/default.webp");
-
-  useEffect(() => {
-    if (!socketRef.current) {
-      const socket = new WebSocket("wss://mulearn.org/ws/v1/public/landing-stats/");
-      socketRef.current = socket;
-
-      const handleMessage = (event: MessageEvent) => {
-        setCounts(JSON.parse(event.data) as Counts);
-      };
-
-      const handleError = (event: Event) => {
-        void event;
-      };
-
-      socket.addEventListener("message", handleMessage);
-      socket.addEventListener("error", handleError);
-
-      return () => {
-        socket.removeEventListener("message", handleMessage);
-        socket.removeEventListener("error", handleError);
-        socket.close();
-        socketRef.current = null;
-      };
-    }
-  }, []);
 
   useEffect(() => {
     const visibleFaculties = enablers.faculties.slice(0, displayedCount);
@@ -63,7 +38,6 @@ export default function MissionandGrowth() {
     if (missingMuidList.length === 0) return;
 
     let isCancelled = false;
-
     const loadPublicProfileImages = async () => {
       const imageEntries = await Promise.all(
         missingMuidList.map(async (muid) => [muid, await fetchPublicProfileImage(muid)] as const),
@@ -93,12 +67,8 @@ export default function MissionandGrowth() {
 
   const hasMore = displayedCount < enablers.faculties.length;
 
-  if (!counts) {
-    return (
-      <div className="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 w-full py-24">
-        <div className="text-center">Loading stats...</div>
-      </div>
-    );
+  if (hasError || !counts) {
+    return null;
   }
 
   return (
@@ -154,7 +124,7 @@ export default function MissionandGrowth() {
               {enablers.faculties.slice(0, displayedCount).map((c) => (
                 <Link
                   key={c.muid}
-                  href={`${process.env.NEXT_PUBLIC_APP_URL}profile/${c.muid}`}
+                  href={`${clientEnv.NEXT_PUBLIC_APP_URL}profile/${c.muid}`}
                   className="flex flex-col items-center gap-1.5 group"
                 >
                   <div className="rounded-full ring-2 ring-mulearn transition-all relative h-20 w-20">
@@ -196,7 +166,11 @@ function StatCard({
   return (
     <div className="bg-card rounded-2xl shadow-sm flex flex-col justify-center items-center p-4">
       <p className="font-semibold text-mulearn text-2xl sm:text-3xl lg:text-[2rem]">
-        {isString ? value : <CountUp end={value as number} duration={5} separator="," />}
+        {isString ? (
+          value
+        ) : (
+          <CountUp end={value as number} duration={5} separator="," autoAnimate autoAnimateOnce />
+        )}
       </p>
       <p className="text-sm sm:text-base font-medium mt-1">{label}</p>
     </div>

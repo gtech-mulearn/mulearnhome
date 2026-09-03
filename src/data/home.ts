@@ -1,3 +1,4 @@
+import { clientEnv } from "@/lib/env/env.client";
 import type { Role, RolesContent } from "@/lib/types";
 import { cdnUrl } from "@/services/cdn";
 
@@ -8,7 +9,7 @@ export const features = [
     image: cdnUrl("public/assets/landing/College Project Concept Illustration.png"),
     bgColor: "#9bc8ff",
     cta: "Join Community",
-    url: "https://app.mulearn.org",
+    url: `${clientEnv.NEXT_PUBLIC_APP_URL}`,
   },
   {
     title: "Mentors",
@@ -16,7 +17,7 @@ export const features = [
     image: cdnUrl("public/assets/landing/searching.png"),
     bgColor: "#ffb0a1",
     cta: "Find a Mentor",
-    url: "https://app.mulearn.org/dashboard/search?activetab=mentors",
+    url: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/search/mentors`,
   },
   {
     title: "Interest Groups",
@@ -32,7 +33,7 @@ export const features = [
     image: cdnUrl("public/assets/landing/Roadmap.png"),
     bgColor: "#ffe399",
     cta: "View Roadmaps",
-    url: "https://app.mulearn.org/dashboard/search?activetab=mulearners",
+    url: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/mujourney`,
   },
   {
     title: "Challenges",
@@ -40,7 +41,7 @@ export const features = [
     image: cdnUrl("public/assets/landing/collab.png"),
     bgColor: "#b594ff",
     cta: "Start Challenges",
-    url: "https://app.mulearn.org/dashboard/mujourney",
+    url: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/mujourney`,
   },
   {
     title: "Opportunities",

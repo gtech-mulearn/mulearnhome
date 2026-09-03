@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { interestGroups } from "@/data/lc-ig";
+import { clientEnv } from "@/lib/env/env.client";
 
 const workflowSteps = [
   {
@@ -357,7 +358,7 @@ export default function InterestGroups() {
           <div>
             <Button asChild variant="inverted" className="px-8 py-4 text-lg">
               <a
-                href="https://app.mulearn.org/dashboard/profile"
+                href={`${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/profile`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

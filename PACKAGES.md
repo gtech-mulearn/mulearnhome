@@ -64,6 +64,11 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 * Additional icon sets when Lucide is insufficient
 
+### **react-colorful**
+
+* Lightweight color picker component
+* Used for color selection interfaces across the app
+
 ---
 
 ## Animations & Effects

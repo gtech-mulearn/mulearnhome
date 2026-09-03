@@ -1,4 +1,5 @@
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { clientEnv } from "@/lib/env/env.client";
 
 export const navItems = [
   {
@@ -77,7 +78,7 @@ export const navItems = [
   },
   {
     label: "Mentorship",
-    href: "https://app.mulearn.org/dashboard/search?activetab=mentors",
+    href: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/search/mentors`,
     submenu: null,
   },
   {
@@ -99,7 +100,7 @@ export const navItems = [
         },
         {
           label: "Learning Paths",
-          href: "https://app.mulearn.org/dashboard/mujourney",
+          href: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/mujourney`,
         },
       ],
     },
@@ -111,7 +112,8 @@ export const navItems = [
   },
   {
     label: "Docs",
-    href: "https://docs.mulearn.org/",
+    href: "https://docs.mulearn.org",
+    submenu: null,
   },
 ];
 
@@ -119,13 +121,13 @@ export const footer = [
   {
     title: "Quick Links",
     links: [
-      { title: "Blog", url: "https://gtechmulearn.medium.com/" },
+      // { title: "Blog", url: "https://gtechmulearn.medium.com/" },
       { title: "Team", url: "/team" },
       { title: "Career Labs", url: "/careers" },
       { title: "Interest Groups", url: "/interest-groups" },
       { title: "Contact Us", url: "/contact" },
       { title: "Donate", url: "/donate" },
-      { title: "Docs", url: "https://docs.mulearn.org/" },
+      { title: "Docs", url: "https://docs.mulearn.org" },
     ],
   },
   {
@@ -139,7 +141,7 @@ export const footer = [
       },
       {
         title: "Mentors",
-        url: "https://app.mulearn.org/dashboard/search?activetab=mentors",
+        url: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/search/mentors`,
       },
     ],
   },

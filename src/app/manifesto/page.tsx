@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MotionH1, MotionH2 } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
+import { clientEnv } from "@/lib/env/env.client";
 import { cdnUrl } from "@/services/cdn";
 
 const bglogo = cdnUrl("/src/modules/Public/Manifesto/assets/µ.png");
@@ -77,7 +78,7 @@ export default function Manifesto() {
           Welcome to the <span className="font-semibold">Revolution.</span>
         </MotionH2>
 
-        <Link href="https://app.mulearn.org" target="_blank" rel="noreferrer">
+        <Link href={clientEnv.NEXT_PUBLIC_APP_URL} target="_blank" rel="noreferrer">
           <Button variant="inverted" className="py-2 px-6 sm:px-8 sm:py-3">
             Join µLearn
           </Button>

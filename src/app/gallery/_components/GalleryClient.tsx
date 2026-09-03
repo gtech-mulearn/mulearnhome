@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { EmptyState, Pagination } from "@/app/events/_components";
+import { Pagination } from "@/app/events/_components";
+import { StateDisplay } from "@/components/ui/state-display";
 import type { GalleryEvent } from "@/data/gallery";
 import { GalleryGrid } from "./GalleryGrid";
 import { GalleryListView } from "./GalleryListView";
@@ -36,6 +37,17 @@ export function GalleryClient({ events }: GalleryClientProps) {
     setPage(1);
   };
 
+  const emptyStateCopy = search.trim()
+    ? {
+        title: "No Matching Events",
+        description: `No gallery events matched "${search.trim()}". Try a different keyword, or clear the search to browse all events.`,
+      }
+    : {
+        title: "No Events Yet",
+        description:
+          "There are no gallery events to show right now. Check back soon as new events are added.",
+      };
+
   return (
     <div className="px-6 py-8 md:px-12 min-h-screen">
       <div className="max-w-7xl mx-auto">
@@ -45,7 +57,12 @@ export function GalleryClient({ events }: GalleryClientProps) {
         </div>
 
         {filteredEvents.length === 0 ? (
-          <EmptyState title="No events found" description="Try a different search term" />
+          <StateDisplay
+            variant="no-results"
+            title={emptyStateCopy.title}
+            description={emptyStateCopy.description}
+            size="md"
+          />
         ) : view === "grid" ? (
           <GalleryGrid events={paginatedEvents} />
         ) : (

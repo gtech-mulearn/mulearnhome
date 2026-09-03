@@ -1,7 +1,8 @@
 "use client";
 
 import * as htmlToImage from "html-to-image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { HexColorPicker } from "react-colorful";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -146,10 +147,25 @@ export default function CampusLogoGenerator() {
     backgroundColor: "var(--mulearn-blackish)",
     fileType: "PNG",
     yipVariant: "red",
+    campusCodeColor: "#ffffff",
   });
 
   const [isDownloading, setIsDownloading] = useState(false);
+  const [showColorPicker, setShowColorPicker] = useState(false);
+  const colorPickerRef = useRef<HTMLDivElement>(null);
   const squareLogoRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (colorPickerRef.current && !colorPickerRef.current.contains(e.target as Node)) {
+        setShowColorPicker(false);
+      }
+    };
+    if (showColorPicker) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [showColorPicker]);
 
   const foregroundColors = [
     { name: "White", value: "var(--mulearn-whitish)" },
@@ -364,7 +380,10 @@ export default function CampusLogoGenerator() {
                         <div className="flex flex-col items-center">
                           <MuLearnLogo color={formData.foregroundColor} width={180} height={45} />
                           <div className="relative w-full">
-                            <div className="text-2xl lg:text-3xl opacity-90 absolute right-0 font-sans">
+                            <div
+                              className="text-2xl lg:text-3xl opacity-90 absolute right-0 font-sans font-bold"
+                              style={{ color: formData.campusCodeColor }}
+                            >
                               {formData.campusCode || "Campus"}
                             </div>
                           </div>
@@ -385,7 +404,10 @@ export default function CampusLogoGenerator() {
                         <div className="flex flex-col items-center">
                           <MuLearnLogo color={formData.foregroundColor} width={140} height={35} />
                           <div className="relative w-full">
-                            <div className="text-base mt-2 opacity-90 absolute right-0 font-sans text-mulearn-whitish">
+                            <div
+                              className="text-base mt-2 opacity-90 absolute right-0 font-sans font-bold"
+                              style={{ color: formData.campusCodeColor }}
+                            >
                               {formData.campusCode || "Campus"}
                             </div>
                           </div>
@@ -416,6 +438,45 @@ export default function CampusLogoGenerator() {
               />
               <div className="text-right text-xs text-mulearn-gray-600 mt-1">
                 {formData.campusCode.length}/15
+              </div>
+            </div>
+
+            <div>
+              <Label className="block mb-2">Campus Code Color</Label>
+              <div className="flex gap-2 items-center">
+                {/* Swatch + popover */}
+                <div ref={colorPickerRef} className="relative flex-shrink-0">
+                  <button
+                    type="button"
+                    className="w-12 h-12 rounded border-2 border-mulearn-greyish shadow-inner transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-mulearn-trusty-blue"
+                    style={{ backgroundColor: formData.campusCodeColor || "#ffffff" }}
+                    onClick={() => setShowColorPicker((v) => !v)}
+                    aria-label="Open color picker"
+                  />
+                  {showColorPicker && (
+                    <div className="absolute left-0 top-14 z-50 shadow-2xl rounded-xl overflow-hidden border border-mulearn-greyish bg-white p-3">
+                      <HexColorPicker
+                        color={formData.campusCodeColor || "#ffffff"}
+                        onChange={(c) => handleInputChange("campusCodeColor", c)}
+                      />
+                    </div>
+                  )}
+                </div>
+                {/* Hex text field */}
+                <Input
+                  type="text"
+                  placeholder="#ffffff"
+                  className="flex-1 p-3 border-0 bg-mulearn-whitish/50 focus:bg-mulearn-whitish transition-all duration-200 font-mono uppercase"
+                  value={formData.campusCodeColor || "#ffffff"}
+                  onChange={(e) => {
+                    let val = e.target.value;
+                    if (!val.startsWith("#")) val = "#" + val;
+                    if (/^#[0-9A-Fa-f]{0,6}$/.test(val)) {
+                      handleInputChange("campusCodeColor", val);
+                    }
+                  }}
+                  maxLength={7}
+                />
               </div>
             </div>
 

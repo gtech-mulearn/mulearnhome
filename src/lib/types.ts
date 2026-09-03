@@ -46,6 +46,11 @@ export interface Event {
   isLive?: boolean;
   date?: string;
   link?: string;
+  category?: string;
+  organizedBy?: string;
+  venueType?: string;
+  venueLabel?: string;
+  tags?: string[];
 }
 
 interface OrgTypeCount {
@@ -126,62 +131,74 @@ export interface TeamCardProps {
   team?: string;
 }
 
+export interface PaginationMeta {
+  count: number;
+  totalPages: number;
+  isNext: boolean;
+  isPrev: boolean;
+  nextPage: number | null;
+  prevPage: number | null;
+  current_page: number;
+}
+
+export interface OngoingHiring {
+  id: string;
+  posted_date: string;
+  role: string;
+  organization: string;
+  title: string;
+  location: string;
+  lastdate: string;
+  applylink: string;
+  jdlink: string;
+  duration: string;
+  remuneration: string;
+  vacancies: number;
+  created_by: string;
+  created_at: string;
+  updated_by: string;
+  updated_at: string;
+}
+
+export interface PreviousHiring {
+  id: string;
+  role: string;
+  organization: string;
+  title: string;
+  location: string;
+  lastdate: string;
+  remuneration: string;
+  vacancies: number;
+  duration: string;
+  extracontent?: string;
+}
+
 export interface CareersCardProps {
+  id?: string;
   role?: string;
-  remuneration?: string;
-  vacancies?: string;
+  organization?: string;
+  title?: string;
   location?: string;
   lastdate?: string;
+  remuneration?: string;
+  vacancies?: number;
   duration?: string;
-  logo?: string;
   applylink?: string;
   jdlink?: string;
-  extraField?: string;
-  extraContent?: string;
-  extraButton?: string;
-  organization?: string;
+  posted_date?: string;
 }
 
 export interface ClosedCareersCardProps {
-  date?: string;
+  id?: string;
   title?: string;
-  location?: string;
-  qualifications?: string;
   role?: string;
-  duration?: string;
-  remuneration?: string;
   organization?: string;
-}
-
-export interface NewHiringRole {
-  logo?: string;
-  role?: string;
-  remuneration?: string;
-  vacancies?: string;
   location?: string;
   lastdate?: string;
-  applylink?: string;
-  jdlink?: string;
-  duration?: string;
-  extrafieldname?: string;
-  extrafieldvalue?: string;
-  extrafieldlink?: string;
-  organization?: string;
-}
-
-export interface PreviousHiringRole {
-  logo?: string;
-  title?: string;
-  company?: string;
-  qualifications?: string;
-  remumeration?: string;
-  date?: string;
-  role?: string;
   remuneration?: string;
-  location?: string;
-  lastdate?: string;
-  poster?: string;
+  vacancies?: number;
   duration?: string;
+  extracontent?: string;
 }
 
 export interface Company {
@@ -365,7 +382,7 @@ export interface WeeklyTwitchPagination {
 }
 
 export interface WeeklyTwitchParams {
-  status?: "upcoming" | "ongoing" | "completed";
+  status?: "upcoming" | "ongoing" | "completed" | Array<"upcoming" | "ongoing" | "completed">;
   search?: string;
   pageIndex?: number;
   perPage?: number;
@@ -378,6 +395,7 @@ export interface OfficeHoursSession {
   designation?: string | null;
   description?: string | null;
   date: string;
+  time?: string | null;
   link?: string | null;
   interest_groups: string[] | null;
   poster_thumbnail?: string | null;
@@ -390,7 +408,86 @@ export interface WeeklyTwitchEpisode {
   campus: string;
   zone?: "north" | "central" | "south" | null;
   date: string;
+  time?: string | null;
   description?: string | null;
   link?: string | null;
   status: "upcoming" | "ongoing" | "completed";
+}
+
+export interface GrabYourSuperpowersSession {
+  id: string;
+  title: string;
+  date: string;
+  time?: string | null;
+  description?: string | null;
+  performer?: string | null;
+  designation?: string | null;
+  campus: string;
+  link?: string | null;
+  status: "upcoming" | "ongoing" | "completed";
+}
+
+export interface PublicEventVenue {
+  venue_type: "physical" | "online" | "hybrid" | string;
+  venue_address: string | null;
+  venue_city: string | null;
+  venue_maps_url: string | null;
+  venue_online_link: string | null;
+  venue_platform: string | null;
+}
+
+export interface PublicEventOrganizer {
+  organiser_type: string;
+  organiser_ig: {
+    id: string;
+    name: string;
+    code: string;
+  } | null;
+  organiser_campus: {
+    id: string;
+    title: string;
+    code: string;
+  } | null;
+  organiser_company: any | null;
+  organiser_ci_id: any | null;
+}
+
+export interface PublicEvent {
+  id: string;
+  title: string;
+  slug: string;
+  cover_image: string | null;
+  description?: string | null;
+  status: string;
+  scope: string;
+  event_scope: string;
+  event_type: string;
+  start_datetime: string;
+  end_datetime: string;
+  venue: PublicEventVenue | null;
+  organizer: PublicEventOrganizer | null;
+  is_featured: boolean;
+  is_collaboration: boolean;
+  interest_count: number;
+  min_karma: number | null;
+  tags: string[];
+  user_limit: number | null;
+  category_id: string | null;
+  category_name: string | null;
+  viewer_interest_status: string | null;
+}
+
+export interface PublicEventsParams {
+  status?: "upcoming" | "ongoing" | "completed" | Array<"upcoming" | "ongoing" | "completed">;
+  start_date?: string;
+  end_date?: string;
+  event_type?: string;
+  scope?: string;
+  ig_id?: string;
+  campus_id?: string;
+  cluster?: string;
+  is_featured?: boolean;
+  tags?: string;
+  search?: string;
+  sortBy?: string;
 }

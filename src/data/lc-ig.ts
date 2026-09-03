@@ -17,6 +17,7 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+import { clientEnv } from "@/lib/env/env.client";
 
 export const learningCircleData = {
   subtitle: "Learn, Collaborate & Grow Together",
@@ -24,7 +25,7 @@ export const learningCircleData = {
     "Learning Circles are µLearn’s peer-learning communities where people grow through shared interests, discussions, and projects. It’s a space to explore, collaborate, and improve together.",
   image: "/assets/learning-circle/learning-circle-illustration.svg",
   ctaText: "Join a Learning Circle",
-  ctaLink: "https://app.mulearn.org/dashboard/learningcircle",
+  ctaLink: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/learning-circle`,
   introduction: {
     title: "What are Learning Circles?",
     description:
@@ -55,7 +56,7 @@ export const learningCircleData = {
     description:
       "Join a Learning Circle today and experience the power of peer learning at µLearn. Dive into a supportive community where you can collaborate on exciting projects, share your knowledge, and accelerate your growth.",
     buttonText: "Join a Learning Circle",
-    buttonLink: "https://app.mulearn.org/dashboard/learningcircle",
+    buttonLink: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/learning-circle`,
   },
 
   learningDomains: {
@@ -181,7 +182,7 @@ export const learningCircleData = {
 export const interestGroups = [
   {
     name: "UI/UX",
-    link: "https://app.mulearn.org/dashboard/interestgroups/46fe1fb7-7b04-4ebe-837d-120bc16d0e0a",
+    link: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/interest-groups/46fe1fb7-7b04-4ebe-837d-120bc16d0e0a`,
     tagline: "Design beautiful, user-friendly experiences",
     image: "/assets/interestgroups/design.svg",
     description:
@@ -189,7 +190,7 @@ export const interestGroups = [
   },
   {
     name: "Web Development",
-    link: "https://app.mulearn.org/dashboard/interestgroups/9b8aaf7f-16a0-4a66-ae53-79b8c25e5faa",
+    link: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/interest-groups/9b8aaf7f-16a0-4a66-ae53-79b8c25e5faa`,
     tagline: "Build the web, shape the world",
     image: "/assets/interestgroups/webdev.svg",
     description:
@@ -197,7 +198,7 @@ export const interestGroups = [
   },
   {
     name: "Cybersecurity",
-    link: "https://app.mulearn.org/dashboard/interestgroups/3a74725e-a05a-418b-a275-39d68ad9a416",
+    link: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/interest-groups/3a74725e-a05a-418b-a275-39d68ad9a416`,
     tagline: "Secure the digital frontier",
     image: "/assets/interestgroups/cyber.svg",
     description:
@@ -205,7 +206,7 @@ export const interestGroups = [
   },
   {
     name: "Game Development",
-    link: "https://app.mulearn.org/dashboard/interestgroups/1be43a3a-bcfb-4ef1-b77a-959b01bcb782",
+    link: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/interest-groups/1be43a3a-bcfb-4ef1-b77a-959b01bcb782`,
     tagline: "Create immersive gaming experiences",
     image: "/assets/interestgroups/game.svg",
     description:
@@ -213,7 +214,7 @@ export const interestGroups = [
   },
   {
     name: "Internet Of Things (IOT) And Robotics",
-    link: "https://app.mulearn.org/dashboard/interestgroups/d379d82b-e116-4b67-8128-670916e6bb42",
+    link: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/interest-groups/d379d82b-e116-4b67-8128-670916e6bb42`,
     tagline: "Connect the world, automate the future",
     image: "/assets/interestgroups/iot.svg",
     description:
@@ -221,7 +222,7 @@ export const interestGroups = [
   },
   {
     name: "Digital Marketing",
-    link: "https://app.mulearn.org/dashboard/interestgroups/5bf2bdfe-5c22-48ab-9572-9e9836c70e79",
+    link: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/interest-groups/5bf2bdfe-5c22-48ab-9572-9e9836c70e79`,
     tagline: "Grow brands in the digital age",
     image: "/assets/interestgroups/marketing.svg",
     description:
@@ -229,7 +230,7 @@ export const interestGroups = [
   },
   {
     name: "Cloud and DevOps",
-    link: "https://app.mulearn.org/dashboard/interestgroups/1719d19a-0206-4161-9c6f-0a7dba44d4e5",
+    link: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/interest-groups/1719d19a-0206-4161-9c6f-0a7dba44d4e5`,
     tagline: "Deploy, scale, and automate",
     image: "/assets/interestgroups/cloud.svg",
     description:
@@ -237,7 +238,7 @@ export const interestGroups = [
   },
   {
     name: "Product Management",
-    link: "https://app.mulearn.org/dashboard/interestgroups/04d29c15-4de4-4b43-ad63-0f4760c62919",
+    link: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/interest-groups/04d29c15-4de4-4b43-ad63-0f4760c62919`,
     tagline: "Build products people love",
     image: "/assets/interestgroups/product.svg",
     description:
@@ -245,7 +246,7 @@ export const interestGroups = [
   },
   {
     name: "Entrepreneurship",
-    link: "https://app.mulearn.org/dashboard/interestgroups/243a1bda-893c-4de3-b457-51e7cb517d83",
+    link: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/interest-groups/243a1bda-893c-4de3-b457-51e7cb517d83`,
     tagline: "Turn ideas into reality",
     image: "/assets/interestgroups/entrepreneurship.svg",
     description:
@@ -253,7 +254,7 @@ export const interestGroups = [
   },
   {
     name: "AR/VR",
-    link: "https://app.mulearn.org/dashboard/interestgroups/2de0ee0c-ddc3-4f02-bf93-b6bd2d0625c3",
+    link: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/interest-groups/2de0ee0c-ddc3-4f02-bf93-b6bd2d0625c3`,
     tagline: "Experience the future in 3D",
     image: "/assets/interestgroups/arvr.svg",
     description:
@@ -261,7 +262,7 @@ export const interestGroups = [
   },
   {
     name: "Quantum Computing",
-    link: "https://app.mulearn.org/dashboard/interestgroups",
+    link: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/interest-groups/b83146a5-1b36-42f1-b560-76b682482e10`,
     tagline: "Compute beyond classical limits",
     image: "/assets/interestgroups/quantum.svg",
     description:

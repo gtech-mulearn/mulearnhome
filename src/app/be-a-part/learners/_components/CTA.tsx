@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MotionDiv } from "@/components/MuFramer";
 import { Button } from "@/components/ui/button";
+import { clientEnv } from "@/lib/env/env.client";
 
 const CTA = () => {
   return (
@@ -24,7 +25,7 @@ const CTA = () => {
                 Gain real skills, collaborate with learners, and earn <br /> recognition as you
                 grow.
               </p>
-              <Link href="https://app.mulearn.org" target="_blank" rel="noopener noreferrer">
+              <Link href={clientEnv.NEXT_PUBLIC_APP_URL} target="_blank" rel="noopener noreferrer">
                 <Button variant={"inverted"} className="inline-block">
                   Join µLearn
                 </Button>
