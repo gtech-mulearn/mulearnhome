@@ -1,6 +1,6 @@
 "use client";
 
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useRef, useState } from "react";
 import Grid from "@/app/events/_components/Grid";
 import Pagination from "@/app/events/_components/Pagination";
 import {
@@ -107,9 +107,11 @@ function CategoryTabContent({ category }: { category: EventCategory }) {
   );
 
   const isPaginated = !!category.status;
+  const requestIdRef = useRef(0);
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
+    const requestId = ++requestIdRef.current;
 
     if (newPage === 1) {
       setEvents(category.events);
@@ -123,10 +125,12 @@ function CategoryTabContent({ category }: { category: EventCategory }) {
       perPage: EVENTS_PER_PAGE,
     })
       .then(({ data, pagination: p }) => {
+        if (requestIdRef.current !== requestId) return;
         setEvents(safeMapEvents(data, category.id));
         setPagination(p);
       })
       .catch(() => {
+        if (requestIdRef.current !== requestId) return;
         setEvents(null);
       });
   };

@@ -60,6 +60,7 @@ export default async function Events() {
   const { recurringEvents } = events;
 
   let ongoingEvents: Event[] | null = null;
+  let ongoingPagination: PublicEventsPagination = EMPTY_PAGINATION;
   let upcomingEvents: Event[] | null = null;
   let upcomingPagination: PublicEventsPagination = EMPTY_PAGINATION;
 
@@ -70,6 +71,7 @@ export default async function Events() {
 
   if (ongoingResult.status === "fulfilled" && Array.isArray(ongoingResult.value.data)) {
     ongoingEvents = safeMapEvents(ongoingResult.value.data, "ongoing");
+    ongoingPagination = ongoingResult.value.pagination;
   } else if (ongoingResult.status === "rejected") {
     console.error("Failed to fetch ongoing events:", ongoingResult.reason);
   }
@@ -103,6 +105,8 @@ export default async function Events() {
       emptyDescription:
         "μLearn's stage is quiet at the moment. Check back soon to catch something happening live.",
       live: !!ongoingEvents && ongoingEvents.length > 0,
+      status: "ongoing",
+      pagination: ongoingPagination,
     },
     {
       id: "upcoming",

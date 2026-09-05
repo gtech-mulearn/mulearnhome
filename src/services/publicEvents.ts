@@ -27,11 +27,30 @@ function buildParams(params: PublicEventsParams): URLSearchParams {
   return out;
 }
 
+const EMPTY_PAGINATION: PublicEventsResponse["pagination"] = {
+  count: 0,
+  totalPages: 0,
+  isNext: false,
+  isPrev: false,
+  nextPage: null,
+};
+
 export async function fetchPublicEvents(
   params?: PublicEventsParams,
 ): Promise<PublicEventsResponse> {
   const res = await publicGateway.get(publicEventsRoutes.getEvents, {
     params: params ? buildParams(params) : undefined,
   });
-  return res.data.response;
+  const response = res.data.response;
+
+  // Backend may still return a plain array (pre-pagination contract) instead
+  // of the { data, pagination } wrapper — normalize so callers always get both.
+  if (Array.isArray(response)) {
+    return {
+      data: response,
+      pagination: { ...EMPTY_PAGINATION, count: response.length },
+    };
+  }
+
+  return response;
 }
