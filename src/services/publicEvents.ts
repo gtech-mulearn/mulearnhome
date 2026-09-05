@@ -1,4 +1,4 @@
-import type { PublicEvent, PublicEventsParams } from "@/lib/types";
+import type { PublicEventsParams, PublicEventsResponse } from "@/lib/types";
 import { publicGateway } from "./apiGateway";
 import { publicEventsRoutes } from "./urls";
 
@@ -21,14 +21,36 @@ function buildParams(params: PublicEventsParams): URLSearchParams {
   if (params.tags) out.append("tags", params.tags);
   if (params.search) out.append("search", params.search);
   if (params.sortBy) out.append("sortBy", params.sortBy);
+  if (params.pageIndex !== undefined) out.append("pageIndex", String(params.pageIndex));
+  if (params.perPage) out.append("perPage", String(params.perPage));
 
   return out;
 }
 
-// 5c: response is a plain array — no data/pagination wrapper
-export async function fetchPublicEvents(params?: PublicEventsParams): Promise<PublicEvent[]> {
+const EMPTY_PAGINATION: PublicEventsResponse["pagination"] = {
+  count: 0,
+  totalPages: 0,
+  isNext: false,
+  isPrev: false,
+  nextPage: null,
+};
+
+export async function fetchPublicEvents(
+  params?: PublicEventsParams,
+): Promise<PublicEventsResponse> {
   const res = await publicGateway.get(publicEventsRoutes.getEvents, {
     params: params ? buildParams(params) : undefined,
   });
-  return res.data.response;
+  const response = res.data.response;
+
+  // Backend may still return a plain array (pre-pagination contract) instead
+  // of the { data, pagination } wrapper — normalize so callers always get both.
+  if (Array.isArray(response)) {
+    return {
+      data: response,
+      pagination: { ...EMPTY_PAGINATION, count: response.length },
+    };
+  }
+
+  return response;
 }
