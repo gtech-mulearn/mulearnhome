@@ -1,4 +1,4 @@
-import type { PublicEvent, PublicEventsParams } from "@/lib/types";
+import type { PublicEventsParams, PublicEventsResponse } from "@/lib/types";
 import { publicGateway } from "./apiGateway";
 import { publicEventsRoutes } from "./urls";
 
@@ -21,12 +21,15 @@ function buildParams(params: PublicEventsParams): URLSearchParams {
   if (params.tags) out.append("tags", params.tags);
   if (params.search) out.append("search", params.search);
   if (params.sortBy) out.append("sortBy", params.sortBy);
+  if (params.pageIndex !== undefined) out.append("pageIndex", String(params.pageIndex));
+  if (params.perPage) out.append("perPage", String(params.perPage));
 
   return out;
 }
 
-// 5c: response is a plain array — no data/pagination wrapper
-export async function fetchPublicEvents(params?: PublicEventsParams): Promise<PublicEvent[]> {
+export async function fetchPublicEvents(
+  params?: PublicEventsParams,
+): Promise<PublicEventsResponse> {
   const res = await publicGateway.get(publicEventsRoutes.getEvents, {
     params: params ? buildParams(params) : undefined,
   });

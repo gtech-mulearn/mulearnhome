@@ -1,10 +1,11 @@
 import type { Variants } from "framer-motion";
-import { CalendarClock, History, Radio, Repeat } from "lucide-react";
+import { CalendarClock, Radio, Repeat } from "lucide-react";
 import EventCategoryTabs, { type EventCategory } from "@/app/events/_components/EventCategoryTabs";
 import { MotionDiv } from "@/components/MuFramer";
 import { events } from "@/data/events";
-import { clientEnv } from "@/lib/env/env.client";
-import type { Event, PublicEvent } from "@/lib/types";
+import { EVENTS_PER_PAGE } from "@/lib/events/constants";
+import { formatDate, safeMapEvents } from "@/lib/events/mapPublicEvent";
+import type { Event, PublicEventsPagination } from "@/lib/types";
 import { fetchPublicEvents } from "@/services/publicEvents";
 import {
   fetchGrabYourSuperpowers,
@@ -12,65 +13,6 @@ import {
   fetchOfficeHours,
   fetchSaltMangoTree,
 } from "@/services/weeklyTwitches";
-
-function formatDate(dateStr: string): string {
-  const d = new Date(`${dateStr}T00:00:00`);
-  return d.toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" });
-}
-
-function mapPublicEventToEvent(item: PublicEvent): Event {
-  const start = new Date(item.start_datetime);
-  const end = new Date(item.end_datetime);
-  const now = new Date();
-
-  const options: Intl.DateTimeFormatOptions = { day: "2-digit", month: "short", year: "numeric" };
-  const startFormatted = start.toLocaleDateString("en-IN", options);
-  const endFormatted = end.toLocaleDateString("en-IN", options);
-
-  let dateRange = startFormatted;
-  if (startFormatted !== endFormatted) {
-    if (start.getFullYear() === end.getFullYear()) {
-      const startMonthDay = start.toLocaleDateString("en-IN", { day: "2-digit", month: "short" });
-      dateRange = `${startMonthDay} - ${endFormatted}`;
-    } else {
-      dateRange = `${startFormatted} - ${endFormatted}`;
-    }
-  }
-
-  const category = item.category_name || item.event_type || "General";
-  const organizedBy =
-    item.organizer?.organiser_ig?.name || item.organizer?.organiser_campus?.title || "MuLearn";
-
-  const venueType = item.venue?.venue_type;
-  const venueLabel =
-    venueType === "online"
-      ? "Online"
-      : [item.venue?.venue_address, item.venue?.venue_city].filter(Boolean).join(", ") ||
-        (venueType ? venueType.charAt(0).toUpperCase() + venueType.slice(1) : undefined);
-
-  return {
-    title: item.title,
-    description: item.description || "",
-    image: item.cover_image || undefined,
-    isLive: now >= start && now <= end,
-    date: dateRange,
-    link: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/event/${item.id}`,
-    category,
-    organizedBy,
-    tags: item.tags?.length ? item.tags : undefined,
-    venueType,
-    venueLabel,
-  };
-}
-
-function safeMapEvents(items: PublicEvent[], label: string): Event[] | null {
-  try {
-    return items.map(mapPublicEventToEvent);
-  } catch (error) {
-    console.error(`Failed to map ${label} events:`, error);
-    return null;
-  }
-}
 
 const WEEKLY_TWITCH_FETCHERS: Record<
   string,
@@ -106,35 +48,37 @@ async function withNextSessionDate(weekly: Event[]): Promise<Event[]> {
   );
 }
 
+const EMPTY_PAGINATION: PublicEventsPagination = {
+  count: 0,
+  totalPages: 0,
+  isNext: false,
+  isPrev: false,
+  nextPage: null,
+};
+
 export default async function Events() {
   const { recurringEvents } = events;
 
   let ongoingEvents: Event[] | null = null;
   let upcomingEvents: Event[] | null = null;
-  let completedEvents: Event[] | null = null;
+  let upcomingPagination: PublicEventsPagination = EMPTY_PAGINATION;
 
-  const [ongoingResult, upcomingResult, completedResult] = await Promise.allSettled([
-    fetchPublicEvents({ status: "ongoing" }),
-    fetchPublicEvents({ status: "upcoming" }),
-    fetchPublicEvents({ status: "completed" }),
+  const [ongoingResult, upcomingResult] = await Promise.allSettled([
+    fetchPublicEvents({ status: "ongoing", pageIndex: 1, perPage: EVENTS_PER_PAGE }),
+    fetchPublicEvents({ status: "upcoming", pageIndex: 1, perPage: EVENTS_PER_PAGE }),
   ]);
 
-  if (ongoingResult.status === "fulfilled" && Array.isArray(ongoingResult.value)) {
-    ongoingEvents = safeMapEvents(ongoingResult.value, "ongoing");
+  if (ongoingResult.status === "fulfilled" && Array.isArray(ongoingResult.value.data)) {
+    ongoingEvents = safeMapEvents(ongoingResult.value.data, "ongoing");
   } else if (ongoingResult.status === "rejected") {
     console.error("Failed to fetch ongoing events:", ongoingResult.reason);
   }
 
-  if (upcomingResult.status === "fulfilled" && Array.isArray(upcomingResult.value)) {
-    upcomingEvents = safeMapEvents(upcomingResult.value, "upcoming");
+  if (upcomingResult.status === "fulfilled" && Array.isArray(upcomingResult.value.data)) {
+    upcomingEvents = safeMapEvents(upcomingResult.value.data, "upcoming");
+    upcomingPagination = upcomingResult.value.pagination;
   } else if (upcomingResult.status === "rejected") {
     console.error("Failed to fetch upcoming events:", upcomingResult.reason);
-  }
-
-  if (completedResult.status === "fulfilled" && Array.isArray(completedResult.value)) {
-    completedEvents = safeMapEvents(completedResult.value, "completed");
-  } else if (completedResult.status === "rejected") {
-    console.error("Failed to fetch completed events:", completedResult.reason);
   }
 
   const weeklyWithDates = await withNextSessionDate(recurringEvents.weekly);
@@ -169,6 +113,8 @@ export default async function Events() {
       emptyTitle: "No upcoming events yet",
       emptyDescription:
         "Nothing's on the calendar just yet. New events get added often, so check back soon.",
+      status: "upcoming",
+      pagination: upcomingPagination,
     },
     {
       id: "weekly",
@@ -179,16 +125,6 @@ export default async function Events() {
       emptyTitle: "No sessions scheduled",
       emptyDescription:
         "Our weekly shows are between sessions right now. The next one will land here soon.",
-    },
-    {
-      id: "past",
-      navLabel: "Past",
-      title: "Past Events",
-      icon: <History className="h-4 w-4" />,
-      events: completedEvents,
-      emptyTitle: "The archive is empty",
-      emptyDescription:
-        "Once events wrap up, they'll show up here so you can look back on what happened.",
     },
   ];
 
