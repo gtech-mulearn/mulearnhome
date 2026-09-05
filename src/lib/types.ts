@@ -490,4 +490,19 @@ export interface PublicEventsParams {
   tags?: string;
   search?: string;
   sortBy?: string;
+  pageIndex?: number;
+  perPage?: number;
+}
+
+export interface PublicEventsPagination {
+  count: number;
+  totalPages: number;
+  isNext: boolean;
+  isPrev: boolean;
+  nextPage: number | null;
+}
+
+export interface PublicEventsResponse {
+  data: PublicEvent[];
+  pagination: PublicEventsPagination;
 }

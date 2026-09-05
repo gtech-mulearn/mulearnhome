@@ -1,7 +1,8 @@
 "use client";
 
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useRef, useState } from "react";
 import Grid from "@/app/events/_components/Grid";
+import Pagination from "@/app/events/_components/Pagination";
 import {
   Select,
   SelectContent,
@@ -11,7 +12,10 @@ import {
 } from "@/components/ui/select";
 import { StateDisplay } from "@/components/ui/state-display";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import type { Event } from "@/lib/types";
+import { EVENTS_PER_PAGE } from "@/lib/events/constants";
+import { safeMapEvents } from "@/lib/events/mapPublicEvent";
+import type { Event, PublicEventsPagination } from "@/lib/types";
+import { fetchPublicEvents } from "@/services/publicEvents";
 
 export interface EventCategory {
   id: string;
@@ -22,6 +26,9 @@ export interface EventCategory {
   emptyTitle: string;
   emptyDescription: string;
   live?: boolean;
+  /** Present when this category's list is server-paginated and can page further. */
+  status?: "upcoming" | "ongoing" | "completed";
+  pagination?: PublicEventsPagination;
 }
 
 function LiveDot() {
@@ -70,30 +77,87 @@ export default function EventCategoryTabs({ categories }: { categories: EventCat
         </TabsList>
       </div>
 
-      {categories.map((category) => {
-        const evs = category.events;
-        const hasEvents = !!evs && evs.length > 0;
+      {categories.map((category) => (
+        <TabsContent key={category.id} value={category.id} className="mt-0">
+          <div className="mb-6 text-center md:text-left">
+            <h2 className="mb-1">{category.title}</h2>
+            <div className="mx-auto h-1 w-20 rounded-full bg-mulearn md:mx-0" />
+          </div>
 
-        return (
-          <TabsContent key={category.id} value={category.id} className="mt-0">
-            <div className="mb-6 text-center md:text-left">
-              <h2 className="mb-1">{category.title}</h2>
-              <div className="mx-auto h-1 w-20 rounded-full bg-mulearn md:mx-0" />
-            </div>
-
-            {hasEvents ? (
-              <Grid events={evs} />
-            ) : (
-              <StateDisplay
-                variant="no-results"
-                title={category.emptyTitle}
-                description={category.emptyDescription}
-                size="md"
-              />
-            )}
-          </TabsContent>
-        );
-      })}
+          <CategoryTabContent category={category} />
+        </TabsContent>
+      ))}
     </Tabs>
+  );
+}
+
+const EMPTY_PAGINATION: PublicEventsPagination = {
+  count: 0,
+  totalPages: 0,
+  isNext: false,
+  isPrev: false,
+  nextPage: null,
+};
+
+function CategoryTabContent({ category }: { category: EventCategory }) {
+  const [page, setPage] = useState(1);
+  const [events, setEvents] = useState<Event[] | null>(category.events);
+  const [pagination, setPagination] = useState<PublicEventsPagination>(
+    category.pagination ?? EMPTY_PAGINATION,
+  );
+
+  const isPaginated = !!category.status;
+  const requestIdRef = useRef(0);
+
+  const handlePageChange = (newPage: number) => {
+    setPage(newPage);
+    const requestId = ++requestIdRef.current;
+
+    if (newPage === 1) {
+      setEvents(category.events);
+      setPagination(category.pagination ?? EMPTY_PAGINATION);
+      return;
+    }
+
+    fetchPublicEvents({
+      status: category.status,
+      pageIndex: newPage,
+      perPage: EVENTS_PER_PAGE,
+    })
+      .then(({ data, pagination: p }) => {
+        if (requestIdRef.current !== requestId) return;
+        setEvents(safeMapEvents(data, category.id));
+        setPagination(p);
+      })
+      .catch(() => {
+        if (requestIdRef.current !== requestId) return;
+        setEvents(null);
+      });
+  };
+
+  const hasEvents = !!events && events.length > 0;
+
+  return (
+    <>
+      {hasEvents ? (
+        <Grid events={events} />
+      ) : (
+        <StateDisplay
+          variant="no-results"
+          title={category.emptyTitle}
+          description={category.emptyDescription}
+          size="md"
+        />
+      )}
+
+      {isPaginated && (
+        <Pagination
+          page={page}
+          setPage={handlePageChange}
+          total={pagination.count}
+          perPage={EVENTS_PER_PAGE}
+        />
+      )}
+    </>
   );
 }

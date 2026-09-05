@@ -1,7 +1,6 @@
 # MuLearn Home
 A web application for the MuLearn community built with Next.js, TypeScript, and Tailwind CSS
 ---
-
 ## 🚀 Features
 
 - **Next.js App Router:** File-based routing for easy page management
