@@ -8,9 +8,10 @@ import type { Counts } from "@/lib/types";
 
 interface TestimonialStatsProps {
   counts: Counts | null;
+  hasError?: boolean;
 }
 
-export default function TestimonialStats({ counts }: TestimonialStatsProps) {
+export default function TestimonialStats({ counts, hasError }: TestimonialStatsProps) {
   const stats = counts
     ? [
         {
@@ -32,14 +33,8 @@ export default function TestimonialStats({ counts }: TestimonialStatsProps) {
       ]
     : [];
 
-  if (stats.length === 0) {
-    return (
-      <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center">Loading statistics...</div>
-        </div>
-      </section>
-    );
+  if (hasError || stats.length === 0) {
+    return null;
   }
 
   return (
@@ -58,7 +53,13 @@ export default function TestimonialStats({ counts }: TestimonialStatsProps) {
                 <Icon className="w-6 h-6" />
               </div>
               <div className="text-3xl sm:text-4xl font-black text-mulearn mb-2">
-                <CountUp end={stat.value} duration={2.5} separator="," />
+                <CountUp
+                  end={stat.value}
+                  duration={2.5}
+                  separator=","
+                  autoAnimate
+                  autoAnimateOnce
+                />
                 <span className="text-2xl ml-0.5">+</span>
               </div>
               <div className="text-sm font-bold text-mulearn-gray-600 uppercase tracking-widest">

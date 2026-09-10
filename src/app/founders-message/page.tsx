@@ -5,6 +5,7 @@ import Link from "next/link";
 import { MotionDiv } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
+import { clientEnv } from "@/lib/env/env.client";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -176,7 +177,7 @@ export default function FoundersMessage() {
 
         {/* CTA - Join the Movement */}
         <MotionDiv variants={fadeInUp} className="mt-16 text-center">
-          <Link href="https://app.mulearn.org" target="_blank" rel="noreferrer">
+          <Link href={clientEnv.NEXT_PUBLIC_APP_URL} target="_blank" rel="noreferrer">
             <Button variant={"default"} className="px-7 py-7 font-semibold">
               Join the Movement
             </Button>

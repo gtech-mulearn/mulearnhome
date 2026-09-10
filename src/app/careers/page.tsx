@@ -1,84 +1,116 @@
 "use client";
 
-import axios from "axios";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CareersCard from "@/app/careers/_components/CareersCard";
 import CareersStats from "@/app/careers/_components/CareersStats";
 import ClosedCareersCard from "@/app/careers/_components/ClosedCareersCard";
+import Pagination from "@/app/events/_components/Pagination";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
 import LogoLoop from "@/components/ui/LogoLoop";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { StateDisplay } from "@/components/ui/state-display";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { companies } from "@/data/company";
-import type { Company, NewHiringRole, PreviousHiringRole } from "@/lib/types";
+import type { Company, OngoingHiring, PreviousHiring } from "@/lib/types";
+import { fetchOngoingHiringPage, fetchPreviousHiringPage } from "@/services/careers";
 import { cdnUrl } from "@/services/cdn";
 
+type TabValue = "ongoing" | "previous";
+
+const ITEMS_PER_PAGE = 12;
+
 export default function Careers() {
-  const [newHiring, setNewHiring] = useState<NewHiringRole[]>([]);
-  const [previousHiring, setPreviousHiring] = useState<PreviousHiringRole[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12;
+  const [activeTab, setActiveTab] = useState<TabValue>("ongoing");
   const companyData: Company[] = companies;
+  const [ongoingPage, setOngoingPage] = useState(1);
+  const [ongoingData, setOngoingData] = useState<OngoingHiring[]>([]);
+  const [ongoingCount, setOngoingCount] = useState(0);
+  const [ongoingLoading, setOngoingLoading] = useState(true);
+  const [ongoingError, setOngoingError] = useState(false);
+  const [ongoingFailedPage, setOngoingFailedPage] = useState<number | null>(null);
+  const ongoingRequestId = useRef(0);
+
+  const [previousPage, setPreviousPage] = useState(1);
+  const [previousData, setPreviousData] = useState<PreviousHiring[]>([]);
+  const [previousCount, setPreviousCount] = useState(0);
+  const [previousLoading, setPreviousLoading] = useState(true);
+  const [previousError, setPreviousError] = useState(false);
+  const [previousFailedPage, setPreviousFailedPage] = useState<number | null>(null);
+  const previousRequestId = useRef(0);
+
+  const goToOngoingPage = (page: number) => {
+    const requestId = ++ongoingRequestId.current;
+    setOngoingLoading(true);
+
+    fetchOngoingHiringPage(page, ITEMS_PER_PAGE)
+      .then(({ data, pagination }) => {
+        if (requestId !== ongoingRequestId.current) return;
+        setOngoingData(data);
+        setOngoingCount(pagination.count);
+        setOngoingPage(page);
+        setOngoingError(false);
+        setOngoingFailedPage(null);
+      })
+      .catch((err) => {
+        if (requestId !== ongoingRequestId.current) return;
+        console.error("Failed to load ongoing hiring:", err);
+        setOngoingFailedPage(page);
+        setOngoingData((prev) => {
+          if (prev.length === 0) {
+            setOngoingError(true);
+            setOngoingCount(0);
+          }
+          return prev;
+        });
+      })
+      .finally(() => {
+        if (requestId === ongoingRequestId.current) setOngoingLoading(false);
+      });
+  };
+
+  const goToPreviousPage = (page: number) => {
+    const requestId = ++previousRequestId.current;
+    setPreviousLoading(true);
+
+    fetchPreviousHiringPage(page, ITEMS_PER_PAGE)
+      .then(({ data, pagination }) => {
+        if (requestId !== previousRequestId.current) return;
+        setPreviousData(data);
+        setPreviousCount(pagination.count);
+        setPreviousPage(page);
+        setPreviousError(false);
+        setPreviousFailedPage(null);
+      })
+      .catch((err) => {
+        if (requestId !== previousRequestId.current) return;
+        console.error("Failed to load previous hiring:", err);
+        setPreviousFailedPage(page);
+        setPreviousData((prev) => {
+          if (prev.length === 0) {
+            setPreviousError(true);
+            setPreviousCount(0);
+          }
+          return prev;
+        });
+      })
+      .finally(() => {
+        if (requestId === previousRequestId.current) setPreviousLoading(false);
+      });
+  };
 
   useEffect(() => {
-    axios
-      .get("https://opensheet.elk.sh/1hD8IsJvvQ-aJuIjJlPMfwFOkFKo5TRveUeq0rY2SlWk/careersOld")
-      .then((response) => {
-        setPreviousHiring(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    axios
-      .get("https://opensheet.elk.sh/1hD8IsJvvQ-aJuIjJlPMfwFOkFKo5TRveUeq0rY2SlWk/careersNew")
-      .then((response) => {
-        setNewHiring(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    goToOngoingPage(1);
+    goToPreviousPage(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const totalPages = Math.ceil(previousHiring.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentItems = previousHiring.slice(startIndex, endIndex);
-
-  const goToPage = (page: number) => {
-    setCurrentPage(page);
-    document.getElementById("previous-hiring")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
-
-  const goToPrevious = () => {
-    if (currentPage > 1) goToPage(currentPage - 1);
-  };
-
-  const goToNext = () => {
-    if (currentPage < totalPages) goToPage(currentPage + 1);
-  };
-
-  const getPageNumbers = () => {
-    const pages = [];
-    for (let i = 1; i <= totalPages; i++) {
-      const showPage =
-        i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1);
-
-      const showEllipsis =
-        (i === currentPage - 2 && currentPage > 3) ||
-        (i === currentPage + 2 && currentPage < totalPages - 2);
-
-      if (showEllipsis) {
-        pages.push({ type: "ellipsis", key: `ellipsis-${i}` });
-      } else if (showPage) {
-        pages.push({ type: "page", number: i, key: i });
-      }
-    }
-    return pages;
-  };
 
   return (
     <div className="min-h-screen">
@@ -135,120 +167,179 @@ export default function Careers() {
         />
       </div>
 
-      {newHiring && newHiring.length > 0 && (
-        <div className="mx-auto mt-30 block max-w-[1300px]">
-          <div className="m-8">
-            <h2 className="mt-8 text-center text-mulearn">New Hiring Calls</h2>
-            <p className="mx-auto mb-4 block max-w-[40rem] text-center text-base">
-              Unlock your potential and accelerate your career growth with the endless opportunities
-              available on Career Labs
-            </p>
-            <div className="mt-8 flex flex-row flex-wrap items-stretch justify-around gap-4">
-              {newHiring.map((role) => (
-                <CareersCard
-                  key={role.role}
-                  logo={role.logo}
-                  role={role.role}
-                  remuneration={role.remuneration}
-                  vacancies={role.vacancies}
-                  location={role.location}
-                  lastdate={role.lastdate}
-                  applylink={role.applylink}
-                  jdlink={role.jdlink}
-                  duration={role.duration}
-                  extraField={role.extrafieldname}
-                  extraContent={role.extrafieldvalue}
-                  extraButton={role.extrafieldlink}
-                  organization={role.organization}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div id="previous-hiring" className="mx-auto mt-30 block max-w-[1300px]">
-        <div className="m-8">
-          <h2 className="mt-8 text-center text-mulearn">Previous Hiring Calls</h2>
-          <p className="mx-auto mb-4 block max-w-[40rem] text-center text-base">
-            Listed below are the list of hiring calls that were announced through career labs
-            previously.
-          </p>
-
-          <div className="mt-8 flex flex-row flex-wrap items-stretch justify-around gap-4">
-            {currentItems.map((role) => {
-              return (
-                <ClosedCareersCard
-                  key={`${role.title}-${role.location}-${role.company}`}
-                  title={role.title}
-                  qualifications={role.qualifications}
-                  date={role.date}
-                  role={role.role}
-                  remuneration={role.remuneration}
-                  location={role.location}
-                  duration={role.duration}
-                  organization={role.company}
-                />
-              );
-            })}
+      <div
+        id="careers-listing"
+        className="mx-auto mt-12 mb-12 sm:mb-16 max-w-[1300px] px-4 sm:px-6 lg:px-8"
+      >
+        <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as TabValue)}>
+          <div className="md:hidden flex justify-center mb-6">
+            <Select value={activeTab} onValueChange={(value) => setActiveTab(value as TabValue)}>
+              <SelectTrigger className="w-[220px]">
+                <SelectValue placeholder="Select tab" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="ongoing">Open Positions ({ongoingCount})</SelectItem>
+                <SelectItem value="previous">Closed Positions ({previousCount})</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
-          {totalPages > 1 && (
-            <div className="mt-12 mb-8">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button
-                  variant="outline"
-                  onClick={goToPrevious}
-                  disabled={currentPage === 1}
-                  className="flex items-center gap-2 px-4 py-2"
-                  aria-label="Previous page"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                  <span className="text-sm font-medium">Previous</span>
-                </Button>
+          <div className="hidden md:flex justify-center">
+            <TabsList className="mb-8 inline-flex">
+              <TabsTrigger value="ongoing" className="gap-1 whitespace-nowrap w-auto">
+                Open Positions
+                <span className="ml-1.5 text-xs opacity-80">({ongoingCount})</span>
+              </TabsTrigger>
+              <TabsTrigger value="previous" className="gap-1 whitespace-nowrap w-auto">
+                Closed Positions
+                <span className="ml-1.5 text-xs opacity-80">({previousCount})</span>
+              </TabsTrigger>
+            </TabsList>
+          </div>
 
-                <div className="flex items-center gap-2">
-                  {getPageNumbers().map((item) => {
-                    if (item.type === "ellipsis" || item.number === undefined) {
-                      return (
-                        <span key={item.key} className="px-2 text-mulearn-gray-600">
-                          ...
-                        </span>
-                      );
-                    }
-                    const pageNumber = item.number;
-                    return (
-                      <Button
-                        variant={currentPage === pageNumber ? "default" : "secondary"}
-                        key={item.key}
-                        onClick={() => goToPage(pageNumber)}
-                        className="w-10 h-10 text-sm font-medium"
-                        aria-label={`Go to page ${pageNumber}`}
-                        aria-current={currentPage === pageNumber ? "page" : undefined}
-                      >
-                        {pageNumber}
-                      </Button>
-                    );
-                  })}
-                </div>
-                <Button
-                  variant="outline"
-                  onClick={goToNext}
-                  disabled={currentPage === totalPages}
-                  className="flex items-center gap-2 px-4 py-2"
-                  aria-label="Next page"
-                >
-                  <span className="text-sm font-medium">Next</span>
-                  <ChevronRight className="w-5 h-5" />
-                </Button>
+          <TabsContent value="ongoing">
+            {ongoingLoading && ongoingData.length === 0 ? (
+              <div className="flex justify-center py-20">
+                <p className="text-mulearn-gray-600">Loading open positions…</p>
               </div>
-              <p className="mt-4 text-center text-sm text-mulearn-gray-600">
-                Showing {startIndex + 1}-{Math.min(endIndex, previousHiring.length)} of{" "}
-                {previousHiring.length} positions
-              </p>
-            </div>
-          )}
-        </div>
+            ) : ongoingData.length === 0 ? (
+              ongoingError ? (
+                <StateDisplay
+                  variant="no-results"
+                  title="Couldn't load open positions"
+                  description="Something went wrong while fetching career listings. Please try again."
+                  size="md"
+                  action={
+                    <Button onClick={() => goToOngoingPage(ongoingFailedPage ?? 1)}>
+                      Try again
+                    </Button>
+                  }
+                />
+              ) : (
+                <StateDisplay
+                  variant="no-results"
+                  title="No open positions right now."
+                  description="Check back soon — new opportunities are posted regularly."
+                  size="md"
+                />
+              )
+            ) : (
+              <>
+                {ongoingFailedPage !== null && (
+                  <div className="mb-6 flex flex-wrap items-center justify-center gap-3 rounded-lg bg-mulearn-gray-50 px-4 py-3 text-sm text-mulearn-gray-600">
+                    <span>
+                      Couldn&apos;t load page {ongoingFailedPage}. Still showing page {ongoingPage}.
+                    </span>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => goToOngoingPage(ongoingFailedPage)}
+                    >
+                      Retry
+                    </Button>
+                  </div>
+                )}
+                <div className="flex flex-wrap items-stretch justify-center gap-4">
+                  {ongoingData.map((role) => (
+                    <CareersCard
+                      key={role.id}
+                      id={role.id}
+                      role={role.role}
+                      organization={role.organization}
+                      title={role.title}
+                      location={role.location}
+                      lastdate={role.lastdate}
+                      remuneration={role.remuneration}
+                      vacancies={role.vacancies}
+                      duration={role.duration}
+                      applylink={role.applylink}
+                      jdlink={role.jdlink}
+                      posted_date={role.posted_date}
+                    />
+                  ))}
+                </div>
+                <Pagination
+                  page={ongoingPage}
+                  setPage={goToOngoingPage}
+                  total={ongoingCount}
+                  perPage={ITEMS_PER_PAGE}
+                  scrollToId="careers-listing"
+                />
+              </>
+            )}
+          </TabsContent>
+
+          <TabsContent value="previous">
+            {previousLoading && previousData.length === 0 ? (
+              <div className="flex justify-center py-20">
+                <p className="text-mulearn-gray-600">Loading closed positions…</p>
+              </div>
+            ) : previousData.length === 0 ? (
+              previousError ? (
+                <StateDisplay
+                  variant="no-results"
+                  title="Couldn't load closed positions"
+                  description="Something went wrong while fetching career listings. Please try again."
+                  size="md"
+                  action={
+                    <Button onClick={() => goToPreviousPage(previousFailedPage ?? 1)}>
+                      Try again
+                    </Button>
+                  }
+                />
+              ) : (
+                <StateDisplay
+                  variant="no-results"
+                  title="No closed positions yet."
+                  description="Past hiring rounds will show up here once they're closed."
+                  size="md"
+                />
+              )
+            ) : (
+              <>
+                {previousFailedPage !== null && (
+                  <div className="mb-6 flex flex-wrap items-center justify-center gap-3 rounded-lg bg-mulearn-gray-50 px-4 py-3 text-sm text-mulearn-gray-600">
+                    <span>
+                      Couldn&apos;t load page {previousFailedPage}. Still showing page{" "}
+                      {previousPage}.
+                    </span>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => goToPreviousPage(previousFailedPage)}
+                    >
+                      Retry
+                    </Button>
+                  </div>
+                )}
+                <div className="flex flex-wrap items-stretch justify-center gap-4">
+                  {previousData.map((role) => (
+                    <ClosedCareersCard
+                      key={role.id}
+                      id={role.id}
+                      title={role.title}
+                      role={role.role}
+                      organization={role.organization}
+                      location={role.location}
+                      lastdate={role.lastdate}
+                      remuneration={role.remuneration}
+                      vacancies={role.vacancies}
+                      duration={role.duration}
+                      extracontent={role.extracontent}
+                    />
+                  ))}
+                </div>
+                <Pagination
+                  page={previousPage}
+                  setPage={goToPreviousPage}
+                  total={previousCount}
+                  perPage={ITEMS_PER_PAGE}
+                  scrollToId="careers-listing"
+                />
+              </>
+            )}
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );

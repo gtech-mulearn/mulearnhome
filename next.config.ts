@@ -34,11 +34,6 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "github.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
         hostname: "cdn.discordapp.com",
         pathname: "/**",
       },
@@ -50,6 +45,16 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "dev.mulearn.org",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.pexels.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.madhyamam.com",
         pathname: "/**",
       },
     ],

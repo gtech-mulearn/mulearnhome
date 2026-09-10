@@ -1,9 +1,9 @@
 "use client";
 
+import { format, parse } from "date-fns";
 import { AnimatePresence } from "framer-motion";
 import { Calendar, Clock, PlayCircle, Radio } from "lucide-react";
 import { useEffect, useState } from "react";
-import { EmptyState } from "@/app/events/_components/EmptyState";
 import { GenericEventCard } from "@/app/events/_components/GenericEventCard";
 import Pagination from "@/app/events/_components/Pagination";
 import SearchAndFilter from "@/app/events/_components/SearchAndFilter";
@@ -12,6 +12,7 @@ import { MotionSection } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { StateDisplay } from "@/components/ui/state-display";
 import { useDebounce } from "@/hooks/useDebounce";
 import type { WeeklyTwitchEpisode, WeeklyTwitchPagination } from "@/lib/types";
 import { fetchSaltMangoTree } from "@/services/weeklyTwitches";
@@ -21,6 +22,10 @@ type ViewType = "upcoming" | "previous";
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr + "T00:00:00");
   return d.toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" });
+}
+
+function formatTime(timeStr?: string | null): string | undefined {
+  return timeStr ? format(parse(timeStr.slice(0, 5), "HH:mm", new Date()), "h:mm a") : undefined;
 }
 
 const EMPTY_PAGINATION: WeeklyTwitchPagination = {
@@ -39,45 +44,34 @@ export default function SaltMangoTreeClient() {
   const [page, setPage] = useState(1);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [episodes, setEpisodes] = useState<WeeklyTwitchEpisode[]>([]);
-  const [ongoingEpisodes, setOngoingEpisodes] = useState<WeeklyTwitchEpisode[]>([]);
   const [pagination, setPagination] = useState<WeeklyTwitchPagination>(EMPTY_PAGINATION);
   const [error, setError] = useState(false);
 
   const debouncedSearch = useDebounce(searchInput, 400);
 
   useEffect(() => {
-    if (view !== "upcoming") {
-      setOngoingEpisodes([]);
-      return;
-    }
-
-    fetchSaltMangoTree({
-      status: "ongoing",
-      search: debouncedSearch || undefined,
-      pageIndex: 1,
-      perPage: 6,
-    })
-      .then(({ data }) => setOngoingEpisodes(data))
-      .catch(() => setOngoingEpisodes([]));
-  }, [view, debouncedSearch]);
-
-  useEffect(() => {
+    let isCurrent = true;
     setError(false);
     fetchSaltMangoTree({
-      status: view === "previous" ? "completed" : "upcoming",
+      status: view === "previous" ? "completed" : ["ongoing", "upcoming"],
       search: debouncedSearch || undefined,
       pageIndex: page,
       perPage: 6,
     })
       .then(({ data, pagination: p }) => {
+        if (!isCurrent) return;
         setEpisodes(data);
         setPagination(p);
       })
       .catch(() => {
+        if (!isCurrent) return;
         setEpisodes([]);
         setPagination(EMPTY_PAGINATION);
         setError(true);
       });
+    return () => {
+      isCurrent = false;
+    };
   }, [view, debouncedSearch, page]);
 
   const handleViewChange = (v: ViewType) => {
@@ -109,6 +103,7 @@ export default function SaltMangoTreeClient() {
     campus: episode.campus,
     zone: episode.zone ? episode.zone.charAt(0).toUpperCase() + episode.zone.slice(1) : undefined,
     date: formatDate(episode.date),
+    time: formatTime(episode.time),
     description: episode.description || "",
     isUpcoming: episode.status === "upcoming",
     isLive: episode.status === "ongoing",
@@ -116,13 +111,32 @@ export default function SaltMangoTreeClient() {
   });
 
   const filteredEpisodes = filterByZone(episodes);
-  const liveEvents =
-    view === "upcoming" ? filterByZone(ongoingEpisodes).map((e, i) => toEvent(e, i)) : [];
+  const events = filteredEpisodes.map((e, i) => toEvent(e, i));
+  const hasActiveFilters = Boolean(debouncedSearch) || selectedTags.length > 0;
 
-  const events = [
-    ...liveEvents,
-    ...filteredEpisodes.map((e, i) => toEvent(e, liveEvents.length + i)),
-  ];
+  const emptyStateCopy = error
+    ? {
+        title: "Something Went Wrong",
+        description:
+          "We couldn't load Salt Mango Tree sessions right now. This might be a temporary connection issue — please refresh the page or try again in a few minutes.",
+      }
+    : hasActiveFilters
+      ? {
+          title: "No Matching Sessions",
+          description:
+            "No sessions matched your search or the selected zone. Try a different keyword, or clear the filters to browse all sessions.",
+        }
+      : view === "upcoming"
+        ? {
+            title: "No Upcoming Sessions",
+            description:
+              "There are no upcoming Salt Mango Tree sessions scheduled right now. New sessions are added regularly, so check back soon.",
+          }
+        : {
+            title: "No Previous Sessions",
+            description:
+              "No past Salt Mango Tree sessions to show yet. Once sessions wrap up, they'll appear here.",
+          };
 
   const motionVariants = {
     initial: { opacity: 0, y: 30 },
@@ -155,13 +169,6 @@ export default function SaltMangoTreeClient() {
                 can&apos;t avoid it! Since avoiding English isn&apos;t an option, let&apos;s work
                 together to improve our skills by practicing.
               </p>
-
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2 md:pt-4 justify-center lg:justify-start">
-                <Button variant={"default"} className="px-6 py-2.5 md:px-8 md:py-3 gap-2">
-                  <PlayCircle className="w-4 h-4 md:w-5 md:h-5" />
-                  Join Session
-                </Button>
-              </div>
             </div>
 
             <div className="flex justify-center lg:justify-end order-first lg:order-last">
@@ -238,20 +245,11 @@ export default function SaltMangoTreeClient() {
                   ))}
                 </div>
               ) : (
-                <EmptyState
-                  title={
-                    error
-                      ? "Something Went Wrong"
-                      : view === "upcoming"
-                        ? "No Upcoming Sessions"
-                        : "No Previous Sessions"
-                  }
-                  description={
-                    error
-                      ? "We couldn't load sessions right now. Please try again later."
-                      : "Check back later or try a different search."
-                  }
-                  isError={error}
+                <StateDisplay
+                  variant="no-results"
+                  title={emptyStateCopy.title}
+                  description={emptyStateCopy.description}
+                  size="md"
                 />
               )}
 

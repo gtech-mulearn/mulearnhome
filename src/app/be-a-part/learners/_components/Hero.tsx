@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { clientEnv } from "@/lib/env/env.client";
 
 const LearnersHero = () => {
   const stars = [
@@ -103,7 +104,7 @@ const LearnersHero = () => {
         </p>
 
         <Button variant="default" className="mt-4 px-8 py-4" asChild>
-          <Link href="https://app.mulearn.org" target="_blank" rel="noopener noreferrer">
+          <Link href={clientEnv.NEXT_PUBLIC_APP_URL} target="_blank" rel="noopener noreferrer">
             Join Now
           </Link>
         </Button>

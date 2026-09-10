@@ -1234,7 +1234,7 @@ export default function InterestGroups() {
               className="px-8 py-6 text-base sm:text-lg shadow-2xl hover:scale-102 transition-transform"
             >
               <a
-                href="https://app.mulearn.org/dashboard/profile"
+                href={`${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/profile`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"

@@ -12,10 +12,10 @@ import {
   Users,
 } from "lucide-react";
 import { useState } from "react";
+import { MotionDiv } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface GenericEventCardProps {
   event: {
@@ -36,7 +36,7 @@ interface GenericEventCardProps {
     tags?: string[];
     link?: string;
   };
-  variant?: "episode" | "office-hour" | "open-mic";
+  variant?: "episode" | "office-hour" | "open-mic" | "superpower";
   icon?: LucideIcon;
   igLabels?: Record<string, string>;
   actionButton?: {
@@ -112,23 +112,29 @@ export function GenericEventCard({
     : undefined;
 
   return (
-    <Card variant="hoverable" className="h-full flex flex-col">
+    <MotionDiv
+      whileHover={{ y: -8, scale: 1.01 }}
+      transition={{ duration: 0.3, ease: [0.25, 0.8, 0.25, 1] }}
+      className="group relative bg-mulearn-whitish rounded-tl-[32px] rounded-br-[32px] rounded-tr-xl rounded-bl-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-mulearn-greyish/30 hover:border-mulearn/40 w-full h-full flex flex-col before:absolute before:rounded-l-full"
+    >
       {/* Thumbnail Section */}
-      <div
-        className={`${variant === "office-hour" ? "aspect-[3/4] h-auto" : "h-48"} bg-linear-to-br from-mulearn-trusty-blue/20 to-mulearn-duke-purple/20 flex items-center justify-center relative shrink-0`}
-      >
-        {event.thumbnail ? (
-          <MuImage
-            src={event.thumbnail}
-            alt={title}
-            width={400}
-            height={192}
-            className="object-cover w-full h-full"
-          />
-        ) : (
-          <IconComponent className="w-16 h-16 text-mulearn-trusty-blue" />
-        )}
-        <div className="absolute top-4 right-4">
+      <div className="relative w-full h-48 overflow-hidden p-3 flex items-center justify-center shrink-0">
+        <div className="w-full h-full rounded-[20px] overflow-hidden relative flex items-center justify-center bg-linear-to-br from-mulearn-trusty-blue/20 to-mulearn-duke-purple/20">
+          {event.thumbnail ? (
+            <MuImage
+              src={event.thumbnail}
+              alt={title}
+              width={800}
+              height={400}
+              className="object-contain w-full h-full group-hover:scale-104 transition-transform duration-500"
+            />
+          ) : (
+            <IconComponent className="w-16 h-16 text-mulearn-trusty-blue" />
+          )}
+        </div>
+
+        {/* Status badge */}
+        <div className="absolute top-5 right-5">
           {event.isLive ? (
             <Badge className="flex items-center bg-mulearn-whitish text-destructive border border-red-500 hover:bg-mulearn-whitish">
               <span className="relative flex h-2 w-2 mr-1.5">
@@ -156,91 +162,96 @@ export function GenericEventCard({
         </div>
       </div>
 
-      <CardHeader className="pb-4 grow">
-        {/* Tags/Interest Groups */}
-        {(event.interestGroups || event.tags || event.zone) && (
-          <div className="flex flex-wrap gap-2 mb-3">
-            {event.zone && (
-              <Badge
-                variant="outline"
-                className="text-mulearn-trusty-blue bg-mulearn-trusty-blue/10"
-              >
-                {event.zone}
-              </Badge>
-            )}
-            {event.interestGroups?.map((ig: string) => (
-              <Badge
-                key={ig}
-                variant="outline"
-                className="text-mulearn-trusty-blue bg-mulearn-trusty-blue/10"
-              >
-                {igLabels[ig] || ig}
-              </Badge>
-            ))}
-            {event.tags?.map((tag: string) => (
-              <Badge
-                key={tag}
-                variant="outline"
-                className="text-mulearn-trusty-blue bg-mulearn-trusty-blue/10"
-              >
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        )}
+      {/* Event Content Details */}
+      <div className="px-6 pb-6 pt-2 flex-1 flex flex-col justify-between">
+        <div className="space-y-3">
+          {/* Tags/Interest Groups */}
+          {(event.interestGroups || event.tags || event.zone) && (
+            <div className="flex flex-wrap gap-2">
+              {event.zone && (
+                <Badge
+                  variant="outline"
+                  className="text-mulearn-trusty-blue bg-mulearn-trusty-blue/10"
+                >
+                  {event.zone}
+                </Badge>
+              )}
+              {event.interestGroups?.map((ig: string) => (
+                <Badge
+                  key={ig}
+                  variant="outline"
+                  className="text-mulearn-trusty-blue bg-mulearn-trusty-blue/10"
+                >
+                  {igLabels[ig] || ig}
+                </Badge>
+              ))}
+              {event.tags?.map((tag: string) => (
+                <Badge
+                  key={tag}
+                  variant="outline"
+                  className="text-mulearn-trusty-blue bg-mulearn-trusty-blue/10"
+                >
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          )}
 
-        <CardTitle className="text-xl mb-2 line-clamp-2">{title}</CardTitle>
+          <h3 className="text-mulearn-blackish font-extrabold text-lg leading-snug line-clamp-2 group-hover:text-mulearn transition-colors duration-200">
+            {title}
+          </h3>
 
-        {/* Performer/Campus info */}
-        {event.performer && variant === "office-hour" && (
-          <div className="text-sm text-mulearn-gray-400">
-            <p className="flex items-start gap-1 leading-5">
-              <User className="w-4 h-4 shrink-0 mt-0.5" /> {event.performer}
-            </p>
-            {event.designation && (
+          {/* Performer/Campus info */}
+          {event.performer && (variant === "office-hour" || variant === "superpower") && (
+            <div className="text-sm text-mulearn-gray-600">
               <p className="flex items-start gap-1 leading-5">
-                <Briefcase className="w-4 h-4 shrink-0 mt-0.5" /> {event.designation}
+                <User className="w-4 h-4 shrink-0 mt-0.5" /> {event.performer}
               </p>
-            )}
-          </div>
-        )}
-        {event.performer && variant === "open-mic" && (
-          <p className="text-mulearn-gray-700 font-medium mb-3 flex items-center">
-            <Users className="w-4 h-4 mr-2 text-mulearn-gray-500" />
-            Featuring: {event.performer}
-          </p>
-        )}
-        {event.campus && variant === "episode" && (
-          <p className="text-mulearn-gray-700 font-medium mb-3 flex items-start leading-5">
-            <MapPin className="w-4 h-4 mr-2 mt-0.5 shrink-0 text-mulearn-gray-500" />
-            {event.campus}
-          </p>
-        )}
-      </CardHeader>
+              {event.designation && (
+                <p className="flex items-start gap-1 leading-5">
+                  <Briefcase className="w-4 h-4 shrink-0 mt-0.5" /> {event.designation}
+                </p>
+              )}
+            </div>
+          )}
+          {event.performer && variant === "open-mic" && (
+            <p className="text-mulearn-gray-700 font-medium flex items-center text-sm">
+              <Users className="w-4 h-4 mr-2 text-mulearn-gray-500" />
+              Featuring: {event.performer}
+            </p>
+          )}
+          {event.campus && (variant === "episode" || variant === "superpower") && (
+            <p className="text-mulearn-gray-700 font-medium flex items-start leading-5 text-sm">
+              <MapPin className="w-4 h-4 mr-2 mt-0.5 shrink-0 text-mulearn-gray-500" />
+              {event.campus}
+            </p>
+          )}
 
-      <CardContent className="pt-0 flex flex-col grow">
-        {/* Description for open-mic variant */}
-        {event.description && variant === "open-mic" && (
-          <div className="mb-4 grow">
-            <p className="text-mulearn-gray-600 leading-relaxed">{displayText}</p>
-            {shouldTruncate && (
-              <Button
-                variant="link"
-                onClick={toggleExpand}
-                className="p-0 h-auto text-mulearn-trusty-blue hover:text-mulearn-duke-purple font-medium text-sm mt-2"
-              >
-                {isExpanded ? "Show Less" : "Read More"}
-              </Button>
-            )}
-          </div>
-        )}
+          {/* Description for open-mic variant */}
+          {event.description && variant === "open-mic" && (
+            <div>
+              <p className="text-mulearn-gray-600 text-sm leading-relaxed">{displayText}</p>
+              {shouldTruncate && (
+                <Button
+                  variant="link"
+                  onClick={toggleExpand}
+                  className="p-0 h-auto text-mulearn-trusty-blue hover:text-mulearn-duke-purple font-medium text-sm mt-2"
+                >
+                  {isExpanded ? "Show Less" : "Read More"}
+                </Button>
+              )}
+            </div>
+          )}
+        </div>
 
         {/* Footer */}
         <div
-          className={`flex ${event.link && (event.isUpcoming || event.isLive) ? "justify-between" : "justify-start"} items-center pt-4 border-t border-gray-100 mt-auto`}
+          className={`flex ${
+            eventLink && (event.isUpcoming || event.isLive) ? "justify-between" : "justify-start"
+          } items-center mt-4 pt-4 border-t border-mulearn-greyish/20`}
         >
-          <span className="text-sm text-mulearn-gray-500 font-medium flex items-center">
-            <Calendar className="w-4 h-4 mr-1" />
+          <span className="text-xs font-bold text-mulearn-gray-600/80 flex items-center gap-1.5">
+            <Calendar className="w-3.5 h-3.5 text-mulearn" />
             {event.date} {event.time ? `• ${event.time}` : ""}
           </span>
           {eventLink && (event.isUpcoming || event.isLive) && (
@@ -251,7 +262,7 @@ export function GenericEventCard({
             </Button>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </MotionDiv>
   );
 }

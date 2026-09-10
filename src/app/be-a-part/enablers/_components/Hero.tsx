@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MotionDiv } from "@/components/MuFramer";
 import { Button } from "@/components/ui/button";
+import { clientEnv } from "@/lib/env/env.client";
 
 export default function Hero() {
   return (
@@ -73,13 +74,16 @@ export default function Hero() {
           {/* CTA Buttons */}
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4">
             {/* Explore Learners */}
-            <Link href="https://app.mulearn.org/" target="_blank">
+            <Link
+              href={`${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/search/students`}
+              target="_blank"
+            >
               <Button variant="outline" className="rounded-full">
                 Explore Learners
               </Button>
             </Link>
 
-            <Link href="https://app.mulearn.org/" target="_blank">
+            <Link href={clientEnv.NEXT_PUBLIC_APP_URL} target="_blank">
               <Button variant="default">Join as Enabler</Button>
             </Link>
           </div>

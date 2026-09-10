@@ -1,28 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
-import type { Counts } from "@/lib/types";
+import { useLandingStats } from "@/services/useLandingStats";
 
 export default function ContactStats() {
-  const [counts, setCounts] = useState<Counts | null>(null);
-  const socketRef = useRef<WebSocket | null>(null);
+  const { counts, hasError } = useLandingStats();
 
-  useEffect(() => {
-    if (!socketRef.current) {
-      const socket = new WebSocket("wss://mulearn.org/ws/v1/public/landing-stats/");
-      socketRef.current = socket;
-      const handleMessage = (event: MessageEvent) => {
-        setCounts(JSON.parse(event.data) as Counts);
-      };
-      socket.addEventListener("message", handleMessage);
-      return () => {
-        socket.removeEventListener("message", handleMessage);
-        socket.close();
-        socketRef.current = null;
-      };
-    }
-  }, []);
+  if (hasError || !counts) {
+    return null;
+  }
 
   const learnersCount = counts?.members ?? 60000;
   // Partners count is mapped to the number of companies from landing stats
@@ -33,13 +19,13 @@ export default function ContactStats() {
     <div className="grid grid-cols-3 gap-6 pt-6">
       <div className="text-center">
         <div className="text-2xl md:text-3xl font-bold text-mulearn">
-          <CountUp end={learnersCount} duration={2.5} separator="," />+
+          <CountUp end={learnersCount} duration={2.5} separator="," autoAnimate autoAnimateOnce />+
         </div>
         <div className="text-sm text-mulearn-gray-600">Learners</div>
       </div>
       <div className="text-center">
         <div className="text-2xl md:text-3xl font-bold text-mulearn">
-          <CountUp end={partnersCount} duration={2.5} separator="," />+
+          <CountUp end={partnersCount} duration={2.5} separator="," autoAnimate autoAnimateOnce />+
         </div>
         <div className="text-sm text-mulearn-gray-600">Partners</div>
       </div>

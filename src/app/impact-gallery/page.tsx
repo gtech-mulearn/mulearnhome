@@ -6,6 +6,7 @@ import { useState } from "react";
 import { MotionDiv, MotionH1, MotionP } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
+import { clientEnv } from "@/lib/env/env.client";
 import FilterButtons from "./_components/FilterButtons";
 import GalleryGrid from "./_components/GalleryGrid";
 import ImpactStats from "./_components/ImpactStats";
@@ -111,7 +112,7 @@ export default function ImpactGallery() {
             transition={{ delay: 0.8 }}
             className="flex flex-wrap justify-center gap-4"
           >
-            <Link href="https://app.mulearn.org" target="_blank" rel="noreferrer">
+            <Link href={clientEnv.NEXT_PUBLIC_APP_URL} target="_blank" rel="noreferrer">
               <Button variant="default">Join µLearn</Button>
             </Link>
           </MotionDiv>

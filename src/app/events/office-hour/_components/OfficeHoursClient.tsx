@@ -1,9 +1,9 @@
 "use client";
 
+import { format, parse } from "date-fns";
 import { AnimatePresence } from "framer-motion";
 import { Calendar, Clock, Mic, PlayCircle } from "lucide-react";
 import { useEffect, useState } from "react";
-import { EmptyState } from "@/app/events/_components/EmptyState";
 import { GenericEventCard, IG_LABELS } from "@/app/events/_components/GenericEventCard";
 import Pagination from "@/app/events/_components/Pagination";
 import SearchAndFilter from "@/app/events/_components/SearchAndFilter";
@@ -11,6 +11,7 @@ import { TabButton } from "@/app/events/_components/TabButton";
 import { MotionSection } from "@/components/MuFramer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { StateDisplay } from "@/components/ui/state-display";
 import { useDebounce } from "@/hooks/useDebounce";
 import type { OfficeHoursSession, WeeklyTwitchPagination } from "@/lib/types";
 import { fetchOfficeHours } from "@/services/weeklyTwitches";
@@ -20,6 +21,10 @@ type ViewType = "upcoming" | "previous";
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr + "T00:00:00");
   return d.toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" });
+}
+
+function formatTime(timeStr?: string | null): string | undefined {
+  return timeStr ? format(parse(timeStr.slice(0, 5), "HH:mm", new Date()), "h:mm a") : undefined;
 }
 
 const EMPTY_PAGINATION: WeeklyTwitchPagination = {
@@ -36,49 +41,35 @@ export default function OfficeHoursClient() {
   const [page, setPage] = useState(1);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [sessions, setSessions] = useState<OfficeHoursSession[]>([]);
-  const [ongoingSessions, setOngoingSessions] = useState<OfficeHoursSession[]>([]);
   const [pagination, setPagination] = useState<WeeklyTwitchPagination>(EMPTY_PAGINATION);
   const [error, setError] = useState(false);
 
   const debouncedSearch = useDebounce(searchInput, 400);
 
-  // Ongoing sessions are shown as a standalone "Live Now" strip, independent of
-  // the upcoming grid's pagination, since the API can't paginate a merged set.
   useEffect(() => {
-    if (view !== "upcoming") {
-      setOngoingSessions([]);
-      return;
-    }
-
-    fetchOfficeHours({
-      status: "ongoing",
-      search: debouncedSearch || undefined,
-      pageIndex: 1,
-      perPage: 6,
-    })
-      .then(({ data }) => setOngoingSessions(data))
-      .catch(() => setOngoingSessions([]));
-  }, [view, debouncedSearch]);
-
-  useEffect(() => {
+    let isCurrent = true;
     setError(false);
 
-    const status = view === "previous" ? "completed" : "upcoming";
     fetchOfficeHours({
-      status,
+      status: view === "previous" ? "completed" : ["ongoing", "upcoming"],
       search: debouncedSearch || undefined,
       pageIndex: page,
       perPage: 6,
     })
       .then(({ data, pagination: p }) => {
+        if (!isCurrent) return;
         setSessions(data);
         setPagination(p);
       })
       .catch(() => {
+        if (!isCurrent) return;
         setSessions([]);
         setPagination(EMPTY_PAGINATION);
         setError(true);
       });
+    return () => {
+      isCurrent = false;
+    };
   }, [view, debouncedSearch, page]);
 
   const handleViewChange = (v: ViewType) => {
@@ -99,7 +90,7 @@ export default function OfficeHoursClient() {
 
   const allTags = Array.from(
     new Set(
-      [...sessions, ...ongoingSessions].flatMap((s) =>
+      sessions.flatMap((s) =>
         (s.interest_groups ?? []).map((ig) => IG_LABELS[ig.toLowerCase()] || ig),
       ),
     ),
@@ -121,6 +112,7 @@ export default function OfficeHoursClient() {
     designation: session.designation || "",
     description: session.description || "",
     date: formatDate(session.date),
+    time: formatTime(session.time),
     interestGroups: (session.interest_groups ?? []).map((ig) => ig.toLowerCase()),
     isUpcoming: session.status === "upcoming",
     isLive: session.status === "ongoing",
@@ -128,20 +120,32 @@ export default function OfficeHoursClient() {
     thumbnail: session.poster_thumbnail || undefined,
   });
 
-  const filteredLive =
-    selectedTags.length === 0
-      ? ongoingSessions
-      : ongoingSessions.filter((s) =>
-          (s.interest_groups ?? []).some((ig) =>
-            selectedTags.includes(IG_LABELS[ig.toLowerCase()] || ig),
-          ),
-        );
-  const liveEvents = view === "upcoming" ? filteredLive.map((s, i) => toEvent(s, i)) : [];
+  const events = filteredSessions.map((s, i) => toEvent(s, i));
+  const hasActiveFilters = Boolean(debouncedSearch) || selectedTags.length > 0;
 
-  const events = [
-    ...liveEvents,
-    ...filteredSessions.map((s, i) => toEvent(s, liveEvents.length + i)),
-  ];
+  const emptyStateCopy = error
+    ? {
+        title: "Something Went Wrong",
+        description:
+          "We couldn't load Office Hour sessions right now. This might be a temporary connection issue — please refresh the page or try again in a few minutes.",
+      }
+    : hasActiveFilters
+      ? {
+          title: "No Matching Sessions",
+          description:
+            "No sessions matched your search or the selected tags. Try a different keyword, or clear the filters to browse all sessions.",
+        }
+      : view === "upcoming"
+        ? {
+            title: "No Upcoming Sessions",
+            description:
+              "There are no upcoming Office Hour sessions scheduled right now. New sessions are added regularly, so check back soon.",
+          }
+        : {
+            title: "No Previous Sessions",
+            description:
+              "No past Office Hour sessions to show yet. Once sessions wrap up, they'll appear here.",
+          };
 
   const motionVariants = {
     initial: { opacity: 0, y: 30 },
@@ -170,11 +174,6 @@ export default function OfficeHoursClient() {
               A space where µLearn members connect, learn, and grow together. Office Hour is our
               community-driven learning zone.
             </p>
-
-            <Button variant={"default"} className="px-8 py-3 gap-2 rounded-full">
-              <PlayCircle className="w-5 h-5" />
-              Join Next Session
-            </Button>
           </div>
         </div>
       </section>
@@ -221,20 +220,11 @@ export default function OfficeHoursClient() {
                 ))}
               </div>
             ) : (
-              <EmptyState
-                title={
-                  error
-                    ? "Something Went Wrong"
-                    : view === "upcoming"
-                      ? "No Upcoming Sessions"
-                      : "No Previous Sessions"
-                }
-                description={
-                  error
-                    ? "We couldn't load sessions right now. Please try again later."
-                    : "Check back later or try a different search."
-                }
-                isError={error}
+              <StateDisplay
+                variant="no-results"
+                title={emptyStateCopy.title}
+                description={emptyStateCopy.description}
+                size="md"
               />
             )}
 

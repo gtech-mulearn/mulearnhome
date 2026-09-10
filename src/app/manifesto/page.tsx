@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MotionH1, MotionH2 } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
+import { clientEnv } from "@/lib/env/env.client";
 import { cdnUrl } from "@/services/cdn";
 
 const bglogo = cdnUrl("/src/modules/Public/Manifesto/assets/µ.png");
@@ -10,7 +11,7 @@ const handimg = cdnUrl("src/modules/Public/Manifesto/assets/hand.png");
 export default function Manifesto() {
   return (
     <section className="overflow-x-hidden min-h-screen">
-      <div className="relative min-h-[120px] flex flex-col md:flex-row bg-mulearn mt-[6vw] md:h-[20vw] h-[40vw] pl-0 rounded-t-[1.2rem] md:rounded-none">
+      <div className="relative min-h-[130px] flex flex-col md:flex-row bg-mulearn mt-[6vw] md:h-[20vw] h-[50vw] pl-0 rounded-t-[1.2rem] md:rounded-none">
         <MuImage
           src={bglogo}
           alt="µLearn background logo"
@@ -26,7 +27,7 @@ export default function Manifesto() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            style={{ fontFamily: "var(--font-retro)" }}
+            style={{ fontFamily: "var(--font-blackopsone)" }}
             className="text-mulearn-whitish text-[10vw] md:text-[6.5vw] leading-[1.5] md:leading-none"
           >
             We, The Unbound, The Unbowed
@@ -77,7 +78,7 @@ export default function Manifesto() {
           Welcome to the <span className="font-semibold">Revolution.</span>
         </MotionH2>
 
-        <Link href="https://app.mulearn.org" target="_blank" rel="noreferrer">
+        <Link href={clientEnv.NEXT_PUBLIC_APP_URL} target="_blank" rel="noreferrer">
           <Button variant="inverted" className="py-2 px-6 sm:px-8 sm:py-3">
             Join µLearn
           </Button>

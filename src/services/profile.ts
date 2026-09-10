@@ -1,6 +1,5 @@
-import axios from "axios";
-import { clientEnv } from "@/lib/env/env.client";
 import type { Learner, TopLearner } from "@/lib/types";
+import { publicGateway } from "./apiGateway";
 import { leaderboardRoutes, profileRoutes } from "./urls";
 
 interface ExtendedTopLearner extends TopLearner {
@@ -15,9 +14,7 @@ interface LearnerResponse extends Learner {
 
 export const fetchTopLearners = async (limit: number = 10): Promise<ExtendedTopLearner[]> => {
   try {
-    const res = await axios.get(
-      `${clientEnv.NEXT_PUBLIC_API_BASE_URL}${leaderboardRoutes.topLearners}`,
-    );
+    const res = await publicGateway.get(leaderboardRoutes.topLearners);
     const learners: Learner[] = Array.isArray(res.data.response) ? res.data.response : [];
 
     return learners.slice(0, limit).map((item) => ({
@@ -36,9 +33,7 @@ export const fetchTopLearners = async (limit: number = 10): Promise<ExtendedTopL
 
 export const fetchPublicProfileImage = async (muid: string) => {
   try {
-    const res = await axios.get(
-      `${clientEnv.NEXT_PUBLIC_API_BASE_URL}${profileRoutes.profilePic}${muid}/`,
-    );
+    const res = await publicGateway.get(`${profileRoutes.profilePic}${muid}/`);
     const profilePic = res.data.response.image;
 
     if (profilePic) {

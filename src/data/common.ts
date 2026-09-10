@@ -1,4 +1,5 @@
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { clientEnv } from "@/lib/env/env.client";
 
 export const navItems = [
   {
@@ -77,7 +78,7 @@ export const navItems = [
   },
   {
     label: "Mentorship",
-    href: "https://app.mulearn.org/dashboard/search?activetab=mentors",
+    href: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/search/mentors`,
     submenu: null,
   },
   {
@@ -99,7 +100,7 @@ export const navItems = [
         },
         {
           label: "Learning Paths",
-          href: "https://app.mulearn.org/dashboard/mujourney",
+          href: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/mujourney`,
         },
       ],
     },
@@ -109,18 +110,24 @@ export const navItems = [
     href: "/donate",
     submenu: null,
   },
+  {
+    label: "Docs",
+    href: "https://docs.mulearn.org",
+    submenu: null,
+  },
 ];
 
 export const footer = [
   {
     title: "Quick Links",
     links: [
-      { title: "Blog", url: "https://gtechmulearn.medium.com/" },
+      // { title: "Blog", url: "https://gtechmulearn.medium.com/" },
       { title: "Team", url: "/team" },
       { title: "Career Labs", url: "/careers" },
       { title: "Interest Groups", url: "/interest-groups" },
       { title: "Contact Us", url: "/contact" },
       { title: "Donate", url: "/donate" },
+      { title: "Docs", url: "https://docs.mulearn.org" },
     ],
   },
   {
@@ -134,7 +141,7 @@ export const footer = [
       },
       {
         title: "Mentors",
-        url: "https://app.mulearn.org/dashboard/search?activetab=mentors",
+        url: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/search/mentors`,
       },
     ],
   },
@@ -173,7 +180,7 @@ export const socials = [
 ];
 
 export const contactInfo = {
-  copyright: "μLearn Foundation | Copyright © 2025 All rights reserved.",
+  copyright: `μLearn Foundation | Copyright © ${new Date().getFullYear()} All rights reserved.`,
   address: "Technopark Phase 1, Thiruvananthapuram, Kerala - 695581",
   email: "info@mulearn.org",
   website: "www.mulearn.org",

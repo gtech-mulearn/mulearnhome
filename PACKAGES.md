@@ -4,7 +4,7 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ---
 
-## 🧠 Core Framework & Runtime
+## Core Framework & Runtime
 
 ### **Next.js (`next`)**
 
@@ -28,7 +28,7 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ---
 
-## 🎨 Styling & UI
+## Styling & UI
 
 ### **Tailwind CSS (`tailwindcss`)**
 
@@ -64,9 +64,14 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 * Additional icon sets when Lucide is insufficient
 
+### **react-colorful**
+
+* Lightweight color picker component
+* Used for color selection interfaces across the app
+
 ---
 
-## 🎞 Animations & Effects
+## Animations & Effects
 
 ### **Framer Motion**
 
@@ -75,7 +80,7 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ---
 
-## 🧩 Forms & Validation
+## Forms & Validation
 
 ### **react-hook-form**
 
@@ -92,7 +97,7 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ---
 
-## 📅 Date & UI Utilities
+## Date & UI Utilities
 
 ### **react-day-picker**
 
@@ -104,7 +109,7 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ---
 
-## 🌐 Networking & Communication
+## Networking & Communication
 
 ### **Axios**
 
@@ -112,7 +117,7 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ---
 
-## 🔊 Notifications & Feedback
+## Notifications & Feedback
 
 ### **sonner**
 
@@ -120,7 +125,7 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ---
 
-## 📸 Media & Assets
+## Media & Assets
 
 ### **sharp**
 
@@ -137,7 +142,7 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ---
 
-## 🧪 Code Quality & Tooling
+## Code Quality & Tooling
 
 ### **TypeScript**
 
@@ -162,7 +167,7 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ---
 
-## 🧩 Build & CSS Tooling
+## Build & CSS Tooling
 
 ### **PostCSS**
 
@@ -178,7 +183,7 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ---
 
-## 🛠 Developer Utilities
+## Developer Utilities
 
 ### **Octokit**
 
@@ -190,7 +195,7 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ---
 
-## 📌 Summary
+## Summary
 
 This stack prioritizes:
 

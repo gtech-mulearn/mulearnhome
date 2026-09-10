@@ -2,118 +2,10 @@ import type { Event } from "@/lib/types";
 import { cdnUrl } from "@/services/cdn";
 
 export const events: {
-  latestEvents: Event[];
-  pastEvents: Event[];
   recurringEvents: {
     weekly: Event[];
-    biweekly: Event[];
-    monthly: Event[];
   };
 } = {
-  latestEvents: [
-    {
-      title: "μFIFA",
-      date: "Jun 2026 - Jul 2026",
-      description:
-        "μFIFA is a six-week innovation movement by μLearn that transforms learning into a collaborative, gamified experience inspired by the FIFA World Cup. Participants join national squads, choose a domain of expertise, and collaborate with peers to solve real-world challenges while representing their team.",
-      link: "https://mufifa.mulearn.org",
-    },
-  ],
-  pastEvents: [
-    {
-      title: "Quantum Tech Matrix",
-      date: "Jul 12, 2026",
-      description:
-        "Quantum Tech Matrix is the launch event of the Quantum Technologies Interest Group (IG), the first of its kind in Kerala. Sponsored by Altos and supported by ChatQLM and nanostuffs, and inaugurated by CP John, Hon Minister for Transport, Government of Kerala. Held at Gokulam Grand, Thiruvananthapuram, Kerala, bringing together students, researchers, faculty, and industry leaders under one roof for keynote sessions, interactive lab simulations, and the unveiling of Kerala's first quantum community.",
-      link: "https://quantum-tech-matrix.mulearn.org/",
-    },
-    {
-      title: "NUDGE Studio Design Challenge",
-      date: "Nov 2025 - Jan 2026",
-      description:
-        "The NUDGE Studio Design Challenge is a three-month program using behavioral science to solve real-world problems in finance, farming, and women’s leadership, ending with a showcase at BC2026 and cash prizes for winners.",
-      link: "",
-    },
-    {
-      title: "Acsia Hackathon 2025",
-      date: "31 Oct - 1 Nov 2025",
-      description:
-        "Acsia Hackathon 2025 is a 24-hour offline coding marathon happening on October 31 – November 1, 2025, at Acsia Global HQ, Thiruvananthapuram. Open to BTech, MTech, MCA, and MSc students, the event focuses on AI/ML and offers ₹1,00,000 in prizes, internships, and mentorship from industry experts. Registration is free with a HackerRank profile required.",
-      link: "https://www.acsiatech.com/news-and-media/acsia-launches-24-hour-ai-ml-hackathon-2025-to-drive-next-generation-innovation/",
-    },
-    {
-      title: "Hacktoberfest 2025",
-      date: "Oct 1-31, 2025",
-      description:
-        "Hacktoberfest 2025 is a month-long open-source celebration where developers across the globe contribute to projects, improve software, and earn a digital badge.",
-      link: "https://hacktoberfest.com/",
-    },
-    {
-      title: "CineHack.AI",
-      date: "Oct 04 - 06 2025",
-      description:
-        "CineHack.AI is India’s largest Cinema-AI hackathon happening on October 4–6, 2025, with a prize pool of ₹2.25 lakhs. The event is exclusively for μLearn members, and the first five teams at Level 5 with 10K+ karma points can join for free. Registration closes on September 19, 2025.",
-      link: "https://cinehackai.in/",
-      isLive: false,
-    },
-    {
-      title: "NASA Space App Challenge 2025",
-      date: "July 17 - Oct 05 2025",
-      description:
-        "The NASA International Space Apps Challenge 2025 is a global, two-day hackathon held on October 4–5, 2025, inviting scientists, technologists, designers, writers and curious minds to collaborate across borders using open data from NASA and its 14 international space agency partners to create actionable solutions under the theme “Learn, Launch, Lead.",
-      link: "https://www.spaceappschallenge.org/",
-    },
-    {
-      title: "Hac'KP '25",
-      date: "Oct 01 - 04 2025",
-      description:
-        "The Hac’KP 2025 is an international online hackathon organised by Kerala Police Cyberdome as part of c0c0n 2025, inviting participants to design and build innovative solutions under the themes of “Prevention First” and “Detect to Defend” to tackle online harm and child exploitation.",
-      link: "https://hackp.kerala.gov.in/",
-
-      isLive: false,
-    },
-    {
-      title: "Quantum Computing Challenge",
-      date: "Sept 20 - 23 2025",
-      description:
-        "The Quantum Computing Challenge by μLearn, held from September 20th to 23rd, 2025, was an engaging online event designed to help participants explore the fundamentals of quantum computing. Through short explainer video challenges, students demonstrated their understanding of concepts like quantum gates and the differences between quantum and classical computing. Hosted on Discord, the challenge encouraged creativity, learning, and knowledge sharing, with participants earning up to 800 Karma points for their contributions.",
-      link: "",
-    },
-    {
-      title: "3 Day VR Bootcamp",
-      date: "Sept 20 - 22 2025",
-      description:
-        "The 3-Day VR Bootcamp by μLearn was an immersive learning experience held on September 20–22 at 7 PM. Led by Fahad P N, a Unity Certified Educator and CTO of Soft Served Web, the bootcamp covered the fundamentals of VR, hands-on Unity sessions, and project showcases. Participants learned to build and explore in VR through practical sessions, tips, and live demos.",
-      link: "",
-    },
-    {
-      title: "CareHack 2025",
-      date: "Sept 20 - 22 2025",
-      description:
-        "CareHack is a dynamic two-phase hackathon presented by CareRevenue in collaboration with the μLearn Foundation, scheduled for August 2nd & 3rd, 2025. This competitive event is designed to identify and recruit exceptional full-stack developers and UI/UX designers through intense, collaborative innovation. Beyond talent acquisition, CareHack aims to amplify CareRevenue's brand presence within the tech ecosystem while evaluating participants on technical expertise, teamwork, communication, and problem-solving abilities.",
-      link: "https://carehack.tech/",
-
-      isLive: false,
-    },
-    {
-      title: "Hac'KP Bootcamp",
-      date: "Aug 24 - 29 2025",
-      description:
-        "The Hac'k P Bootcamp, organized by the μLearn Foundation in collaboration with the Silicon Society, was an intensive online program aimed at enhancing participants’ skills in hacking, problem-solving, and real-world project building. Led by Abimel S B Kulumala, Founder of Silicon Society, the bootcamp focused on practical approaches, community-driven innovation, and mindset development for both competitive and collaborative projects.",
-      link: "https://hackp.kerala.gov.in/",
-
-      isLive: false,
-    },
-    {
-      title: "30 Days Coding Challenge",
-      date: "01 - 30 June 2025",
-      description:
-        "μLearn, in collaboration with KKEM and hosted by μLearn LBSITW, is launching a 30-Day Coding Challenge from June 1 to 30, 2025. The challenge offers daily coding tasks, exciting rewards, and Karma points to help participants learn, code, and grow every day. Open to both beginners and experienced coders, it’s a great opportunity to build consistency and improve coding skills throughout the month. Participants can join through the provided link to be part of the action.",
-      link: "",
-
-      isLive: false,
-    },
-  ],
   recurringEvents: {
     weekly: [
       {
@@ -121,25 +13,26 @@ export const events: {
         description:
           "A space where µLearn members connect, learn, and grow together. Office Hour is our community-driven learning zone — a place to ask questions, share progress, explore ideas, and get guidance from peers and mentors. Whether you're building projects, seeking clarity, or sharing what you’ve learned, Office Hour brings everyone together to empower growth, collaboration, and continuous learning.",
         link: "/events/office-hour",
-        date: "Daily",
       },
       {
         title: "Inspiration Station Radio",
         description:
           "Everyone has a story to tell, the story about finding their passion, the story of learning new things and much more. Often times these stories are filled with fun and inspirations which fuel others to start their own journey.",
         link: "/events/inspiration-station",
-        date: "Every Tuesday",
       },
       {
         title: "Salt Mango Tree",
         description:
           "English! English! English! I avoid I don't like it, but English likes me, I can't avoid! Well since avoiding English isn't an option, let's try to work towards improving our knowledge of English, by practicing, together.",
         link: "/events/salt-mango-tree",
-        date: "Every Wednesday",
+      },
+      {
+        title: "Grab Your Superpowers",
+        description:
+          "Weekly sessions to help you unlock new skills and superpowers, guided by mentors and practitioners from across campuses. Each session dives into a fresh topic — from technical deep-dives to career hacks — packed with hands-on activities, real-world examples, and interactive discussions so you walk away with something you can use right away.",
+        link: "/events/grab-your-superpowers",
       },
     ],
-    biweekly: [],
-    monthly: [],
   },
 };
 

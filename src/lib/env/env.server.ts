@@ -21,8 +21,6 @@ const serverEnvSchema = z.object({
   // Node Environment
   NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
 
-  // GitHub Token (Optional - for leaderboard generation)
-  GH_TOKEN: z.string().optional(),
   DISCORD_CONTACT_WEBHOOK: z.string().url("DISCORD_CONTACT_WEBHOOK must be a valid URL"),
 
   // Captcha secret key

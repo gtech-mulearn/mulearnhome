@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import { MotionDiv, MotionH1, MotionP } from "@/components/MuFramer";
 import MuImage from "@/components/MuImage";
 import { Button } from "@/components/ui/button";
 import { testimonials } from "@/data/testimonials";
-import type { Counts } from "@/lib/types";
 import { useRedirectToApp } from "@/lib/utils";
+import { useLandingStats } from "@/services/useLandingStats";
 import TestimonialStats from "./_components/TestimonialStats";
 import TextTestimonialsGrid from "./_components/TextTestimonialsGrid";
 import VideoSection from "./_components/VideoSection";
@@ -16,32 +15,7 @@ export default function TestimonialsPage() {
   const videoTestimonialData = testimonials.video;
   const textTestimonialData = testimonials.text;
   const redirect = useRedirectToApp();
-  const [counts, setCounts] = useState<Counts | null>(null);
-  const socketRef = useRef<WebSocket | null>(null);
-
-  useEffect(() => {
-    if (!socketRef.current) {
-      const socket = new WebSocket("wss://mulearn.org/ws/v1/public/landing-stats/");
-      socketRef.current = socket;
-
-      const handleMessage = (event: MessageEvent) => {
-        try {
-          const data = JSON.parse(event.data) as Counts;
-          setCounts(data);
-        } catch (error) {
-          console.error("WebSocket message parsing error:", error);
-        }
-      };
-
-      socket.addEventListener("message", handleMessage);
-
-      return () => {
-        socket.removeEventListener("message", handleMessage);
-        socket.close();
-        socketRef.current = null;
-      };
-    }
-  }, []);
+  const { counts, hasError } = useLandingStats();
 
   return (
     <div className="min-h-screen bg-mulearn-whitish relative overflow-x-hidden">
@@ -86,7 +60,7 @@ export default function TestimonialsPage() {
             peer-to-peer ecosystem.
           </MotionP>
 
-          <TestimonialStats counts={counts} />
+          <TestimonialStats counts={counts} hasError={hasError} />
         </MotionDiv>
       </div>
 
