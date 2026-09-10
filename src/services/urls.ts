@@ -30,3 +30,7 @@ export const careerLabRoutes = {
   ongoing: "/public/career-lab/ongoing/",
   previous: "/public/career-lab/previous/",
 };
+
+export const interestGroupRoutes = {
+  list: "/public/ig/list/",
+};

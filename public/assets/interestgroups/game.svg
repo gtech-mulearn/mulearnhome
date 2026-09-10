@@ -1,8 +1,9 @@
-<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg">
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="gameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#047857;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
     </linearGradient>
     <filter id="glow">
       <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
@@ -12,22 +13,20 @@
       </feMerge>
     </filter>
   </defs>
-  
+
   <rect width="400" height="250" fill="url(#gameGrad)" rx="16"/>
-  
-  <circle cx="80" cy="125" r="120" fill="rgba(255,255,255,0.1)"/>
-  <circle cx="320" cy="200" r="80" fill="rgba(255,255,255,0.08)"/>
-  
-  <g transform="translate(200, 100)" filter="url(#glow)">
-    <rect x="-35" y="-15" width="70" height="30" rx="15" fill="white"/>
-    <circle cx="-20" cy="0" r="6" fill="url(#gameGrad)"/>
-    <circle cx="20" cy="-5" r="4" fill="url(#gameGrad)"/>
-    <circle cx="27" cy="0" r="4" fill="url(#gameGrad)"/>
-    <rect x="-10" y="-5" width="3" height="10" fill="url(#gameGrad)"/>
-    <rect x="-15" y="0" width="10" height="3" fill="url(#gameGrad)"/>
+  <circle cx="80" cy="125" r="120" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="320" cy="200" r="80" fill="rgba(255,255,255,0.06)"/>
+
+  <g transform="translate(200, 95)" filter="url(#glow)">
+    <rect x="-32" y="-18" width="64" height="36" rx="10" fill="#064e3b" stroke="white" stroke-width="2"/>
+    <line x1="-16" y1="-5" x2="-16" y2="5" stroke="white" stroke-width="3"/>
+    <line x1="-21" y1="0" x2="-11" y2="0" stroke="white" stroke-width="3"/>
+    <circle cx="14" cy="-4" r="3" fill="#f43f5e"/>
+    <circle cx="20" cy="3" r="3" fill="#fbbf24"/>
   </g>
-  
+
   <text x="200" y="165" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="white" text-anchor="middle" filter="url(#glow)">Game Development</text>
-  
-  <text x="200" y="190" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.9)" text-anchor="middle">µLearn</text>
+
+  <text x="200" y="208" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.9)" text-anchor="middle">µLearn</text>
 </svg>

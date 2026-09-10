@@ -268,4 +268,100 @@ export const interestGroups = [
     description:
       "Explore quantum algorithms, qubits, and quantum computing frameworks. Learn the fundamentals shaping the next era of computation.",
   },
+  {
+    name: "Data Analytics",
+    link: "https://app.mulearn.org/dashboard/interestgroups",
+    tagline: "Turn data into actionable intelligence",
+    image: "/assets/interestgroups/data-analytics.svg",
+    description:
+      "Master data analysis, visualization, business intelligence, and statistical modeling to uncover meaningful insights.",
+  },
+  {
+    name: "AI & Machine Learning",
+    link: "https://app.mulearn.org/dashboard/interestgroups",
+    tagline: "Pioneer intelligent machines and algorithms",
+    image: "/assets/interestgroups/ai-ml.svg",
+    description:
+      "Explore neural networks, machine learning algorithms, deep learning, and natural language processing.",
+  },
+  {
+    name: "Blockchain",
+    link: "https://app.mulearn.org/dashboard/interestgroups",
+    tagline: "Build decentralized trust systems",
+    image: "/assets/interestgroups/blockchain.svg",
+    description:
+      "Learn smart contracts, decentralized finance, consensus protocols, and Web3 development.",
+  },
+  {
+    name: "No Or Low Code",
+    link: "https://app.mulearn.org/dashboard/interestgroups",
+    tagline: "Build apps faster without code",
+    image: "/assets/interestgroups/low-code.svg",
+    description:
+      "Rapidly build applications and automate workflows using modern no-code and low-code platforms.",
+  },
+  {
+    name: "Mobile Development",
+    link: "https://app.mulearn.org/dashboard/interestgroups",
+    tagline: "Craft seamless mobile experiences",
+    image: "/assets/interestgroups/mobile-dev.svg",
+    description:
+      "Develop iOS, Android, and cross-platform mobile apps using Flutter, React Native, and native frameworks.",
+  },
+  {
+    name: "Competitive Coding",
+    link: "https://app.mulearn.org/dashboard/interestgroups",
+    tagline: "Master algorithms and problem solving",
+    image: "/assets/interestgroups/competitive-coding.svg",
+    description:
+      "Hone data structures, algorithmic thinking, speed coding, and excel in competitive programming contests.",
+  },
+  {
+    name: "Creative Design",
+    link: "https://app.mulearn.org/dashboard/interestgroups",
+    tagline: "Unleash artistic vision and visual design",
+    image: "/assets/interestgroups/creative-design.svg",
+    description:
+      "Explore graphic design, digital art, typography, branding, and visual storytelling.",
+  },
+  {
+    name: "Quality Assurance",
+    link: "https://app.mulearn.org/dashboard/interestgroups",
+    tagline: "Ensure flawless software quality",
+    image: "/assets/interestgroups/qa-testing.svg",
+    description:
+      "Learn automated testing, performance testing, QA methodology, and bug prevention strategies.",
+  },
+  {
+    name: "Civil Engineering",
+    link: "https://app.mulearn.org/dashboard/interestgroups",
+    tagline: "Shape infrastructure and smart cities",
+    image: "/assets/interestgroups/civil.svg",
+    description:
+      "Explore structural engineering, urban planning, sustainable design, and smart infrastructure.",
+  },
+  {
+    name: "Strategic Leadership",
+    link: "https://app.mulearn.org/dashboard/interestgroups",
+    tagline: "Lead teams and drive organizational growth",
+    image: "/assets/interestgroups/leadership.svg",
+    description:
+      "Master leadership strategy, team management, decision making, and organizational transformation.",
+  },
+  {
+    name: "AI for Social Good",
+    link: "https://app.mulearn.org/dashboard/interestgroups",
+    tagline: "Harness AI to solve real-world human challenges",
+    image: "/assets/interestgroups/social-good.svg",
+    description:
+      "Apply artificial intelligence to healthcare, sustainability, education, and community impact.",
+  },
+  {
+    name: "Beckn Protocol",
+    link: "https://app.mulearn.org/dashboard/interestgroups",
+    tagline: "Build open decentralized commerce networks",
+    image: "/assets/interestgroups/beckn.svg",
+    description:
+      "Learn Beckn protocol architecture, open digital commerce, and decentralized transaction networks.",
+  },
 ];

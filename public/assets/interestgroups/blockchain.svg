@@ -1,0 +1,32 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blockchainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f766e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#d97706;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="400" height="250" fill="url(#blockchainGrad)" rx="16"/>
+  <circle cx="80" cy="125" r="120" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="320" cy="200" r="80" fill="rgba(255,255,255,0.06)"/>
+
+  <g transform="translate(200, 95)" filter="url(#glow)">
+    <line x1="-35" y1="0" x2="-10" y2="0" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="3,3"/>
+    <line x1="10" y1="0" x2="35" y2="0" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="3,3"/>
+    <polygon points="-45,-12 -33,-6 -33,6 -45,12 -57,6 -57,-6" fill="#2dd4bf" opacity="0.95" stroke="white" stroke-width="1.5"/>
+    <polygon points="0,-16 14,-8 14,8 0,16 -14,8 -14,-8" fill="#fbbf24" opacity="0.95" stroke="white" stroke-width="2"/>
+    <polygon points="45,-12 57,-6 57,6 45,12 33,6 33,-6" fill="#34d399" opacity="0.95" stroke="white" stroke-width="1.5"/>
+  </g>
+
+  <text x="200" y="165" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="white" text-anchor="middle" filter="url(#glow)">Blockchain</text>
+
+  <text x="200" y="208" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.9)" text-anchor="middle">µLearn</text>
+</svg>
