@@ -31,14 +31,12 @@ const staticRoutes = [
   "partners/company-partners",
   "privacy-policy",
   "refund-policy",
-  "report",
   "self-determination-theory",
   "socials",
   "team",
   "terms-and-conditions",
   "testimonials",
   "trivial-ideas",
-  "yip",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
