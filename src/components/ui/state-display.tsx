@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
+import { MuImage } from "../layouts";
 
 /**
  * StateDisplay — shared μLearn visual state component.
@@ -104,7 +105,7 @@ export function StateDisplay({
         className,
       )}
     >
-      <Image
+      <MuImage
         src={config.src}
         alt=""
         aria-hidden="true"

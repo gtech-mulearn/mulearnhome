@@ -1,0 +1,1 @@
+export { CampusLogoGeneratorView } from "./components";

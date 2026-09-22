@@ -1,7 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { useCallback } from "react";
 import { twMerge } from "tailwind-merge";
-import { clientEnv } from "@/lib/env/env.client";
+import { clientEnv } from "@/config/env.client";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

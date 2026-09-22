@@ -45,9 +45,16 @@
   },
   "overrides": [
     {
-      "includes": ["src/lib/env/**"],
+      "includes": ["**/*.ts", "**/*.tsx"],
       "linter": {
-        "enabled": true
+        "rules": {
+          "style": {
+            "useFilenamingConvention": {
+              "level": "error",
+              "options": { "filenameCases": ["kebab-case"] }
+            }
+          }
+        }
       }
     }
   ],

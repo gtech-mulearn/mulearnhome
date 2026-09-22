@@ -1,25 +1,20 @@
-import About from "./_components/About";
-import Benefits from "./_components/Benefits";
-import Change from "./_components/Change";
-import Contact from "./_components/Contact";
-import Hero from "./_components/Hero";
-import Mission from "./_components/Mission";
-import Partners from "./_components/Partners";
-import Success from "./_components/Success";
+import { CompanyView } from "@/features/be-a-part";
+import { constructMetadata } from "@/lib/metadata";
 
-const page = () => {
-  return (
-    <div className="bg-mulearn-whitish min-h-screen ">
-      <Hero />
-      <About />
-      <Benefits />
-      <Partners />
-      <Success />
-      <Mission />
-      <Change />
-      <Contact />
-    </div>
-  );
-};
+export const metadata = constructMetadata({
+  title: "Partner With µLearn",
+  description:
+    "Partner with µLearn as a company — access talent, validate skills, and support proof-of-work learning.",
+  keywords: [
+    "partner with mulearn",
+    "hire talent",
+    "skill validation",
+    "proof-of-work hiring",
+    "company partnership",
+  ],
+  canonical: "https://mulearn.org/be-a-part/company",
+});
 
-export default page;
+export default async function CompanyPage() {
+  return <CompanyView />;
+}

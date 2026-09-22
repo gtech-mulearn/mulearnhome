@@ -3,7 +3,7 @@
 // "use client";
 
 // import { type Variants } from "framer-motion";
-// import { MotionDiv } from "@/components/MuFramer";
+// import { MotionDiv } from "@/components/layouts";
 // import { annualReports } from "@/data/impact-gallery";
 // import { AnnualReport } from "@/lib/types";
 // import ReportHero from "./_components/ReportHero";

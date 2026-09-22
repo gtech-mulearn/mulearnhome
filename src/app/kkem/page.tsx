@@ -1,17 +1,13 @@
-import { kkem } from "@/data/kkem";
-import { interestGroups } from "@/data/lc-ig";
-import IGAbout from "./_components/IGAbout";
-import IGEvents from "./_components/IGEvents";
-import IGSection from "./_components/IGSection";
+import { KkemView } from "@/features/kkem";
+import { constructMetadata } from "@/lib/metadata";
 
-export default function Landing() {
-  return (
-    <div className="max-w-800">
-      <IGAbout />
-      <IGSection cards={interestGroups} />
-      <div id="events">
-        <IGEvents cards={kkem.pastEventCardData} heading="Partnered Events" largeImg={true} />
-      </div>
-    </div>
-  );
+export const metadata = constructMetadata({
+  title: "KKEM Interest Groups",
+  description: "µLearn's interest groups curated with the Kerala Knowledge Economy Mission (KKEM).",
+  keywords: ["kkem interest groups", "kerala knowledge economy mission", "kkem mulearn"],
+  canonical: "https://mulearn.org/kkem",
+});
+
+export default async function KkemPage() {
+  return <KkemView />;
 }

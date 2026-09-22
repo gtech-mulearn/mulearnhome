@@ -1,16 +1,16 @@
 import type { Variants } from "framer-motion";
-import { MotionDiv } from "@/components/MuFramer";
-import { galleryEvents } from "@/data/gallery";
-import { GalleryClient } from "./_components";
+import { MotionDiv } from "@/components/layouts";
+import { GalleryClient, galleryEvents } from "@/features/gallery";
+import { constructMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "Gallery | µLearn",
+export const metadata = constructMetadata({
+  title: "Gallery",
   description: "Explore moments from µLearn events across campuses and communities.",
-};
+  keywords: ["mulearn gallery", "event photos", "campus events gallery"],
+  canonical: "https://mulearn.org/gallery",
+});
 
-export const dynamic = "force-dynamic";
-
-export default function GalleryPage() {
+export default async function GalleryPage() {
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {

@@ -6,10 +6,10 @@ A web application for the MuLearn community built with Next.js, TypeScript, and 
 - **Next.js App Router:** File-based routing for easy page management
 - **TypeScript:** Type safety across the codebase
 - **Tailwind CSS:** Rapid UI development
-- **Modular Structure:** Organized folders for components, services, and data
-- **Path Aliases:** Clean and maintainable imports
-- **Centralized Data:** All static data in `src/data` folder
-- **CDN Service:** Centralized asset URL management via `src/services/cdn.ts`
+- **Feature-Folder Architecture:** Each route/feature owns its own `api`, `hooks`, `schemas`, `types`, `data`, and `components` under `src/features/<name>`
+- **Path Aliases:** Clean and maintainable imports (`@/`, `@/config/`)
+- **Shared Kernel:** Cross-feature code (API helpers, hooks, schemas, types, UI) lives in `src/shared`, imported only via its barrel
+- **Centralized Environment Config:** Type-safe, Zod-validated env vars in `src/config/`
 - **Brand Guide:** All UI and assets follow the [MuLearn Brand Guide](https://mulearn.org/r/brandguide)
 
 ---
@@ -19,26 +19,53 @@ A web application for the MuLearn community built with Next.js, TypeScript, and 
 ```
 mulearnhome/
 ├── src/
-│   ├── app/
-│   │   ├── layout.tsx        # Main layout (global styles, Navbar)
-│   │   ├── (home)/page.tsx   # Home page (/)
-│   │   ├── team/page.tsx     # /team route
-│   │   ├── about/page.tsx    # /about route
-│   │   ├── donation/page.tsx # /donation route
-│   ├── components/           # Common UI components (Navbar, Footer, etc.)
-│   ├── data/                 # All static/mock data (nav, team, values, etc.)
-│   ├── services/             # API, business logic, CDN service
-│   │   ├── cdn.ts            # CDN service for asset URLs
-│   └── globals.d.ts          # TypeScript CSS module declaration
-├── public/                   # Static assets (images, fonts, etc.)
-├── package.json              # Project metadata and dependencies
-├── tsconfig.json             # TypeScript config (path aliases)
-├── next.config.ts            # Next.js config
-├── postcss.config.mjs        # Tailwind/PostCSS config
-├── eslint.config.mjs         # ESLint config
-├── README.md                 # Project documentation
-└── CONTRIBUTION.md           # Contribution guidelines
+│   ├── app/                   # Next.js App Router routes — thin pages only
+│   │   ├── layout.tsx         # Root layout (global styles, Navbar, Footer)
+│   │   ├── page.tsx           # Home page (/)
+│   │   ├── team/page.tsx      # /team route
+│   │   ├── be-a-part/         # Nested sub-routes (campus, company, enablers, learners)
+│   │   └── api/                # Route Handlers (contact, captcha)
+│   ├── config/                  # Environment config (env.client.ts, env.server.ts, api.ts, site.ts)
+│   ├── features/               # One folder per route/feature (see below)
+│   ├── shared/                  # Cross-feature kernel: api, hooks, schemas, types, components, data
+│   ├── components/
+│   │   ├── layouts/            # Navbar, Footer, MuImage, motion wrappers, etc.
+│   │   └── ui/                  # shadcn/ui primitives (Button, Card, Dialog, ...)
+│   ├── lib/                     # Generic utilities (fetcher, sanitize, cn, redirect helpers)
+│   └── globals.d.ts             # TypeScript CSS module declaration
+├── public/                       # Static assets (images, fonts, etc.)
+├── package.json                  # Project metadata and dependencies
+├── tsconfig.json                 # TypeScript config (path aliases)
+├── biome.json                    # Biome linter/formatter config
+├── next.config.ts                # Next.js config
+├── postcss.config.mjs            # Tailwind/PostCSS config
+├── README.md                     # Project documentation
+├── PACKAGES.md                   # Why each dependency exists
+└── CONTRIBUTION.md               # Contribution guidelines
 ```
+
+### The feature-folder pattern
+
+Every route lives in `src/features/<name>/` with only the kind-folders it actually needs:
+
+```
+src/features/<name>/
+├── api/            # fetcher-based calls to the backend (only if the route hits an API)
+├── hooks/          # "use client" hooks (useState/useEffect) for genuinely interactive pages
+├── schemas/        # Zod schemas + inferred types (forms, API payloads)
+├── types/          # Plain TypeScript types/interfaces
+├── data/           # Static data owned by this feature
+├── components/     # <name>-view.tsx (the route's composed page) + supporting components
+└── index.ts        # Barrel — the ONLY way another module may import from this feature
+```
+
+`src/app/<route>/page.tsx` stays a thin wrapper: it imports the feature's `<Name>View` from
+`@/features/<name>` and renders it, keeping only Next.js-specific exports (`metadata`,
+`dynamic`) in `app/`.
+
+**Import rule:** only import a feature or `shared` via its top-level `index.ts` barrel
+(`@/features/<name>` or `@/shared`) — never a deep path like `@/features/events/api/events.api`.
+Internal files inside a feature may still import siblings by relative path.
 
 ---
 
@@ -57,10 +84,11 @@ This project uses a **production-grade environment variable system** with full t
 ### File Structure
 
 ```
-src/lib/env/
+src/config/
 ├── env.server.ts   # Server-only secrets (API keys, tokens, etc.)
 ├── env.client.ts   # Public NEXT_PUBLIC_* variables
-└── index.ts        # Exports serverEnv and clientEnv
+├── api.ts          # API base URLs/config
+└── site.ts         # Site-wide constants
 ```
 
 ### Setup
@@ -68,7 +96,7 @@ src/lib/env/
 1. **Copy the example file:**
 
    ```bash
-   cp .example.env .env.local
+   cp .env.example .env.local
    ```
 
 2. **Fill in your values:**
@@ -87,17 +115,16 @@ src/lib/env/
 #### In Server-Side Code (API Routes, Server Components, Server Actions)
 
 ```ts
-import { serverEnv } from "@/lib/env";
+import { serverEnv } from "@/config/env.server";
 
 // Access validated server secrets
-const ghToken = serverEnv.GH_TOKEN;
-const tinaToken = serverEnv.TINA_TOKEN;
+const webhook = serverEnv.DISCORD_CONTACT_WEBHOOK;
 ```
 
 #### In Client-Side Code (React Components, Hooks)
 
 ```ts
-import { clientEnv } from "@/lib/env";
+import { clientEnv } from "@/config/env.client";
 
 // Access public client variables
 const apiUrl = clientEnv.NEXT_PUBLIC_API_BASE_URL;
@@ -114,21 +141,22 @@ const cdnUrl = clientEnv.NEXT_PUBLIC_CDN_URL;
 NEXT_PUBLIC_MY_API_URL=https://api.example.com
 ```
 
-**Step 2:** Add to `src/lib/env/env.client.ts`:
+**Step 2:** Add to `src/config/env.client.ts`:
 
 ```ts
-const clientEnvSchema = z.object({
-  // ... existing fields
-  NEXT_PUBLIC_MY_API_URL: z
-    .string()
-    .url("NEXT_PUBLIC_MY_API_URL must be a valid URL"),
+export const clientEnv = createEnv({
+  client: {
+    // ... existing fields
+    NEXT_PUBLIC_MY_API_URL: z.string().url("NEXT_PUBLIC_MY_API_URL must be a valid URL"),
+  },
+  // ...
 });
 ```
 
 **Step 3:** Use in your code:
 
 ```ts
-import { clientEnv } from "@/lib/env";
+import { clientEnv } from "@/config/env.client";
 console.log(clientEnv.NEXT_PUBLIC_MY_API_URL);
 ```
 
@@ -140,23 +168,26 @@ console.log(clientEnv.NEXT_PUBLIC_MY_API_URL);
 MY_SECRET_KEY=super-secret-value
 ```
 
-**Step 2:** Add to `src/lib/env/env.server.ts`:
+**Step 2:** Add to `src/config/env.server.ts`:
 
 ```ts
-const serverEnvSchema = z.object({
-  // ... existing fields
-  MY_SECRET_KEY: z.string().min(1, "MY_SECRET_KEY is required"),
+export const serverEnv = createEnv({
+  server: {
+    // ... existing fields
+    MY_SECRET_KEY: z.string().min(1, "MY_SECRET_KEY is required"),
+  },
+  // ...
 });
 ```
 
 **Step 3:** Use in server code only:
 
 ```ts
-import { serverEnv } from "@/lib/env";
+import { serverEnv } from "@/config/env.server";
 console.log(serverEnv.MY_SECRET_KEY); // ✅ Works in API routes
 ```
 
-⚠️ **Never import `serverEnv` in client components!** The system will throw an error.
+⚠️ **Never import `serverEnv` in client components!** It will throw at runtime.
 
 ### Validation Rules
 
@@ -180,9 +211,6 @@ z.enum(["dev", "staging", "prod"]); // Only these values
 // Optional with defaults
 z.string().optional(); // Can be undefined
 z.string().default("fallback"); // Use default if missing
-
-// Custom transforms
-z.string().transform((val) => val.toUpperCase());
 ```
 
 ### Security Best Practices
@@ -205,12 +233,12 @@ z.string().transform((val) => val.toUpperCase());
 **Error: "serverEnv was imported on the client side!"**
 
 - You're importing `serverEnv` in a client component
-- Use `clientEnv` instead, or move the logic to an API route
+- Use `clientEnv` instead, or move the logic to a Server Component/Route Handler
 
 **Biome error: "Direct access to process.env is not allowed"**
 
 - Replace `process.env.VAR_NAME` with `serverEnv.VAR_NAME` or `clientEnv.NEXT_PUBLIC_VAR_NAME`
-- Import from `@/lib/env`
+- Import from `@/config/env.server` or `@/config/env.client`
 
 ---
 
@@ -240,30 +268,26 @@ z.string().transform((val) => val.toUpperCase());
 
 ---
 
-## ➕ Adding a New Page
+## ➕ Adding a New Feature/Page
 
-- Create a folder under `src/app` (e.g., `src/app/about`)
-- Add a `page.tsx` file inside it
-- The route will be available at `/about`
-
----
-
-## 📊 Centralized Data
-
-- All static data (navigation, team, values, etc.) should be stored and exported from `src/data` folder.
-- Import data from this file wherever needed in your components/pages.
+1. Create `src/features/<name>/` with only the kind-folders you need (`components/` at minimum).
+2. Build `<name>-view.tsx` inside `components/` — the composed page content.
+3. Add `index.ts` barrels at every level (each kind-folder, then the feature root).
+4. Create `src/app/<route>/page.tsx` as a thin wrapper importing `<Name>View` from `@/features/<name>`.
+5. If the route needs data shared with other features, put it in `src/shared/data` instead of duplicating it.
+6. Run `bun run validate` before opening a PR.
 
 ---
 
-## 🌐 CDN Service
+## 🌐 CDN URLs
 
-- The CDN service (`src/services/cdn.ts`) centralizes asset URL management.
-- Use it to fetch or construct URLs for images, files, or other static resources.
+- `cdnUrl(path)` (from `@/shared`) centralizes asset URL construction against
+  `clientEnv.NEXT_PUBLIC_CDN_URL`.
 
 **Example usage:**
 
 ```ts
-import { cdnUrl } from "@/services/cdn";
+import { cdnUrl } from "@/shared";
 const logoUrl = cdnUrl("images/logo.png");
 ```
 
@@ -298,7 +322,11 @@ Defined as CSS variables in `src/app/globals.css`:
 ### Fonts
 
 - **Plus Jakarta Sans** (`font-sans`): Body and UI text
-- **Poppins** (`font-display`): Headings and display text
+- **Bricolage Grotesque** (`font-display`): Headings and display text
+- **Black Ops One** (`font-blackopsone`): Used sparingly for special display treatments
+  (e.g. the manifesto page)
+
+All three are loaded via `next/font/google` in `src/app/layout.tsx`.
 
 ### Components
 
@@ -323,4 +351,4 @@ See [CONTRIBUTION.md](CONTRIBUTION.md) for details.
 
 ## 📄 License
 
-MIT
+[MIT](LICENSE)

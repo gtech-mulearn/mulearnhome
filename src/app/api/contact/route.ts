@@ -1,7 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { serverEnv } from "@/lib/env/env.server";
-import { contactFormSchema, type EmailData } from "@/lib/schemas/contact";
-import { discordService } from "@/services/discord";
+import { serverEnv } from "@/config/env.server";
+import { contactFormSchema, type EmailData, sendContactNotification } from "@/features/contact";
 
 const RATE_LIMIT_CONFIG = {
   windowMs: 15 * 60 * 1000,
@@ -149,7 +148,7 @@ export async function POST(request: NextRequest) {
       ticketId: ticketId,
     };
 
-    const result = await discordService.sendContactNotification(emailData);
+    const result = await sendContactNotification(emailData);
 
     if (result.success) {
       return NextResponse.json(
