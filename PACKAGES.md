@@ -17,6 +17,11 @@ This document explains **why each major library is used** in the µLearn Next.js
 * Core UI library
 * Version 19 enables modern concurrent features
 
+### **@next/third-parties**
+
+* Optimized wrappers for third-party embeds (`GoogleAnalytics`, `YouTubeEmbed`)
+* Used in the analytics provider and every video embed (home, testimonials, art of teaching)
+
 ### **Node.js (>=20)**
 
 * Required runtime for Next.js 16 and modern tooling
@@ -25,6 +30,15 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 * Fast JavaScript runtime and package manager
 * Enforced via `preinstall` script for consistency and speed
+
+---
+
+## Environment & Config
+
+### **@t3-oss/env-nextjs**
+
+* Type-safe, Zod-validated environment variables (`src/config/env.client.ts`, `src/config/env.server.ts`)
+* Fails fast at boot if a required variable is missing or invalid, and prevents server secrets leaking into the client bundle
 
 ---
 
@@ -41,12 +55,13 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ### **tailwindcss-animate**
 
-* Provides reusable animation utilities for Tailwind
+* Provides reusable animation utilities for Tailwind (loaded as a Tailwind plugin in `globals.css`)
 
 ### **Radix UI (`@radix-ui/*`)**
 
 * Accessible, unstyled UI primitives
-* Used for dialogs, tabs, selects, popovers, etc.
+* Used for accordion, avatar, dialog, label, navigation-menu, popover, radio-group, select,
+  separator, slot, switch, and tabs (`src/components/ui/`)
 
 ### **clsx**
 
@@ -54,20 +69,21 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ### **class-variance-authority (CVA)**
 
-* Manages component variants (size, state, intent) cleanly
+* Manages component variants (size, state, intent) cleanly — e.g. the `Button` variant system
 
 ### **lucide-react**
 
-* Modern, tree-shakable icon library
+* Modern, tree-shakable icon library — the primary icon set across the app
 
 ### **react-icons**
 
-* Additional icon sets when Lucide is insufficient
+* Brand icon set (`react-icons/fa`) — required for all social platform icons (LinkedIn, Instagram,
+  Facebook, Twitter, YouTube, GitHub, WhatsApp) instead of lucide-react, since lucide lacks brand-accurate marks
 
 ### **react-colorful**
 
 * Lightweight color picker component
-* Used for color selection interfaces across the app
+* Used in the campus logo generator's color selection UI
 
 ---
 
@@ -76,7 +92,11 @@ This document explains **why each major library is used** in the µLearn Next.js
 ### **Framer Motion**
 
 * Declarative animations for React
-* Used for page transitions and micro-interactions
+* Used for page transitions and micro-interactions across nearly every feature
+
+* Also powers `AnimatedCounter` (`src/shared/components/animated-counter/`), the animated
+  number counter used across stats sections (landing stats, careers, testimonials, etc.) —
+  built directly on Framer Motion's `animate`/`useInView`
 
 ---
 
@@ -85,35 +105,36 @@ This document explains **why each major library is used** in the µLearn Next.js
 ### **react-hook-form**
 
 * Performant form state management
+* Used for the donation form
 
 ### **@hookform/resolvers**
 
-* Connects `react-hook-form` with schema validators
+* Connects `react-hook-form` with Zod schemas (`zodResolver`)
 
 ### **Zod**
 
 * Schema-based validation and type inference
-* Used for forms and API validation
+* Used for forms, API payloads, and environment variable schemas
+
+### **react-google-recaptcha-v3**
+
+* Invisible reCAPTCHA v3 integration for the contact form
 
 ---
 
-## Date & UI Utilities
-
-### **react-day-picker**
-
-* Accessible and customizable calendar/date picker
+## UI Utilities
 
 ### **cmdk**
 
-* Command palette component (⌘K style UI)
+* Command palette / combobox primitive, powers the events search & filter UI
 
 ---
 
 ## Networking & Communication
 
-### **Axios**
+### **date-fns**
 
-* Promise-based HTTP client
+* Date formatting/parsing utilities (careers listings, events)
 
 ---
 
@@ -121,7 +142,7 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 ### **sonner**
 
-* Toast notifications with modern UI
+* Toast notifications with modern UI — form submissions, donation flow
 
 ---
 
@@ -130,15 +151,23 @@ This document explains **why each major library is used** in the µLearn Next.js
 ### **sharp**
 
 * High-performance image processing
-* Used for image optimization scripts
+* Used by `scripts/optimize-images.ts` and `scripts/generate-blur-placeholders.ts`
 
 ### **html-to-image**
 
-* Converts DOM nodes to images (share cards, certificates)
+* Converts DOM nodes to images (campus logo generator's download/share flow)
 
-### **swiper**
+### **embla-carousel-react**
 
-* Touch-enabled sliders and carousels
+* Touch-enabled carousel engine powering the `Carousel` primitive (`src/components/ui/carousel.tsx`)
+
+### **canvas-confetti**
+
+* Celebratory confetti effect on the donation success page
+
+### **dompurify**
+
+* Sanitizes user-influenced HTML/SVG before rendering (`src/lib/sanitize.ts`)
 
 ---
 
@@ -152,16 +181,18 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 * Unified formatter and linter
 * Replaces ESLint + Prettier for speed and simplicity
+* Also enforces this repo's `kebab-case` filename convention and disallows direct
+  `process.env` access
 
 ### **Husky**
 
-* Git hooks (pre-commit, commit-msg)
+* Git hooks (pre-commit, commit-msg, pre-push)
 
 ### **lint-staged**
 
 * Runs checks only on staged files
 
-### **commitlint**
+### **commitlint (`@commitlint/cli`, `@commitlint/config-conventional`)**
 
 * Enforces conventional commit messages
 
@@ -173,25 +204,18 @@ This document explains **why each major library is used** in the µLearn Next.js
 
 * CSS transformation pipeline
 
-### **Autoprefixer**
-
-* Adds vendor prefixes for browser compatibility
-
 ### **@tailwindcss/postcss**
 
-* Integrates Tailwind with PostCSS
+* Integrates Tailwind v4 with PostCSS (handles vendor prefixing internally — no separate
+  `autoprefixer` needed)
 
 ---
 
 ## Developer Utilities
 
-### **Octokit**
-
-* Official SDK for interacting with GitHub’s APIs to manage repositories, issues, pull requests, and more.
-
 ### **baseline-browser-mapping**
 
-* Ensures consistent browser support targets
+* Ensures consistent browser support targets, consumed automatically by the build tooling
 
 ---
 
@@ -203,6 +227,13 @@ This stack prioritizes:
 * ♿ Accessibility (Radix UI)
 * 🎨 Modern UI/UX (Tailwind, Framer Motion)
 * 🧠 Type Safety (TypeScript + Zod)
-* 🧩 Scalability (Next.js App Router)
+* 🧩 Scalability (Next.js App Router + feature-folder architecture)
 
-If you plan to add a dependency, ensure it aligns with these goals. Also dont install packages which has similar functions of the above packages.
+If you plan to add a dependency:
+
+* Ensure it aligns with these goals
+* Don't install a package that duplicates the function of one already listed above
+* Add it to this file in the relevant section, explaining *why* it's needed
+* Periodically re-check this list against actual usage (`grep -rl "<package>" src/`) —
+  an entry here with zero real consumers should be removed from `package.json` and this
+  file together

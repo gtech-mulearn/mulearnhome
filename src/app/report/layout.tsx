@@ -1,19 +1,12 @@
-import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Annual Reports | µLearn",
+export const metadata = constructMetadata({
+  title: "Annual Reports",
   description:
-    "Explore µLearn's journey of growth, impact, and community building through our comprehensive annual reports. Discover our transparency and accountability to the community.",
-  keywords: "µLearn, annual reports, transparency, community impact, education, peer learning",
-  openGraph: {
-    title: "Annual Reports | µLearn",
-    description:
-      "Explore µLearn's journey of growth, impact, and community building through our comprehensive annual reports.",
-    type: "website",
-    url: "https://mulearn.org/report",
-    images: ["/assets/logo.png"],
-  },
-};
+    "Explore µLearn's journey of growth, impact, and community building through our annual reports.",
+  keywords: ["annual reports", "mulearn transparency", "impact report"],
+  canonical: "https://mulearn.org/report",
+});
 
 export default function ReportLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

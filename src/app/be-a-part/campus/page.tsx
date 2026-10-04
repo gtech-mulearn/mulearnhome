@@ -1,23 +1,20 @@
-import Activities from "@/app/be-a-part/campus/_components/Activities";
-import Apply from "@/app/be-a-part/campus/_components/Apply";
-import BestPractice from "@/app/be-a-part/campus/_components/BestPractices";
-import Hero from "@/app/be-a-part/campus/_components/Hero";
-import Journey from "@/app/be-a-part/campus/_components/Journey";
-import Quote from "@/app/be-a-part/campus/_components/Quote";
-import Structure from "@/app/be-a-part/campus/_components/Structure";
-import WhyChapter from "@/app/be-a-part/campus/_components/Why";
+import { CampusView } from "@/features/be-a-part";
+import { constructMetadata } from "@/lib/metadata";
 
-export default function CampusChapter() {
-  return (
-    <div className="min-h-screen">
-      <Hero />
-      <WhyChapter />
-      <Structure />
-      <Activities />
-      <Journey />
-      <BestPractice />
-      <Quote />
-      <Apply />
-    </div>
-  );
+export const metadata = constructMetadata({
+  title: "Campus Chapter",
+  description:
+    "Start a µLearn Campus Chapter — bring peer-led, proof-of-work learning to your college.",
+  keywords: [
+    "campus chapter",
+    "college chapter",
+    "start a chapter",
+    "peer-led learning",
+    "proof-of-work learning",
+  ],
+  canonical: "https://mulearn.org/be-a-part/campus",
+});
+
+export default async function CampusPage() {
+  return <CampusView />;
 }

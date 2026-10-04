@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { serverEnv } from "@/lib/env/env.server";
-import type { Captcha } from "@/lib/types";
+import { serverEnv } from "@/config/env.server";
+import type { Captcha } from "@/shared";
 
 export async function POST(req: NextRequest) {
   const secretKey = serverEnv.RECAPTCHA_SECRET_KEY;

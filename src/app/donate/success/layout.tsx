@@ -1,9 +1,12 @@
-import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Donation Successful | µLearn",
-  description: "Thank you for your generous donation to µLearn Foundation",
-};
+export const metadata = constructMetadata({
+  title: "Donation Successful",
+  description: "Thank you for your generous donation to µLearn Foundation.",
+  keywords: ["donation successful", "thank you donor"],
+  canonical: "https://mulearn.org/donate/success",
+  noIndex: true,
+});
 
 export default function DonateSuccessLayout({ children }: { children: React.ReactNode }) {
   return children;

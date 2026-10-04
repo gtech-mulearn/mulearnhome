@@ -1,0 +1,1 @@
+export { SelfDeterminationTheoryView } from "./components";

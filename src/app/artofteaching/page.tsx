@@ -1,19 +1,20 @@
-import Archives from "./_components/Archives";
-import FirstEdition from "./_components/FirstEdition";
-import Guidelines from "./_components/Guidelines";
-import Hero from "./_components/Hero";
-import Judges from "./_components/Judges";
+import { ArtOfTeachingView } from "@/features/artofteaching";
+import { constructMetadata } from "@/lib/metadata";
 
-const ArtOfTeaching = () => {
-  return (
-    <div className="min-h-screen">
-      <Hero />
-      <Guidelines />
-      <FirstEdition />
-      <Judges />
-      <Archives />
-    </div>
-  );
-};
+export const metadata = constructMetadata({
+  title: "Art of Teaching 4.0",
+  description:
+    "µLearn Art of Teaching 4.0 — a program for educators exploring student-centered, peer-driven teaching methods.",
+  keywords: [
+    "art of teaching",
+    "educator training",
+    "student-centered teaching",
+    "peer-driven education",
+    "teaching methodology",
+  ],
+  canonical: "https://mulearn.org/artofteaching",
+});
 
-export default ArtOfTeaching;
+export default async function ArtOfTeachingPage() {
+  return <ArtOfTeachingView />;
+}

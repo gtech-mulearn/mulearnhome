@@ -1,19 +1,20 @@
-"use client";
-
 import { Sparkle } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
-import { MotionDiv, MotionH1, MotionP } from "@/components/MuFramer";
-import MuImage from "@/components/MuImage";
+import { MotionDiv, MotionH1, MotionP, MuImage } from "@/components/layouts";
 import { Button } from "@/components/ui/button";
-import { clientEnv } from "@/lib/env/env.client";
-import FilterButtons from "./_components/FilterButtons";
-import GalleryGrid from "./_components/GalleryGrid";
-import ImpactStats from "./_components/ImpactStats";
+import { clientEnv } from "@/config/env.client";
+import { ImpactGalleryView, ImpactStats } from "@/features/impact-gallery";
+import { constructMetadata } from "@/lib/metadata";
 
-export default function ImpactGallery() {
-  const [activeFilter, setActiveFilter] = useState<string>("all");
+export const metadata = constructMetadata({
+  title: "Impact Gallery",
+  description:
+    "See µLearn's impact through numbers, stories, and moments captured across the community.",
+  keywords: ["impact gallery", "mulearn impact", "community stories", "milestones"],
+  canonical: "https://mulearn.org/impact-gallery",
+});
 
+export default async function ImpactGallery() {
   return (
     <div className="min-h-screen overflow-x-hidden relative">
       <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
@@ -49,7 +50,7 @@ export default function ImpactGallery() {
             width={500}
             height={500}
             className="w-full h-auto"
-            preload
+            priority
           />
         </MotionDiv>
         <div className="absolute bottom-20 left-1/4 opacity-10">
@@ -76,8 +77,9 @@ export default function ImpactGallery() {
                 src="/assets/impact-gallery/hero-pic.webp"
                 alt="μLearn Impact Gallery"
                 fill
+                sizes="(max-width: 768px) 100vw, 42rem"
                 className="object-contain"
-                preload
+                priority
                 fetchPriority="high"
                 quality={85}
               />
@@ -130,11 +132,7 @@ export default function ImpactGallery() {
             <div className="h-1.5 w-24 bg-mulearn mx-auto rounded-full" />
           </div>
 
-          <FilterButtons activeFilter={activeFilter} onFilterChange={setActiveFilter} />
-
-          <div className="max-w-6xl mx-auto">
-            <GalleryGrid activeFilter={activeFilter} />
-          </div>
+          <ImpactGalleryView />
         </div>
 
         <div className="absolute top-1/4 left-5  opacity-20">

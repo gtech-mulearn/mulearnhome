@@ -1,89 +1,13 @@
-import Link from "next/link";
-import { MotionH1, MotionH2 } from "@/components/MuFramer";
-import MuImage from "@/components/MuImage";
-import { Button } from "@/components/ui/button";
-import { clientEnv } from "@/lib/env/env.client";
-import { cdnUrl } from "@/services/cdn";
+import { ManifestoView } from "@/features/manifesto";
+import { constructMetadata } from "@/lib/metadata";
 
-const bglogo = cdnUrl("/src/modules/Public/Manifesto/assets/µ.png");
-const handimg = cdnUrl("src/modules/Public/Manifesto/assets/hand.png");
+export const metadata = constructMetadata({
+  title: "Manifesto",
+  description: "The µLearn Manifesto — our philosophy of peer-to-peer, proof-of-work learning.",
+  keywords: ["mulearn manifesto", "peer-to-peer philosophy", "proof-of-work learning philosophy"],
+  canonical: "https://mulearn.org/manifesto",
+});
 
-export default function Manifesto() {
-  return (
-    <section className="overflow-x-hidden min-h-screen">
-      <div className="relative min-h-[130px] flex flex-col md:flex-row bg-mulearn mt-[6vw] md:h-[20vw] h-[50vw] pl-0 rounded-t-[1.2rem] md:rounded-none">
-        <MuImage
-          src={bglogo}
-          alt="µLearn background logo"
-          width={400}
-          height={400}
-          className="absolute w-[55vw] md:w-[35vw] h-[200px] align-middle"
-        />
-        <div className="flex flex-col justify-center w-full md:w-4/5 pl-[1.2rem] md:pl-20 pt-[1.2rem] md:pt-12 h-full">
-          <div className="bg-mulearn-whitish/30 rounded-full pr-[6vw] md:pr-16 pl-[5vw] md:pl-8 py-[1vw] md:py-2 w-fit md:mb-4 uppercase text-mulearn-whitish text-[1.5vw] md:text-[1.3vw] font-medium">
-            Our Manifesto
-          </div>
-          <MotionH1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            style={{ fontFamily: "var(--font-blackopsone)" }}
-            className="text-mulearn-whitish text-[10vw] md:text-[6.5vw] leading-[1.5] md:leading-none"
-          >
-            We, The Unbound, The Unbowed
-          </MotionH1>
-        </div>
-
-        <MuImage
-          src={handimg}
-          alt="Hand illustration"
-          width={400}
-          height={400}
-          className="absolute my-0 mx-auto -right-[5vw] md:right-[4vw] bottom-0"
-          style={{ width: "auto", height: "auto", maxWidth: "30vw", maxHeight: "40vh" }}
-        />
-      </div>
-
-      <div className="px-2 py-[1.2rem] sm:py-8 sm:px-4 md:px-20 md:py-16 text-center">
-        <p className="text-[1.1rem] sm:text-[1.8rem] md:text-[2rem] tracking-wide">
-          <span className="font-semibold">We, the Unbound, the Unbowed</span>, a tribe of relentless
-          learners, rise from the ashes of a broken education system.
-          <span className="font-semibold">
-            We are the mavericks who dared to question the status quo
-          </span>
-          , the misfits who refused to be cogs in the machine of rote memorization. Too long have we
-          wandered in the stale corridors of conformity —{" "}
-          <span className="font-semibold">not anymore!</span>
-        </p>
-      </div>
-
-      <div className="px-2 sm:px-4 md:px-24 text-center">
-        <p className="text-[1.1rem] sm:text-[1.8rem] md:text-[2rem] tracking-wide">
-          <span className="text-mulearn font-medium">µLearn is our revolution.</span> Here,
-          curiosity <span className="text-mulearn">reigns</span>, and collaboration is our strongest
-          weapon. We <span className="text-mulearn">transform</span> failures into stepping stones,
-          and together we <span className="text-mulearn]">redefine</span> learning.
-        </p>
-      </div>
-
-      <div className="bg-mulearn flex flex-col justify-center items-center gap-4 md:gap-8 mt-8 mb-[1.2rem] mx-0 sm:mt-20 sm:mb-24 text-center py-6 px-4 rounded-b-2xl">
-        <MotionH2
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="text-[1rem] sm:text-[2rem] w-full text-mulearn-whitish"
-        >
-          Welcome to the <span className="font-semibold">µLearn.</span>
-          <br />
-          Welcome to the <span className="font-semibold">Revolution.</span>
-        </MotionH2>
-
-        <Link href={clientEnv.NEXT_PUBLIC_APP_URL} target="_blank" rel="noreferrer">
-          <Button variant="inverted" className="py-2 px-6 sm:px-8 sm:py-3">
-            Join µLearn
-          </Button>
-        </Link>
-      </div>
-    </section>
-  );
+export default async function ManifestoPage() {
+  return <ManifestoView />;
 }

@@ -19,7 +19,8 @@ All components use the following CSS variables (defined in `globals.css`):
 ## Fonts
 
 - **Plus Jakarta Sans**: Used for all body and UI text (`font-sans`)
-- **Poppins**: Used for headings and display text (`font-display`)
+- **Bricolage Grotesque**: Used for headings and display text (`font-display`)
+- **Black Ops One**: Used sparingly for special display treatments (`font-blackopsone`)
 
 ## Component Usage
 
@@ -48,6 +49,10 @@ All components use the following CSS variables (defined in `globals.css`):
 
 - Use only the defined color variables and gradients.
 - Use only `font-sans` or `font-display` for font-family.
+- File names in this folder must be **kebab-case** (`logo-loop.tsx`, not `LogoLoop.tsx`) —
+  enforced repo-wide by Biome's `useFilenamingConvention` rule.
+- New components go directly in `src/components/ui/` (flat, no subfolders) alongside the
+  existing shadcn primitives (`button.tsx`, `card.tsx`, `dialog.tsx`, etc).
 - Document new variants in this file.
 
 ## Contribution Guidelines
