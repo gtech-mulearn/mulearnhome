@@ -1,7 +1,7 @@
 "use client";
 
 import type { Variants } from "framer-motion";
-import { ArrowRight, Atom, Info } from "lucide-react";
+import { ArrowRight, Info } from "lucide-react";
 import Link from "next/link";
 import { MotionDiv, MotionH1, MotionHeader, MotionP, MuImage } from "@/components/layouts";
 import { Button } from "@/components/ui/button";
@@ -101,14 +101,13 @@ export function Hero() {
               </Button>
             </MotionDiv>
 
-            <MotionDiv
+            {/* <MotionDiv
               custom={4}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={textVariant}
             >
-              {/* launch event for the Quantum Technologies IG */}
               <Button
                 asChild
                 variant={"outline"}
@@ -123,7 +122,7 @@ export function Hero() {
                   Explore Quantum Tech Matrix
                 </Link>
               </Button>
-            </MotionDiv>
+            </MotionDiv> */}
           </div>
         </div>
       </div>
