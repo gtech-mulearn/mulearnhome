@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Carousel, type CarouselHandle, CarouselSlide } from "@/components/ui/carousel";
 import { Skeleton } from "@/components/ui/skeleton";
 import { EventCard, safeMapEvents, useFeaturedEvents } from "@/features/events";
+import { cn } from "@/lib/utils";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -23,8 +24,14 @@ export function SpecialEvents() {
   const carouselRef = useRef<CarouselHandle>(null);
   const { data, error, isLoading } = useFeaturedEvents({ pageIndex: 1, perPage: 6 });
   const events = error ? null : safeMapEvents(data, "featured");
+  const eventCount = events?.length ?? 0;
 
-  if (!isLoading && (!events || events.length === 0)) return null;
+  if (!isLoading && eventCount === 0) return null;
+
+  // Slides show 1/2/3 per view (base/sm/lg). When they all fit, Embla can't scroll and pins
+  // them to the left, so center the track at the breakpoints where that happens.
+  const centerTrack =
+    eventCount === 1 ? "justify-center" : eventCount === 2 ? "sm:justify-center" : "";
 
   return (
     <div className="max-w-7xl mx-auto px-5 mt-20">
@@ -44,7 +51,7 @@ export function SpecialEvents() {
           </p>
 
           <div className="relative mt-12 px-0 sm:px-14">
-            {!isLoading && events && events.length > 1 && (
+            {!isLoading && eventCount > 1 && (
               <>
                 <Button
                   variant="default"
@@ -73,11 +80,9 @@ export function SpecialEvents() {
             ) : (
               <Carousel
                 ref={carouselRef}
-                options={{ loop: (events?.length ?? 0) > 1, align: "center" }}
-                autoplay={
-                  (events?.length ?? 0) > 1 ? { delay: 4000, pauseOnMouseEnter: true } : undefined
-                }
-                trackClassName="-ml-6"
+                options={{ loop: eventCount > 1, align: "center" }}
+                autoplay={eventCount > 1 ? { delay: 4000, pauseOnMouseEnter: true } : undefined}
+                trackClassName={cn("-ml-6", centerTrack)}
                 className="pb-4"
               >
                 {events?.map((event) => (
