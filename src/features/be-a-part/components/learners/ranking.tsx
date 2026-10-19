@@ -1,57 +1,61 @@
 import { MuImage } from "@/components/layouts";
-import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { fetchTopLearners } from "@/shared";
+import { Section, SectionHeading } from "../shared";
 
 export async function RankingSection() {
   const topLearners = await fetchTopLearners(10);
 
+  if (topLearners.length === 0) return null;
+
   return (
-    <section className="py-16 md:py-20 container mx-auto px-4 relative">
-      <div className="max-w-7xl mx-auto">
-        {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Top Learners</h2>
-          <p className="text-base md:text-lg">
-            Recognizing consistent learners strengthens motivation for all.
-          </p>
-        </div>
+    <Section id="top-learners">
+      <SectionHeading
+        title={
+          <>
+            Top <span className="text-mulearn">Learners</span>
+          </>
+        }
+        description="Recognising consistent learners strengthens motivation for everyone."
+      />
 
-        {/* Learners Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto ">
-          {topLearners.map((learner) => (
-            <Card className="p-6 flex flex-col items-center text-center" key={learner.name}>
-              {/* Profile Image */}
-              <div className="w-20 h-20 mb-4 rounded-full overflow-hidden">
-                {learner.avatar ? (
-                  <MuImage
-                    src={learner.avatar}
-                    alt={learner.name}
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-mulearn text-mulearn-whitish text-2xl font-bold">
-                    {learner.name.charAt(0).toUpperCase()}
-                  </div>
-                )}
-              </div>
-
-              {/* Name */}
-              <h3 className="text-base font-semibold mb-1">{learner.name}</h3>
-
-              {/* Email */}
-              <p className="text-xs mb-3">{learner.email}</p>
-
-              {/* Karma Points Label */}
-              <p className="text-xs mb-1 font-medium">Karma Points</p>
-
-              {/* Karma Points Value */}
-              <p className="text-xl font-bold">{learner.kp.toLocaleString()} KP</p>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
+      {/* Column-major on desktop so ranks read 1–5 down the left, 6–10 down the right. */}
+      <ol className="mt-12 grid grid-cols-1 gap-3 lg:grid-flow-col lg:grid-cols-2 lg:grid-rows-5 lg:gap-x-6">
+        {topLearners.map((learner, index) => (
+          <li
+            key={learner.email}
+            className="flex items-center gap-3 rounded-2xl border border-mulearn/10 bg-card px-3 py-3 shadow-sm sm:gap-4 sm:px-5"
+          >
+            <span
+              className={cn(
+                "w-6 shrink-0 text-center font-(family-name:--font-display) text-lg font-bold sm:w-7",
+                index < 3 ? "text-mulearn" : "text-mulearn-gray-600",
+              )}
+            >
+              {index + 1}
+            </span>
+            <span className="relative size-10 shrink-0 overflow-hidden rounded-full bg-mulearn/10 sm:size-12">
+              {learner.avatar ? (
+                <MuImage src={learner.avatar} alt="" fill sizes="48px" className="object-cover" />
+              ) : (
+                <span className="flex size-full items-center justify-center text-lg font-bold text-mulearn">
+                  {learner.name.charAt(0).toUpperCase()}
+                </span>
+              )}
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="truncate font-semibold text-mulearn-blackish">{learner.name}</p>
+              <p className="truncate text-sm text-mulearn-gray-600">{learner.email}</p>
+            </div>
+            <p className="shrink-0 text-right">
+              <span className="font-(family-name:--font-display) text-lg font-bold text-mulearn">
+                {learner.kp.toLocaleString("en-US")}
+              </span>{" "}
+              <span className="text-sm font-medium text-mulearn-gray-600">KP</span>
+            </p>
+          </li>
+        ))}
+      </ol>
+    </Section>
   );
 }
