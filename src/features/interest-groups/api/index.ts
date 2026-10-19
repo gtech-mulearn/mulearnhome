@@ -1,1 +1,1 @@
-export { fetchPublicInterestGroups } from "./interest-groups.api";
+export { fetchInterestGroups } from "./interest-groups.api";

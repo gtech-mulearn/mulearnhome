@@ -1,14 +1,12 @@
-export { fetchPublicInterestGroups } from "./api";
+export { fetchInterestGroups } from "./api";
 export { InterestGroupsView } from "./components";
 export { interestGroups } from "./data";
 export type {
-  ApiImpactProject,
-  ApiImpactProjectLink,
-  ApiImpactProjectTeamMember,
+  ApiInterestGroup,
   ApiMember,
   ApiMemberSocials,
-  ApiPublicInterestGroup,
+  IgListApiResponse,
   InterestGroupDisplayItem,
   InterestGroupLocalMeta,
-  PublicIgApiResponse,
+  InterestGroupResource,
 } from "./types";
