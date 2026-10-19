@@ -2,7 +2,7 @@ export { CTA } from "./cta";
 export { LearnersHero } from "./hero";
 export { LearnerIntro } from "./intro";
 export { LearnersView } from "./learners-view";
-export { OnboardingSteps } from "./onboarding";
+export { LearnersOnboarding } from "./onboarding";
 export { RankingSection } from "./ranking";
 export { LearnersStatus } from "./status";
 export { WhatYouGet } from "./what-you-get";

@@ -1,46 +1,35 @@
-import { Card } from "@/components/ui/card";
+import { MotionLi } from "@/components/layouts";
 import { benefits } from "../../data/learners.data";
+import { Section, SectionHeading } from "../shared";
 
 export const WhyMuLearn = () => {
   return (
-    <section className="py-16 md:py-24 ">
-      <div className="max-w-7xl mx-auto px-4 -mt-25">
-        {/* Heading */}
-        <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3">
-            Why <span className="text-mulearn">μLearn</span>?
-          </h2>
-          <p className="text-lg md:text-xl text-mulearn-blackish font-medium">
-            Learn by doing. Grow with purpose.
-          </p>
-        </div>
-
-        {/* Grid Container */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-10">
-          {benefits.map((benefit, index) => {
-            const Icon = benefit.icon;
-
-            const isMiddleColumn = index === 1 || index === 4;
-
-            return (
-              <Card
-                variant={"interactive"}
-                key={benefit.title}
-                className={`p-7 
-                           ${isMiddleColumn ? "lg:-translate-y-10" : "lg:translate-y-0"}`}
-              >
-                {/* Icon Container */}
-                <div className="w-12 h-12 bg-mulearn rounded-lg flex items-center justify-center mb-5">
-                  <Icon className="w-6 h-6 text-mulearn-whitish" strokeWidth={2.5} />
-                </div>
-
-                {/* Card Content */}
-                <p className="text-lg font-medium leading-snug">{benefit.title}</p>
-              </Card>
-            );
-          })}
-        </div>
-      </div>
-    </section>
+    <Section>
+      <SectionHeading
+        title={
+          <>
+            Why <span className="text-mulearn">µLearn</span>?
+          </>
+        }
+        description="Learn by doing. Grow with purpose."
+      />
+      <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {benefits.map(({ icon: Icon, title }, index) => (
+          <MotionLi
+            key={title}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: index * 0.06, ease: "easeOut" }}
+            className="flex items-center gap-4 rounded-2xl border border-mulearn/10 bg-card p-5 shadow-sm"
+          >
+            <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-mulearn/10 text-mulearn">
+              <Icon className="size-5" aria-hidden="true" />
+            </span>
+            <p className="font-medium leading-snug text-mulearn-blackish">{title}</p>
+          </MotionLi>
+        ))}
+      </ul>
+    </Section>
   );
 };
