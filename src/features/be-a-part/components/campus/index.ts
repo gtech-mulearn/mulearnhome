@@ -4,6 +4,5 @@ export { BestPractices } from "./best-practices";
 export { CampusView } from "./campus-view";
 export { CampusHero } from "./hero";
 export { Journey } from "./journey";
-export { Quote } from "./quote";
 export { Structure } from "./structure";
 export { WhyChapter } from "./why";

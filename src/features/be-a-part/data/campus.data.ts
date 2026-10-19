@@ -1,83 +1,56 @@
-import { Calendar, Clock, PartyPopper, Sparkle, Target, Trophy, Users, Zap } from "lucide-react";
+import { HeartHandshake, Layers, Target, Trophy, Users, Zap } from "lucide-react";
 
 export const campusChapter = {
   journey: [
-    { title: "Interest Form", desc: "Express interest in creating a chapter" },
-    { title: "Orientation", desc: "Attend induction session" },
-    { title: "Core Team Selection", desc: "Form the initial team" },
-    {
-      title: "Official Onboarding",
-      desc: "Complete Mutate leadership training",
-    },
-    { title: "Kick-off Event", desc: "Launch with intro meetup" },
-    { title: "Sustain & Scale", desc: "Regular challenges and circles" },
-    { title: "Review & Recognition", desc: "Get spotlighted for impact" },
+    { title: "Interest Form", description: "Express interest in creating a chapter" },
+    { title: "Orientation", description: "Attend the induction session" },
+    { title: "Core Team Selection", description: "Form the initial team" },
+    { title: "Official Onboarding", description: "Complete Mutate leadership training" },
+    { title: "Kick-off Event", description: "Launch with an intro meetup" },
+    { title: "Sustain & Scale", description: "Run regular challenges and learning circles" },
+    { title: "Review & Recognition", description: "Get spotlighted for your impact" },
   ],
   activity: [
     {
-      icon: Calendar,
-      title: "Weekly",
-      desc: "Learning Circles",
-      detail: "1-hour peer sessions",
-    },
-    {
-      icon: Clock,
-      title: "Monthly",
-      desc: "Skill Challenges",
-      detail: "Proof-of-work submissions",
-    },
-    {
-      icon: Zap,
-      title: "Quarterly",
-      desc: "Innovation Sprints",
-      detail: "Mini-In50Hours events",
-    },
-    {
-      icon: PartyPopper,
-      title: "Annual",
-      desc: "Flagship Events",
-      detail: "Permute, Mutate, Amuse",
-    },
-  ],
-  bestpractices: [
-    { icon: Users, title: "Peer-Driven", desc: "Students teach students" },
-    {
-      icon: Zap,
-      title: "Proof-of-Work",
-      desc: "GitHub repos, portfolios, demos",
+      icon: Users,
+      cadence: "Weekly",
+      title: "Learning Circles",
+      description: "One-hour peer sessions around a shared domain.",
     },
     {
       icon: Target,
-      title: "Gamify Growth",
-      desc: "Karma Points & leaderboards",
+      cadence: "Monthly",
+      title: "Skill Challenges",
+      description: "Proof-of-work submissions that earn karma.",
     },
     {
-      icon: Sparkle,
-      title: "Mini Communities",
-      desc: "Interest groups within chapters",
+      icon: Zap,
+      cadence: "Quarterly",
+      title: "Innovation Sprints",
+      description: "Mini In50Hours build events on campus.",
     },
     {
       icon: Trophy,
+      cadence: "Annual",
+      title: "Flagship Events",
+      description: "Permute, Mutate and Amuse across the network.",
+    },
+  ],
+  bestpractices: [
+    { icon: Users, title: "Peer-Driven", description: "Students teach students" },
+    { icon: Zap, title: "Proof-of-Work", description: "GitHub repos, portfolios, demos" },
+    { icon: Target, title: "Gamify Growth", description: "Karma Points and leaderboards" },
+    { icon: Layers, title: "Mini Communities", description: "Interest groups within chapters" },
+    {
+      icon: HeartHandshake,
       title: "Celebrate Wins",
-      desc: "Weekly circles matter as much as big events",
+      description: "Weekly circles matter as much as big events",
     },
   ],
   structure: [
-    {
-      label: "Core Team",
-      value: "5–10 students",
-      desc: "Trained through Mutate",
-    },
-    { label: "Faculty Mentor", value: "1 Anchor", desc: "Ensures continuity" },
-    {
-      label: "Learning Circles",
-      value: "Domain-focused",
-      desc: "AI, Web, Design, etc.",
-    },
-    {
-      label: "Campus Lead",
-      value: "1 Coordinator",
-      desc: "Links to Foundation",
-    },
+    { value: "5–10", label: "Core Team", description: "Students trained through Mutate" },
+    { value: "1", label: "Faculty Mentor", description: "An anchor who ensures continuity" },
+    { value: "1", label: "Campus Lead", description: "Coordinator linked to the Foundation" },
+    { value: "Any", label: "Learning Circles", description: "Domain-focused: AI, Web, Design…" },
   ],
 };
