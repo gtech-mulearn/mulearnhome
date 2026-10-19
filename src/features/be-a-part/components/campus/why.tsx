@@ -1,8 +1,8 @@
 import { Check, GraduationCap, type LucideIcon, Users } from "lucide-react";
 import type { ReactNode } from "react";
 import { MotionDiv } from "@/components/layouts";
+import { Section, SectionHeading } from "@/components/sections";
 import { cn } from "@/lib/utils";
-import { Section, SectionHeading } from "../shared";
 
 interface Audience {
   icon: LucideIcon;

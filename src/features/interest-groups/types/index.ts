@@ -1,11 +1,9 @@
 export type {
-  ApiImpactProject,
-  ApiImpactProjectLink,
-  ApiImpactProjectTeamMember,
+  ApiInterestGroup,
   ApiMember,
   ApiMemberSocials,
-  ApiPublicInterestGroup,
+  IgListApiResponse,
   InterestGroupDisplayItem,
   InterestGroupLocalMeta,
-  PublicIgApiResponse,
+  InterestGroupResource,
 } from "./interest-groups.types";

@@ -19,7 +19,7 @@ const Star = ({ className }: { className?: string }) => (
   </svg>
 );
 
-/** The large + small four-point star pair used as an accent across the be-a-part pages.
+/** The large + small four-point star pair used as an accent across the marketing pages.
  * Position it with `className` (it is absolutely positioned and hidden below `lg`). */
 export const Sparkles = ({ className }: { className?: string }) => (
   <div

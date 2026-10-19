@@ -1,10 +1,39 @@
 "use client";
 
+import { Github, Instagram, Linkedin, type LucideIcon, Twitter } from "lucide-react";
 import { useState } from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { MuImage } from "@/components/layouts";
 import { cn } from "@/lib/utils";
 import type { ApiMember } from "../types/interest-groups.types";
+
+/** The API stores bare handles (e.g. "octocat"); a few entries are already full URLs. */
+const SOCIALS: {
+  key: "linkedin" | "github" | "twitter" | "instagram";
+  label: string;
+  icon: LucideIcon;
+  profileUrl: (handle: string) => string;
+}[] = [
+  {
+    key: "linkedin",
+    label: "LinkedIn",
+    icon: Linkedin,
+    profileUrl: (h) => `https://www.linkedin.com/in/${h}`,
+  },
+  { key: "github", label: "GitHub", icon: Github, profileUrl: (h) => `https://github.com/${h}` },
+  { key: "twitter", label: "X", icon: Twitter, profileUrl: (h) => `https://x.com/${h}` },
+  {
+    key: "instagram",
+    label: "Instagram",
+    icon: Instagram,
+    profileUrl: (h) => `https://www.instagram.com/${h}`,
+  },
+];
+
+function toSocialUrl(value: string, profileUrl: (handle: string) => string) {
+  if (/^https?:\/\//i.test(value)) return value;
+  if (/^[\w.-]+\.[a-z]{2,}\//i.test(value)) return `https://${value}`; // "linkedin.com/in/x"
+  return profileUrl(encodeURIComponent(value.replace(/^@/, "")));
+}
 
 export function MemberCard({ member, isLead = false }: { member: ApiMember; isLead?: boolean }) {
   const [imgError, setImgError] = useState(false);
@@ -16,29 +45,21 @@ export function MemberCard({ member, isLead = false }: { member: ApiMember; isLe
   const roleOrContext =
     member.role || member.company || member.org || (member.muid ? `@${member.muid}` : "");
 
-  const hasSocials =
-    member.socials &&
-    Boolean(
-      (member.socials.linkedin && member.socials.linkedin.trim() !== "") ||
-        (member.socials.github && member.socials.github.trim() !== "") ||
-        (member.socials.twitter && member.socials.twitter.trim() !== ""),
-    );
+  const socials = SOCIALS.filter(({ key }) => member.socials?.[key]?.trim());
 
   return (
     <div
       className={cn(
-        "group relative flex items-center gap-3 p-3.5 rounded-2xl transition-all duration-200 shadow-2xs hover:shadow-md hover:-translate-y-0.5 border",
+        "group relative flex items-center gap-3 rounded-2xl border p-3.5 shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md",
         isLead
-          ? "bg-gradient-to-br from-amber-50/80 via-white to-blue-50/50 border-amber-200/90 hover:border-amber-300"
-          : "bg-white border-slate-200/80 hover:border-blue-300",
+          ? "border-mulearn/30 bg-mulearn-trusty-blue/5"
+          : "border-mulearn/10 bg-card hover:border-mulearn/25",
       )}
     >
       <div
         className={cn(
-          "relative shrink-0 rounded-full flex items-center justify-center font-bold select-none overflow-hidden",
-          isLead
-            ? "w-11 h-11 bg-amber-100 text-amber-700 ring-2 ring-amber-400/50"
-            : "w-10 h-10 bg-blue-50 text-mulearn-trusty-blue border border-slate-200/80",
+          "relative flex shrink-0 select-none items-center justify-center overflow-hidden rounded-full bg-mulearn/10 font-bold text-mulearn",
+          isLead ? "size-11 ring-2 ring-mulearn/40" : "size-10",
         )}
       >
         {hasValidPic ? (
@@ -55,60 +76,38 @@ export function MemberCard({ member, isLead = false }: { member: ApiMember; isLe
         )}
       </div>
 
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-1.5 flex-wrap">
-          <h4 className="text-xs font-bold text-slate-900 truncate group-hover:text-mulearn-trusty-blue transition-colors">
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <h4 className="truncate text-sm font-bold text-mulearn-blackish transition-colors group-hover:text-mulearn">
             {member.full_name}
           </h4>
           {isLead && (
-            <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-amber-100 text-amber-700 border border-amber-200 shrink-0">
+            <span className="shrink-0 rounded-full bg-mulearn px-1.5 py-px text-[10px] font-bold text-mulearn-whitish">
               Lead
             </span>
           )}
         </div>
         {roleOrContext && (
-          <p className="text-[11px] font-medium text-slate-600 truncate mt-0.5">{roleOrContext}</p>
-        )}
-        {member.muid && (
-          <p className="text-[9px] font-mono text-slate-400 truncate">µID: {member.muid}</p>
+          <p className="mt-0.5 truncate text-xs font-medium text-mulearn-gray-600">
+            {roleOrContext}
+          </p>
         )}
       </div>
 
-      {hasSocials && (
-        <div className="flex items-center gap-0.5 shrink-0 opacity-80 group-hover:opacity-100 transition-opacity">
-          {member.socials?.linkedin && member.socials.linkedin.trim() !== "" && (
+      {socials.length > 0 && (
+        <div className="flex shrink-0 items-center gap-0.5">
+          {socials.map(({ key, label, icon: Icon, profileUrl }) => (
             <a
-              href={member.socials.linkedin}
+              key={key}
+              href={toSocialUrl(member.socials?.[key]?.trim() ?? "", profileUrl)}
               target="_blank"
-              rel="noreferrer"
-              className="text-slate-400 hover:text-blue-600 p-1.5 rounded-lg hover:bg-blue-50 transition-colors"
-              aria-label={`${member.full_name}'s LinkedIn`}
+              rel="noopener noreferrer"
+              className="rounded-lg p-1.5 text-mulearn-gray-600 transition-colors hover:bg-mulearn/10 hover:text-mulearn"
+              aria-label={`${member.full_name}'s ${label}`}
             >
-              <FaLinkedin className="w-3.5 h-3.5" />
+              <Icon className="size-3.5" />
             </a>
-          )}
-          {member.socials?.github && member.socials.github.trim() !== "" && (
-            <a
-              href={member.socials.github}
-              target="_blank"
-              rel="noreferrer"
-              className="text-slate-400 hover:text-slate-900 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
-              aria-label={`${member.full_name}'s GitHub`}
-            >
-              <FaGithub className="w-3.5 h-3.5" />
-            </a>
-          )}
-          {member.socials?.twitter && member.socials.twitter.trim() !== "" && (
-            <a
-              href={member.socials.twitter}
-              target="_blank"
-              rel="noreferrer"
-              className="text-slate-400 hover:text-sky-500 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
-              aria-label={`${member.full_name}'s Twitter`}
-            >
-              <FaTwitter className="w-3.5 h-3.5" />
-            </a>
-          )}
+          ))}
         </div>
       )}
     </div>

@@ -88,7 +88,7 @@ export const navItems = [
       Explore: [
         {
           label: "Level Structure",
-          href: "/levelstructure",
+          href: "/level-structure",
         },
         {
           label: "Interest Groups",

@@ -1,5 +1,5 @@
+import { CtaBanner } from "@/components/sections";
 import { clientEnv } from "@/config/env.client";
-import { CtaBanner } from "../shared";
 
 export const CTA = () => {
   return (

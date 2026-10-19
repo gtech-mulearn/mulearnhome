@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import { MuImage } from "@/components/layouts";
+import { Section, SectionHeading, StatPanel, StatTile } from "@/components/sections";
 import { Button } from "@/components/ui/button";
 import { clientEnv } from "@/config/env.client";
 import { cdnUrl, StatsLoader, useLandingStats } from "@/shared";
 import { enablerFaculties } from "../../data/enablers.data";
-import { Section, SectionHeading, StatPanel, StatTile } from "../shared";
 
 const PAGE_SIZE = 16;
 

@@ -1,7 +1,7 @@
 import { MuImage } from "@/components/layouts";
+import { Section, SectionHeading } from "@/components/sections";
 import { cn } from "@/lib/utils";
 import { fetchTopLearners } from "@/shared";
-import { Section, SectionHeading } from "../shared";
 
 export async function RankingSection() {
   const topLearners = await fetchTopLearners(10);

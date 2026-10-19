@@ -1,1 +1,6 @@
-export { getPresentationMetadata, resolveGroupImage } from "./interest-groups.utils";
+export {
+  aboutExcerpt,
+  getPresentationMetadata,
+  localDisplayItems,
+  toDisplayItem,
+} from "./interest-groups.utils";

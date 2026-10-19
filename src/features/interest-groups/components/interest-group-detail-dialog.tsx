@@ -1,21 +1,96 @@
 "use client";
 
-import { ExternalLink } from "lucide-react";
-import { useState } from "react";
-import { MuImage } from "@/components/layouts";
+import { BadgeCheck, Check, Clock, ExternalLink, GraduationCap, Users, X } from "lucide-react";
+import { type ReactNode, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
-import type { InterestGroupDisplayItem } from "../types/interest-groups.types";
+import type { ApiMember, InterestGroupDisplayItem } from "../types/interest-groups.types";
+import { GroupAbout } from "./group-about";
+import { CATEGORY_META, GroupMark } from "./group-icon";
 import { MemberCard } from "./member-card";
 
-type Tab = "overview" | "team" | "projects";
+const TEAM_SECTION_ID = "ig-dialog-team";
+
+const plural = (count: number, word: string) =>
+  `${count.toLocaleString("en-US")} ${count === 1 ? word : `${word}s`}`;
+
+const AsideHeading = ({ children }: { children: ReactNode }) => (
+  <h4 className="mb-3 text-xs font-bold uppercase tracking-wider text-mulearn">{children}</h4>
+);
+
+function MetaItem({ icon: Icon, children }: { icon: typeof Users; children: ReactNode }) {
+  return (
+    <span className="inline-flex items-center gap-1.5">
+      <Icon className="size-4 text-mulearn" aria-hidden="true" />
+      {children}
+    </span>
+  );
+}
+
+const VISIBLE_CAREERS = 8;
+
+function CareerPaths({ careers }: { careers: string[] }) {
+  const [showAll, setShowAll] = useState(false);
+  const hidden = careers.length - VISIBLE_CAREERS;
+  const visible = showAll || hidden <= 0 ? careers : careers.slice(0, VISIBLE_CAREERS);
+
+  return (
+    <div>
+      <AsideHeading>Career paths</AsideHeading>
+      <ul className="flex flex-wrap gap-2">
+        {visible.map((career) => (
+          <li
+            key={career}
+            className="rounded-full border border-mulearn/15 bg-card px-3 py-1 text-sm text-mulearn-blackish"
+          >
+            {career}
+          </li>
+        ))}
+        {hidden > 0 && (
+          <li>
+            <button
+              type="button"
+              onClick={() => setShowAll((prev) => !prev)}
+              className="cursor-pointer rounded-full bg-mulearn px-3 py-1 text-sm font-semibold text-mulearn-whitish transition-opacity hover:opacity-90"
+            >
+              {showAll ? "Show fewer" : `+${hidden} more`}
+            </button>
+          </li>
+        )}
+      </ul>
+    </div>
+  );
+}
+
+function TeamGroup({
+  title,
+  members,
+  isLead = false,
+}: {
+  title: string;
+  members: ApiMember[];
+  isLead?: boolean;
+}) {
+  if (members.length === 0) return null;
+  return (
+    <div>
+      <h4 className="mb-3 text-xs font-bold uppercase tracking-wider text-mulearn-gray-600">
+        {title}
+      </h4>
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {members.map((member) => (
+          <MemberCard key={member.muid || member.full_name} member={member} isLead={isLead} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function InterestGroupDetailDialog({
   group,
@@ -24,355 +99,176 @@ export function InterestGroupDetailDialog({
   group: InterestGroupDisplayItem | null;
   onOpenChange: (open: boolean) => void;
 }) {
-  const [activeTab, setActiveTab] = useState<Tab>("overview");
-
-  const handleOpenChange = (open: boolean) => {
-    if (!open) setActiveTab("overview");
-    onOpenChange(open);
-  };
-
-  const hasLeads = Boolean(group?.leads.length);
-  const hasMentors = Boolean(group?.mentors.length);
-  const hasThinktank = Boolean(group?.thinktank.length);
-  const hasProjects = Boolean(group?.impact_projects.length);
-  const hasTeam = hasLeads || hasMentors || hasThinktank;
-  const totalTeamCount =
-    (group?.leads.length || 0) + (group?.mentors.length || 0) + (group?.thinktank.length || 0);
+  const category = group?.category ? CATEGORY_META[group.category] : undefined;
+  const teamCount =
+    (group?.leads.length ?? 0) + (group?.mentors.length ?? 0) + (group?.thinktank.length ?? 0);
+  const hasAside = Boolean(
+    group &&
+      (group.prerequisites.length ||
+        group.careers.length ||
+        group.officeHours ||
+        group.resources.length),
+  );
 
   return (
-    <Dialog open={!!group} onOpenChange={handleOpenChange}>
-      <DialogContent className="sm:max-w-4xl max-h-[88vh] overflow-y-auto p-0 rounded-3xl border border-mulearn-greyish/60 shadow-2xl bg-mulearn-whitish text-mulearn-blackish flex flex-col">
+    <Dialog open={!!group} onOpenChange={onOpenChange}>
+      <DialogContent
+        showCloseButton={false}
+        className="block max-h-[90vh] gap-0 overflow-y-auto rounded-3xl border-mulearn/10 bg-mulearn-whitish p-0 text-mulearn-blackish shadow-2xl sm:max-w-5xl"
+      >
+        <DialogClose className="absolute top-4 right-4 z-10 flex size-10 cursor-pointer items-center justify-center rounded-full bg-card text-mulearn-blackish shadow-sm ring-1 ring-mulearn/10 transition-colors hover:bg-mulearn hover:text-mulearn-whitish">
+          <X className="size-5" aria-hidden="true" />
+          <span className="sr-only">Close</span>
+        </DialogClose>
         {group && (
-          <div className="flex flex-col min-h-0">
-            <div className="bg-linear-to-br from-blue-50/90 via-mulearn-whitish to-indigo-50/60 p-6 md:p-8 border-b border-mulearn-greyish/60">
-              <DialogHeader className="space-y-4 text-left">
-                <div className="flex items-start gap-4">
-                  <div className="relative w-16 h-16 rounded-2xl overflow-hidden shrink-0 bg-mulearn-whitish border border-mulearn-greyish/60 shadow-md">
-                    <MuImage src={group.image} alt={group.name} fill className="object-cover" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <DialogTitle className="text-2xl md:text-3xl font-extrabold tracking-tight text-mulearn-blackish">
-                      {group.name}
-                    </DialogTitle>
-                    {group.tagline ? (
-                      <DialogDescription className="text-xs md:text-sm font-bold text-mulearn-trusty-blue mt-1">
-                        {group.tagline}
-                      </DialogDescription>
-                    ) : null}
+          <>
+            {/* Header: same two-column language as the page hero — copy left, art right. */}
+            {/* Extra right padding at md+ keeps the cover clear of the close button. */}
+            <div className="grid items-center gap-8 p-6 pt-14 md:grid-cols-[minmax(0,1fr)_17rem] md:p-10 md:pr-16 lg:grid-cols-[minmax(0,1fr)_20rem]">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-mulearn">
+                  {category ? `${category.label} interest group` : "Interest group"}
+                </p>
+                <DialogTitle className="mt-2 text-4xl md:text-5xl font-black leading-tight text-balance text-mulearn-blackish">
+                  {group.name}
+                </DialogTitle>
+                <DialogDescription
+                  className={
+                    group.hasCuratedTagline ? "mt-3 text-lg text-mulearn-gray-600" : "sr-only"
+                  }
+                >
+                  {group.hasCuratedTagline
+                    ? group.tagline
+                    : `Details about the ${group.name} interest group.`}
+                </DialogDescription>
 
-                    <div className="flex flex-wrap items-center gap-2 mt-3">
-                      {hasLeads && (
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-700 border border-amber-200">
-                          {group.leads.length} Leads
-                        </span>
-                      )}
-                      {hasMentors && (
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-mulearn-trusty-blue border border-blue-200">
-                          {group.mentors.length} Mentors
-                        </span>
-                      )}
-                      {hasThinktank && (
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-100 text-purple-700 border border-purple-200">
-                          {group.thinktank.length} Thinktank
-                        </span>
-                      )}
-                      {hasProjects && (
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 border border-emerald-200">
-                          {group.impact_projects.length} Projects
-                        </span>
-                      )}
-                    </div>
-                  </div>
+                <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium text-mulearn-blackish">
+                  {group.members !== undefined && (
+                    <MetaItem icon={Users}>{plural(group.members, "member")}</MetaItem>
+                  )}
+                  {group.leads.length > 0 && (
+                    <MetaItem icon={BadgeCheck}>{plural(group.leads.length, "lead")}</MetaItem>
+                  )}
+                  {group.mentors.length > 0 && (
+                    <MetaItem icon={GraduationCap}>
+                      {plural(group.mentors.length, "mentor")}
+                    </MetaItem>
+                  )}
                 </div>
-              </DialogHeader>
-            </div>
 
-            <div className="flex items-center gap-2 px-6 md:px-8 py-3 border-b border-mulearn-greyish/60 bg-mulearn-greyish/10 overflow-x-auto">
-              <button
-                type="button"
-                onClick={() => setActiveTab("overview")}
-                className={cn(
-                  "px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap",
-                  activeTab === "overview"
-                    ? "bg-mulearn-whitish text-mulearn-trusty-blue shadow-xs border border-mulearn-greyish/60"
-                    : "text-mulearn-gray-600 hover:text-mulearn-blackish",
-                )}
-              >
-                Overview
-              </button>
-              {hasTeam && (
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("team")}
-                  className={cn(
-                    "px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-1.5",
-                    activeTab === "team"
-                      ? "bg-mulearn-whitish text-mulearn-trusty-blue shadow-xs border border-mulearn-greyish/60"
-                      : "text-mulearn-gray-600 hover:text-mulearn-blackish",
-                  )}
-                >
-                  <span>Team</span>
-                  <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-blue-100 text-blue-700 font-bold">
-                    {totalTeamCount}
-                  </span>
-                </button>
-              )}
-              {hasProjects && (
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("projects")}
-                  className={cn(
-                    "px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap flex items-center gap-1.5",
-                    activeTab === "projects"
-                      ? "bg-mulearn-whitish text-mulearn-trusty-blue shadow-xs border border-mulearn-greyish/60"
-                      : "text-mulearn-gray-600 hover:text-mulearn-blackish",
-                  )}
-                >
-                  <span>Impact Projects</span>
-                  <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-emerald-100 text-emerald-700 font-bold">
-                    {group.impact_projects.length}
-                  </span>
-                </button>
-              )}
-            </div>
-
-            <div className="p-6 md:p-8 space-y-7">
-              {activeTab === "overview" && (
-                <div className="space-y-6">
-                  {group.description ? (
-                    <div className="space-y-2">
-                      <h4 className="text-xs font-black uppercase tracking-wider text-mulearn-gray-400">
-                        About {group.name}
-                      </h4>
-                      <p className="text-sm md:text-base text-mulearn-gray-600 leading-relaxed bg-mulearn-greyish/10 p-4 md:p-5 rounded-2xl border border-mulearn-greyish/40">
-                        {group.description}
-                      </p>
-                    </div>
-                  ) : null}
-
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    <div className="p-3.5 bg-amber-50/60 rounded-2xl border border-amber-200/60 text-center">
-                      <p className="text-xl font-extrabold text-amber-700">{group.leads.length}</p>
-                      <p className="text-[11px] font-semibold text-amber-800/80">Leads</p>
-                    </div>
-                    <div className="p-3.5 bg-blue-50/60 rounded-2xl border border-blue-200/60 text-center">
-                      <p className="text-xl font-extrabold text-mulearn-trusty-blue">
-                        {group.mentors.length}
-                      </p>
-                      <p className="text-[11px] font-semibold text-blue-800/80">Mentors</p>
-                    </div>
-                    <div className="p-3.5 bg-purple-50/60 rounded-2xl border border-purple-200/60 text-center">
-                      <p className="text-xl font-extrabold text-purple-700">
-                        {group.thinktank.length}
-                      </p>
-                      <p className="text-[11px] font-semibold text-purple-800/80">Thinktank</p>
-                    </div>
-                    <div className="p-3.5 bg-emerald-50/60 rounded-2xl border border-emerald-200/60 text-center">
-                      <p className="text-xl font-extrabold text-emerald-700">
-                        {group.impact_projects.length}
-                      </p>
-                      <p className="text-[11px] font-semibold text-emerald-800/80">Projects</p>
-                    </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-mulearn-greyish/40 flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex gap-2">
-                      {hasTeam && (
-                        <Button variant="outline" size="sm" onClick={() => setActiveTab("team")}>
-                          View Team Directory
-                        </Button>
-                      )}
-                      {hasProjects && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setActiveTab("projects")}
-                        >
-                          View Impact Projects
-                        </Button>
-                      )}
-                    </div>
-                    <Button asChild variant="blue">
-                      <a href={group.link} target="_blank" rel="noopener noreferrer">
-                        Join &amp; Explore Group <ExternalLink className="w-4 h-4 ml-1" />
-                      </a>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <Button asChild className="font-semibold">
+                    <a href={group.link} target="_blank" rel="noopener noreferrer">
+                      Join &amp; explore group <ExternalLink className="size-4" />
+                    </a>
+                  </Button>
+                  {teamCount > 0 && (
+                    <Button
+                      variant="outline"
+                      className="rounded-full"
+                      onClick={() =>
+                        document
+                          .getElementById(TEAM_SECTION_ID)
+                          ?.scrollIntoView({ behavior: "smooth", block: "start" })
+                      }
+                    >
+                      Meet the team
                     </Button>
-                  </div>
-                </div>
-              )}
-
-              {activeTab === "team" && (
-                <div className="space-y-7">
-                  {hasLeads && (
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h4 className="text-xs font-black uppercase tracking-wider text-amber-600">
-                            LEADS
-                          </h4>
-                          <p className="text-[11px] font-medium text-mulearn-gray-500">
-                            Interest Group Leadership
-                          </p>
-                        </div>
-                        <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-200">
-                          {group.leads.length}
-                        </span>
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                        {group.leads.map((member) => (
-                          <MemberCard
-                            key={member.muid || member.full_name}
-                            member={member}
-                            isLead
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {hasMentors && (
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h4 className="text-xs font-black uppercase tracking-wider text-mulearn-trusty-blue">
-                            MENTORS
-                          </h4>
-                          <p className="text-[11px] font-medium text-mulearn-gray-500">
-                            Guidance &amp; Expertise
-                          </p>
-                        </div>
-                        <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-100 text-mulearn-trusty-blue border border-blue-200">
-                          {group.mentors.length}
-                        </span>
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                        {group.mentors.map((member) => (
-                          <MemberCard key={member.muid || member.full_name} member={member} />
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {hasThinktank && (
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h4 className="text-xs font-black uppercase tracking-wider text-purple-600">
-                            THINKTANK
-                          </h4>
-                          <p className="text-[11px] font-medium text-mulearn-gray-500">
-                            Community Advisors
-                          </p>
-                        </div>
-                        <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-700 border border-purple-200">
-                          {group.thinktank.length}
-                        </span>
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                        {group.thinktank.map((member) => (
-                          <MemberCard key={member.muid || member.full_name} member={member} />
-                        ))}
-                      </div>
-                    </div>
                   )}
                 </div>
-              )}
+              </div>
 
-              {activeTab === "projects" && hasProjects && (
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="text-xs font-black uppercase tracking-wider text-emerald-600">
-                        IMPACT PROJECTS
-                      </h4>
-                      <p className="text-[11px] font-medium text-mulearn-gray-500">
-                        Featured Community Projects
-                      </p>
-                    </div>
-                    <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200">
-                      {group.impact_projects.length}
-                    </span>
-                  </div>
-                  <div className="space-y-4">
-                    {group.impact_projects.map((proj, pIdx) => (
-                      <div
-                        key={proj.id || pIdx}
-                        className="flex flex-col md:flex-row gap-5 p-5 bg-mulearn-greyish/10 rounded-2xl border border-mulearn-greyish/60 hover:border-blue-300 transition-all duration-200"
-                      >
-                        {proj.image && (
-                          <div className="relative w-full md:w-36 h-36 rounded-xl overflow-hidden shrink-0 border border-mulearn-greyish/60 bg-mulearn-greyish/20">
-                            <MuImage
-                              src={proj.image}
-                              alt={proj.title || "Project"}
-                              fill
-                              sizes="144px"
-                              className="object-cover"
-                            />
-                          </div>
-                        )}
-                        <div className="flex-1 space-y-3 min-w-0">
-                          <div>
-                            <h5 className="text-base font-bold text-mulearn-blackish">
-                              {proj.title || "Impact Project"}
-                            </h5>
-                            {proj.description && (
-                              <p className="text-xs text-mulearn-gray-600 leading-relaxed mt-1">
-                                {proj.description}
-                              </p>
-                            )}
-                          </div>
-
-                          {proj.links && proj.links.length > 0 && (
-                            <div className="flex flex-wrap gap-2 pt-1">
-                              {proj.links.map((linkItem, lIdx) =>
-                                linkItem.url ? (
-                                  <a
-                                    key={linkItem.url || lIdx}
-                                    href={linkItem.url}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-mulearn-whitish text-mulearn-trusty-blue hover:bg-mulearn-trusty-blue hover:text-mulearn-whitish rounded-xl border border-mulearn-greyish/60 transition-colors"
-                                  >
-                                    <span>{linkItem.label || "Link"}</span>
-                                    <ExternalLink className="w-3.5 h-3.5" />
-                                  </a>
-                                ) : null,
-                              )}
-                            </div>
-                          )}
-
-                          {proj.team && proj.team.length > 0 && (
-                            <div className="pt-2.5 border-t border-mulearn-greyish/40 space-y-1.5">
-                              <p className="text-[10px] font-bold uppercase tracking-wider text-mulearn-gray-400">
-                                Project Contributors
-                              </p>
-                              <div className="flex flex-wrap gap-2">
-                                {proj.team.map((member) => (
-                                  <div
-                                    key={member.muid || member.name}
-                                    className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-mulearn-whitish border border-mulearn-greyish/60 text-xs"
-                                  >
-                                    <span className="font-semibold text-mulearn-blackish">
-                                      {member.name}
-                                    </span>
-                                    {member.is_lead && (
-                                      <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-amber-100 text-amber-700">
-                                        Lead
-                                      </span>
-                                    )}
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+              <GroupMark
+                name={group.name}
+                category={group.category}
+                className="hidden aspect-8/5 md:block"
+              />
             </div>
-          </div>
+
+            {(group.about || hasAside) && (
+              <div className="grid gap-10 border-t border-mulearn/10 p-6 md:p-10 lg:grid-cols-[minmax(0,1fr)_19rem]">
+                {group.about && (
+                  <div>
+                    <h3 className="mb-4 text-2xl md:text-3xl font-black">
+                      About <span className="text-mulearn">{group.name}</span>
+                    </h3>
+                    <GroupAbout key={group.id ?? group.name} about={group.about} />
+                  </div>
+                )}
+
+                {hasAside && (
+                  <aside className="space-y-7 self-start rounded-3xl bg-mulearn-trusty-blue/10 p-6">
+                    {group.prerequisites.length > 0 && (
+                      <div>
+                        <AsideHeading>Skills to start with</AsideHeading>
+                        <ul className="space-y-2">
+                          {group.prerequisites.map((item) => (
+                            <li key={item} className="flex gap-2.5 text-sm text-mulearn-blackish">
+                              <Check
+                                className="mt-0.5 size-4 shrink-0 text-mulearn"
+                                strokeWidth={2.5}
+                                aria-hidden="true"
+                              />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {group.careers.length > 0 && (
+                      <CareerPaths key={group.id ?? group.name} careers={group.careers} />
+                    )}
+
+                    {group.officeHours && (
+                      <div>
+                        <AsideHeading>Office hours</AsideHeading>
+                        <p className="inline-flex items-center gap-2 text-sm font-medium text-mulearn-blackish">
+                          <Clock className="size-4 text-mulearn" aria-hidden="true" />
+                          {group.officeHours}
+                        </p>
+                      </div>
+                    )}
+
+                    {group.resources.length > 0 && (
+                      <div>
+                        <AsideHeading>Resources</AsideHeading>
+                        <ul className="space-y-2">
+                          {group.resources.map((resource) => (
+                            <li key={resource.url}>
+                              <a
+                                href={resource.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 break-all text-sm font-medium text-mulearn hover:underline"
+                              >
+                                {resource.label}
+                                <ExternalLink className="size-3.5 shrink-0" aria-hidden="true" />
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </aside>
+                )}
+              </div>
+            )}
+
+            {teamCount > 0 && (
+              <div
+                id={TEAM_SECTION_ID}
+                className="scroll-mt-4 space-y-6 border-t border-mulearn/10 p-6 md:p-10"
+              >
+                <h3 className="text-2xl md:text-3xl font-black">
+                  Meet the <span className="text-mulearn">team</span>
+                </h3>
+                <TeamGroup title="Leads" members={group.leads} isLead />
+                <TeamGroup title="Mentors" members={group.mentors} />
+                <TeamGroup title="Thinktank" members={group.thinktank} />
+              </div>
+            )}
+          </>
         )}
       </DialogContent>
     </Dialog>

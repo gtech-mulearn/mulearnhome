@@ -1,5 +1,5 @@
+import { IconList, Section, SectionHeading } from "@/components/sections";
 import { enablerFeatures } from "../../data/enablers.data";
-import { IconList, Section, SectionHeading } from "../shared";
 
 export function WhoIsEnabler() {
   return (

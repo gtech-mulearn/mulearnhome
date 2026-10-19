@@ -1,5 +1,5 @@
+import { Section, SectionHeading, StatPanel, StatTile } from "@/components/sections";
 import { campusChapter } from "../../data/campus.data";
-import { Section, SectionHeading, StatPanel, StatTile } from "../shared";
 
 export function Structure() {
   return (

@@ -1,8 +1,8 @@
 import Link from "next/link";
+import { StepsSection } from "@/components/sections";
 import { Button } from "@/components/ui/button";
 import { clientEnv } from "@/config/env.client";
 import { onboardingSteps } from "../../data/learners.data";
-import { StepsSection } from "../shared";
 
 export const LearnersOnboarding = () => {
   return (
