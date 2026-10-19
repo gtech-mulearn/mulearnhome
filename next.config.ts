@@ -45,6 +45,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // The page moved from /levelstructure; keep old links and search results working.
+      { source: "/levelstructure", destination: "/level-structure", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

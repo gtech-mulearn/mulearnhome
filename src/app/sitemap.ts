@@ -25,7 +25,7 @@ const staticRoutes = [
   "kkem",
   "kkem/events/beyondus",
   "learning-circle",
-  "levelstructure",
+  "level-structure",
   "manifesto",
   "partners/community-partners",
   "partners/company-partners",
