@@ -1,5 +1,5 @@
+import { FeatureCard, Section, SectionHeading } from "@/components/sections";
 import { campusChapter } from "../../data/campus.data";
-import { FeatureCard, Section, SectionHeading } from "../shared";
 
 export function Activities() {
   return (

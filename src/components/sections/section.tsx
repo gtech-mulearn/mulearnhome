@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { MotionDiv } from "@/components/layouts";
 import { cn } from "@/lib/utils";
 
-/** Every be-a-part section goes through this so gutters and the vertical rhythm stay identical. */
+/** Every section on these pages goes through this so gutters and the vertical rhythm stay identical. */
 export function Section({
   id,
   className,

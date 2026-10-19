@@ -1,5 +1,5 @@
+import { FeatureCard, Section, SectionHeading } from "@/components/sections";
 import { enablerBenefits } from "../../data/enablers.data";
-import { FeatureCard, Section, SectionHeading } from "../shared";
 
 export function EnablersBenefits() {
   return (

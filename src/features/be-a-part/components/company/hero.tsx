@@ -1,6 +1,6 @@
 import Link from "next/link";
+import { PageHero } from "@/components/sections";
 import { Button } from "@/components/ui/button";
-import { PageHero } from "../shared";
 
 export const CompanyHero = () => {
   return (

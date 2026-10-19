@@ -1,5 +1,5 @@
+import { FeatureCard, Section, SectionHeading } from "@/components/sections";
 import { obtainables } from "../../data/learners.data";
-import { FeatureCard, Section, SectionHeading } from "../shared";
 
 export const WhatYouGet = () => {
   return (

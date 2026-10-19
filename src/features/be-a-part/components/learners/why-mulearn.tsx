@@ -1,6 +1,6 @@
 import { MotionLi } from "@/components/layouts";
+import { Section, SectionHeading } from "@/components/sections";
 import { benefits } from "../../data/learners.data";
-import { Section, SectionHeading } from "../shared";
 
 export const WhyMuLearn = () => {
   return (

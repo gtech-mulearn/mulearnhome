@@ -1,5 +1,5 @@
+import { IconList, Section, SectionHeading } from "@/components/sections";
 import { whyKarma } from "../../data/learners.data";
-import { IconList, Section, SectionHeading } from "../shared";
 
 export const WhyKarmaPoints = () => {
   return (

@@ -1,4 +1,4 @@
-import { CtaBanner } from "../shared";
+import { CtaBanner } from "@/components/sections";
 import { CAMPUS_APPLY_URL } from "./hero";
 
 export function Apply() {

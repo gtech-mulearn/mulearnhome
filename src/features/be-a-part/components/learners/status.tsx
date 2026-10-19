@@ -1,7 +1,7 @@
 "use client";
 
+import { Section, SectionHeading, StatPanel, StatTile } from "@/components/sections";
 import { StatsLoader, useLandingStats } from "@/shared";
-import { Section, SectionHeading, StatPanel, StatTile } from "../shared";
 
 export const LearnersStatus = () => {
   const { counts, hasError } = useLandingStats();

@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { StepsSection } from "@/components/sections";
 import { Button } from "@/components/ui/button";
 import { campusChapter } from "../../data/campus.data";
-import { StepsSection } from "../shared";
 import { CAMPUS_APPLY_URL } from "./hero";
 
 export function Journey() {

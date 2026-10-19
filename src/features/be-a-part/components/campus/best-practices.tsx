@@ -1,6 +1,6 @@
 import { MotionDiv } from "@/components/layouts";
+import { IconList, Section, SectionHeading } from "@/components/sections";
 import { campusChapter } from "../../data/campus.data";
-import { IconList, Section, SectionHeading } from "../shared";
 
 export function BestPractices() {
   return (

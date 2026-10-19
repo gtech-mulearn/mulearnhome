@@ -1,7 +1,7 @@
 import { GraduationCap } from "lucide-react";
+import { Section, SectionHeading } from "@/components/sections";
 import LogoLoop from "@/components/ui/logo-loop";
 import { enablerColleges as colleges } from "../../data/enablers.data";
-import { Section, SectionHeading } from "../shared";
 
 const toChip = (college: (typeof colleges)[number]) => ({
   title: college.title,

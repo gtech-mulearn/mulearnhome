@@ -14,7 +14,7 @@ interface PageHeroProps {
   maskClassName?: string;
 }
 
-/** Two-column hero shared by the be-a-part pages: illustration left, copy right (stacked on mobile). */
+/** Two-column page hero: illustration left, copy right (stacked on mobile). */
 export function PageHero({
   title,
   description,

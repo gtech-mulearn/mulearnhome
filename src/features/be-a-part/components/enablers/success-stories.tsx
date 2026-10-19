@@ -3,9 +3,9 @@
 import { Play } from "lucide-react";
 import { useState } from "react";
 import { MotionDiv, MuImage } from "@/components/layouts";
+import { Section, SectionHeading } from "@/components/sections";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { enablerSuccessStories as stories } from "../../data/enablers.data";
-import { Section, SectionHeading } from "../shared";
 
 const getEmbedUrl = (url: string) => {
   try {

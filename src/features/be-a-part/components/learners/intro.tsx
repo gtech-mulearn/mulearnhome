@@ -1,5 +1,5 @@
 import { MotionDiv, MuImage } from "@/components/layouts";
-import { Section, SectionHeading, Sparkles } from "../shared";
+import { Section, SectionHeading, Sparkles } from "@/components/sections";
 
 export const LearnerIntro = () => {
   return (

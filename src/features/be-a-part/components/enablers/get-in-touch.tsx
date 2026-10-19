@@ -1,4 +1,4 @@
-import { CtaBanner } from "../shared";
+import { CtaBanner } from "@/components/sections";
 
 export function GetInTouch() {
   return (
