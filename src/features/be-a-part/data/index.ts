@@ -6,9 +6,11 @@ export {
   SuccessStories,
 } from "./company.data";
 export {
+  enablerBenefits,
   enablerColleges,
   enablerFaculties,
   enablerFeatures,
+  enablerOnboardingSteps,
   enablerSuccessStories,
 } from "./enablers.data";
 export { benefits, obtainables, onboardingSteps, whyKarma } from "./learners.data";

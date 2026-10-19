@@ -1,4 +1,14 @@
-import { Building2, HelpCircle, Lightbulb, type LucideIcon, Target } from "lucide-react";
+import {
+  Award,
+  Briefcase,
+  Building2,
+  Compass,
+  Layers,
+  Lightbulb,
+  type LucideIcon,
+  UserCheck,
+  Users,
+} from "lucide-react";
 
 export interface EnablerFeature {
   text: string;
@@ -8,19 +18,65 @@ export interface EnablerFeature {
 export const enablerFeatures: EnablerFeature[] = [
   {
     text: "Provide direction and ensure healthy chapter functioning",
-    icon: Target,
+    icon: Compass,
   },
   {
     text: "Guide student leads when needed",
-    icon: HelpCircle,
+    icon: UserCheck,
   },
   {
     text: "Support a culture of exploration and practical learning",
     icon: Lightbulb,
   },
   {
-    text: "Facilitate industry or campus-level opportunities.",
+    text: "Facilitate industry or campus-level opportunities",
+    icon: Briefcase,
+  },
+];
+
+export const enablerBenefits = [
+  {
+    icon: Layers,
+    title: "Structured Framework",
+    description: "Clear guidelines for smooth chapter functioning.",
+  },
+  {
+    icon: Users,
+    title: "Community Impact",
+    description:
+      "Bridge the gap between education and employment by fueling the next generation of talent.",
+  },
+  {
     icon: Building2,
+    title: "Campus Impact",
+    description:
+      "Enable portfolios, projects and student-led initiatives that enhance institution reputation.",
+  },
+  {
+    icon: Award,
+    title: "Faculty Recognition",
+    description:
+      "Get recognised for mentoring student communities and the skilling outcomes they deliver.",
+  },
+];
+
+export const enablerOnboardingSteps = [
+  { title: "Create your µLearn account", description: "Register as a µLearn Enabler." },
+  {
+    title: "Connect with your chapter leads",
+    description: "Know their interests, abilities and plans.",
+  },
+  {
+    title: "Review chapter health",
+    description: "Analyse the chapter's current growth and design your own plan.",
+  },
+  {
+    title: "Conduct periodic check-ins",
+    description: "Hold weekly or monthly meetings to see the impact of recent activities.",
+  },
+  {
+    title: "Encourage task completions",
+    description: "Help students complete tasks, collaborate and grow their karma points.",
   },
 ];
 

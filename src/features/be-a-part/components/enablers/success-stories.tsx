@@ -1,13 +1,11 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
-import { useRef, useState } from "react";
-import { MuImage } from "@/components/layouts";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, type CarouselHandle, CarouselSlide } from "@/components/ui/carousel";
+import { Play } from "lucide-react";
+import { useState } from "react";
+import { MotionDiv, MuImage } from "@/components/layouts";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { enablerSuccessStories as stories } from "../../data/enablers.data";
+import { Section, SectionHeading } from "../shared";
 
 const getEmbedUrl = (url: string) => {
   try {
@@ -39,34 +37,31 @@ function VideoCard({ story }: { story: (typeof stories)[0] }) {
 
   return (
     <>
-      <Card
-        className="h-full rounded-3xl overflow-hidden cursor-pointer"
+      <button
+        type="button"
         onClick={() => setIsDialogOpen(true)}
+        className="group flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-mulearn/10 bg-card text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
       >
-        <CardContent className="p-0 flex flex-col h-full">
-          <div className="relative aspect-video w-full flex-shrink-0">
-            <MuImage
-              src={story.thumbnail}
-              alt={`${story.name} thumbnail`}
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-14 h-14 rounded-full bg-mulearn-whitish flex items-center justify-center shadow-lg">
-                <Play className="w-6 h-6 ml-1" fill="currentColor" />
-              </div>
-            </div>
-          </div>
-
-          <div className="p-5 flex flex-col gap-1">
-            <p className="text-base md:text-lg font-bold leading-6">{story.name}</p>
-            <p className="text-mulearn-gray-600 text-xs md:text-sm font-medium leading-5">
-              {story.role}
-            </p>
-          </div>
-        </CardContent>
-      </Card>
+        <div className="relative aspect-video w-full overflow-hidden">
+          <MuImage
+            src={story.thumbnail}
+            alt=""
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <span className="absolute inset-0 flex items-center justify-center bg-mulearn-blackish/10 transition-colors group-hover:bg-mulearn-blackish/20">
+            <span className="flex size-14 items-center justify-center rounded-full bg-mulearn-whitish/95 text-mulearn shadow-lg">
+              <Play className="ml-0.5 size-6" fill="currentColor" aria-hidden="true" />
+            </span>
+          </span>
+        </div>
+        <span className="flex flex-col gap-1 p-5">
+          <span className="text-lg font-bold leading-snug text-mulearn-blackish">{story.name}</span>
+          <span className="text-sm text-mulearn-gray-600">{story.role}</span>
+        </span>
+        <span className="sr-only">Play {story.name}&apos;s success story</span>
+      </button>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="max-w-6xl w-[90vw] px-2 pt-10">
@@ -96,51 +91,29 @@ function VideoCard({ story }: { story: (typeof stories)[0] }) {
 }
 
 export function EnablersSuccessStories() {
-  const carouselRef = useRef<CarouselHandle>(null);
-
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
-      <div className="text-center mb-10">
-        <h2 className="text-5xl font-bold leading-[62.40px]">
-          <span>Success Stories from </span>
-          <span className="text-mulearn">µLearn Community</span>
-        </h2>
+    <Section>
+      <SectionHeading
+        title={
+          <>
+            Success stories from the <span className="text-mulearn">µLearn</span> community
+          </>
+        }
+        description="Principals and lead enablers on what changed once µLearn came to their campus."
+      />
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {stories.map((story, index) => (
+          <MotionDiv
+            key={story.url}
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
+          >
+            <VideoCard story={story} />
+          </MotionDiv>
+        ))}
       </div>
-
-      <div className="relative px-14">
-        <Button
-          variant="default"
-          onClick={() => carouselRef.current?.scrollPrev()}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 rounded-full w-12 h-12"
-        >
-          <ChevronLeft className="w-6 h-6 text-mulearn-whitish" />
-        </Button>
-
-        <Button
-          variant="default"
-          onClick={() => carouselRef.current?.scrollNext()}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 rounded-full w-12 h-12"
-        >
-          <ChevronRight className="w-6 h-6 text-mulearn-whitish" />
-        </Button>
-
-        <Carousel
-          ref={carouselRef}
-          options={{ loop: true }}
-          autoplay={{ delay: 2000, pauseOnMouseEnter: true }}
-          trackClassName="-ml-6"
-          className="pb-4"
-        >
-          {stories.map((story, index) => (
-            <CarouselSlide
-              key={`${story.url}-${index}`}
-              className="h-auto pl-6 flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
-            >
-              <VideoCard story={story} />
-            </CarouselSlide>
-          ))}
-        </Carousel>
-      </div>
-    </section>
+    </Section>
   );
 }
