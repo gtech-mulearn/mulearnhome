@@ -1,7 +1,6 @@
 import { ArrowRight, Calendar, MapPin } from "lucide-react";
 import Link from "next/link";
 import { MotionDiv, MuImage } from "@/components/layouts";
-import { Badge } from "@/components/ui/badge";
 import type { GalleryEvent } from "../types/gallery.types";
 
 interface GalleryEventCardProps {
@@ -10,9 +9,6 @@ interface GalleryEventCardProps {
 }
 
 export function GalleryEventCard({ event, variant }: GalleryEventCardProps) {
-  const images = event.media.filter((m) => m.type === "image");
-  const videos = event.media.filter((m) => m.type === "video");
-
   if (variant === "list") {
     return (
       <Link href={`/gallery/${event.slug}`}>
@@ -34,9 +30,6 @@ export function GalleryEventCard({ event, variant }: GalleryEventCardProps) {
             <p className="text-sm text-mulearn-gray-600">
               {event.date || event.month} · {event.location}
             </p>
-            <Badge className="bg-mulearn-greyish/20 text-mulearn-trusty-blue mt-1">
-              {images.length} photos · {videos.length} videos
-            </Badge>
           </div>
 
           <ArrowRight className="w-5 h-5 text-mulearn-greyish shrink-0 group-hover:text-mulearn-trusty-blue transition-colors" />
@@ -72,10 +65,6 @@ export function GalleryEventCard({ event, variant }: GalleryEventCardProps) {
             <MapPin className="w-4 h-4" />
             {event.location}
           </div>
-
-          <Badge className="bg-mulearn-greyish/20 text-mulearn-trusty-blue w-fit mt-1">
-            {images.length} photos · {videos.length} videos
-          </Badge>
         </div>
       </MotionDiv>
     </Link>
