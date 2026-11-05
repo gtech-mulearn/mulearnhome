@@ -41,9 +41,9 @@ export function renderTeamGrid(teams: Teams[]) {
                   </p>
                 )}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
-                  {subTeam.members.map((member) => (
+                  {subTeam.members.map((member, index) => (
                     <TeamCard
-                      key={member.muid}
+                      key={member.muid || `${subTeam.type}-${member.name}-${index}`}
                       name={member.name}
                       muid={member.muid}
                       image={member.image}
@@ -59,9 +59,9 @@ export function renderTeamGrid(teams: Teams[]) {
             ))
           : team.members && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
-                {team.members.map((member) => (
+                {team.members.map((member, index) => (
                   <TeamCard
-                    key={member.muid}
+                    key={member.muid || `${team.type}-${member.name}-${index}`}
                     name={member.name}
                     muid={member.muid}
                     image={member.image}
