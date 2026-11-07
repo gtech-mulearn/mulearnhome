@@ -107,7 +107,7 @@ export const team = [
           },
           {
             name: "Ekta Krishna",
-            image: "",
+            image: "public/assets/team/ekta-krishna.webp",
             muid: "",
             linkedin: "https://linkedin.com/in/EktaKrishna",
             x: "",
@@ -117,7 +117,7 @@ export const team = [
           },
           {
             name: "Rasha Hasoon",
-            image: "",
+            image: "public/assets/team/rasha-hasoon.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/rasha-hasoon/",
             x: "",
@@ -127,7 +127,7 @@ export const team = [
           },
           {
             name: "Edwin Emmanuel Roy",
-            image: "",
+            image: "public/assets/team/edwin-emmanuel-roy.webp",
             muid: "",
             linkedin: "",
             x: "",
@@ -187,7 +187,7 @@ export const team = [
           },
           {
             name: "Akshat Pradeep",
-            image: "",
+            image: "public/assets/team/akshat-pradeep.webp",
             muid: "",
             linkedin: "https://linkedin.com/in/akshat.p48",
             x: "",
@@ -197,7 +197,7 @@ export const team = [
           },
           {
             name: "Vaishakh V S",
-            image: "",
+            image: "public/assets/team/vaishak-v-s.webp",
             muid: "",
             linkedin: "https://linkedin.com/in/vaishakh-v-s",
             x: "",
@@ -224,7 +224,7 @@ export const team = [
         members: [
           {
             name: "Parvathy V Nair",
-            image: "",
+            image: "public/assets/team/parvathy-v-nair.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/parv-nair/",
             x: "",
@@ -234,7 +234,7 @@ export const team = [
           },
           {
             name: "Alvin Dennis",
-            image: "",
+            image: "public/assets/team/alvin-dennis.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/alvindennis/",
             x: "",
@@ -244,7 +244,7 @@ export const team = [
           },
           {
             name: "Arafa N",
-            image: "",
+            image: "public/assets/team/arafa-n.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/arafa-n-571490385/",
             x: "",
@@ -254,7 +254,7 @@ export const team = [
           },
           {
             name: "Devika Dileep",
-            image: "",
+            image: "public/assets/team/devika-dileep.webp",
             muid: "",
             linkedin: "https://linkedin.com/in/devika-dileep-",
             x: "",
@@ -264,7 +264,7 @@ export const team = [
           },
           {
             name: "Vedha VK",
-            image: "",
+            image: "public/assets/team/vedha-v-k.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/vedhavk/",
             x: "",
@@ -274,7 +274,7 @@ export const team = [
           },
           {
             name: "Gokul Shaji",
-            image: "",
+            image: "public/assets/team/gokul-shaji.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/gokul-shaji-848334328",
             x: "",
@@ -284,7 +284,7 @@ export const team = [
           },
           {
             name: "Akshay V S",
-            image: "",
+            image: "public/assets/team/akshay-v-s.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/akshaycusat",
             x: "",
@@ -294,7 +294,7 @@ export const team = [
           },
           {
             name: "Harshil P",
-            image: "",
+            image: "public/assets/team/harshil-p.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/harshilp1/",
             x: "",
@@ -304,7 +304,7 @@ export const team = [
           },
           {
             name: "Adithya S Pai",
-            image: "",
+            image: "public/assets/team/adithya-s-pai.webp",
             muid: "",
             linkedin: "",
             x: "",
@@ -314,7 +314,7 @@ export const team = [
           },
           {
             name: "Anshid Fawas K",
-            image: "",
+            image: "public/assets/team/anshid-fawas.webp",
             muid: "",
             linkedin: "",
             x: "",
@@ -324,7 +324,7 @@ export const team = [
           },
           {
             name: "Joshna Jojo",
-            image: "",
+            image: "public/assets/team/joshna-jojo.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/joshnajojo/",
             x: "",
@@ -334,7 +334,7 @@ export const team = [
           },
           {
             name: "Meenakshi TM",
-            image: "",
+            image: "public/assets/team/meenakshi-t-m.webp",
             muid: "",
             linkedin:
               "https://www.linkedin.com/in/meenakshi-tm-334894327?utm_source=share_via&utm_content=profile&utm_medium=member_android",
@@ -345,7 +345,7 @@ export const team = [
           },
           {
             name: "Maria Tessa S E",
-            image: "",
+            image: "public/assets/team/maria-tessa.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/maria-tessa-057282333",
             x: "",
@@ -355,7 +355,7 @@ export const team = [
           },
           {
             name: "Malavika Rajan",
-            image: "",
+            image: "public/assets/team/malavika-rajan.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/malavika-rajan",
             x: "",
@@ -365,7 +365,7 @@ export const team = [
           },
           {
             name: "Ayush K Satheesh",
-            image: "",
+            image: "public/assets/team/ayush-k-satheesh.webp",
             muid: "",
             linkedin:
               "https://www.linkedin.com/in/ayush-k-satheesh-93a4a3347?utm_source=share_via&utm_content=profile&utm_medium=member_android",
@@ -376,7 +376,7 @@ export const team = [
           },
           {
             name: "Anasooya P Nair",
-            image: "",
+            image: "public/assets/team/anasoorya.webp",
             muid: "",
             linkedin:
               "https://www.linkedin.com/in/anasooya-p-nair-92306537b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
@@ -387,7 +387,7 @@ export const team = [
           },
           {
             name: "Ajisha Tp",
-            image: "",
+            image: "public/assets/team/ajisha-tp.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/ajisha-tp-931018333",
             x: "",
@@ -397,7 +397,7 @@ export const team = [
           },
           {
             name: "Sundara Siva Sreerag",
-            image: "",
+            image: "public/assets/team/sundara-siva-sreerag.webp",
             muid: "",
             linkedin: "https://linkedin.com/in/sundara-siva-sreerag",
             x: "",
@@ -407,7 +407,7 @@ export const team = [
           },
           {
             name: "Irene Ann Thomas",
-            image: "",
+            image: "public/assets/team/irene-ann-thomas.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/irene-ann-thomas-012979322",
             x: "",
@@ -417,7 +417,7 @@ export const team = [
           },
           {
             name: "Binaya Ginesh",
-            image: "",
+            image: "public/assets/team/binaya-ginesh.webp",
             muid: "",
             linkedin: "https://linkedin.com/in/binayaginesh",
             x: "",
@@ -427,7 +427,7 @@ export const team = [
           },
           {
             name: "Sona Maria Shaju",
-            image: "",
+            image: "public/assets/team/sona-maria-shaju.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/irene-ann-thomas-012979322",
             x: "",
@@ -437,7 +437,7 @@ export const team = [
           },
           {
             name: "Lakshmi A Pillai",
-            image: "",
+            image: "public/assets/team/lakshmi-a-pillai.webp",
             muid: "",
             linkedin:
               "https://www.linkedin.com/in/lakshmi-pillai-410357338?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -448,7 +448,7 @@ export const team = [
           },
           {
             name: "Aishwarya A Nair",
-            image: "",
+            image: "public/assets/team/aiswarya-a-nair.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/aishwarya-a-nair/",
             x: "",
@@ -458,7 +458,7 @@ export const team = [
           },
           {
             name: "Reuben Sam Philip",
-            image: "",
+            image: "public/assets/team/reuben-sam.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/reuben-sam-philip",
             x: "",
@@ -468,7 +468,7 @@ export const team = [
           },
           {
             name: "Malavika P",
-            image: "",
+            image: "public/assets/team/malavika-p.webp",
             muid: "",
             linkedin: "https://in.linkedin.com/in/malavika-pangavoor-b3b45a1b6",
             x: "",
@@ -478,7 +478,7 @@ export const team = [
           },
           {
             name: "Abhinav Suresh",
-            image: "",
+            image: "public/assets/team/abhinav.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/abhinav-suresh333/",
             x: "",
@@ -488,7 +488,7 @@ export const team = [
           },
           {
             name: "Amay Nand T",
-            image: "",
+            image: "public/assets/team/amay-nand.webp",
             muid: "",
             linkedin: "",
             x: "",
@@ -498,7 +498,7 @@ export const team = [
           },
           {
             name: "Rechana R S",
-            image: "",
+            image: "public/assets/team/rechana-r-s.webp",
             muid: "",
             linkedin: "",
             x: "",
@@ -508,7 +508,7 @@ export const team = [
           },
           {
             name: "Abhinav Suresh",
-            image: "",
+            image: "public/assets/team/abhinav.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/abhinav-suresh333/",
             x: "",
@@ -518,7 +518,7 @@ export const team = [
           },
           {
             name: "Abhinav V R",
-            image: "",
+            image: "public/assets/team/abinav-v-r.webp",
             muid: "",
             linkedin: "https://linkedin.com/in/abhinavvr",
             x: "",
@@ -528,7 +528,7 @@ export const team = [
           },
           {
             name: "Hadhy Mohiyadheen",
-            image: "",
+            image: "public/assets/team/hadhy-mohiyadheen.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/hadhy-mohiyadheen-8931",
             x: "",
@@ -538,7 +538,7 @@ export const team = [
           },
           {
             name: "Theertha P",
-            image: "",
+            image: "public/assets/team/theertha-p.webp",
             muid: "",
             linkedin: "https://linkedin.com/in/Theertha-p",
             x: "",
@@ -548,7 +548,7 @@ export const team = [
           },
           {
             name: "Akshay K A",
-            image: "",
+            image: "public/assets/team/akshay-k-a.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/akshay-k-a-dev/",
             x: "",
@@ -558,7 +558,7 @@ export const team = [
           },
           {
             name: "Suraj Krishna K",
-            image: "",
+            image: "public/assets/team/suraj-krishna.webp",
             muid: "",
             linkedin: "https://linkedin.com/in/SURAJKRISHNAK",
             x: "",
@@ -568,7 +568,7 @@ export const team = [
           },
           {
             name: "Aysha Arshad Hussain",
-            image: "",
+            image: "public/assets/team/ashya-arhad-hussai.webp",
             muid: "",
             linkedin: "",
             x: "",
@@ -578,7 +578,7 @@ export const team = [
           },
           {
             name: "Aafthab Rahman TM",
-            image: "",
+            image: "public/assets/team/aftab.webp",
             muid: "",
             linkedin: "",
             x: "",
@@ -588,7 +588,7 @@ export const team = [
           },
           {
             name: "Aadit Ajay",
-            image: "",
+            image: "public/assets/team/aadit-ajay.webp",
             muid: "",
             linkedin: "https://linkedin.com/in/aaditajay",
             x: "",
@@ -598,7 +598,7 @@ export const team = [
           },
           {
             name: "Sulfiker PS",
-            image: "",
+            image: "public/assets/team/sulfiker.webp",
             muid: "",
             linkedin:
               "https://www.linkedin.com/in/sulfiker-p-s-5a0108344?utm_source=share_via&utm_content=profile&utm_medium=member_android",
@@ -609,7 +609,7 @@ export const team = [
           },
           {
             name: "Devi Manoj",
-            image: "",
+            image: "public/assets/team/devi-manoj.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/devi-manoj-a8a909326",
             x: "",
@@ -619,7 +619,7 @@ export const team = [
           },
           {
             name: "Devananda D",
-            image: "",
+            image: "public/assets/team/devananda-d.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/devananda-d-10aa10317/",
             x: "",
@@ -629,7 +629,7 @@ export const team = [
           },
           {
             name: "Jenis Jomy",
-            image: "",
+            image: "public/assets/team/jenis-jommy.webp",
             muid: "",
             linkedin:
               "https://www.linkedin.com/in/jenis-jomy?utm_source=share_via&utm_content=profile&utm_medium=member_android",
@@ -640,7 +640,7 @@ export const team = [
           },
           {
             name: "Sinan M",
-            image: "",
+            image: "public/assets/team/sinan-m.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/sinanm1",
             x: "",
@@ -650,7 +650,7 @@ export const team = [
           },
           {
             name: "R Ritvik",
-            image: "",
+            image: "public/assets/team/r-ritvik.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/r-ritvik/",
             x: "",
@@ -660,7 +660,7 @@ export const team = [
           },
           {
             name: "Akshay G",
-            image: "",
+            image: "public/assets/team/akshay-g.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/akshay-g-blueeye10",
             x: "",
@@ -670,7 +670,7 @@ export const team = [
           },
           {
             name: "Mathew Joseph T A",
-            image: "",
+            image: "public/assets/team/mathew-joseph-t-a.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/mathewjosephta/",
             x: "",
@@ -680,7 +680,7 @@ export const team = [
           },
           {
             name: "Kavya",
-            image: "",
+            image: "public/assets/team/kavya.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/kavya-%E2%80%8E-ab61922a4/",
             x: "",
@@ -690,7 +690,7 @@ export const team = [
           },
           {
             name: "Ajesh R",
-            image: "",
+            image: "public/assets/team/ajesh-r.webp",
             muid: "",
             linkedin: "",
             x: "",
@@ -700,7 +700,7 @@ export const team = [
           },
           {
             name: "Daniel Joshy",
-            image: "",
+            image: "public/assets/team/daniel-joshy.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/daniel-joshy-3a2714290/",
             x: "",
@@ -710,7 +710,7 @@ export const team = [
           },
           {
             name: "Gautham Krishna",
-            image: "",
+            image: "public/assets/team/gautham-krishna.webp",
             muid: "",
             linkedin:
               "https://www.linkedin.com/in/gautham-krishna-654063291?utm_source=share_via&utm_content=profile&utm_medium=member_android",
@@ -721,7 +721,7 @@ export const team = [
           },
           {
             name: "Anoy Sam RM",
-            image: "",
+            image: "public/assets/team/anoy-sam-r-m.webp",
             muid: "",
             linkedin: "",
             x: "",
@@ -731,7 +731,7 @@ export const team = [
           },
           {
             name: "Prakhar Sharma",
-            image: "",
+            image: "public/assets/team/prakhar-sharma.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/prak05-btech",
             x: "",
@@ -741,7 +741,7 @@ export const team = [
           },
           {
             name: "Febin Daniel",
-            image: "",
+            image: "public/assets/team/febin-daniel.webp",
             muid: "",
             linkedin: "",
             x: "",
@@ -751,7 +751,7 @@ export const team = [
           },
           {
             name: "Shilpa Mary Varghese",
-            image: "",
+            image: "public/assets/team/shilpa-mary-varghese.webp",
             muid: "",
             linkedin:
               "https://www.linkedin.com/in/shilpa-mary-varghese?utm_source=share_via&utm_content=profile&utm_medium=member_android",
@@ -762,7 +762,7 @@ export const team = [
           },
           {
             name: "Thomaskutty Antony",
-            image: "",
+            image: "public/assets/team/thomaskutty-antony.webp",
             muid: "",
             linkedin: "https://linkedin.com/in/thomaskutty-antony-013a00325",
             x: "",
@@ -772,7 +772,7 @@ export const team = [
           },
           {
             name: "Alby Paul",
-            image: "",
+            image: "public/assets/team/alby-paul.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/albypaul",
             x: "",
@@ -782,17 +782,17 @@ export const team = [
           },
           {
             name: "Abel John Thomas",
-            image: "",
+            image: "public/assets/team/abel-john-thomas.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/abel-john-thomas",
             x: "",
             github: "https://github.com/abeljohn-thomas",
-            team: "Video Editors",
+            team: "Video Editor",
             lead: "",
           },
           {
             name: "Blessy Sabu",
-            image: "",
+            image: "public/assets/team/blessy-sabu.webp",
             muid: "",
             linkedin:
               "https://www.linkedin.com/in/blessy-sabu?utm_source=share_via&utm_content=profile&utm_medium=member_android",
@@ -803,7 +803,7 @@ export const team = [
           },
           {
             name: "Joel Joseph",
-            image: "",
+            image: "public/assets/team/joel-joseph.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/joeljoseph342",
             x: "",
@@ -813,7 +813,7 @@ export const team = [
           },
           {
             name: "Akshay Sreekumar",
-            image: "",
+            image: "public/assets/team/akshay-sreekumar.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/akshay-sreekumar-869972387",
             x: "",
@@ -823,7 +823,7 @@ export const team = [
           },
           {
             name: "Salvin Sebastian",
-            image: "",
+            image: "public/assets/team/salvin-sebastian.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/salvin-sebastian/",
             x: "",
@@ -833,7 +833,7 @@ export const team = [
           },
           {
             name: "Ganga V",
-            image: "",
+            image: "public/assets/team/ganga-v.webp",
             muid: "",
             linkedin: "https://linkedin.com/in/ganga-v-",
             x: "",
@@ -843,7 +843,7 @@ export const team = [
           },
           {
             name: "Shifna N",
-            image: "",
+            image: "public/assets/team/shifna-n.webp",
             muid: "",
             linkedin: "",
             x: "",
@@ -853,17 +853,17 @@ export const team = [
           },
           {
             name: "Rithi Krishna",
-            image: "",
+            image: "public/assets/team/rithi-krishna.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/rithi-krishna",
             x: "",
             github: "",
-            team: "Public Relation Lead",
+            team: "Public Relation",
             lead: "",
           },
           {
             name: "Devananda S J",
-            image: "",
+            image: "public/assets/team/devananda-s-j.webp",
             muid: "",
             linkedin: "https://linkedin.com/in/deva-nanda-s-j-80a6422",
             x: "",
@@ -873,12 +873,12 @@ export const team = [
           },
           {
             name: "Afiya Fathima",
-            image: "",
+            image: "public/assets/team/afiya-fathima.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/afiya-fathima",
             x: "",
             github: "",
-            team: "Project Coordinator Lead",
+            team: "Project Coordinator",
             lead: "",
           },
           {
@@ -888,7 +888,7 @@ export const team = [
             linkedin: "https://linkedin.com/in/ashnalinson",
             x: "",
             github: "",
-            team: "Public Relation Lead",
+            team: "Public Relation",
             lead: "",
           },
         ],
