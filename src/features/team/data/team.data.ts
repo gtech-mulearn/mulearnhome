@@ -589,7 +589,7 @@ export const team = [
             linkedin: "https://www.linkedin.com/in/sulfiker-p-s-5a0108344",
             x: "",
             github: "",
-            team: "Public Relation",
+            team: "Public Relations",
             lead: "",
           },
           {
@@ -839,7 +839,7 @@ export const team = [
             linkedin: "https://www.linkedin.com/in/rithi-krishna",
             x: "",
             github: "",
-            team: "Public Relation",
+            team: "Public Relations",
             lead: "",
           },
           {
@@ -849,7 +849,7 @@ export const team = [
             linkedin: "https://linkedin.com/in/deva-nanda-s-j-80a6422",
             x: "",
             github: "",
-            team: "Public Relation",
+            team: "Public Relations",
             lead: "",
           },
           {
@@ -869,7 +869,7 @@ export const team = [
             linkedin: "https://linkedin.com/in/ashnalinson",
             x: "",
             github: "",
-            team: "Public Relation",
+            team: "Public Relations",
             lead: "",
           },
         ],
@@ -1118,7 +1118,7 @@ export const team = [
             muid: "ashna-1@mulearn ",
             linkedin: "https://linkedin.com/in/ashnalinson",
             x: "",
-            team: "Public Relation",
+            team: "Public Relations",
             lead: "",
           },
           {
@@ -1744,7 +1744,7 @@ export const team = [
             linkedin: "https://linkedin.com/in/maanasms",
             x: "https://x.com/maanasms",
             github: "https://github.com/elementaryrock",
-            team: "Public Relation",
+            team: "Public Relations",
             lead: "",
           },
           {
@@ -1844,7 +1844,7 @@ export const team = [
             linkedin: "https://linkedin.com/in/aysha-kh-9261382aa",
             x: "",
             github: "",
-            team: "Public Relation",
+            team: "Public Relations",
             lead: "",
           },
           {
@@ -2044,7 +2044,7 @@ export const team = [
             linkedin: "https://linkedin.com/in/dilshad-ahemmed/",
             x: "",
             github: "https://github.com/DilshadAhammed",
-            team: "Public Relation",
+            team: "Public Relations",
             lead: "",
           },
           {
@@ -2054,7 +2054,7 @@ export const team = [
             linkedin: "https://linkedin.com/in/anna-jaison-/",
             x: "https://x.com/anna_jaiso19448",
             github: "https://github.com/Anna-Jaison",
-            team: "Public Relation",
+            team: "Public Relations",
             lead: "",
           },
           {
@@ -2515,7 +2515,7 @@ export const team = [
             linkedin: "",
             x: "",
             github: "",
-            team: "Public Relation",
+            team: "Public Relations",
             lead: "",
           },
           {
@@ -3294,7 +3294,7 @@ export const team = [
             linkedin: "https://linkedin.com/in/sivani-l-r",
             x: "https://x.com/sivani_03",
             github: "https://github.com/sivani-l-r",
-            team: "Public Relation",
+            team: "Public Relations",
             lead: "",
           },
           {
