@@ -249,7 +249,7 @@ export const team = [
             linkedin: "https://www.linkedin.com/in/arafa-n-571490385/",
             x: "",
             github: "",
-            team: "Project Coordinator",
+            team: "PProject Management",
             lead: "",
           },
           {
@@ -389,7 +389,7 @@ export const team = [
             linkedin: "https://www.linkedin.com/in/ajisha-tp-931018333",
             x: "",
             github: "",
-            team: "Project Coordinator",
+            team: "PProject Management",
             lead: "",
           },
           {
@@ -579,7 +579,7 @@ export const team = [
             linkedin: "https://linkedin.com/in/aaditajay",
             x: "",
             github: "https://github.com/aaditajay",
-            team: "District Lead - Alappuzha, Project Coordinator",
+            team: "District Lead - Alappuzha, PProject Management",
             lead: "",
           },
           {
@@ -859,7 +859,7 @@ export const team = [
             linkedin: "https://www.linkedin.com/in/afiya-fathima",
             x: "",
             github: "",
-            team: "Project Coordinator",
+            team: "PProject Management",
             lead: "",
           },
           {
@@ -1148,7 +1148,7 @@ export const team = [
             linkedin: "https://linkedin.com/in/jithin04/",
             x: "https://x.com/jithinm04",
             github: "",
-            team: "Project Coordinator",
+            team: "PProject Management",
             lead: "",
           },
           {
@@ -1158,7 +1158,7 @@ export const team = [
             linkedin: "https://linkedin.com/in/-devikaanil/",
             x: "",
             github: "",
-            team: "Project Coordinator",
+            team: "PProject Management",
             lead: "",
           },
           {
@@ -1168,7 +1168,7 @@ export const team = [
             linkedin: "https://linkedin.com/in/baina-elsa-biju-b83598347/",
             x: "",
             github: "",
-            team: "Project Coordinator",
+            team: "PProject Management",
             lead: "",
           },
           {
