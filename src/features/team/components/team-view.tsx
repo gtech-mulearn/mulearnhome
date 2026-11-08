@@ -6,14 +6,7 @@ import { renderTeamGrid } from "./team-grid";
 import { TeamYearSwitcher } from "./team-year-switcher";
 
 export function TeamView() {
-  const muTeamData = team.find((item) => item.year === "Executive Committee") as
-    | YearData
-    | undefined;
-
-  const years = team
-    .map((item) => item.year)
-    .filter((year) => year !== "Executive Committee")
-    .sort((a, b) => Number(b) - Number(a));
+  const years = team.map((item) => item.year).sort((a, b) => Number(b) - Number(a));
 
   const yearSections = years.map((year) => {
     const yearData = team.find((item) => item.year === year) as YearData | undefined;
@@ -61,10 +54,6 @@ export function TeamView() {
           </MotionDiv>
         </div>
       </div>
-
-      {muTeamData && (
-        <div className="mb-20 mt-10 max-w-7xl mx-auto px-4">{renderTeamGrid(muTeamData.teams)}</div>
-      )}
 
       <TeamYearSwitcher sections={yearSections} />
     </MotionDiv>

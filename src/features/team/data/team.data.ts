@@ -1,9 +1,9 @@
 export const team = [
   {
-    year: "Executive Committee",
+    year: "2026",
     teams: [
       {
-        type: "Executive Committee",
+        type: "Board of Directors",
         description:
           "The Executive Members are those who serve as the community's skeleton and propel it forward from the rear.",
         members: [
@@ -16,60 +16,27 @@ export const team = [
           },
           {
             id: 2,
-            name: "Anoop Ambika",
-            team: "CEO KSUM",
-            image: "public/assets/team/muteam/execom/Anoop Ambika.webp",
-            linkedin: "https://linkedin.com/in/anoopambika",
+            name: "Jijo G John",
+            team: "",
+            image: "",
+            linkedin: "",
           },
           {
             id: 3,
-            name: "Dinesh Thambi",
-            team: "Vice President TCS",
-            image: "public/assets/team/muteam/execom/Dinesh Thampi.webp",
-            linkedin: "https://linkedin.com/in/dineshthampi/",
+            name: "Baas M P",
+            team: "",
+            image: "",
+            linkedin: "",
           },
           {
             id: 4,
-            name: "Karthik Kalathil",
-            team: "Co-Founder Wattlecorp Cybersecurity",
-            image: "public/assets/team/muteam/execom/Karthik Kalathil.webp",
-            linkedin: "https://linkedin.com/in/kalathil-karthik",
-          },
-          {
-            id: 5,
-            name: "Rejah Rahim",
-            team: "Founder Beagle Security",
-            image: "public/assets/team/muteam/execom/Rejah Rehim.webp",
-            linkedin: "https://linkedin.com/in/rejah/",
-          },
-          {
-            id: 6,
-            name: "Suhail V P",
-            team: "CEO Nucore",
-            image: "public/assets/team/muteam/execom/Suhail V P.webp",
-            linkedin: "https://linkedin.com/in/suhail-vp-25807613/",
-          },
-          {
-            id: 7,
-            name: "Tina James",
-            team: "CEO Revyrie Global",
-            image: "public/assets/team/muteam/execom/Tina James.webp",
-            linkedin: "https://linkedin.com/in/tinaajames",
-          },
-          {
-            id: 8,
-            name: "Dr. Bijoy A Jose",
-            team: "Associate Professor CUSAT",
-            image: "public/assets/team/muteam/execom/Dr. Bijoy A Jose.webp",
-            linkedin: "https://linkedin.com/in/bijoyjose",
+            name: "Rony K Sebastian",
+            team: "",
+            image: "",
+            linkedin: "",
           },
         ],
       },
-    ],
-  },
-  {
-    year: "2026",
-    teams: [
       {
         type: "µLearn Core Team",
         description:
@@ -440,16 +407,6 @@ export const team = [
             x: "",
             github: "",
             team: "Partner Engagement",
-            lead: "",
-          },
-          {
-            name: "Aishwarya A Nair",
-            image: "public/assets/team/aiswarya-a-nair.webp",
-            muid: "",
-            linkedin: "https://www.linkedin.com/in/aishwarya-a-nair/",
-            x: "",
-            github: "",
-            team: "QA Tester",
             lead: "",
           },
           {
@@ -2556,6 +2513,69 @@ export const team = [
     year: "2023",
     teams: [
       {
+        type: "Board of Directors",
+        description:
+          "The Executive Members are those who serve as the community's skeleton and propel it forward from the rear.",
+        members: [
+          {
+            id: 1,
+            name: "Deepu S Nath",
+            team: "Managing Director Faya",
+            image: "public/assets/team/muteam/execom/Deepu S Nath.webp",
+            linkedin: "https://linkedin.com/in/deepusnath",
+          },
+          {
+            id: 2,
+            name: "Anoop Ambika",
+            team: "CEO KSUM",
+            image: "public/assets/team/muteam/execom/Anoop Ambika.webp",
+            linkedin: "https://linkedin.com/in/anoopambika",
+          },
+          {
+            id: 3,
+            name: "Dinesh Thambi",
+            team: "Vice President TCS",
+            image: "public/assets/team/muteam/execom/Dinesh Thampi.webp",
+            linkedin: "https://linkedin.com/in/dineshthampi/",
+          },
+          {
+            id: 4,
+            name: "Karthik Kalathil",
+            team: "Co-Founder Wattlecorp Cybersecurity",
+            image: "public/assets/team/muteam/execom/Karthik Kalathil.webp",
+            linkedin: "https://linkedin.com/in/kalathil-karthik",
+          },
+          {
+            id: 5,
+            name: "Rejah Rahim",
+            team: "Founder Beagle Security",
+            image: "public/assets/team/muteam/execom/Rejah Rehim.webp",
+            linkedin: "https://linkedin.com/in/rejah/",
+          },
+          {
+            id: 6,
+            name: "Suhail V P",
+            team: "CEO Nucore",
+            image: "public/assets/team/muteam/execom/Suhail V P.webp",
+            linkedin: "https://linkedin.com/in/suhail-vp-25807613/",
+          },
+          {
+            id: 7,
+            name: "Tina James",
+            team: "CEO Revyrie Global",
+            image: "public/assets/team/muteam/execom/Tina James.webp",
+            linkedin: "https://linkedin.com/in/tinaajames",
+          },
+          {
+            id: 8,
+            name: "Dr. Bijoy A Jose",
+            team: "Associate Professor CUSAT",
+            image: "public/assets/team/muteam/execom/Dr. Bijoy A Jose.webp",
+            linkedin: "https://linkedin.com/in/bijoyjose",
+          },
+        ],
+      },
+      {
         type: "µLearn HQ",
         description:
           "The HQ members are the ones who are the backbone of the community. They are the ones who are responsible for the smooth functioning of different teams and the community as a whole.",
@@ -3913,6 +3933,69 @@ export const team = [
   {
     year: "2022",
     teams: [
+      {
+        type: "Board of Directors",
+        description:
+          "The Executive Members are those who serve as the community's skeleton and propel it forward from the rear.",
+        members: [
+          {
+            id: 1,
+            name: "Deepu S Nath",
+            team: "Managing Director Faya",
+            image: "public/assets/team/muteam/execom/Deepu S Nath.webp",
+            linkedin: "https://linkedin.com/in/deepusnath",
+          },
+          {
+            id: 2,
+            name: "Anoop Ambika",
+            team: "CEO KSUM",
+            image: "public/assets/team/muteam/execom/Anoop Ambika.webp",
+            linkedin: "https://linkedin.com/in/anoopambika",
+          },
+          {
+            id: 3,
+            name: "Dinesh Thambi",
+            team: "Vice President TCS",
+            image: "public/assets/team/muteam/execom/Dinesh Thampi.webp",
+            linkedin: "https://linkedin.com/in/dineshthampi/",
+          },
+          {
+            id: 4,
+            name: "Karthik Kalathil",
+            team: "Co-Founder Wattlecorp Cybersecurity",
+            image: "public/assets/team/muteam/execom/Karthik Kalathil.webp",
+            linkedin: "https://linkedin.com/in/kalathil-karthik",
+          },
+          {
+            id: 5,
+            name: "Rejah Rahim",
+            team: "Founder Beagle Security",
+            image: "public/assets/team/muteam/execom/Rejah Rehim.webp",
+            linkedin: "https://linkedin.com/in/rejah/",
+          },
+          {
+            id: 6,
+            name: "Suhail V P",
+            team: "CEO Nucore",
+            image: "public/assets/team/muteam/execom/Suhail V P.webp",
+            linkedin: "https://linkedin.com/in/suhail-vp-25807613/",
+          },
+          {
+            id: 7,
+            name: "Tina James",
+            team: "CEO Revyrie Global",
+            image: "public/assets/team/muteam/execom/Tina James.webp",
+            linkedin: "https://linkedin.com/in/tinaajames",
+          },
+          {
+            id: 8,
+            name: "Dr. Bijoy A Jose",
+            team: "Associate Professor CUSAT",
+            image: "public/assets/team/muteam/execom/Dr. Bijoy A Jose.webp",
+            linkedin: "https://linkedin.com/in/bijoyjose",
+          },
+        ],
+      },
       {
         type: "YIP Organization",
         description:
