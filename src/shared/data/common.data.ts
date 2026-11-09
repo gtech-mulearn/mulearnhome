@@ -71,7 +71,7 @@ export const navItems = [
         { label: "Campus Logo Generator", href: "/campus-logo-generator" },
         {
           label: "Problem Statements",
-          href: "https://app.mulearn.org/dashboard/problem-statements",
+          href: `${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/problem-statements`,
         },
       ],
       Partners: [
