@@ -69,6 +69,10 @@ export const navItems = [
         { label: "Enabler", href: "/be-a-part/enablers" },
         { label: "Learners", href: "/be-a-part/learners" },
         { label: "Campus Logo Generator", href: "/campus-logo-generator" },
+        {
+          label: "Problem Statements",
+          href: "https://app.mulearn.org/dashboard/problem-statements",
+        },
       ],
       Partners: [
         { label: "Community Partners", href: "/partners/community-partners" },
