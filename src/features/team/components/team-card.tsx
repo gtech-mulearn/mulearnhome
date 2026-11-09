@@ -35,7 +35,7 @@ export function TeamCard({
   const hiddenCount = teamRoles.length - 1;
 
   return (
-    <Card className="mx-auto max-w-md w-full h-48 sm:h-56 overflow-hidden p-0">
+    <Card className="mx-auto max-w-md w-full h-42 sm:h-40 overflow-hidden p-0">
       <CardContent className="flex flex-row items-stretch gap-2 p-0 h-full">
         <div className="relative w-28 sm:w-36 h-full shrink-0 self-stretch overflow-hidden">
           <MuImage
@@ -47,7 +47,7 @@ export function TeamCard({
           />
         </div>
 
-        <div className="flex flex-col justify-center gap-2 w-full min-w-0 h-full py-6 pr-6 text-left overflow-hidden">
+        <div className="flex flex-col justify-center gap-1.5 w-full min-w-0 h-full py-3 pr-4 text-left overflow-hidden">
           {name && <h3 className="text-2xl font-semibold">{name}</h3>}
           {(lead || designation) && (
             <p className="text-sm text-mulearn-gray-600">{lead ? `${lead} Lead` : designation}</p>
