@@ -5,6 +5,7 @@ import { ArrowRight, Info } from "lucide-react";
 import Link from "next/link";
 import { MotionDiv, MotionH1, MotionHeader, MotionP, MuImage } from "@/components/layouts";
 import { Button } from "@/components/ui/button";
+import { clientEnv } from "@/config/env.client";
 import { useRedirectToApp } from "@/lib/utils";
 
 const fadeInUp: Variants = {
@@ -101,7 +102,7 @@ export function Hero() {
               </Button>
             </MotionDiv>
 
-            {/* <MotionDiv
+            <MotionDiv
               custom={4}
               initial="hidden"
               whileInView="visible"
@@ -114,15 +115,14 @@ export function Hero() {
                 className="px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-lg md:text-lg rounded-full"
               >
                 <Link
-                  href="https://quantum-tech-matrix.mulearn.org/"
+                  href={`${clientEnv.NEXT_PUBLIC_APP_URL}dashboard/problem-statements`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Atom className="size-4 sm:size-5" />
-                  Explore Quantum Tech Matrix
+                  Problem Statements
                 </Link>
               </Button>
-            </MotionDiv> */}
+            </MotionDiv>
           </div>
         </div>
       </div>

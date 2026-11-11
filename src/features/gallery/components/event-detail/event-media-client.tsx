@@ -4,7 +4,6 @@ import { ArrowLeft, Calendar, MapPin } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { MuImage } from "@/components/layouts";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { GalleryEvent, GalleryMediaItem } from "../../types/gallery.types";
 import { MediaLightbox } from "./media-lightbox";
@@ -57,9 +56,6 @@ export function EventMediaClient({ event }: EventMediaClientProps) {
               <MapPin className="w-4 h-4" />
               {event.location}
             </div>
-            <Badge className="bg-mulearn-greyish/20 text-mulearn-trusty-blue">
-              {event.media.length} media items
-            </Badge>
           </div>
 
           {event.description && <p className="text-mulearn-gray-600">{event.description}</p>}

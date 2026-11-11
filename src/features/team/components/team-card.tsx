@@ -35,94 +35,90 @@ export function TeamCard({
   const hiddenCount = teamRoles.length - 1;
 
   return (
-    <Card className="mx-auto mt-4 max-w-md w-full">
-      <CardContent className="flex flex-col sm:flex-row gap-4 p-6">
-        <div className="flex justify-center sm:justify-start">
-          <div className="relative w-32 h-32 rounded-lg overflow-hidden">
-            <MuImage
-              src={image ? cdnUrl(image) : fallbackImage}
-              alt={name}
-              fill
-              sizes="128px"
-              className="object-cover object-top"
-            />
-          </div>
+    <Card className="mx-auto max-w-md w-full h-48 sm:h-56 overflow-hidden p-0">
+      <CardContent className="flex flex-row items-stretch gap-2 p-0 h-full">
+        <div className="relative w-28 sm:w-36 h-full shrink-0 self-stretch overflow-hidden">
+          <MuImage
+            src={image ? cdnUrl(image) : fallbackImage}
+            alt={name}
+            fill
+            sizes="(min-width: 640px) 144px, 112px"
+            className="object-cover object-center"
+          />
         </div>
 
-        <div className="flex flex-col justify-between gap-2 w-full">
-          <div>
-            {name && <h3 className="text-2xl font-semibold">{name}</h3>}
-            {(lead || designation) && (
-              <p className="text-sm text-mulearn-gray-600">{lead ? `${lead} Lead` : designation}</p>
-            )}
-            {muid && <p className="text-[10px] text-mulearn-gray-600">{muid}</p>}
-            {teamRoles.length > 0 && (
-              <ul
-                className={cn(
-                  "flex flex-wrap justify-center sm:justify-end gap-1.5 mt-2 p-0 list-none overflow-hidden transition-all duration-300",
-                  showAllRoles ? "max-h-none" : "max-h-[58px]",
-                )}
-              >
-                {displayedRoles.map((role) => (
-                  <li
-                    key={role}
-                    className="bg-mulearn-greyish/20 text-mulearn-gray-600 text-xs px-2.5 py-1 rounded-xl whitespace-normal"
+        <div className="flex flex-col justify-center gap-2 w-full min-w-0 h-full py-6 pr-6 text-left overflow-hidden">
+          {name && <h3 className="text-2xl font-semibold">{name}</h3>}
+          {(lead || designation) && (
+            <p className="text-sm text-mulearn-gray-600">{lead ? `${lead} Lead` : designation}</p>
+          )}
+          {muid && <p className="text-[10px] text-mulearn-gray-600">{muid}</p>}
+          {teamRoles.length > 0 && (
+            <ul
+              className={cn(
+                "flex flex-wrap justify-start gap-1.5 mt-2 p-0 list-none overflow-hidden transition-all duration-300",
+                showAllRoles ? "max-h-none" : "max-h-[58px]",
+              )}
+            >
+              {displayedRoles.map((role) => (
+                <li
+                  key={role}
+                  className="bg-mulearn-greyish/20 text-mulearn-gray-600 text-xs px-2.5 py-1 rounded-xl whitespace-normal"
+                >
+                  {role}
+                </li>
+              ))}
+              {!showAllRoles && hiddenCount > 0 && (
+                <li>
+                  <button
+                    type="button"
+                    className="bg-mulearn-greyish/20 text-mulearn-gray-600 px-2.5 py-1 rounded-xl text-xs font-medium cursor-pointer hover:bg-mulearn-greyish/40  transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setShowAllRoles(true);
+                    }}
                   >
-                    {role}
-                  </li>
-                ))}
-                {!showAllRoles && hiddenCount > 0 && (
-                  <li>
-                    <button
-                      type="button"
-                      className="bg-mulearn-greyish/20 text-mulearn-gray-600 px-2.5 py-1 rounded-xl text-xs font-medium cursor-pointer hover:bg-mulearn-greyish/40  transition-colors"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setShowAllRoles(true);
-                      }}
-                    >
-                      +{hiddenCount} more
-                    </button>
-                  </li>
-                )}
-              </ul>
-            )}
+                    +{hiddenCount} more
+                  </button>
+                </li>
+              )}
+            </ul>
+          )}
 
-            {(linkedin || github || x) && (
-              <div className="flex flex-wrap justify-center sm:justify-end gap-2.5 mt-2">
-                {linkedin && (
-                  <Link
-                    href={linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-mulearn-blackish hover:text-mulearn-trusty-blue transition-colors"
-                  >
-                    <FaLinkedin size={24} />
-                  </Link>
-                )}
-                {github && (
-                  <Link
-                    href={github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-mulearn-blackish hover:text-mulearn-trusty-blue transition-colors"
-                  >
-                    <FaGithub size={24} />
-                  </Link>
-                )}
-                {x && (
-                  <Link
-                    href={x}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-mulearn-blackish hover:text-mulearn-trusty-blue transition-colors"
-                  >
-                    <FaTwitter size={24} />
-                  </Link>
-                )}
-              </div>
-            )}
-          </div>
+          {(linkedin || github || x) && (
+            <div className="flex flex-wrap justify-start gap-2.5 mt-2">
+              {linkedin && (
+                <Link
+                  href={linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-mulearn-blackish hover:text-mulearn-trusty-blue transition-colors"
+                >
+                  <FaLinkedin size={24} />
+                </Link>
+              )}
+              {github && (
+                <Link
+                  href={github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-mulearn-blackish hover:text-mulearn-trusty-blue transition-colors"
+                >
+                  <FaGithub size={24} />
+                </Link>
+              )}
+              {x && (
+                <Link
+                  href={x}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-mulearn-blackish hover:text-mulearn-trusty-blue transition-colors"
+                >
+                  <FaTwitter size={24} />
+                </Link>
+              )}
+            </div>
+          )}
         </div>
       </CardContent>
     </Card>

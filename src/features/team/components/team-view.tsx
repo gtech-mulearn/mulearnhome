@@ -5,14 +5,10 @@ import type { YearData } from "../types";
 import { renderTeamGrid } from "./team-grid";
 import { TeamYearSwitcher } from "./team-year-switcher";
 
-const YEARS = ["2025", "2024", "2023", "2022"] as const;
-
 export function TeamView() {
-  const muTeamData = team.find((item) => item.year === "Executive Committee") as
-    | YearData
-    | undefined;
+  const years = team.map((item) => item.year).sort((a, b) => Number(b) - Number(a));
 
-  const yearSections = YEARS.map((year) => {
+  const yearSections = years.map((year) => {
     const yearData = team.find((item) => item.year === year) as YearData | undefined;
     return { year, content: renderTeamGrid(yearData?.teams ?? []) };
   });
@@ -58,10 +54,6 @@ export function TeamView() {
           </MotionDiv>
         </div>
       </div>
-
-      {muTeamData && (
-        <div className="mb-20 mt-10 max-w-7xl mx-auto px-4">{renderTeamGrid(muTeamData.teams)}</div>
-      )}
 
       <TeamYearSwitcher sections={yearSections} />
     </MotionDiv>
