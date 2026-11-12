@@ -35,7 +35,7 @@ export function TeamCard({
   const hiddenCount = teamRoles.length - 1;
 
   return (
-    <Card className="mx-auto max-w-md w-full h-42 sm:h-40 overflow-hidden p-0">
+    <Card className="mx-auto max-w-md w-full h-42 overflow-hidden p-0">
       <CardContent className="flex flex-row items-stretch gap-2 p-0 h-full">
         <div className="relative w-28 sm:w-36 h-full shrink-0 self-stretch overflow-hidden">
           <MuImage
