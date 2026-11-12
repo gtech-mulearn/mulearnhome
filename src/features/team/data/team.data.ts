@@ -821,7 +821,7 @@ export const team = [
           },
           {
             name: "Fizza Zainab K V",
-            image: "",
+            image: "public/assets/team/fizza-zainab.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/fizza-zainab-kv-57110b338",
             x: "",
@@ -831,7 +831,7 @@ export const team = [
           },
           {
             name: "Pranav P",
-            image: "",
+            image: "public/assets/team/pranav-p.webp",
             muid: "",
             linkedin: "https://in.linkedin.com/in/pranav-p-11711628b",
             x: "",
@@ -841,7 +841,7 @@ export const team = [
           },
           {
             name: "Abhishek P",
-            image: "",
+            image: "public/assets/team/abhishek-p.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/abhishek-p-b76b4335a",
             x: "",
@@ -851,7 +851,7 @@ export const team = [
           },
           {
             name: "Afif Showfeer",
-            image: "",
+            image: "public/assets/team/afif-showfeer.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/afif-showfeer-a84633238/",
             x: "",
@@ -861,7 +861,7 @@ export const team = [
           },
           {
             name: "Arya Shibu",
-            image: "",
+            image: "public/assets/team/arya-shibu.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/arya-shibu-dhanya/",
             x: "",
@@ -871,7 +871,7 @@ export const team = [
           },
           {
             name: "Yadhukrishna T M",
-            image: "",
+            image: "public/assets/team/yadhukrishna-tm.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/yadhukrishna-tm-8b179b330/",
             x: "",
@@ -881,7 +881,7 @@ export const team = [
           },
           {
             name: "Ahla Ashraf",
-            image: "",
+            image: "public/assets/team/ahla-ashraf.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/ahla-asharaf",
             x: "",
@@ -891,7 +891,7 @@ export const team = [
           },
           {
             name: "Pranav G Nath",
-            image: "",
+            image: "public/assets/team/pranav-g-nath.webp",
             muid: "",
             linkedin: "https://www.linkedin.com/in/pranavgn",
             x: "",
