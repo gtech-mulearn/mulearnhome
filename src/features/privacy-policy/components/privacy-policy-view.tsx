@@ -39,7 +39,7 @@ export async function PrivacyPolicyView() {
 
         <div className="space-y-12">
           {privacyPolicy.sections.map((section) => (
-            <section key={section.heading} id={section.id} className="scroll-mt-20">
+            <section key={section.heading} className="scroll-mt-20">
               <h2 className="mb-3 text-lg font-semibold text-mulearn-blackish text-justify">
                 {privacyPolicy.sections.indexOf(section) + 1}. {section.heading}
               </h2>
