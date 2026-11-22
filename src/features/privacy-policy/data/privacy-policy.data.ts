@@ -1,12 +1,27 @@
 export const privacyPolicy = {
   title: "PRIVACY POLICY",
-  lastUpdated: "September 2025",
+  lastUpdated: "November 2026",
   introduction: `This Policy is issued by µLearn, which includes its parent, subsidiaries and affiliates (together, "µLearn", or **"We"** or **"us"** or **"our(s)"**) and is addressed to individuals outside our organisation with whom we interact, including but not limited to customers, visitors to our websites, offices and other users (together, **"You"**) of our Services. By registering to µLearn platform, you are implicitly consenting to have your profile registered for e-learning, reporting purposes and helping µLearn improve the research quality.
 
 You are hereby agreed that the data you are freely deciding to share is intended to keep your profile up to date and complete. This data will be processed in order to manage our e-learning process and offer you more visibility and accessibility to opportunities which will match with your profile.
 
 You agree that while creating a profile, it implies a transfer of your profile data to µLearn entities located across Kerala. The protection of your data is assured by our internal Information Security, and is processed with your consent and for the legitimate interest of µLearn Group.`,
   sections: [
+    {
+      id: "delete-account",
+      heading: "Delete your μLearn account (μLearn app)",
+      content: `This section covers the μLearn mobile app, run by µLLearn Foundation.
+
+**How to ask us to delete your account:**`,
+      subsections: [
+        "**In the app**: open Profile, then Settings, then Delete account. Type DELETE and tap Request deletion. This opens an email to our team with your μLearn ID filled in.",
+        '**Without the app**: email info@mulearn.org with the subject "Account deletion request", or use the <a href="/contact" class="font-medium text-mulearn underline underline-offset-4 hover:text-mulearn-duke-purple">Contact Us form</a>. Tell us the email address or μLearn ID of the account.',
+        "**What happens next**: we reply to confirm the request is from you, then delete your account within 30 days of confirming.",
+        "**What is deleted**: your profile (name, email, phone number, date of birth, gender, college, photos and links), your projects and comments, your task submissions, and your karma and learning history.",
+        "**What we may keep**: Karma points, username, badges, achievements records we must keep by law, and backups, which are removed on our normal backup schedule.",
+        "Deletion is permanent and can't be undone.",
+      ],
+    },
     {
       heading: "Use of Information",
       content:
