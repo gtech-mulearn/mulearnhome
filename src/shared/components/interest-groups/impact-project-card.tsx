@@ -6,7 +6,7 @@ import { MuImage } from "@/components/layouts";
 import { Button } from "@/components/ui/button";
 import { clientEnv } from "@/config/env.client";
 import { cn } from "@/lib/utils";
-import type { InterestGroupImpactProject } from "../types/interest-groups.types";
+import type { InterestGroupImpactProject } from "../../types";
 
 /** Labels/urls arrive free-form ("github.com/x", a full demo URL); show a short, readable name. */
 function linkDisplay(label: string, url: string) {

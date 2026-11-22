@@ -8,7 +8,7 @@ import {
   DialogDescription,
   DialogTitle,
 } from "@/components/ui/dialog";
-import type { ApiMember, InterestGroupDisplayItem } from "../types/interest-groups.types";
+import type { ApiMember, InterestGroupDisplayItem } from "../../types";
 import { CATEGORY_META, GroupMark } from "./group-icon";
 import { ImpactProjectCard } from "./impact-project-card";
 import { MemberCard } from "./member-card";

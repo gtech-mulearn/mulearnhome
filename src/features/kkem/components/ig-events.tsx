@@ -1,80 +1,113 @@
-import type { Variants } from "framer-motion";
-import { SquareArrowOutUpRight } from "lucide-react";
-import Link from "next/link";
+import { ArrowUpRight, CalendarDays } from "lucide-react";
+import type { ReactNode } from "react";
 import { MotionDiv, MuImage } from "@/components/layouts";
-import type { cardProps, IGSectionProps } from "../types";
+import { Section, SectionHeading } from "@/components/sections";
+import type { cardProps } from "../types";
 
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] } },
-};
+const DEFAULT_TITLE = (
+  <>
+    Partnered <span className="text-mulearn">Events</span>
+  </>
+);
 
-const Card = ({ name, image, link, description, largeImg, date }: cardProps) => {
+const hasLink = (link: string) => Boolean(link) && link !== "#";
+
+function EventCard({ name, image, link, description, date, index }: cardProps & { index: number }) {
+  const linked = hasLink(link);
+
   return (
-    <Link href={link} target="_blank" rel="noopener noreferrer">
-      <MotionDiv
-        className={`flex flex-col items-start p-4 gap-4 w-[310px] h-[475px] bg-mulearn-whitish shadow-[8px_8px_28px_rgba(0,0,0,0.12)] rounded-[17px] mt-4 mb-4 transition-all duration-300 ease-in-out cursor-pointer
-        hover:-translate-y-2 hover:shadow-[10px_10px_30px_rgba(0,0,0,0.15)] ${
-          largeImg ? "group" : ""
-        }`}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
-        <div className="flex justify-center items-center w-[278px] h-[214px] bg-mulearn-whitish rounded-[17px] overflow-hidden">
+    <MotionDiv
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.45, delay: Math.min(index, 7) * 0.04, ease: "easeOut" }}
+      className="h-full"
+    >
+      <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-mulearn/10 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-mulearn/25 hover:shadow-md has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-mulearn">
+        <div className="relative aspect-[4/3] overflow-hidden bg-mulearn/5">
           <MuImage
             src={image}
-            alt="domain images"
-            width={188}
-            height={200}
-            className={`object-cover h-auto w-full object-top transition-all duration-300 ease-in-out ${
-              largeImg ? "group-hover:object-bottom" : ""
-            }`}
+            alt={name}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
         </div>
 
-        <p className="font-medium text-[28px] leading-10">{name}</p>
-        <p className="font-light text-[16px] leading-[22px]">{date}</p>
-        <p className="font-light text-[16px] leading-[22px]">{description}</p>
-
-        <div className="mt-auto">
-          {link !== "#" ? (
-            <div className="flex items-center gap-2 hover:text-mulearn-trusty-blue">
-              <span className="uppercase font-medium text-[16px]">Explore More</span>
-              <SquareArrowOutUpRight />
-            </div>
-          ) : (
-            <span className="uppercase font-medium text-[16px]">Coming Soon!</span>
+        <div className="flex flex-1 flex-col p-6">
+          {date && (
+            <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-mulearn-gray-600">
+              <CalendarDays className="size-3.5 text-mulearn" aria-hidden="true" />
+              {date}
+            </span>
           )}
-        </div>
-      </MotionDiv>
-    </Link>
-  );
-};
 
-export const IGEvents = ({ cards, heading, largeImg }: IGSectionProps) => {
+          <div className="mt-3 flex-1">
+            <h3 className="text-xl font-bold leading-snug text-mulearn-blackish">
+              {linked ? (
+                // Stretched link: its ::after covers the card, so the whole card is clickable.
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="outline-none after:absolute after:inset-0 after:rounded-2xl after:content-['']"
+                >
+                  {name}
+                </a>
+              ) : (
+                name
+              )}
+            </h3>
+            {description && (
+              <p className="mt-1.5 line-clamp-3 text-sm text-mulearn-gray-600">{description}</p>
+            )}
+          </div>
+
+          <div className="mt-5 flex items-center justify-end border-t border-mulearn/10 pt-4 text-sm">
+            {linked ? (
+              <span
+                aria-hidden="true"
+                className="inline-flex items-center gap-1 whitespace-nowrap font-semibold text-mulearn"
+              >
+                Explore more
+                <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </span>
+            ) : (
+              <span className="whitespace-nowrap font-semibold text-mulearn-gray-600">
+                Coming soon
+              </span>
+            )}
+          </div>
+        </div>
+      </article>
+    </MotionDiv>
+  );
+}
+
+export function IGEvents({
+  cards,
+  title = DEFAULT_TITLE,
+  description,
+}: {
+  cards: cardProps[];
+  title?: ReactNode;
+  description?: ReactNode;
+}) {
   return (
-    <>
-      <MotionDiv
-        className="my-8 md:my-12 px-4 md:px-12 flex flex-col md:items-start items-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
-        <h3 className="text-3xl md:text-5xl font-semibold text-center md:text-left">
-          {heading ? heading : "Partnered Events"}
-        </h3>
-      </MotionDiv>
+    <Section id="events">
+      <SectionHeading title={title} description={description} />
 
-      <div className="px-4 md:px-12 my-6 md:my-12 flex justify-center">
-        <div className="flex flex-col md:flex-row md:flex-wrap md:justify-evenly items-center gap-6 md:gap-8 w-full">
-          {cards.map((card) => (
-            <Card {...card} key={card.name} link={card.link} largeImg={largeImg} />
-          ))}
-        </div>
+      {/* Flex-wrap rather than grid so a partial last row centers. */}
+      <div className="mt-10 flex flex-wrap justify-center gap-6">
+        {cards.map((card, index) => (
+          <div
+            key={card.name}
+            className="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+          >
+            <EventCard {...card} index={index} />
+          </div>
+        ))}
       </div>
-    </>
+    </Section>
   );
-};
+}
