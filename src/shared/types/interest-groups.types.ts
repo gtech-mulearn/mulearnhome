@@ -41,6 +41,28 @@ export interface ApiInterestGroup {
   icon?: string | null;
   icon_image?: string | null;
   cover_image?: string | null;
+  impact_projects?: ApiImpactProject[] | null;
+}
+
+export interface ApiImpactProjectTeamMember {
+  muid: string;
+  name: string;
+  avatar?: string | null;
+  is_lead?: boolean;
+}
+
+export interface ApiImpactProjectLink {
+  label: string;
+  url: string;
+}
+
+export interface ApiImpactProject {
+  id: string;
+  title: string;
+  description: string;
+  image?: string | null;
+  team?: ApiImpactProjectTeamMember[] | null;
+  links?: ApiImpactProjectLink[] | null;
 }
 
 export interface IgListApiResponse {
@@ -49,16 +71,21 @@ export interface IgListApiResponse {
 
 export interface InterestGroupLocalMeta {
   name: string;
-  link: string;
   tagline: string;
-  /** Banner art; used by the KKEM page's group cards, not the interest groups directory. */
-  image: string;
-  description: string;
 }
 
 export interface InterestGroupResource {
   label: string;
   url: string;
+}
+
+export interface InterestGroupImpactProject {
+  id: string;
+  title: string;
+  description: string;
+  image?: string;
+  links: InterestGroupResource[];
+  team: ApiImpactProjectTeamMember[];
 }
 
 export interface InterestGroupDisplayItem {
@@ -79,4 +106,5 @@ export interface InterestGroupDisplayItem {
   leads: ApiMember[];
   mentors: ApiMember[];
   thinktank: ApiMember[];
+  impactProjects: InterestGroupImpactProject[];
 }

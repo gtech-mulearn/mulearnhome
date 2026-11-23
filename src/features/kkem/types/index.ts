@@ -1,1 +1,1 @@
-export type { cardProps, IGSectionProps } from "./kkem.types";
+export type { cardProps } from "./kkem.types";

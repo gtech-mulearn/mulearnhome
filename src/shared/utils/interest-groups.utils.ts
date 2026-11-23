@@ -1,7 +1,9 @@
 import { interestGroups } from "../data/interest-groups.data";
 import type {
+  ApiImpactProject,
   ApiInterestGroup,
   InterestGroupDisplayItem,
+  InterestGroupImpactProject,
   InterestGroupLocalMeta,
   InterestGroupResource,
 } from "../types/interest-groups.types";
@@ -162,6 +164,17 @@ const joinSentenceFragments = (items?: string[] | null) =>
 
 const capitalize = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
 
+function toImpactProjects(projects?: ApiImpactProject[] | null): InterestGroupImpactProject[] {
+  return (projects ?? []).map((project) => ({
+    id: project.id,
+    title: project.title,
+    description: project.description,
+    image: project.image ?? undefined,
+    links: (project.links ?? []).filter((link) => link.url),
+    team: project.team ?? [],
+  }));
+}
+
 export function toDisplayItem(
   group: ApiInterestGroup,
   appBaseUrl: string,
@@ -176,7 +189,7 @@ export function toDisplayItem(
     hasCuratedTagline: Boolean(local?.tagline),
     category: group.category ?? undefined,
     members: group.members ?? undefined,
-    about: group.about?.trim() || local?.description || "",
+    about: group.about?.trim() || "",
     link: `${appBaseUrl}/dashboard/interest-groups/${group.id}`,
     prerequisites: joinSentenceFragments(group.prerequisites),
     careers: splitCareers(group.career_opportunities),
@@ -185,22 +198,24 @@ export function toDisplayItem(
     leads: group.leads ?? [],
     mentors: group.mentors ?? [],
     thinktank: Array.isArray(group.thinktank) ? group.thinktank : [],
+    impactProjects: toImpactProjects(group.impact_projects),
   };
 }
 
 /** Shown when the API is unreachable: the curated local list, without live counts or teams. */
-export function localDisplayItems(): InterestGroupDisplayItem[] {
+export function localDisplayItems(appBaseUrl: string): InterestGroupDisplayItem[] {
   return interestGroups.map((group) => ({
     name: group.name,
     tagline: group.tagline,
     hasCuratedTagline: true,
-    about: group.description,
-    link: group.link,
+    about: "",
+    link: `${appBaseUrl}/dashboard/interest-groups`,
     prerequisites: [],
     careers: [],
     resources: [],
     leads: [],
     mentors: [],
     thinktank: [],
+    impactProjects: [],
   }));
 }
