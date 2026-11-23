@@ -20,9 +20,9 @@ export const igCoreValues = [
 
 export const igJourneySteps = [
   {
-    title: "Reach Level 4",
+    title: "Join µLearn",
     description:
-      "Start your µLearn journey and progress to Level 4 to unlock Interest Group tasks and opportunities.",
+      "Start your µLearn journey. From Level 1 onwards, you can pick Interest Groups and unlock their tasks and opportunities.",
   },
   {
     title: "Choose your Interest Group",
