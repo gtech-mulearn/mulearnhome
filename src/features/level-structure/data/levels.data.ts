@@ -75,9 +75,9 @@ export const levels: Level[] = [
   },
   {
     number: 4,
-    title: "Choose your tribe",
-    summary: "Join an interest group",
-    lead: "At level 4, students enter different interest groups.",
+    title: "Go deep in your tribe",
+    summary: "Commit to an interest group",
+    lead: "Students can join interest groups from level 1 onwards. By level 4, they go deep in the tribe they have chosen.",
     body: [
       "Some walk with AI, while others choose the web tribe. A few move into film, animation or comics to weave their imagination. Many choose civil, mechanical or space: shaping physical reality and touching the stars.",
     ],
@@ -93,7 +93,7 @@ export const levels: Level[] = [
     ],
     callout: {
       label: "No more scattered learning",
-      text: "From this point on, learners start building proof of work within their chosen interest group.",
+      text: "From this point on, learners focus on building proof of work within their chosen interest group.",
     },
   },
   {
