@@ -44,10 +44,10 @@ By visiting our Website or providing µLearn with your Information, you fully un
     {
       heading: "Delete your µLearn account (µLearn mobile app)",
       content:
-        "This section covers the **µLearn** mobile app (Google Play: org.mulearn.app, shown as \"Mulearn\"), run by MuLearn Foundation. You can ask us to delete your account and its data at any time.",
+        'This section covers the **µLearn** mobile app (Google Play: org.mulearn.app, shown as "Mulearn"), run by MuLearn Foundation. You can ask us to delete your account and its data at any time.',
       subsections: [
         "**In the app:** open Profile, then Settings, then **Delete account**. Type DELETE and tap **Request deletion**. This opens an email to our team with your µLearn ID filled in.",
-        "**Without the app:** email info@mulearn.org with the subject \"Account deletion request\", or use the **Contact Us** form on this website (mulearn.org). Tell us the email address or µLearn ID of the account.",
+        '**Without the app:** email info@mulearn.org with the subject "Account deletion request", or use the **Contact Us** form on this website (mulearn.org). Tell us the email address or µLearn ID of the account.',
         "**What happens next:** we reply to confirm that the request comes from you, then delete your account within 30 days of confirming.",
         "**What is deleted:** your profile (name, email address, phone number, date of birth, gender, college, photos and links), your projects and comments, your task submissions, and your karma and learning history.",
         "**What we may keep:** limited records that we are required to keep by law. Backups are removed on our normal backup schedule.",

@@ -1,12 +1,12 @@
 "use client";
 
 import { Search, SearchX } from "lucide-react";
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 import { Section, SectionHeading } from "@/components/sections";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import type { InterestGroupDisplayItem } from "../types/interest-groups.types";
+import type { InterestGroupDisplayItem } from "../../types";
 import { CATEGORY_META } from "./group-icon";
 import { InterestGroupCard } from "./interest-group-card";
 import { InterestGroupDetailDialog } from "./interest-group-detail-dialog";
@@ -68,7 +68,7 @@ export function InterestGroupDirectory({ groups }: { groups: InterestGroupDispla
       <SectionHeading
         title={
           <>
-            Explore interest <span className="text-mulearn">groups</span>
+            Explore Interest <span className="text-mulearn">Groups</span>
           </>
         }
         description={

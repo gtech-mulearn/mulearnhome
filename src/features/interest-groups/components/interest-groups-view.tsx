@@ -9,24 +9,14 @@ import {
 } from "@/components/sections";
 import { Button } from "@/components/ui/button";
 import { clientEnv } from "@/config/env.client";
-import { fetchInterestGroups } from "../api/interest-groups.api";
+import { getInterestGroupDisplayItems, InterestGroupDirectory } from "@/shared";
 import { igCoreValues, igJourneySteps } from "../data/interest-groups.data";
-import { localDisplayItems, toDisplayItem } from "../utils/interest-groups.utils";
-import { InterestGroupDirectory } from "./interest-group-directory";
 
 const APP_BASE_URL = clientEnv.NEXT_PUBLIC_APP_URL.replace(/\/+$/, "");
 const JOIN_URL = `${APP_BASE_URL}/dashboard/profile`;
 
-async function getGroups() {
-  const apiGroups = await fetchInterestGroups();
-  if (apiGroups.length === 0) return localDisplayItems();
-  return apiGroups
-    .map((group) => toDisplayItem(group, APP_BASE_URL))
-    .sort((a, b) => (b.members ?? 0) - (a.members ?? 0));
-}
-
 export async function InterestGroupsView() {
-  const groups = await getGroups();
+  const groups = await getInterestGroupDisplayItems();
 
   return (
     <div className="min-h-screen bg-mulearn-whitish">

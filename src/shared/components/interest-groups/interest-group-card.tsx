@@ -1,6 +1,6 @@
 import { ArrowRight, Users } from "lucide-react";
 import { MotionDiv } from "@/components/layouts";
-import type { InterestGroupDisplayItem } from "../types/interest-groups.types";
+import type { InterestGroupDisplayItem } from "../../types";
 import { CATEGORY_META, groupIcon } from "./group-icon";
 
 interface InterestGroupCardProps {

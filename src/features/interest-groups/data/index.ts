@@ -1,1 +1,1 @@
-export { igCoreValues, igJourneySteps, interestGroups } from "./interest-groups.data";
+export { igCoreValues, igJourneySteps } from "./interest-groups.data";

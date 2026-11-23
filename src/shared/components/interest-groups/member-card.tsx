@@ -4,7 +4,7 @@ import { Github, Instagram, Linkedin, type LucideIcon, Twitter } from "lucide-re
 import { useState } from "react";
 import { MuImage } from "@/components/layouts";
 import { cn } from "@/lib/utils";
-import type { ApiMember } from "../types/interest-groups.types";
+import type { ApiMember } from "../../types";
 
 /** The API stores bare handles (e.g. "octocat"); a few entries are already full URLs. */
 const SOCIALS: {
