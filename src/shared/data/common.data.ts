@@ -22,6 +22,7 @@ export const navItems = [
         { label: "Top100 Series", href: "https://top100series.com/" },
         { label: "Art of Teaching", href: "/artofteaching" },
         { label: "In50Hours", href: "/in50hours" },
+        { label: "Trivial Ideas", href: "/trivial-ideas" },
         { label: "KKEM", href: "/kkem" },
       ],
       Others: [
